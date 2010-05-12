@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>add_data_file (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 232</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_data_file</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-comment cmt">#my_dir = BufsInfoFileSystem.name_space + '/' + self.my_category + '/'</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Add Data File --- Basename (Unesc) #{File.basename(filename)}&quot;</span>
+    <span class="ruby-identifier">my_dest_basename</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">filename</span>))
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Add Data File --- Basename (Esc) #{my_dest_basename}&quot;</span>
+    <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">my_dest_basename</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-ivar">@my_dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@my_dir</span>) <span class="ruby-comment cmt">#TODO Throw error if its a file</span>
+    <span class="ruby-identifier">my_dest</span> = <span class="ruby-ivar">@my_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@filename</span>
+    <span class="ruby-ivar">@attached_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">my_dest</span>
+    <span class="ruby-identifier">same_file</span> = <span class="ruby-identifier">filename</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">my_dest</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">my_dest</span>, <span class="ruby-identifier">:preserve</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> ) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">same_file</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">file_metadata</span> = {<span class="ruby-value str">'file_modified'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">filename</span>).<span class="ruby-identifier">to_s</span>}
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

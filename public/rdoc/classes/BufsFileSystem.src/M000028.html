@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>add_raw_data (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 208</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_raw_data</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">my_cat</span>, <span class="ruby-identifier">raw_data</span>, <span class="ruby-identifier">file_modified_at</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-comment cmt">#file_name = unescape(file_name)  #Hack to avoid escaping twice (and changing the name in the process)</span>
+    <span class="ruby-comment cmt">#content type is lost when data is saved into the file model.</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Add Raw Data --- (Unesc) File Name: #{File.basename(file_name)}&quot;</span>
+    <span class="ruby-identifier">esc_filename</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">file_name</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Add Raw Data --- (Esc) File Name: #{File.basename(esc_filename)}&quot;</span>
+    <span class="ruby-identifier">raw_data_dir</span> = <span class="ruby-ivar">@my_dir</span> <span class="ruby-comment cmt"># + my_cat</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">raw_data_dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">raw_data_dir</span>)
+    <span class="ruby-identifier">raw_data_filename</span> = <span class="ruby-identifier">raw_data_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">esc_filename</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">raw_data_filename</span>, <span class="ruby-value str">'wb'</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">raw_data</span>)}
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Model built at: #{raw_data_filename}&quot;</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">file_modified_at</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">utime</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">file_modified_at</span>), <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">file_modified_at</span>), <span class="ruby-identifier">raw_data_filename</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">file_modified_at</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">raw_data_filename</span>).<span class="ruby-identifier">to_s</span>     
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@file_metadata</span> = {<span class="ruby-value str">'file_modified'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file_modified_at</span>}
+    <span class="ruby-ivar">@attached_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">raw_data_filename</span>
+    <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">esc_filename</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

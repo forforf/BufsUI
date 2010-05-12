@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>validate_node_categories (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 122</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_node_categories</span>(<span class="ruby-identifier">nodes</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Nodes to validate cannot be nil&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">nodes</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+           <span class="ruby-comment cmt">#validate that my_category is the same for all nodes or is nil</span>
+    <span class="ruby-identifier">node_my_cats</span> = (<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">my_category</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>}).<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">uniq</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Can't find any node categories&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node_my_cats</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Only a single node category is allowed for sync, multiple found&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node_my_cats</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@my_cat</span> = <span class="ruby-identifier">node_my_cats</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>normalize_syncable_node_list (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 166</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalize_syncable_node_list</span>(<span class="ruby-identifier">nodes</span>, <span class="ruby-identifier">node_category</span>)
+    <span class="ruby-identifier">nodes_to_update</span> = <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">dup</span> <span class="ruby-comment cmt">#to avoid clobbering node data</span>
+    <span class="ruby-identifier">node_models_available</span> = []
+    <span class="ruby-comment cmt">#FIXME: The below is based on unique classes per model (no namespace support)</span>
+    <span class="ruby-constant">SyncNode</span>.<span class="ruby-identifier">sync_set_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">an_concrete_class</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No base model class found for #{an_concrete_class.inspect}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">an_concrete_class</span>.<span class="ruby-identifier">base_model_class</span>
+      <span class="ruby-identifier">node_models_available</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">an_concrete_class</span>.<span class="ruby-identifier">base_model_class</span>
+    <span class="ruby-keyword kw">end</span>
+    
+    <span class="ruby-comment cmt">#remove read-only nodes from the update list</span>
+    <span class="ruby-identifier">nodes_to_update</span>.<span class="ruby-identifier">delete_if</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">include?</span> <span class="ruby-constant">ReadOnlyNode</span>}
+    
+    <span class="ruby-identifier">nodes_to_update_classes</span> = <span class="ruby-identifier">nodes_to_update</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">node_model</span>.<span class="ruby-identifier">class</span>}
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Nodes to Update Classes: #{nodes_to_update_classes.inspect}&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Node Models Available: #{node_models_available.inspect}&quot;</span>
+
+    <span class="ruby-comment cmt">#TODO: Fix so that it's assured that there's a 1:1 match between nodes and available classes</span>
+    <span class="ruby-comment cmt"># note that == for classes does not work, so I'll probably have to convert to string or something</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">nodes_to_update_classes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">node_models_available</span>.<span class="ruby-identifier">size</span> <span class="ruby-comment cmt">#no missing node types</span>
+      <span class="ruby-identifier">nodes_to_update</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">node_models_available</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_model</span>.<span class="ruby-identifier">class</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt">#node_models_available now contains model classes that didn't match any nodes</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">node_models_available</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;--- creating new model of missing type(s)&quot;</span>
+      <span class="ruby-comment cmt">#TODO: Think about creating a node &quot;sync_#{Time.now}&quot;  with parent_category of 'synced'</span>
+
+      <span class="ruby-identifier">node_models_available</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">missing_node_class</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">model_node</span> = <span class="ruby-identifier">missing_node_class</span>.<span class="ruby-identifier">new</span>({<span class="ruby-identifier">:my_category</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node_category</span>, <span class="ruby-identifier">:parent_categories</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'systag-synced'</span>]})
+        <span class="ruby-identifier">model_node</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Reverse Lookup Hash: #{SyncNode.sync_set_reverse_lookup.inspect}&quot;</span>
+        <span class="ruby-identifier">abstract_node_class</span> = <span class="ruby-constant">SyncNode</span>.<span class="ruby-identifier">sync_set_reverse_lookup</span>[<span class="ruby-identifier">model_node</span>.<span class="ruby-identifier">class</span>]
+        <span class="ruby-identifier">nodes_to_update</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">abstract_node_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">model_node</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;--- nodes to update:&quot;</span>
+    <span class="ruby-identifier">nodes_to_update</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">n</span>}
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">nodes_to_update</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

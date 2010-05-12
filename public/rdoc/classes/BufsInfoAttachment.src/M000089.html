@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>find_most_recent_attachment (BufsInfoAttachment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 262</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_most_recent_attachment</span>(<span class="ruby-identifier">attachment_data1</span>, <span class="ruby-identifier">attachment_data2</span>)
+    <span class="ruby-comment cmt">#puts &quot;Finding most recent attachment&quot;</span>
+    <span class="ruby-identifier">most_recent_attachment_data</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">attachment_data1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attachment_data2</span>
+      <span class="ruby-comment cmt">#puts &quot;both attachmnents exist&quot;</span>
+      <span class="ruby-comment cmt">#puts &quot;attachments:&quot;</span>
+      <span class="ruby-comment cmt">#p attachment_data1['file_modified']</span>
+      <span class="ruby-comment cmt">#p attachment_data2['file_modified']</span>
+      <span class="ruby-comment cmt">#p attachment_data2['file_modified']</span>
+      <span class="ruby-comment cmt">#p attachment_data2['file_modified']</span>
+      <span class="ruby-comment cmt">#p Time.parse(attachment_data1['file_modifed'])</span>
+      <span class="ruby-comment cmt">#p Time.parse(attachment_data2['file_modified'])</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">attachment_data1</span>[<span class="ruby-value str">'file_modified'</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">attachment_data2</span>[<span class="ruby-value str">'file_modified'</span>]
+        <span class="ruby-comment cmt">#puts &quot;attachment1 is the most recent: #{attachment_data1['file_modified']}&quot;</span>
+        <span class="ruby-identifier">most_recent_attachment_data</span> = <span class="ruby-identifier">attachment_data1</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-comment cmt">#puts &quot;attachment2 is the most recent: #{attachment_data2['file_modified']}&quot;</span>
+        <span class="ruby-identifier">most_recent_attachment_data</span> = <span class="ruby-identifier">attachment_data2</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">most_recent_attachment_data</span> = <span class="ruby-identifier">attachment_data1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">attachment_data2</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt">#puts &quot;Returning most recent attachment&quot;</span>
+    <span class="ruby-identifier">most_recent_attachment_data</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

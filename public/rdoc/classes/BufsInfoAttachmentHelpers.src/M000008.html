@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sort_attachment_data (BufsInfoAttachmentHelpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 65</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sort_attachment_data</span>(<span class="ruby-identifier">attachments</span>)
+    <span class="ruby-comment cmt">#-- </span>
+    <span class="ruby-comment cmt">#TODO: Refactor obj_md to be called custom_md</span>
+    <span class="ruby-comment cmt">#++</span>
+    <span class="ruby-identifier">all_couch_attach_params</span> = {}
+    <span class="ruby-identifier">all_custom_attach_params</span> = {}
+    <span class="ruby-identifier">all_attach_data</span> = {}
+    <span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att_name</span>, <span class="ruby-identifier">att_info</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment cmt">#att_info: 'data' =&gt; att data, 'md' =&gt; att metadata</span>
+      <span class="ruby-identifier">esc_att_name</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">att_name</span>)
+      <span class="ruby-identifier">att_params</span> = {}
+      <span class="ruby-identifier">obj_params</span> = {}
+      <span class="ruby-identifier">attach_data</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">att_info</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">info</span>, <span class="ruby-identifier">info_value</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">info</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'data'</span>
+          <span class="ruby-identifier">attach_data</span> = <span class="ruby-identifier">info_value</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">info</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'md'</span>
+          <span class="ruby-comment cmt">#md holds all file metadata (both couch and custom)</span>
+          <span class="ruby-identifier">split_metadata</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">split_attachment_metadata</span>(<span class="ruby-identifier">info_value</span>)
+          <span class="ruby-identifier">att_params</span> = <span class="ruby-identifier">split_metadata</span>[<span class="ruby-value str">'att_md'</span>]
+          <span class="ruby-identifier">obj_params</span> = <span class="ruby-identifier">split_metadata</span>[<span class="ruby-value str">'obj_md'</span>]
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">all_couch_attach_params</span>[<span class="ruby-identifier">esc_att_name</span>] = <span class="ruby-identifier">att_params</span>
+      <span class="ruby-identifier">all_custom_attach_params</span>[<span class="ruby-identifier">esc_att_name</span>] = <span class="ruby-identifier">obj_params</span>
+      <span class="ruby-identifier">all_attach_data</span>[<span class="ruby-identifier">esc_att_name</span>] = <span class="ruby-identifier">attach_data</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">sorted</span> =  {<span class="ruby-value str">'data_by_name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all_attach_data</span>,
+      <span class="ruby-value str">'att_md_by_name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all_couch_attach_params</span>,
+      <span class="ruby-value str">'obj_md_by_name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">all_custom_attach_params</span>}
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">sorted</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

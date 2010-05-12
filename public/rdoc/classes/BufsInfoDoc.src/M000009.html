@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>add_data_file (BufsInfoDoc)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_doc.rb, line 181</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_data_file</span>(<span class="ruby-identifier">attachment_filenames</span>)
+
+    <span class="ruby-identifier">attachment_package</span> = {}
+    <span class="ruby-identifier">attachment_filenames</span> = [<span class="ruby-identifier">attachment_filenames</span>].<span class="ruby-identifier">flatten</span>
+    <span class="ruby-identifier">attachment_filenames</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">at_f</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment cmt">#puts &quot;Filename to attach: #{at_f.inspect}&quot;</span>
+      <span class="ruby-identifier">at_basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">at_f</span>)
+      <span class="ruby-comment cmt">#basename can't contain '+', replace with space</span>
+      <span class="ruby-identifier">at_basename</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">'+'</span>, <span class="ruby-value str">' '</span>)
+      <span class="ruby-comment cmt">#sc_at_basename = CGI::escape(at_basename)</span>
+      <span class="ruby-comment cmt">#p at_basename</span>
+      <span class="ruby-identifier">file_metadata</span> = {}
+      <span class="ruby-identifier">file_metadata</span>[<span class="ruby-value str">'file_modified'</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">at_f</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">file_metadata</span>[<span class="ruby-value str">'content_type'</span>] = <span class="ruby-constant">MimeNew</span>.<span class="ruby-identifier">for_ofc_x</span>(<span class="ruby-identifier">at_basename</span>)
+      <span class="ruby-identifier">file_data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">at_f</span>, <span class="ruby-value str">&quot;rb&quot;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>}
+      <span class="ruby-comment cmt">##{at_basename =&gt; {:file_modified =&gt; File.mtime(at_f)}}</span>
+      <span class="ruby-comment cmt">#Unescaping '+' to space  because CouchDB will escape it leading to space -&gt; + -&gt; %2b</span>
+      <span class="ruby-identifier">unesc_at_basename</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">at_basename</span>)
+      <span class="ruby-identifier">attachment_package</span>[<span class="ruby-identifier">unesc_at_basename</span>] = {<span class="ruby-value str">'data'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file_data</span>, <span class="ruby-value str">'md'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">file_metadata</span>}
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt">#puts &quot;getting attachment doc id&quot;</span>
+    <span class="ruby-comment cmt">#p my_attachment_doc_id</span>
+    <span class="ruby-identifier">sia</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">my_attachment_doc_id</span>)
+    <span class="ruby-comment cmt">#p my_attachment_doc_id</span>
+    <span class="ruby-comment cmt"># puts &quot;SIA found: #{sia.inspect}&quot;</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sia</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Updating Attachment&quot;</span>
+      <span class="ruby-identifier">sia</span>.<span class="ruby-identifier">update_attachment_package</span>(<span class="ruby-identifier">attachment_package</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Creating new Attachment&quot;</span>
+      <span class="ruby-identifier">sia</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">create_attachment_package</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_id'</span>], <span class="ruby-identifier">attachment_package</span>)
+      <span class="ruby-comment cmt">#puts &quot;SIA created: #{sia.inspect}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt">#puts &quot;Current ID #{self['_id']}&quot;</span>
+    <span class="ruby-identifier">current_node_doc</span> = <span class="ruby-constant">BufsInfoDoc</span>.<span class="ruby-identifier">get</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_id'</span>])
+    <span class="ruby-identifier">current_node_doc</span>.<span class="ruby-identifier">attachment_doc_id</span> = <span class="ruby-identifier">sia</span>[<span class="ruby-value str">'_id'</span>]
+    <span class="ruby-identifier">current_node_doc</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">current_node_attach</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">current_node_doc</span>.<span class="ruby-identifier">attachment_doc_id</span>)
+    <span class="ruby-identifier">current_node_attach</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

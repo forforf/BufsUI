@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>get_node_children (BufsJsvisData)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_jsvis_data.rb, line 53</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_node_children</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-identifier">childrens_parent_category</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">my_category</span>  <span class="ruby-comment cmt">#I am my childrens' parent</span>
+    <span class="ruby-ivar">@nodes_by_parent_cat</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">childrens_parent_category</span>}.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">last</span>}
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

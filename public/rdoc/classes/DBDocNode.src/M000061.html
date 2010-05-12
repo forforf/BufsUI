@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>new (DBDocNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/abstract_node.rb, line 388</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-identifier">bia</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">attachment_doc_id</span>)
+    <span class="ruby-comment cmt">#what about content_type? is that included?</span>
+    <span class="ruby-ivar">@file_metadata</span> = <span class="ruby-identifier">bia</span>[<span class="ruby-value str">'md_attachments'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">bia</span>
+    <span class="ruby-comment cmt">#if @file_metadata.class == Hash   #is there a better way to ensure a hash of nils is nil?</span>
+    <span class="ruby-comment cmt">#  @file_metadata = nil unless @file_metadata.keys.inject(0) {|r, k|  k||r}</span>
+    <span class="ruby-comment cmt">#end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

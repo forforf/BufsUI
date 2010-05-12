@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>read_directory (ViewDirectoryReader)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/view_directory_reader.rb, line 103</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_directory</span>(<span class="ruby-identifier">dir</span> = <span class="ruby-ivar">@init_dir</span>)
+    <span class="ruby-comment cmt">#dir = top level node and will the 'super parent'</span>
+    <span class="ruby-comment cmt">#TODO Expand path for dir?</span>
+    <span class="ruby-identifier">top_basename_entries</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">working_entries</span>(<span class="ruby-identifier">dir</span>)
+    <span class="ruby-identifier">top_fullpath_entries</span> = <span class="ruby-identifier">top_basename_entries</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">entry</span>}
+
+    <span class="ruby-comment cmt">#there might be better way</span>
+    <span class="ruby-comment cmt">#the current structure is a bit confusing to follow</span>
+    <span class="ruby-comment cmt">#since its working on a list of entries in a directory, rather than</span>
+    <span class="ruby-comment cmt">#on the directory itself.</span>
+    <span class="ruby-identifier">entries_to_read</span> = <span class="ruby-identifier">top_fullpath_entries</span>
+    <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">entries_to_read</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Started Read Loop&quot;</span>
+      <span class="ruby-identifier">read_one_level_of_entries</span>(<span class="ruby-identifier">entries_to_read</span>)
+
+      <span class="ruby-comment cmt">#reading the entries will push yet to be read entries into the queue</span>
+      <span class="ruby-identifier">entries_to_read</span> = <span class="ruby-ivar">@directory_entries_yet_to_be_read</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@bufs_nodes</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

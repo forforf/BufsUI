@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>node_with_freshest_file_data (NodeComparisonOperations)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 40</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">node_with_freshest_file_data</span>(<span class="ruby-identifier">nodes</span>)
+    <span class="ruby-identifier">freshest</span> = {}
+    <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node_index</span>] = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:time</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:file_name</span>] = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:metadata</span>] = <span class="ruby-keyword kw">nil</span>
+
+    <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment cmt">#iterate over attached data </span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">file_metadata</span>
+        <span class="ruby-identifier">node</span>.<span class="ruby-identifier">file_metadata</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dataname</span>, <span class="ruby-identifier">md</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">mod_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">md</span>[<span class="ruby-value str">'file_modified'</span>])
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mod_time</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:time</span>]
+            <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node_index</span>] = <span class="ruby-identifier">i</span>
+            <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:time</span>] = <span class="ruby-identifier">mod_time</span>
+            <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:file_name</span>] = <span class="ruby-identifier">dataname</span>
+            <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:metadata</span>] = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">file_metadata</span>
+            <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>] = <span class="ruby-identifier">node</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-comment cmt">#puts &quot;No Metadata found for node: #{node.inspect}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">freshest</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

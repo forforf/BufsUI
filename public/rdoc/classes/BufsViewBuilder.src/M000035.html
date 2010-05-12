@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>build_view (BufsViewBuilder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_view_builder.rb, line 13</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build_view</span>(<span class="ruby-identifier">parent_dir</span>, <span class="ruby-identifier">top_level_nodes</span>, <span class="ruby-identifier">all_nodes</span>, <span class="ruby-identifier">model_dir</span>)
+    <span class="ruby-ivar">@model_dir</span> = <span class="ruby-identifier">model_dir</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;No nodes found to create view&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">top_level_nodes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@all_nodes</span> = <span class="ruby-identifier">all_nodes</span>
+    <span class="ruby-ivar">@all_nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-value str">'.'</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">my_category</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">attached_files?</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt">#TODO: Figure out more elegant way than deleting and rebuilding (also see doc on rm_rf)</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">parent_dir</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">parent_dir</span>)
+
+    <span class="ruby-identifier">build_view_layer</span>(<span class="ruby-identifier">parent_dir</span>, <span class="ruby-identifier">top_level_nodes</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

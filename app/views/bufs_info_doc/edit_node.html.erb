@@ -1,0 +1,12 @@
+<h1>Edit Node</h1>
+<% form_for(@doc_node) do |f| %>
+  <p>
+      <b>Node Tag</b><br/>
+      <%= f.text_field :node_cat %>
+      <b>More to go here</b><br/>
+  </p>
+
+  <p>
+      <%= f.submit "Submit" %>
+  </p>
+<% end %>

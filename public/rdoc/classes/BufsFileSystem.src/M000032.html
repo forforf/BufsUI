@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>destroy_node (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 260</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy_node</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span>
+      <span class="ruby-identifier">my_dir</span> = <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">name_space</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+      <span class="ruby-comment cmt">#rm_f(Dir.glob(my_dir + '*'))</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">remove_dir</span>(<span class="ruby-identifier">my_dir</span>, <span class="ruby-identifier">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-comment cmt">#how to set self to nil?</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Cannot destroy node, cannot determine its category, has it been saved?&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

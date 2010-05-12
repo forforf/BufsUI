@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>set_name_space (BufsInfoDoc)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_doc.rb, line 73</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">set_name_space</span>(<span class="ruby-identifier">name_space</span>)
+    <span class="ruby-ivar">@name_space</span> = <span class="ruby-identifier">name_space</span>
+    <span class="ruby-identifier">use_database</span> <span class="ruby-ivar">@name_space</span>
+    <span class="ruby-comment cmt">#TODO: Is there a better place to set Attachment name space, this approach is a bit dangerous</span>
+    <span class="ruby-comment cmt">#since I'm doing dynamic assignment to what's assumed by the class to be static</span>
+    <span class="ruby-comment cmt">#TODO: Actually, dynamically setting name space is dangerous in general</span>
+    <span class="ruby-comment cmt">#what if the name space is reset to some other value at some random point?</span>
+    <span class="ruby-comment cmt">#What's needed is a class factory that creates a class on the fly maybe?</span>
+    <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">set_name_space</span>(<span class="ruby-ivar">@name_space</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">name_space</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

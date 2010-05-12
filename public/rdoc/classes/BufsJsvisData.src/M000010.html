@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>json_vis (BufsJsvisData)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_jsvis_data.rb, line 31</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">json_vis</span>(<span class="ruby-identifier">top_node_parent_cat</span>, <span class="ruby-identifier">depth</span>)
+    <span class="ruby-identifier">json_vis_nodes</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">top_node</span> = <span class="ruby-ivar">@nodes_by_cat</span>[<span class="ruby-identifier">top_node_parent_cat</span>]<span class="ruby-operator">||</span><span class="ruby-constant">DefaultNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">top_node_parent_cat</span>)
+    <span class="ruby-identifier">jsm</span> = <span class="ruby-identifier">make_json_vis_from_node</span>(<span class="ruby-identifier">top_node</span>, <span class="ruby-identifier">depth</span>) 
+    <span class="ruby-identifier">jsm</span>.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

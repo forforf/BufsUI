@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>normalize (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 49</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">normalize</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">name_space</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Cannot normalize. The File System Directory to work from does not exist: #{BufsFileSystem.name_space}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">my_dir</span> = <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">name_space</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+    <span class="ruby-identifier">all_entries</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">working_entries</span>(<span class="ruby-identifier">my_dir</span>)
+    <span class="ruby-identifier">all_entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cat_entry</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">wkg_dir</span> = <span class="ruby-identifier">my_dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cat_entry</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+      <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">file_data_entries</span>(<span class="ruby-identifier">wkg_dir</span>)
+      <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">esc_f</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">f</span>)
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">esc_f</span>
+          <span class="ruby-identifier">full_f</span> = <span class="ruby-identifier">wkg_dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">f</span>
+          <span class="ruby-identifier">full_esc_f</span> = <span class="ruby-identifier">wkg_dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">esc_f</span>
+          <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mv</span>(<span class="ruby-identifier">full_f</span>, <span class="ruby-identifier">full_esc_f</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

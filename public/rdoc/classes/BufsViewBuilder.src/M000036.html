@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>build_view_layer (BufsViewBuilder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_view_builder.rb, line 28</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build_view_layer</span>(<span class="ruby-identifier">parent_dir</span>, <span class="ruby-identifier">nodes</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Building Layer with:&quot;</span>
+    <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;-- #{node.my_category}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt">#assumes parent dir already exists</span>
+    <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;iterating over nodes to build view&quot;</span>
+      <span class="ruby-identifier">this_dir</span> = <span class="ruby-identifier">parent_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">my_category</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@nodes_with_views</span>[<span class="ruby-identifier">node</span>] <span class="ruby-comment cmt">#view already created for node</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;- node view already created&quot;</span>
+        <span class="ruby-identifier">add_repeated_view_entry</span>(<span class="ruby-identifier">this_dir</span>, <span class="ruby-identifier">node</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;- new node view for #{node.my_category}&quot;</span>
+        <span class="ruby-ivar">@nodes_with_views</span>[<span class="ruby-identifier">node</span>] = <span class="ruby-identifier">this_dir</span>
+        <span class="ruby-identifier">work_package</span> = <span class="ruby-identifier">add_fresh_view_entry</span>(<span class="ruby-identifier">this_dir</span>, <span class="ruby-identifier">node</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;-- work package: #{work_package.working_dir.inspect}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">work_package</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">work_package</span>
+          <span class="ruby-identifier">work_package</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;--- node:#{n.my_category}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@working_queue</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">work_package</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">work_package</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">next_layer</span> = <span class="ruby-ivar">@working_queue</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-identifier">build_view_layer</span>(<span class="ruby-identifier">next_layer</span>.<span class="ruby-identifier">working_dir</span>, <span class="ruby-identifier">next_layer</span>.<span class="ruby-identifier">nodes</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">next_layer</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

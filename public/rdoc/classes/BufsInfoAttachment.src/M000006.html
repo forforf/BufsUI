@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>get_attachments (BufsInfoAttachment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 244</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_attachments</span>(<span class="ruby-identifier">doc_id</span>)
+    <span class="ruby-comment cmt">#puts &quot;Getting Attachments&quot;</span>
+    <span class="ruby-identifier">doc</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">doc_id</span>)
+    <span class="ruby-comment cmt">#puts &quot;BIA: #{doc.inspect}&quot;</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">doc</span>
+    <span class="ruby-identifier">custom_md</span> = <span class="ruby-identifier">doc</span>[<span class="ruby-value str">'md_attachments'</span>]
+    <span class="ruby-identifier">esc_couch_md</span> = <span class="ruby-identifier">doc</span>[<span class="ruby-value str">'_attachments'</span>]
+    <span class="ruby-identifier">couch_md</span> = <span class="ruby-constant">BufsInfoAttachmentHelpers</span>.<span class="ruby-identifier">unescape_names_in_attachments</span>(<span class="ruby-identifier">esc_couch_md</span>)
+    <span class="ruby-comment cmt">#puts &quot;Unescaped Couch Attachment: #{couch_md.inspect}&quot;</span>
+    <span class="ruby-comment cmt">#puts &quot;custom metadata: #{custom_md.inspect}&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;data integrity error, attachment metadata inconsistency&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">custom_md</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">couch_md</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>
+    (<span class="ruby-identifier">attachment_data</span> = <span class="ruby-identifier">custom_md</span>.<span class="ruby-identifier">dup</span>).<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">couch_md</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v_custom</span>, <span class="ruby-identifier">v_couch</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v_custom</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">v_couch</span>)}
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

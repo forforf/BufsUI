@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>validate_synchronizable (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 131</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_synchronizable</span>(<span class="ruby-identifier">nodes</span>)
+    <span class="ruby-comment cmt">#validate that there no node classes are duplicated</span>
+    <span class="ruby-comment cmt">#no nils, so everything must be uniq</span>
+    <span class="ruby-comment cmt">#node_classes = nodes.map{|n| n.class}</span>
+    <span class="ruby-comment cmt">#node_classes.uniq!</span>
+    <span class="ruby-comment cmt">#raise &quot;Node Classes are not unique&quot; unless nodes.size == node_classes.size</span>
+
+    <span class="ruby-comment cmt">#validate that only known node classes and unique name spaces are used</span>
+    <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">node</span>.<span class="ruby-identifier">full_name_space</span>
+      <span class="ruby-keyword kw">rescue</span>
+        <span class="ruby-constant">AddNameSpace</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">:extend_object</span>, <span class="ruby-identifier">node</span>) <span class="ruby-comment cmt">#creates name space based on class name</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-node">&quot;#{node.class} does not respond to 'full_name_space'&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">full_name_space</span>
+      <span class="ruby-identifier">read_only_class</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">class</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">include?</span> <span class="ruby-constant">ReadOnlyNode</span>
+      <span class="ruby-identifier">valid_classes_to_sync</span> = [<span class="ruby-constant">AbstractNode</span>, <span class="ruby-identifier">read_only_class</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">SyncNode</span>.<span class="ruby-identifier">sync_set_types</span> 
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">valid_classes_to_sync</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">class</span>)<span class="ruby-comment cmt">#was SyncNode.sync_set_types.include?(node.class)    #was (node.class != DBDocNode) &amp;&amp; (node.class != FileSystemDocNode)</span>
+        <span class="ruby-comment cmt">#unless node.class.ancestors.include? ReadOnlyNode</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Unknown Node Type: #{node.class}&quot;</span>
+        <span class="ruby-comment cmt">#end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">name_spaces</span> = <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">full_name_space</span>}
+    <span class="ruby-identifier">name_spaces</span>.<span class="ruby-identifier">uniq!</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Name spaces were not unique across all nodes to by synced&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name_spaces</span>.<span class="ruby-identifier">size</span>
+
+    <span class="ruby-comment cmt">#each node is of a unique class of one of the known node classes</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@my_cat</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

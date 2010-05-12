@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>make_reader_node (ViewNodeFactory)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/view_directory_reader.rb, line 74</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_reader_node</span>(<span class="ruby-identifier">file_name</span>)
+    <span class="ruby-keyword kw">case</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">ftype</span>(<span class="ruby-identifier">file_name</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;link&quot;</span> <span class="ruby-comment cmt">#may link to a directory or a file</span>
+        <span class="ruby-comment cmt">#a file link means it's linking to an existing model file</span>
+        <span class="ruby-comment cmt">#a directory link means it has multiple parents</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">file_name</span>).<span class="ruby-identifier">directory?</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">ReaderLinkNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file_name</span>)
+        <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#its a file presumably</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">ReaderFileNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file_name</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;directory&quot;</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">ReaderDirNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file_name</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;file&quot;</span> <span class="ruby-comment cmt">#this is a file added by the user that needs to be updated to the model</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">ReaderFileNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file_name</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown type #{File.ftype(file_name)}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

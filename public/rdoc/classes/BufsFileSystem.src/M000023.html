@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>save (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 164</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>
+
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Requires my_category to be set before saving&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Requires at least one parent category to be set before saving&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt">#make model directory</span>
+    <span class="ruby-identifier">my_dir</span> = <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">name_space</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">my_dir</span>)
+    <span class="ruby-identifier">cat_file</span> = <span class="ruby-identifier">my_dir</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">parent_categories_file_basename</span>
+
+    <span class="ruby-comment cmt">#p parent_categories.to_json.inspect</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">cat_file</span>, <span class="ruby-value str">'w'</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>.<span class="ruby-identifier">to_json</span>)} <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>
+    <span class="ruby-identifier">desc_file</span> = <span class="ruby-identifier">my_dir</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">description_file_basename</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span> = <span class="ruby-value str">'This description was automatically generated on #{Time.now}'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">desc_file</span>, <span class="ruby-value str">'w'</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">to_s</span>)} <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span>
+    <span class="ruby-comment cmt">#file metadata is part of the data file itself (if it exists)</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: BufsInfoDoc [RDoc Documentation]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }<\/style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">BufsInfoDoc</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+
+
+                <a href="../files/lib/bufs_info_doc_rb.html">
+
+                lib/bufs_info_doc.rb
+
+                </a>
+
+
+        <br />
+
+            </td>
+        </tr>
+
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+
+                CouchRest::ExtendedDocument
+
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class is the primary interface into CouchDB BUFS documents
+</p>
+
+    </div>
+
+   </div>
+
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+
+        <a href="#M000009">add_data_file</a>&nbsp;&nbsp;
+
+        <a href="#M000004">add_parent_categories</a>&nbsp;&nbsp;
+
+        <a href="#M000008">add_raw_data</a>&nbsp;&nbsp;
+
+        <a href="#M000002">create_from_node</a>&nbsp;&nbsp;
+
+        <a href="#M000011">destroy_node</a>&nbsp;&nbsp;
+
+        <a href="#M000007">get_file_data</a>&nbsp;&nbsp;
+
+        <a href="#M000006">my_attachment_doc_id</a>&nbsp;&nbsp;
+
+        <a href="#M000003">new</a>&nbsp;&nbsp;
+
+        <a href="#M000005">remove_parent_categories</a>&nbsp;&nbsp;
+
+        <a href="#M000010">save</a>&nbsp;&nbsp;
+
+        <a href="#M000001">set_name_space</a>&nbsp;&nbsp;
+
+      </div>
+    </div>
+
+  </div>
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">attachment_base_id</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc"></td>
+        </tr>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">attachment_doc</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc">
+If a document has an attachment it gets this accessor set (needs testing!!
+not sure it works in all cases)
+
+</td>
+        </tr>
+
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name_space</td>
+
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+
+          <td class="context-item-desc"></td>
+        </tr>
+
+        </table>
+      </div>
+    </div>
+
+
+    <!-- if method_list -->
+
+    <div id="methods">
+
+      <h3 class="section-bar">Public Class methods</h3>
+
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000002.html');return false;">
+
+          <span class="method-name">create_from_node</span><span class="method-args">(node_obj)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Create the document in the BUFS node format from an existing node. A BUFS
+node is an object that has the following properties:
+</p>
+<pre>
+  my_category
+  parent_categories
+  description
+  attachments in the form of data files
+</pre>
+<p>
+TODO: Verify this method is useful and being used (AbstractNode may have
+superseded this method)
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000003.html');return false;">
+
+          <span class="method-name">new</span><span class="method-args">(*args)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Initialize the document with no attachments and then initialize as a
+CouchRest::ExtendedDocument
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000001.html');return false;">
+
+          <span class="method-name">set_name_space</span><span class="method-args">(name_space)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+class methods Setter for setting the name space, which is the CouchDB
+database in this case
+</p>
+
+        </div>
+      </div>
+
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000009.html');return false;">
+
+          <span class="method-name">add_data_file</span><span class="method-args">(attachment_filenames)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Add an attachment to the <a href="BufsInfoDoc.html">BufsInfoDoc</a> object
+from a file
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000004.html');return false;">
+
+          <span class="method-name">add_parent_categories</span><span class="method-args">(new_cats)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Adds parent categories, it can accept a single category or an array of
+categories
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000008.html');return false;">
+
+          <span class="method-name">add_raw_data</span><span class="method-args">(attach_name, content_type, raw_data, file_modified_at = nil)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Get attachment data. Note that the data is read in as a complete block,
+this may be something that needs optimized.
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000011.html');return false;">
+
+          <span class="method-name">destroy_node</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Deletes the object and its CouchDB entry
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000007.html');return false;">
+
+          <span class="method-name">get_file_data</span><span class="method-args">(attach_file_name)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Get attachment metadata. This does not return the actual data.
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000006.html');return false;">
+
+          <span class="method-name">my_attachment_doc_id</span><span class="method-args">()</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Returns the attachment id associated with this document. Note that this
+does not depend upon there being an attachment.
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000005.html');return false;">
+
+          <span class="method-name">remove_parent_categories</span><span class="method-args">(cats_to_remove)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Can accept a single category or an array of categories
+</p>
+
+        </div>
+      </div>
+
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+
+          <a href="BufsInfoDoc.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('BufsInfoDoc.src/M000010.html');return false;">
+
+          <span class="method-name">save</span><span class="method-args">(save_type = :additions)</span>
+
+          </a>
+
+        </div>
+
+        <div class="method-description">
+
+          <p>
+Save the object to the CouchDB database
+</p>
+<pre>
+  save_type can be either :additions or :deletions
+  :additions will merge parent categories with any categories in the database
+  :deletions will replace any existing parent categories with those of the object
+</pre>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

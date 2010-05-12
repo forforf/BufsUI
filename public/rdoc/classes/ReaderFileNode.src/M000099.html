@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>get_file_data (ReaderFileNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/view_directory_reader.rb, line 64</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_file_data</span>(<span class="ruby-identifier">file_basename</span>=<span class="ruby-ivar">@my_category</span>)
+    <span class="ruby-identifier">file_basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file_basename</span>) <span class="ruby-comment cmt">#only basenames are used in models</span>
+    <span class="ruby-identifier">data_file_name</span> = <span class="ruby-ivar">@parent_path</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">file_basename</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">data_file_name</span>, <span class="ruby-value str">'rb'</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>}
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

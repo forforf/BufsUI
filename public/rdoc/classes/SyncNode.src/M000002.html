@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>new (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 96</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nodes_to_keep_in_sync</span>)
+    <span class="ruby-ivar">@synced_nodes</span> = []
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Cannot sync nil&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">nodes_to_keep_in_sync</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>, <span class="ruby-value str">&quot;The set of node types (classes) has not been set&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">SyncNode</span>.<span class="ruby-identifier">sync_set_types</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sync_update</span>(<span class="ruby-identifier">nodes_to_keep_in_sync</span>)
+    <span class="ruby-comment cmt">#@synced_nodes = [nodes_to_keep_in_sync].flatten!  #allows a single node to be passed without array wrapper</span>
+    <span class="ruby-comment cmt">#@synced_nodes.compact! #ignore null values</span>
+    <span class="ruby-comment cmt">#self.validate_synchronizable(@synced_nodes)</span>
+    <span class="ruby-comment cmt">#@my_category = self.validate_node_categories(@synced_nodes)</span>
+    <span class="ruby-comment cmt">#@parent_categories = self.merge_parent_categories(@synced_nodes)</span>
+    <span class="ruby-comment cmt">#nodes_to_sync = self.normalize_syncable_node_list(@synced_nodes, @my_category)</span>
+    <span class="ruby-comment cmt">#freshest_file_data = self.node_with_freshest_file_data(nodes_to_sync)</span>
+    <span class="ruby-comment cmt">#@synced_nodes = self.sync_nodes(@synced_nodes, freshest_file_data)</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

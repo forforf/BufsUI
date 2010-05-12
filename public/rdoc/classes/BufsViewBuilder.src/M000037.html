@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>add_fresh_view_entry (BufsViewBuilder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_view_builder.rb, line 57</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_fresh_view_entry</span>(<span class="ruby-identifier">this_dir</span>, <span class="ruby-identifier">node</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">this_dir</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">this_dir</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot; --- file?: #{node.attached_files?.inspect}&quot;</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attached_files?</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attached_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att_full_filename</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">att_basename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">att_full_filename</span>)
+        <span class="ruby-comment cmt">#att_full_filename may == model_file_location</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Attachment Names&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;-- From Node: #{att_full_filename.inspect}&quot;</span>
+        <span class="ruby-identifier">model_file_location</span> = <span class="ruby-ivar">@model_dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">my_category</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">att_basename</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;-- Created Here: #{model_file_location}&quot;</span>
+        <span class="ruby-identifier">this_link_name</span> = <span class="ruby-identifier">this_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span>  <span class="ruby-identifier">att_basename</span>
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">ln_s</span>(<span class="ruby-identifier">model_file_location</span>, <span class="ruby-identifier">this_link_name</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">this_link_name</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">sub_nodes</span> = <span class="ruby-ivar">@all_nodes</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span><span class="ruby-identifier">n</span>.<span class="ruby-identifier">parent_categories</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">my_category</span> }
+    <span class="ruby-identifier">work_package</span> = <span class="ruby-constant">WorkPackage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">this_dir</span>, <span class="ruby-identifier">sub_nodes</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sub_nodes</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sub_nodes</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

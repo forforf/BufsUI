@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sync_nodes (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 206</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync_nodes</span>(<span class="ruby-identifier">nodes_to_update</span>, <span class="ruby-identifier">freshest</span>)
+    <span class="ruby-identifier">updated_nodes</span> = []
+    <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>].<span class="ruby-identifier">add_parent_categories</span>(<span class="ruby-ivar">@parent_categories</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>]
+    <span class="ruby-identifier">updated_nodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>] 
+    <span class="ruby-comment cmt">#freshest_node = freshest[:node]</span>
+    <span class="ruby-comment cmt">#puts &quot;----freshest node: #{freshest_node}&quot;</span>
+    <span class="ruby-identifier">nodes_to_update</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stale_node</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;---- updating parent categories&quot;</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">stale_node</span>
+      <span class="ruby-identifier">stale_node</span>.<span class="ruby-identifier">add_parent_categories</span>(<span class="ruby-ivar">@parent_categories</span>)
+      <span class="ruby-comment cmt">#stale_node.save</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">stale_node</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;---- updating file from freshest node:&quot;</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">freshest</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>].<span class="ruby-identifier">file_metadata</span>
+        <span class="ruby-identifier">freshest_node</span> = <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:node</span>]
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;----- updating metadata&quot;</span>
+        <span class="ruby-identifier">stale_node</span>.<span class="ruby-identifier">file_metadata</span> = <span class="ruby-identifier">freshest_node</span>.<span class="ruby-identifier">file_metadata</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;----- retrieving updated data from #{freshest_node.class} - #{freshest_node.my_category}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;----- using: #{freshest[:file_name]} metadata: #{freshest[:metadata]}&quot;</span>
+        <span class="ruby-identifier">freshest_data</span> = <span class="ruby-identifier">freshest_node</span>.<span class="ruby-identifier">get_file_data</span>(<span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:file_name</span>])
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;----- updating node: #{stale_node.class}  with retrieved data: #{freshest[:metadata]}&quot;</span>
+        <span class="ruby-comment cmt">#puts &quot;------  data: #{freshest_data.inspect}&quot;</span>
+        <span class="ruby-identifier">stale_node</span>.<span class="ruby-identifier">update_file_content</span>(<span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:file_name</span>], <span class="ruby-identifier">freshest_data</span>, <span class="ruby-identifier">freshest</span>[<span class="ruby-identifier">:metadata</span>])
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;---- finished updating node&quot;</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">stale_node</span>
+      <span class="ruby-identifier">stale_node</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">updated_nodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">stale_node</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">updated_nodes</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

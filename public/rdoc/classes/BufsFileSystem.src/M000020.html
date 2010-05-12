@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>by_my_category (BufsFileSystem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_file_system.rb, line 100</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">by_my_category</span>(<span class="ruby-identifier">my_cat</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Searching for #{my_cat.inspect}&quot;</span>
+    <span class="ruby-identifier">my_dir</span> = <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">name_space</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+    <span class="ruby-identifier">my_cat_dir</span> = <span class="ruby-identifier">my_cat</span>
+    <span class="ruby-identifier">wkg_dir</span> = <span class="ruby-identifier">my_dir</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">my_cat_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">wkg_dir</span>)
+      <span class="ruby-comment cmt">#added 2/24 at 10:23 am due to spec failure in sync_node seems like BufsFileSystem bug fix</span>
+      <span class="ruby-identifier">parent_cats</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">wkg_dir</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">parent_categories_file_basename</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>})
+      <span class="ruby-identifier">desc</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">wkg_dir</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">description_file_basename</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>}
+       <span class="ruby-identifier">bfs</span> = <span class="ruby-constant">BufsFileSystem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:parent_categories</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">parent_cats</span>,
+                                <span class="ruby-identifier">:my_category</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">my_cat</span>,
+                                 <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desc</span>)
+      <span class="ruby-comment cmt">#</span>
+      <span class="ruby-identifier">cat_files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">working_entries</span>(<span class="ruby-identifier">wkg_dir</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Files in #{wkg_dir.inspect}&quot;</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-identifier">cat_files</span>
+      <span class="ruby-comment cmt">#TODO This is brittle, tie the meta categories names to the assignment at creation</span>
+      <span class="ruby-identifier">cat_files</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'parent_categories.txt'</span>)
+      <span class="ruby-identifier">cat_files</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'description.txt'</span>)
+      <span class="ruby-identifier">bfss</span> = []
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cat_files</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">cat_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cat_file_name</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment cmt">#parent_cats = JSON.parse(File.open(wkg_dir + BufsFileSystem.parent_categories_file_basename){|f| f.read})</span>
+          <span class="ruby-comment cmt">#desc = File.open(wkg_dir + BufsFileSystem.description_file_basename){|f| f.read}</span>
+          <span class="ruby-comment cmt">##puts &quot;BFS.by_my_category location for attachment file: #{wkg_dir + cat_file_name.inspect}&quot;</span>
+          <span class="ruby-comment cmt">##file_mod_time = File.mtime(wkg_dir + cat_file_name) if File.exists?(wkg_dir + cat_file_name)</span>
+          <span class="ruby-comment cmt">##f_metadata = {'file_modified' =&gt; file_mod_time.to_s} if file_mod_time</span>
+          <span class="ruby-comment cmt">##puts &quot;BFS.by_my_category file md: #{f_metadata.inspect}&quot;</span>
+          <span class="ruby-comment cmt">#bfs = BufsFileSystem.new(:parent_categories =&gt; parent_cats,</span>
+          <span class="ruby-comment cmt">#                               :my_category =&gt; my_cat,</span>
+          <span class="ruby-comment cmt">#                               :description =&gt; desc) #,</span>
+          <span class="ruby-comment cmt">#                               #:file_metadata =&gt; f_metadata)</span>
+          <span class="ruby-comment cmt">##bfs.filename = cat_file_name</span>
+          <span class="ruby-comment cmt">##check for files</span>
+          <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">file_data_entries</span>(<span class="ruby-identifier">wkg_dir</span>)
+          <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">full_filename</span> = <span class="ruby-identifier">wkg_dir</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">f</span>
+            <span class="ruby-identifier">bfs</span>.<span class="ruby-identifier">add_data_file</span>(<span class="ruby-identifier">full_filename</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">bfss</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">bfs</span>
+         <span class="ruby-keyword kw">end</span>
+        <span class="ruby-comment cmt">#return bfss  removed 2/24 at 10:14am wrong place</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">bfss</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">bfs</span> 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">bfss</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Warning: #{wkg_dir.inspect} was not found&quot;</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

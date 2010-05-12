@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>update_attachment_package (BufsInfoAttachment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 195</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_attachment_package</span>(<span class="ruby-identifier">att_doc_id</span>, <span class="ruby-identifier">new_attachments</span>)
+    <span class="ruby-identifier">att_doc</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">att_doc_id</span>)
+    <span class="ruby-identifier">existing_attachments</span> = <span class="ruby-identifier">att_doc</span>.<span class="ruby-identifier">get_attachments</span>
+    <span class="ruby-identifier">most_recent_attachment</span> = {}
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">existing_attachments</span>
+      <span class="ruby-identifier">new_attachments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">new_att_name</span>, <span class="ruby-identifier">new_data</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">esc_new_att_name</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">new_att_name</span>)
+        <span class="ruby-identifier">working_doc</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">att_doc_id</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">existing_attachments</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">esc_new_att_name</span>
+          <span class="ruby-comment cmt">#filename already exists as an attachment</span>
+          <span class="ruby-identifier">fresh_attachment</span> =<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_most_recent_attachment</span>(<span class="ruby-identifier">existing_attachments</span>[<span class="ruby-identifier">esc_new_att_name</span>], <span class="ruby-identifier">new_attachments</span>[<span class="ruby-identifier">new_att_name</span>][<span class="ruby-value str">'md'</span>])
+          <span class="ruby-identifier">most_recent_attachment</span>[<span class="ruby-identifier">esc_new_att_name</span>] = <span class="ruby-identifier">fresh_attachment</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">most_recent_attachment</span>[<span class="ruby-identifier">esc_new_att_name</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">existing_attachments</span>[<span class="ruby-identifier">esc_new_att_name</span>]
+            <span class="ruby-comment cmt">#update that file and metadata</span>
+            <span class="ruby-identifier">sorted_attachments</span> = <span class="ruby-constant">BufsInfoAttachmentHelpers</span>.<span class="ruby-identifier">sort_attachment_data</span>(<span class="ruby-identifier">esc_new_att_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">new_data</span>)
+            <span class="ruby-comment cmt">#update doc</span>
+            <span class="ruby-identifier">working_doc</span>[<span class="ruby-value str">'md_attachments'</span>] = <span class="ruby-identifier">working_doc</span>[<span class="ruby-value str">'md_attachments'</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'obj_md_by_name'</span>])
+            <span class="ruby-comment cmt">#update attachments</span>
+            <span class="ruby-identifier">working_doc</span>.<span class="ruby-identifier">save</span>
+            <span class="ruby-comment cmt">#Add Couch attachment data</span>
+            <span class="ruby-identifier">att_data</span> = <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'data_by_name'</span>][<span class="ruby-identifier">esc_new_att_name</span>]
+            <span class="ruby-identifier">att_md</span> =  <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'att_md_by_name'</span>][<span class="ruby-identifier">esc_new_att_name</span>]
+            <span class="ruby-identifier">working_doc</span>.<span class="ruby-identifier">put_attachment</span>(<span class="ruby-identifier">esc_new_att_name</span>, <span class="ruby-identifier">att_data</span>,<span class="ruby-identifier">att_md</span>)
+            <span class="ruby-comment cmt">#puts &quot;Database Version for that id(fnmame existed): #{BufsInfoAttachment.get(working_doc['_id']).inspect}&quot;</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-comment cmt">#do anything here?</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt">#filename does not exist in attachment</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Attachment Name not found in Attachment Document, adding #{esc_new_att_name}&quot;</span>
+          <span class="ruby-identifier">sorted_attachments</span> = <span class="ruby-constant">BufsInfoAttachmentHelpers</span>.<span class="ruby-identifier">sort_attachment_data</span>(<span class="ruby-identifier">esc_new_att_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">new_data</span>)
+          <span class="ruby-comment cmt">#update doc</span>
+          <span class="ruby-identifier">working_doc</span>[<span class="ruby-value str">'md_attachments'</span>] = <span class="ruby-identifier">working_doc</span>[<span class="ruby-value str">'md_attachments'</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'obj_md_by_name'</span>])
+          <span class="ruby-comment cmt">#update attachments</span>
+          <span class="ruby-identifier">working_doc</span>.<span class="ruby-identifier">save</span>
+          <span class="ruby-comment cmt">#Add Couch attachment data</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Updating Native Attachments in Database&quot;</span>
+          <span class="ruby-identifier">att_data</span> = <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'data_by_name'</span>][<span class="ruby-identifier">esc_new_att_name</span>]
+          <span class="ruby-identifier">att_md</span> =  <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'att_md_by_name'</span>][<span class="ruby-identifier">esc_new_att_name</span>]
+          <span class="ruby-identifier">working_doc</span>.<span class="ruby-identifier">put_attachment</span>(<span class="ruby-identifier">esc_new_att_name</span>, <span class="ruby-identifier">att_data</span>,<span class="ruby-identifier">att_md</span>)
+          <span class="ruby-comment cmt">#working_doc does not have attachment</span>
+          
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-comment cmt">#</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">att_doc</span>[<span class="ruby-value str">'_id'</span>])
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

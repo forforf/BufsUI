@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+<% form_tag( 'log_in', :multipart => true )  do %>
+
+  <p>
+      <b>Couch DB Location</b><br/>
+      <%= text_field_tag :couch_db_url %>
+  <p>
+  </p>
+      <b>User ID</b><br/>
+      <%= text_field_tag :user_id %>
+  </p>
+
+  <p>
+      <%= submit_tag "Submit" %>
+  </p>
+<% end %>

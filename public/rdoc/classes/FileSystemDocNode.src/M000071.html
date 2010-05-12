@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>update_file_content (FileSystemDocNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/abstract_node.rb, line 453</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update_file_content</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">raw_data</span>, <span class="ruby-identifier">metadata</span>)
+    <span class="ruby-comment cmt">#raise &quot;multiple file attachments not supported yet&quot; unless file_name == my_cat</span>
+    <span class="ruby-identifier">my_cat</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span>
+    <span class="ruby-identifier">md</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">file_metadata</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;FSDoc medatata: #{metadata.inspect}&quot;</span>
+    <span class="ruby-comment cmt">#TODO: Fix it so content type is reliably passed as metadata</span>
+    <span class="ruby-identifier">content_type</span> = <span class="ruby-identifier">metadata</span>[<span class="ruby-identifier">file_name</span>][<span class="ruby-value str">'content_type'</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">modified_time</span> = <span class="ruby-identifier">metadata</span>[<span class="ruby-identifier">file_name</span>][<span class="ruby-value str">'file_modified'</span>]
+    <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;updating file contents in BufsFSDoc&quot;</span>
+    <span class="ruby-comment cmt">#TODO: This method is slightly different thatn the DBDocNode one, rationalize them</span>
+    <span class="ruby-ivar">@node</span>.<span class="ruby-identifier">add_raw_data</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">my_cat</span>, <span class="ruby-identifier">raw_data</span>, <span class="ruby-identifier">modified_time</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

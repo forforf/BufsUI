@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>create (AbstractNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/abstract_node.rb, line 52</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-comment cmt">##TODO: move name_space stuff to initialize method</span>
+    <span class="ruby-comment cmt">#name_space = nil</span>
+    <span class="ruby-comment cmt">#name_space = node.class.name_space if node.class.name_space</span>
+    <span class="ruby-comment cmt">#@full_name_space = &quot;#{node.class}-#{name_space}&quot;</span>
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'BufsInfoDoc'</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">DBDocNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'BufsFileSystem'</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">FileSystemDocNode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Abstract Node could not create node, unknown Node Type of: #{node.class.to_s.inspect}&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

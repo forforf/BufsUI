@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RGraph - Tree Animation</title>
+
+<!-- CSS Files -->
+<link type="text/css" href="../stylesheets/jit/base.css" rel="stylesheet" />
+<link type="text/css" href="../stylesheets/jit/RGraph.css" rel="stylesheet" />
+
+<!--[if IE]><script language="javascript" type="text/javascript" src="../javascripts/jit/Extras/excanvas.js"></script><![endif]-->
+
+<!-- JIT Library File -->
+<script language="javascript" type="text/javascript" src="../javascripts/jit/jit.js"></script>
+<script language="javascript" type="text/javascript" src="../javascripts/prototype.js"></script>
+
+<!-- Example File -->
+<script language="javascript" type="text/javascript" src="bufs_graph.js"></script>
+</head>
+
+<body onload="init('/bufs_info_doc/test_json_str?user=test');">
+
+
+<div id="container">
+
+  <div id="left-container">
+
+
+
+    <div class="text">
+      <h4>
+      Tree Animation    
+      </h4> 
+
+            A static JSON Tree structure is used as input for this animation.<br /><br />
+            Clicking on a node should move the tree and center that node.<br /><br />
+            The centered node's children are displayed in a relations list in the right column.
+            
+    </div>
+
+    <div id="id-list"></div>
+    <div style="text-align:center;"><a href="example1.js">See the Example Code</a></div>            
+    <p/>
+    <div style="text-align:center;"><a href="#" onclick="javascript:viz_update('/bufs_info_doc/test_resync?user=test')">Re-sync to file datai</a></div>
+    <div style="text-align:center;"><a href="#" onclick="javascript:show_create_node_form()">Create Node</a></div>
+    <div style="text-align:center;"><a href="#" onclick="javascript:show_destroy_node_form()">Destroy Node</a></div>
+  </div>
+
+  <div id="center-container">
+    <div id="infovis"></div>    
+  </div>
+
+  <div id="right-container">
+    <div id="create-node-form" style="display:none;">
+      <b>Create New  Node</b>
+        <p>
+          <b>Node Tag</b><br>
+          <input id="node_cat_create" name="node_cat" type="text">
+        </p>
+        <p>
+          <b>Related Tags</b><br>
+          <input id="related_tags_create" name="related_tags" type="text">
+        </p>
+
+        <p>
+          <input name="commit" value="Submit" type="submit" onclick="javascript:create_node_data()">
+        </p>
+    </div>
+
+    <div id="destroy-node-form" style="display:none;">
+      <b>Destroy Node</b>
+        <p>
+          <b>Node Tag</b><br>
+          <input id="node_cat_destroy" name="node_cat" type="text">
+        </p>
+
+        <p>
+          <input name="commit" value="Submit" type="submit" onclick="javascript:destroy_node_data()">
+        </p>
+    </div>
+
+
+    <div id="inner-details"></div>
+
+  </div>
+
+</div>
+<div id="log"></div>
+</div>
+</body>
+</html>

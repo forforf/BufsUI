@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>save (BufsInfoDoc)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_doc.rb, line 224</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">save_type</span> = <span class="ruby-identifier">:additions</span>)
+    <span class="ruby-comment cmt">#save_type :additions or :deletions</span>
+    <span class="ruby-comment cmt">#refers to whether parent category information is merged or deleted</span>
+    <span class="ruby-comment cmt">#I'll probably have to change this when dealing with files too</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Requires my_category to be set before saving&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span>
+    <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_id'</span>] = <span class="ruby-constant">BufsInfoDoc</span>.<span class="ruby-identifier">name_space</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'_'</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">my_category</span>
+    <span class="ruby-identifier">existing_doc</span> = <span class="ruby-constant">BufsInfoDoc</span>.<span class="ruby-identifier">get</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_id'</span>])
+    <span class="ruby-keyword kw">begin</span>
+      <span class="ruby-comment cmt">#before_self = self.parent_categories</span>
+      <span class="ruby-comment cmt">#super</span>
+      <span class="ruby-constant">BufsInfoDoc</span>.<span class="ruby-identifier">name_space</span>.<span class="ruby-identifier">save_doc</span>(<span class="ruby-keyword kw">self</span>) <span class="ruby-comment cmt">#saving using database method, not ExtendedDoc method (didn't work for some reason) </span>
+      <span class="ruby-comment cmt">#raise &quot;Self: #{before_self}, Before: #{existing_doc.parent_categories.inspect}, after: #{BufsInfoDoc.get(self['_id']).parent_categories.inspect}&quot; #if save_type == :deletions</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">RestClient</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestFailed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">http_code</span> <span class="ruby-operator">==</span> <span class="ruby-value">409</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Found existing doc while trying to save ... using it instead&quot;</span>
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">save_type</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:additions</span>
+          <span class="ruby-identifier">existing_doc</span>.<span class="ruby-identifier">parent_categories</span> = (<span class="ruby-identifier">existing_doc</span>.<span class="ruby-identifier">parent_categories</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>).<span class="ruby-identifier">uniq</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:deletions</span>
+          <span class="ruby-identifier">existing_doc</span>.<span class="ruby-identifier">parent_categories</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parent_categories</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;save type parameter of #{save_type} not understood&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">existing_doc</span>.<span class="ruby-identifier">description</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">description</span>
+        <span class="ruby-identifier">existing_doc</span>[<span class="ruby-value str">'_attachments'</span>] = <span class="ruby-identifier">existing_doc</span>[<span class="ruby-value str">'attachments'</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_attachments'</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'_attachments'</span>]
+        <span class="ruby-identifier">existing_doc</span>[<span class="ruby-value str">'file_metadata'</span>] = <span class="ruby-identifier">existing_doc</span>[<span class="ruby-value str">'file_metadata'</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'file_metadata'</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'file_metadata'</span>]
+        <span class="ruby-identifier">existing_doc</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">existing_doc</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

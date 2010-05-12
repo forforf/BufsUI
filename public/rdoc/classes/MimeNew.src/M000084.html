@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>for_ofc_x (MimeNew)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 18</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">for_ofc_x</span>(<span class="ruby-identifier">fname</span>)
+    <span class="ruby-identifier">cont_type</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">old_ext</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">fname</span>)
+    <span class="ruby-identifier">cont_type</span> =<span class="ruby-keyword kw">case</span> <span class="ruby-identifier">old_ext</span>
+      <span class="ruby-comment cmt">#New Office Formats</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.docx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.dotx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.template&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.pptx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.presentationml.presentation&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.ppsx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.presentationml.slideshow&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.potx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.presentationml.template&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.xlsx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'.xltx'</span>
+      <span class="ruby-value str">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.template&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">type_for</span>(<span class="ruby-identifier">fname</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">content_type</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>read_one_level_of_entries (ViewDirectoryReader)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/view_directory_reader.rb, line 124</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_one_level_of_entries</span>(<span class="ruby-identifier">dir_entries</span>)
+    <span class="ruby-identifier">dir_entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;-- Currently Reading: #{entry}&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;--- Making Bufs Compatible Node with #{entry}&quot;</span>
+      <span class="ruby-identifier">reader_node</span> = <span class="ruby-constant">ViewNodeFactory</span>.<span class="ruby-identifier">make_reader_node</span>(<span class="ruby-identifier">entry</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reader_node</span>.<span class="ruby-identifier">sub_entries</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">reader_node</span>.<span class="ruby-identifier">sub_entries</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment cmt">#used to recurse through directories</span>
+        <span class="ruby-ivar">@directory_entries_yet_to_be_read</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">reader_node</span>.<span class="ruby-identifier">sub_entries</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># determine what kind of entry it is</span>
+      <span class="ruby-comment cmt"># build or update a node from that entry</span>
+      <span class="ruby-comment cmt"># add node to array</span>
+      <span class="ruby-ivar">@bufs_nodes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">reader_node</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@bufs_nodes</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

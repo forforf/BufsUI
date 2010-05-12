@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sync_update (SyncNode)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/sync_node.rb, line 111</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync_update</span>(<span class="ruby-identifier">nodes_to_keep_in_sync</span>)
+    <span class="ruby-ivar">@synced_nodes</span> = [<span class="ruby-identifier">nodes_to_keep_in_sync</span>].<span class="ruby-identifier">flatten!</span>  <span class="ruby-comment cmt">#allows a single node to be passed without array w</span>
+    <span class="ruby-ivar">@synced_nodes</span>.<span class="ruby-identifier">compact!</span> <span class="ruby-comment cmt">#ignore null values</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validate_synchronizable</span>(<span class="ruby-ivar">@synced_nodes</span>)
+    <span class="ruby-ivar">@my_category</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">validate_node_categories</span>(<span class="ruby-ivar">@synced_nodes</span>)
+    <span class="ruby-ivar">@parent_categories</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">merge_parent_categories</span>(<span class="ruby-ivar">@synced_nodes</span>)
+    <span class="ruby-identifier">nodes_to_sync</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">normalize_syncable_node_list</span>(<span class="ruby-ivar">@synced_nodes</span>, <span class="ruby-ivar">@my_category</span>)
+    <span class="ruby-identifier">freshest_file_data</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">node_with_freshest_file_data</span>(<span class="ruby-identifier">nodes_to_sync</span>)
+    <span class="ruby-ivar">@synced_nodes</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">sync_nodes</span>(<span class="ruby-ivar">@synced_nodes</span>, <span class="ruby-identifier">freshest_file_data</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>create_attachment_package (BufsInfoAttachment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_info_attachment.rb, line 171</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_attachment_package</span>(<span class="ruby-identifier">bufs_info_doc_id</span>, <span class="ruby-identifier">attachments</span>)
+    <span class="ruby-comment cmt">#seperate attachment data from custom attachment metadata</span>
+    <span class="ruby-comment cmt">#this is necessary since couchdb can't put custom metadata with its attachments</span>
+    <span class="ruby-identifier">sorted_attachments</span> = <span class="ruby-constant">BufsInfoAttachmentHelpers</span>.<span class="ruby-identifier">sort_attachment_data</span>(<span class="ruby-identifier">attachments</span>)
+    <span class="ruby-identifier">uniq_id</span> = <span class="ruby-identifier">bufs_info_doc_id</span> <span class="ruby-operator">+</span> <span class="ruby-constant">BufsInfoDoc</span>.<span class="ruby-identifier">attachment_base_id</span>
+    <span class="ruby-identifier">custom_metadata_doc_parms</span> = {<span class="ruby-value str">'_id'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uniq_id</span>, <span class="ruby-value str">'md_attachments'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'obj_md_by_name'</span>]}
+    <span class="ruby-identifier">doc</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">uniq_id</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexError</span>, <span class="ruby-node">&quot;Can't create new attachment document for #{self}. Document already exists in Database&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">doc</span>
+    <span class="ruby-identifier">doc</span> = <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">custom_metadata_doc_parms</span>)
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'att_md_by_name'</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">att_name</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">esc_att_name</span> = <span class="ruby-constant">BufsEscape</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">att_name</span>)
+      <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">put_attachment</span>(<span class="ruby-identifier">esc_att_name</span>, <span class="ruby-identifier">sorted_attachments</span>[<span class="ruby-value str">'data_by_name'</span>][<span class="ruby-identifier">esc_att_name</span>],<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-constant">BufsInfoAttachment</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">uniq_id</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

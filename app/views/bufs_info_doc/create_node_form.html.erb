@@ -1,0 +1,15 @@
+<h1>Create New  Node</h1>
+<% form_tag( '/bufs_info_doc/create_node', :multipart => true )  do %>
+
+  <p>
+      <b>Node Tag</b><br/>
+      <%= text_field_tag  "node_cat" %>
+  </p>
+  <p>
+      <b>More to go here</b><br/>
+  </p>
+
+  <p>
+      <%= submit_tag "Submit" %>
+  </p>
+<% end %>

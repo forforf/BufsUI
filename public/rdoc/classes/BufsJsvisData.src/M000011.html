@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>make_json_vis_from_node (BufsJsvisData)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/bufs_jsvis_data.rb, line 38</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_json_vis_from_node</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">depth</span>, <span class="ruby-identifier">current_model</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">jsvis_model</span> = {} <span class="ruby-comment cmt">#JsvisModel.new</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">jsvis_model</span>[<span class="ruby-value str">'id'</span>] = <span class="ruby-identifier">node</span>[<span class="ruby-value str">'_id'</span>]
+    <span class="ruby-identifier">jsvis_model</span>[<span class="ruby-value str">'name'</span>] = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">my_category</span>
+    <span class="ruby-identifier">jsvis_model</span>[<span class="ruby-value str">'data'</span>] = {}<span class="ruby-comment cmt">#node.description</span>
+    <span class="ruby-identifier">jsvis_model</span>[<span class="ruby-value str">'children'</span>] = <span class="ruby-identifier">get_node_children</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">cn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">make_json_vis_from_node</span>(<span class="ruby-identifier">cn</span>, <span class="ruby-identifier">depth</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)}
+    <span class="ruby-identifier">jsvis_model</span>[<span class="ruby-value str">'children'</span>].<span class="ruby-identifier">compact!</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">jsvis_model</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
