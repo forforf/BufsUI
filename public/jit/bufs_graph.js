@@ -13,6 +13,12 @@ function addEvent(obj, type, fn) {
     else obj.attachEvent('on' + type, fn);
 };
 
+function stoppropagation(e) 
+{ 
+e=e||event; 
+e.stoppropagation? e.stoppropagation() : e.cancelBubble=true; 
+}
+
 function inspect(obj, maxLevels, level)
 {
   var str = '', type, msg;
@@ -81,6 +87,17 @@ function ajaxRequest(url) { new Ajax.Request(url,
   });
 };
 
+function ajaxGetParentCats(el, node_cat){ new Ajax.Request('/bufs_info_doc/parent_cats',
+  {
+    method:'get',
+    parameters: { 'node_cat': node_cat },
+    onSuccess: function(transport){
+      //alert(transport.responseText);
+      el.value = transport.responseText;
+    },
+    onFailure: function(){ alert('Unable to retrieve parent cats') }
+  });
+};
 
 function viz_update(data_url){
  new Ajax.Request(data_url,
@@ -99,12 +116,30 @@ function viz_update(data_url){
 }; 
 
 function show_create_node_form(){
+   $('edit-node-form').hide();
    $('create-node-form').show();
-}
+};
 
 function show_destroy_node_form(){
    $('destroy-node-form').show();
-}
+};
+
+function show_edit_node_form(node_id){
+  //alert("Edit: " + node_id);
+  $('node_cat_edit').value = node_id
+  $('create-node-form').hide();
+  $('edit-node-form').show();
+};
+
+function redirect_submit(){
+$('add_attach_form').target = 'files_uploaded_iframe'; //iframe
+$('add_attach_form').submit();
+};
+
+
+//function show_create_node_form() {
+//  alert("Create New Node");
+//}
 
 // Ajax Example
 function create_node_data(){
@@ -224,9 +259,18 @@ function viz_init(json){
         //This method is called once, on label creation.
         onCreateLabel: function(domElement, node){
             domElement.innerHTML = node.name;
-            domElement.onclick = function(){
+            domElement.addEventListener('click',function (e) {
                 rgraph.onClick(node.id);
-            };
+                ajaxGetParentCats($('related_tags_edit'),node.name);
+                show_edit_node_form(node.name);
+                //e.stopPropagation();
+                stoppropagation(e);
+                },true);
+
+            //domElement.onclick = function(){
+            //    rgraph.onClick(node.id);
+            //    show_edit_node_form(node.name);
+            //};
         },
         //Change some label dom properties.
         //This method is called each time a label is plotted.

@@ -4748,3 +4748,1866 @@ Completed in 41ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/de
 Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-05-12 18:47:56) [GET]
   Parameters: {"node_cat"=>"low1"}
 Completed in 50ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=low1]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:18:28) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 140ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-05-12 20:18:35) [GET]
+  Parameters: {"node_cat"=>"dummy2", "related_tags"=>"web_test4"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=dummy2&related_tags=web_test4]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-05-12 20:18:44) [GET]
+  Parameters: {"node_cat"=>"dummy2"}
+Completed in 63ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=dummy2]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:41:16) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:44:39) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:51:27) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:52:22) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 65ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:54:26) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:55:23) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:56:47) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 20:57:27) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 21:04:02) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 65ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 21:16:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-12 21:17:43) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 59ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:08:19) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 382ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:21:42) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:31:44) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:32:00) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 39ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:33:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 50ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:33:19) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 47ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:33:48) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:42:11) [GET]
+  Parameters: {"user"=>"test"}
+
+ActionController::UnknownAction (No action responded to test_json_str. Actions: create_node, create_node_form, current_user_db, destroy_node, edit_node, get_current_nodes, and log_in):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-14 19:43:20) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-05-14 19:43:50) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test4, web_test2"}
+Completed in 52ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=dummy3&related_tags=web_test4%2C%20web_test2]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 17:25:35) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 584ms (View: 47 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 17:34:07) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 17:49:39) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 57ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 17:51:07) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 18:45:22) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 50ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:11:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 24ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:21:32) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:22:43) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 83ms (View: 18 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing ApplicationController#index (for 66.92.144.112 at 2010-05-17 19:23:49) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-19yep33-0>, "commit"=>"Submit", "node_cat"=>""}
+
+ActionController::RoutingError (No route matches "/jit/att_test" with {:method=>:post}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:24:32) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 19:24:43) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-152gtfa-0>, "commit"=>"Submit", "node_cat"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (115.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 19:34:07) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-zffts7-0>, "commit"=>"Submit", "node_cat"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (83.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:35:32) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 46ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 19:35:42) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-83g888-0>, "commit"=>"Submit", "node_cat"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (157.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:45:18) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 19:45:23) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-jry9l0-0>, "commit"=>"Submit", "node_cat"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (132.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:45:46) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 19:45:51) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1q9ul2-0>, "commit"=>"Submit", "node_cat"=>""}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:51:36) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 66ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 19:52:58) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:08:25) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 46ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:08:30) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1q4kuha-0>, "commit"=>"Add Attachment"}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:09:33) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:09:37) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1wjxj99-0>, "commit"=>"Add Attachment"}
+
+ActionView::MissingTemplate (Missing template bufs_info_doc/att_test.erb in view path app/views):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:12:00) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 42ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:13:10) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:13:21) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-amjnw8-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:15:20) [POST]
+  Parameters: {"add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1i2w2ge-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:31:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:32:08) [POST]
+  Parameters: {"node_cat"=>"a", "related_tags"=>"b"}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:33:23) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 20:33:45) [POST]
+  Parameters: {"node_cat"=>"a", "related_tags"=>"b", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-b59d1t-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:34:36) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:41:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:50:29) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 47ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:51:51) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 17ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:51:53) [GET]
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:52:43) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 46ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:52:45) [GET]
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:56:16) [GET]
+
+NoMethodError (undefined method `parent_categories' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:76:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (100.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 20:57:57) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:57:58) [GET]
+Completed in 14ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:58:36) [GET]
+Completed in 44ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:58:40) [GET]
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 20:59:01) [GET]
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:04:24) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:04:26) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 64ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:05:02) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 34ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:05:04) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:05:10) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:05:40) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 18ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:05:43) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:05:48) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 63ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:05:53) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1huyhq4-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:07:00) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-1ymw4t3-0>}
+
+ActionView::MissingTemplate (Missing template bufs_info_doc/att_test.erb in view path app/views):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:07:42) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 45ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:07:45) [POST]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-foipi2-0>}
+
+NameError (undefined local variable or method `responds_to_parent' for #<BufsInfoDocController:0xa6b0930>):
+  app/controllers/bufs_info_doc_controller.rb:67:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (128.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:09:36) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:09:40) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:09:44) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7295-2o9nke-0>}
+
+NoMethodError (undefined method `responds_to_parent' for #<BufsInfoDocController:0xb2d3644>):
+  app/controllers/bufs_info_doc_controller.rb:67:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (101.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:15:58) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 73ms (View: 47 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:16:00) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 59ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:16:03) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3034-luevrp-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:17:21) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3034-15cczc0-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:17:28) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3034-66x470-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:22:37) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 84ms (View: 48 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:22:40) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:22:44) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-rhhsg2-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:24:19) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-cipm5v-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:25:12) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-15s7iaz-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing ApplicationController#att_test (for 66.92.144.112 at 2010-05-17 21:28:30) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-amljdv-0>}
+
+SyntaxError (/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:71: unknown regexp options - javacrpt
+/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:71: syntax error, unexpected tSTRING_BEG, expecting '}'
+#"<html><body><script type='text/javascript' charset='utf-8'>
+                                            ^
+/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:71: syntax error, unexpected tIDENTIFIER, expecting '}'
+#"<html><body><script type='text/javascript' charset='utf-8'>
+                                                         ^
+/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:71: syntax error, unexpected tSTRING_BEG, expecting '}'
+#"<html><body><script type='text/javascript' charset='utf-8'>
+                                                            ^
+/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:84: syntax error, unexpected keyword_end, expecting '}'
+/media-ec2/ec2a/projects/bufs/bufs_rails/app/controllers/bufs_info_doc_controller.rb:118: syntax error, unexpected keyword_end, expecting '}'):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (144.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:29:20) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-krs3vz-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:29:52) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1jpz6a4-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:32:23) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-12oslvf-0>}
+Completed in 11ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:32:29) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:32:31) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 51ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:32:32) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-3aelta-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:37:48) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-k9rojb-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:38:32) [GET]
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:40:33) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:40:35) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:40:37) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-19mf36h-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:43:14) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-16gpopg-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:44:04) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:44:06) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:44:08) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1wyjzmo-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:44:31) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1mcvcke-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:49:37) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:49:41) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:49:43) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1p7ymst-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:52:12) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 54ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:52:15) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1d35ddy-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:52:34) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:52:40) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 66ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:52:42) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-3gvxrt-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:53:02) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-3862-1mcyrok-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-17 21:54:32) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 83ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-17 21:54:34) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 68ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:54:37) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7812-1eb1j4n-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-17 21:55:49) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100517-7812-1gaqlwq-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing ApplicationController#index (for 66.92.144.112 at 2010-05-18 17:56:37) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1rn9w3-0>}
+
+ActionController::RoutingError (No route matches "/ajax-upload-demo/upload.php" with {:method=>:post}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 66.92.144.112 at 2010-05-18 17:59:54) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-14gs66q-0>}
+
+ActionController::RoutingError (No route matches "/ajax-upload-demo/bufs_info_doc/att_test" with {:method=>:post}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 66.92.144.112 at 2010-05-18 18:00:15) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1cdc9hj-0>}
+
+ActionController::RoutingError (No route matches "/ajax-upload-demo/bufs_info_doc/att_test" with {:method=>:post}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:00:23) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-3j78cf-0>}
+Completed in 23ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:02:09) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-jh707y-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:05:38) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1u59el8-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:14:05) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1pd51v3-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:14:31) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-2abjb9-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:14:39) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-18mrqoo-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index (for 66.92.144.112 at 2010-05-18 18:20:03) [GET]
+Rendering bufs_info_doc/index
+Completed in 56ms (View: 55 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:20:22) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 37ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:20:26) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 133ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:20:28) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 45ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:20:39) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1qsaae7-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:21:58) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:22:01) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:23:46) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1s5fwmh-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:26:31) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 65ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:26:33) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:26:46) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-17s5nqj-0>}
+Completed in 2ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:30:35) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:30:43) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1euh6f8-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:31:44) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:31:45) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:31:50) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-7po490-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:32:34) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 16ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:32:36) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 103ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:32:39) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-144q1wi-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:33:45) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 17ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:33:47) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:33:50) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1gs7psu-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:34:39) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:34:44) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-h3qg36-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:35:04) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 20ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:35:05) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 26ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:35:10) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-140va8h-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:36:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:37:03) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-13dihf9-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:37:13) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:37:16) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1tnaxc3-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:38:02) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 37ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:38:04) [POST]
+  Parameters: {"MAX_FILE_SIZE"=>"100000", "my_files"=>#<File:/tmp/RackMultipart20100518-21207-1ohs4i-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:39:38) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 63ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:39:40) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:39:42) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-ouzrur-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:40:33) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 139ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:40:35) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:40:36) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1cgqi6i-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:41:29) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 60ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:41:32) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 48ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:41:35) [POST]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-yg8db2-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:42:05) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:42:09) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-n24sx0-0>}
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:44:58) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:45:00) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 64ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:45:03) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1y3vq8a-0>}
+Completed in 32ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:48:57) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:48:59) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:49:00) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-4myuyo-0>}
+Completed in 59ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:50:18) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 66ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:50:19) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 83ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:50:22) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1hj2wgd-0>}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 18:54:31) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 46ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 18:54:33) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 18:54:36) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-11phyph-0>}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:00:46) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 17ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:00:48) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:00:50) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1oqkpxh-0>}
+
+NoMethodError (undefined method `[]' for #<File:/tmp/RackMultipart20100518-21207-1oqkpxh-0>):
+  app/controllers/bufs_info_doc_controller.rb:75:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (81.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:01:35) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 47ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:01:37) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 63ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:01:39) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1xghjm3-0>}
+Completed in 67ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:11:39) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 53ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:11:40) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:11:42) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-v9iaqi-0>}
+Completed in 71ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:15:06) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 36ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:15:09) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 54ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:15:11) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-izdcau-0>}
+
+Errno::ENOENT (No such file or directory - /tmp/127.0.0.1:5984/bufs_integration_test_spec/upload.php):
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `initialize'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `open'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `copy_file'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:471:in `copy_file'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:392:in `block in cp'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1396:in `block in fu_each_src_dest'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1412:in `fu_each_src_dest0'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1394:in `fu_each_src_dest'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:391:in `cp'
+  app/controllers/bufs_info_doc_controller.rb:77:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (143.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:16:06) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 57ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:16:08) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:16:10) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1ry1t3o-0>}
+
+Errno::ENOENT (No such file or directory - /tmp/82664470/upload.php):
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `initialize'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `open'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1264:in `copy_file'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:471:in `copy_file'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:392:in `block in cp'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1396:in `block in fu_each_src_dest'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1412:in `fu_each_src_dest0'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:1394:in `fu_each_src_dest'
+  /usr/local/lib/ruby/1.9.1/fileutils.rb:391:in `cp'
+  app/controllers/bufs_info_doc_controller.rb:77:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:26:07) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 58ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:26:09) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:26:12) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-15a47mf-0>}
+
+NameError (undefined local variable or method `user_db' for #<BufsInfoDocController:0x9100aa4>):
+  app/controllers/bufs_info_doc_controller.rb:76:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (188.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:27:00) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 139ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:27:01) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 49ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:27:03) [POST]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-5bbly9-0>}
+Completed in 73ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:30:22) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 60ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:32:18) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 52ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:32:21) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1quax18-0>}
+
+NoMethodError (undefined method `attachment_base_id' for String:Class):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:178:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (132.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:43:15) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 98ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:43:18) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 152ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:43:27) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-21207-1o6bpu5-0>}
+
+NoMethodError (undefined method `attachment_base_id' for String:Class):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:178:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (144.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:43:54) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 99ms (View: 49 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:43:57) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:44:01) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-5703-8e4bs4-0>}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:179:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (137.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:46:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:46:33) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 209ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:46:36) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 80ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:46:39) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-6050-rupj66-0>}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:179:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (189.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:48:28) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 37ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:48:29) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 85ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:48:32) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-6050-a7qgxc-0>}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:179:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (80.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:49:00) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 84ms (View: 48 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:49:03) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 17ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:49:05) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 58ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:49:08) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-6403-1f5qnfo-0>}
+
+RuntimeError (No id found for the document):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:175:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:213:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (92.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:52:49) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 112ms (View: 37 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:52:51) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:52:55) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-6900-1tvt9d7-0>}
+
+NoMethodError (undefined method `attachment_doc_id=' for nil:NilClass):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:221:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (127.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:57:49) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 83ms (View: 65 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:57:52) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 35ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:57:55) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-7542-io0op6-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (129.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 19:59:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 62ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 19:59:03) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 42ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 19:59:07) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-7659-1rrhelw-0>}
+
+RuntimeError (unable to find doc with id: 127.0.0.1:5984/bufs_integration_test_spec_UserDB::UserDoctest_user002_multi2):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:221:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (130.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:05:09) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 73ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:05:11) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:05:14) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-8432-1dn2asp-0>}
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:226:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (81.1ms)
+Rendered rescues/_request_and_response (11.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:21:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 97ms (View: 49 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:22:02) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 56ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:22:05) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-10564-wev6ti-0>}
+
+NoMethodError (undefined method `user_attach_class_name' for #<UserDB::UserDoctest_user002:0x8cc4f18>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:227:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (136.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:25:06) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 101ms (View: 55 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:25:08) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 15ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:25:11) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-10925-15ktmc2-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (100.7ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:25:44) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:25:46) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 38ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:25:49) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-10925-1u6e9fu-0>}
+
+NoMethodError (undefined method `user_attachClass' for #<UserDB::UserDoctest_user002:0x9a1b254>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:227:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (81.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:27:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 129ms (View: 57 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:28:02) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 56ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:28:04) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-11399-m0v69-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (166.8ms)
+Rendered rescues/_request_and_response (39.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:28:59) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 61ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:29:01) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 56ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:29:04) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-11399-prymud-0>}
+
+NoMethodError (undefined method `docClass' for #<UserDB::UserDoctest_user002:0x9d74df0>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:227:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (148.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:34:24) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 83ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:34:27) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 47ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:34:28) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 35ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:34:30) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12248-i8kps1-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (84.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:35:04) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12248-1fnyyt1-0>}
+
+NoMethodError (undefined method `user_attachClass' for #<UserDB::UserDoctest_user002:0xa657a8c>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:227:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (98.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:36:51) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 75ms (View: 56 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:36:53) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 17ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:36:56) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-xiwuko-0>}
+Completed in 105ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:37:33) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-67z1od-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (99.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:37:48) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-1ct1725-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:87:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (127.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:38:38) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 102ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:38:40) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 66ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:38:44) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-1j6ckka-0>}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:41:49) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:41:50) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 66ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:41:53) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-4jarsk-0>}
+Completed in 132ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:42:22) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:42:39) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:42:43) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-1q612w-0>}
+Completed in 76ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:43:33) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 67ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:43:38) [POST]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-1c2d53w-0>}
+Completed in 74ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:44:04) [POST]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002", "add_attachment"=>#<File:/tmp/RackMultipart20100518-12582-12u94yk-0>}
+
+IndexError (Can't create new attachment document for BufsInfoAttachment. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:215:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:86:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (124.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-18 20:49:14) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 59ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-18 20:49:16) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 149ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:49:19) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-14336-jz3uo1-0>}
+
+IndexError (Can't create new attachment document for UserDB::UserAttachtest_user002. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:218:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:86:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (158.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-18 20:49:41) [POST]
+  Parameters: {"node_cat"=>"multi2", "related_tags"=>"web_test1, web_test4", "add_attachment"=>#<File:/tmp/RackMultipart20100518-14336-11vuenw-0>}
+
+IndexError (Can't create new attachment document for UserDB::UserAttachtest_user002. Document already exists in Database):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_attachment.rb:184:in `create_attachment_package'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:218:in `add_data_file'
+  app/controllers/bufs_info_doc_controller.rb:86:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (152.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)

@@ -29,7 +29,7 @@
 
     <div class="text">
       <h4>
-      Tree Animation    
+      Tree Animation <b>Improving UI version</b>   
       </h4> 
 
             A static JSON Tree structure is used as input for this animation.<br /><br />
@@ -47,25 +47,65 @@
   </div>
 
   <div id="center-container">
-    <div id="infovis"></div>    
+    <div id="infovis" onclick="javascript:show_create_node_form()"></div>    
   </div>
 
   <div id="right-container">
     <div id="create-node-form" style="display:none;">
-      <b>Create New  Node</b>
+      <b>Create New Node</b>
         <p>
-          <b>Node Tag</b><br>
-          <input id="node_cat_create" name="node_cat" type="text">
+          <b>Node Tag</b><br/>
+          <input id="node_cat_create" name="node_cat" type="text" />
         </p>
         <p>
-          <b>Related Tags</b><br>
-          <input id="related_tags_create" name="related_tags" type="text">
+          <b>Related Tags</b><br/>
+          <input id="related_tags_create" name="related_tags" type="text" />
         </p>
-
+        <p>
+           <b> Attachments</b><br/>
+           Attachment list to go here
+        </p>
+        <p>
+           <b> Add Attachment</b><br/>
+           <input name="add_attachment" type="file" />
+        </p>
         <p>
           <input name="commit" value="Submit" type="submit" onclick="javascript:create_node_data()">
         </p>
     </div>
+
+
+    <div id="edit-node-form" style="display:none;">
+      <b>Edit Node</b>
+      <form id="add_attach_form" action="/bufs_info_doc/att_test" method="post" enctype="multipart/form-data">
+        <p>
+          <b>Node Tag</b><br/>
+          <input id="node_cat_edit" name="node_cat" type="text"/>
+        </p>
+        <p>
+          <b>Related Tags</b><br/>
+          <input id="related_tags_edit" name="related_tags" type="text"t/>
+        </p>
+        <p>
+          <input name="commit" value="Edit Node" type="button" onclick="javascript:edit_node_data()">
+        </p>
+
+        <p>
+           <b> Attachments</b><br/>
+           Attachment list to go here
+        </p>
+           <b> Add Attachment</b><br/>
+           <input id="add_attach_edit" name="add_attachment" type="file" />
+        </p>
+        <p>
+          <input name="action" value="Add Attachment" type="button" onclick="javascript:redirect_submit()">
+        </p>
+
+        <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="">
+        </iframe>
+       </form>
+    </div>
+
 
     <div id="destroy-node-form" style="display:none;">
       <b>Destroy Node</b>

@@ -1,10 +1,7 @@
 class BufsInfoDocController < ApplicationController
   CouchDB = CouchRest.database!('http://127.0.0.1:5984/bufs_integration_test_spec')
-  #BufsInfoDoc.set_name_space(CouchDB)
-  #user = params[:user]
-  #user_db = UserDB.new(CouchDB, user)
-  #@@nodes = user_db.docClass.all
-  #@@jvis = BufsJsvisData.new(@@nodes)
+
+  protect_from_forgery :except => :att_test
 
   def test_json_str
     #user = params[:user]
@@ -17,16 +14,10 @@ class BufsInfoDocController < ApplicationController
     jvis_data = jvis.json_vis(top_cat, depth)
 
     json_str = <<-EOS
-{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:5984\/bufs_integration_test_spec_a","name":"a","data":{},"children":[]}]}
+{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:5984\/bufs_integration_test_spec_a","name":"a","data":{},"children":[]}]
     EOS
-    json_obj = jvis_data 
+    json_obj = jvis_data
     render :json => json_obj##, :content_type => 'text/plain'
-  end
-
-  def test_resync
-    SyncIntegration.sync_file_view('/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/view/',
-                                   '/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/model/')
-    test_json_str
   end
 
   def get_current_nodes(depth=4)
@@ -51,11 +42,60 @@ class BufsInfoDocController < ApplicationController
     #puts "New Doc: #{new_doc.inspect}"
     #puts "New Doc Class: #{new_doc.class.inspect}"
     new_doc.save
-    jvis_data = get_current_nodes #jvis.json_vis(top_cat, depth)
+    #jvis_data = get_current_nodes #jvis.json_vis(top_cat, depth)
     #puts "JVIS: #{jvis_data.inspect}"
-    render :json => jvis_data
+    render :json => get_current_nodes
     #render :text => jvis_data
     #render :text => "#{params} \n #{@user_doc.inspect}"
+  end
+
+  def edit_node
+    @user_db = current_user_db
+    new_node_cat = params[:node_cat]
+    new_parent_cats_munged = params[:related_tags]
+    parent_cats = parent_cats_munged.split(/, */)
+    raise "Need to figure out what to do with edits"
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+
+    #jvis_data = get_current_nodes
+    render :json => get_current_nodes
+
+  end
+
+  def att_test
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    
+    #render :text => node_doc.my_category
+    #render :text => params[:add_attachment].inspect.gsub("<","[-").gsub(">","-]")
+    att_file = params[:add_attachment]
+    #FIXME: Real fix is to the bufs_info_doc model
+    new_file_dir = "/tmp/#{@user_db.hash}"
+    new_file_loc = "#{new_file_dir}/#{att_file.original_filename}"
+    if File.exist?(new_file_dir)
+      FileUtils.cp(att_file.path, new_file_loc)
+    else
+      FileUtils.mkdir(new_file_dir)
+      FileUtils.cp(att_file.path, new_file_loc)
+    end
+    #TODO test for success before deleting Rack tmp file
+    FileUtils.rm(att_file.path)
+    node_doc.add_data_file(new_file_loc)
+    FileUtils.rm(new_file_loc)
+    FileUtils.rmdir(new_file_dir) 
+    render :text => att_file.original_filename
+  end
+
+  def parent_cats
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    render :text => node_doc.parent_categories.join(", ")
+
   end
 
   def destroy_node
@@ -82,3 +122,29 @@ class BufsInfoDocController < ApplicationController
   end
 
 end
+
+=begin
+  def test_json_str
+    #user = params[:user]
+    #user_db = UserDB.new(CouchDB, user)
+    @user_db = current_user_db
+    nodes = @user_db.docClass.all
+    jvis = BufsJsvisData.new(nodes)
+    top_cat= session[:user_id]  #top category
+    depth = 4
+    jvis_data = jvis.json_vis(top_cat, depth)
+
+    json_str = <<-EOS
+{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:5984\/bufs_integration_test_spec_a","name":"a","data":{},"children":[]}]
+    EOS
+    json_obj = jvis_data
+    render :json => json_obj##, :content_type => 'text/plain'
+  end
+
+  def test_resync
+    SyncIntegration.sync_file_view('/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/view/',
+                                   '/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/model/')
+    test_json_str
+  end
+
+=end
