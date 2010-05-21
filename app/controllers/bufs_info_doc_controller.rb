@@ -142,34 +142,15 @@ class BufsInfoDocController < ApplicationController
     redirect_to '/jit/bufs_graph.html'
   end
 
+  def log_out
+    session[:load]
+    session.clear
+    redirect_to '/bufs_info_doc/log_in_form'
+  end
+
   def create_node_form
     #render :text => params.to_s
   end
 
 end
 
-=begin
-  def test_json_str
-    #user = params[:user]
-    #user_db = UserDB.new(CouchDB, user)
-    @user_db = current_user_db
-    nodes = @user_db.docClass.all
-    jvis = BufsJsvisData.new(nodes)
-    top_cat= session[:user_id]  #top category
-    depth = 4
-    jvis_data = jvis.json_vis(top_cat, depth)
-
-    json_str = <<-EOS
-{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:5984\/bufs_integration_test_spec_a","name":"a","data":{},"children":[]}]
-    EOS
-    json_obj = jvis_data
-    render :json => json_obj##, :content_type => 'text/plain'
-  end
-
-  def test_resync
-    SyncIntegration.sync_file_view('/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/view/',
-                                   '/media-ec2/ec2a/projects/bufs/sandbox_for_specs/bufs_spec/model/')
-    test_json_str
-  end
-
-=end

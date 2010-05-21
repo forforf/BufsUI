@@ -602,3 +602,186 @@ Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-
   Parameters: {"node_cat"=>"web_test2"}
 Rendering bufs_info_doc/list_attachments
 Completed in 126ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:06:55) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:06:56) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:07:01) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:07:03) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:07:03) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 17ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:07:10) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 87ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:08:02) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 31ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-21 21:08:05) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 222ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-21 21:08:06) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Rendering bufs_info_doc/list_attachments
+Completed in 96ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:08:08) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:08:08) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 16ms (View: 16 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:08:15) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 34ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-21 21:08:17) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 37ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-21 21:08:17) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Rendering bufs_info_doc/list_attachments
+Completed in 120ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:08:22) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:08:22) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:08:50) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 30ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:08:58) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:08:58) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:09:12) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:14:46) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:14:48) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:14:48) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:14:55) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 117ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:15:00) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:15:00) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:15:05) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:15:10) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:15:10) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:15:24) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 126ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:20:45) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-21 21:20:46) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 56ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-21 21:20:47) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Rendering bufs_info_doc/list_attachments
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-05-21 21:20:50) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-05-21 21:20:50) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 16ms (View: 16 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#test_json_str (for 66.92.144.112 at 2010-05-21 21:20:55) [GET]
+  Parameters: {"user"=>"test"}
+Completed in 91ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/test_json_str?user=test]
