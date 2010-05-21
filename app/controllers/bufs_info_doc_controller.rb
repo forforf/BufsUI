@@ -63,6 +63,29 @@ class BufsInfoDocController < ApplicationController
 
   end
 
+  def echo_parms
+    render :text => params.inspect
+  end
+
+  def list_attachments(node_cat=params[:node_cat])
+    @user_db = current_user_db
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    @node_cat = node_cat
+    @attachment_names = node_doc.get_attachment_names
+  end
+
+  def remove_attachment
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    att_name = params[:att_name]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    node_doc.remove_attachment(att_name)
+    render :text => "Attachment Removed"
+  end
+
+
   def att_test
     @user_db = current_user_db
     node_cat = params[:node_cat]
@@ -71,22 +94,24 @@ class BufsInfoDocController < ApplicationController
     
     #render :text => node_doc.my_category
     #render :text => params[:add_attachment].inspect.gsub("<","[-").gsub(">","-]")
-    att_file = params[:add_attachment]
+    @att_file = params[:add_attachment]
     #FIXME: Real fix is to the bufs_info_doc model
     new_file_dir = "/tmp/#{@user_db.hash}"
-    new_file_loc = "#{new_file_dir}/#{att_file.original_filename}"
+    new_file_loc = "#{new_file_dir}/#{@att_file.original_filename}"
     if File.exist?(new_file_dir)
-      FileUtils.cp(att_file.path, new_file_loc)
+      FileUtils.cp(@att_file.path, new_file_loc)
     else
       FileUtils.mkdir(new_file_dir)
-      FileUtils.cp(att_file.path, new_file_loc)
+      FileUtils.cp(@att_file.path, new_file_loc)
     end
     #TODO test for success before deleting Rack tmp file
-    FileUtils.rm(att_file.path)
+    FileUtils.rm(@att_file.path)
     node_doc.add_data_file(new_file_loc)
     FileUtils.rm(new_file_loc)
-    FileUtils.rmdir(new_file_dir) 
-    render :text => att_file.original_filename
+    FileUtils.rmdir(new_file_dir)
+    @attachment_names = list_attachments(node_cat)
+    #render :text => "OK"
+    #render :text => @att_file.original_filename
   end
 
   def parent_cats

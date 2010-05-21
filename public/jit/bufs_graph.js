@@ -129,7 +129,20 @@ function show_edit_node_form(node_id){
   $('node_cat_edit').value = node_id
   $('create-node-form').hide();
   $('edit-node-form').show();
+  new Ajax.Updater('attachment_list','/bufs_info_doc/list_attachments',{
+                  parameters:{ node_cat: node_id }
+                });
+
 };
+
+function att_cb_clk(node_id, att_name){
+  new Ajax.Updater('', '/bufs_info_doc/remove_attachment',{
+    parameters: {node_cat: node_id}
+  });
+
+  show_edit_node_form(node_id);
+  //alert(node_id);
+}
 
 function redirect_submit(){
 $('add_attach_form').target = 'files_uploaded_iframe'; //iframe

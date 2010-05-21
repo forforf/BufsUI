@@ -44,6 +44,7 @@
     <div style="text-align:center;"><a href="#" onclick="javascript:viz_update('/bufs_info_doc/test_resync?user=test')">Re-sync to file datai</a></div>
     <div style="text-align:center;"><a href="#" onclick="javascript:show_create_node_form()">Create Node</a></div>
     <div style="text-align:center;"><a href="#" onclick="javascript:show_destroy_node_form()">Destroy Node</a></div>
+  <div id="temp123">temp</div>
   </div>
 
   <div id="center-container">
@@ -60,10 +61,6 @@
         <p>
           <b>Related Tags</b><br/>
           <input id="related_tags_create" name="related_tags" type="text" />
-        </p>
-        <p>
-           <b> Attachments</b><br/>
-           Attachment list to go here
         </p>
         <p>
            <b> Add Attachment</b><br/>
@@ -89,11 +86,11 @@
         <p>
           <input name="commit" value="Edit Node" type="button" onclick="javascript:edit_node_data()">
         </p>
-
-        <p>
-           <b> Attachments</b><br/>
-           Attachment list to go here
+         <p>
+           <div id="attachment_list">No Node Selected</div>
         </p>
+        <br/>
+
            <b> Add Attachment</b><br/>
            <input id="add_attach_edit" name="add_attachment" type="file" />
         </p>
