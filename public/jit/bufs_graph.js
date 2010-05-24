@@ -1,17 +1,23 @@
-var Log = {
-    elem: false,
-    write: function(text){
-        if (!this.elem) 
-            this.elem = document.getElementById('log');
-        this.elem.innerHTML = text;
-        this.elem.style.left = (500 - this.elem.offsetWidth / 2) + 'px';
-    }
+
+//Prototype Observers
+//-----------------------
+//Event.observe(window, "load", initialize_page );
+document.observe("dom:loaded", initialize_page );
+
+function initialize_page(){
+  index_nodes('/bufs_info_doc/index_nodes');
+  //Add click event to the div holding the canvas
+  $("infovis").observe("click", show_create_node_form ); 
 };
 
-function addEvent(obj, type, fn) {
-    if (obj.addEventListener) obj.addEventListener(type, fn, false);
-    else obj.attachEvent('on' + type, fn);
-};
+
+
+//Helper Functions
+//Prototype already does this?
+//function addEvent(obj, type, fn) {
+//    if (obj.addEventListener) obj.addEventListener(type, fn, false);
+//    else obj.attachEvent('on' + type, fn);
+//};
 
 function stoppropagation(e) 
 { 
@@ -73,19 +79,29 @@ function inspect(obj, maxLevels, level)
     return str;
 }
 
-
-var jsonNoResp = {"id":"dummy","name":"no data from server","data":{},"children":[]}
-function ajaxRequest(url) { new Ajax.Request(url,
-  {
-    method:'get',
-    onSuccess: function(transport){
-      alert("text:\n" + transport.responseText + "\nhead json:\n" + transport.headerJSON + "\nresp json:\n" + transport.responseJSON);
-      json = transport.responseJSON
-      alert("Ajax json: " + json.name);
-    },
-    onFailure: function(){ alert('Something went wrong...') }
-  });
+//bufs_graph Functions
+var Log = {
+    elem: false,
+    write: function(text){
+        if (!this.elem)
+            this.elem = document.getElementById('log');
+        this.elem.innerHTML = text;
+        this.elem.style.left = (500 - this.elem.offsetWidth / 2) + 'px';
+    }
 };
+
+//var jsonNoResp = {"id":"dummy","name":"no data from server","data":{},"children":[]}
+//function ajaxRequest(url) { new Ajax.Request(url,
+//  {
+//    method:'get',
+//    onSuccess: function(transport){
+//      alert("text:\n" + transport.responseText + "\nhead json:\n" + transport.headerJSON + "\nresp json:\n" + transport.responseJSON);
+//      json = transport.responseJSON
+//      alert("Ajax json: " + json.name);
+//    },
+//    onFailure: function(){ alert('Something went wrong...') }
+//  });
+//};
 
 function ajaxGetParentCats(el, node_cat){ new Ajax.Request('/bufs_info_doc/parent_cats',
   {
@@ -197,7 +213,7 @@ function destroy_node_data(){
 };
 
 
-function init(data_url){
+function index_nodes(data_url){
  new Ajax.Request(data_url,
   {
     method:'get',
@@ -261,7 +277,7 @@ function viz_init(json){
             Log.write("centering " + node.name + "...");
             //Add the relation list in the right column.
             //This list is taken from the data property of each JSON node.
-            document.getElementById('inner-details').innerHTML = node.data.relation;
+            //document.getElementById('inner-details').innerHTML = node.data.relation;
         },
         
         onAfterCompute: function(){
@@ -316,5 +332,5 @@ function viz_init(json){
     rgraph.refresh();
     //end
     //append information about the root relations in the right column
-    document.getElementById('inner-details').innerHTML = rgraph.graph.getNode(rgraph.root).data.relation;
+    //document.getElementById('inner-details').innerHTML = rgraph.graph.getNode(rgraph.root).data.relation;
 }

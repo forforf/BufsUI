@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>RGraph - Tree Animation</title>
+<title>Relationship Manager -- or something</title>
 
 <!-- CSS Files -->
 <link type="text/css" href="../stylesheets/jit/base.css" rel="stylesheet" />
@@ -18,38 +18,34 @@
 <script language="javascript" type="text/javascript" src="bufs_graph.js"></script>
 </head>
 
-<body onload="init('/bufs_info_doc/test_json_str?user=test');">
-
-
+<body>
 <div id="container">
-
   <div id="left-container">
-
-
-
     <div class="text">
       <h4>
-      Tree Animation <b>Improving UI version</b>   
+      Relationships as a Tree   
       </h4> 
 
-            A static JSON Tree structure is used as input for this animation.<br /><br />
-            Clicking on a node should move the tree and center that node.<br /><br />
-            The centered node's children are displayed in a relations list in the right column.
-            
+            User data is provided in a tree structure with the root node being the User's Id.   Updates to the data structure are reflected in the animation after successful update to the server.<br /><br />
+            Clicking on the background canvas allows a new node to be created.<br /><br />
+            Clicking on an existing node should move the tree and center on that node.<br /><br />
+            The centered node's information is displayed in the right column and can be edited.<br /><br />
+      <div class="footnote">
+            The current data visualization scheme is heavily based on <a href="http://blog.thejit.org/">Nicolas Garcia Belmonte's</a><a href="http://thejit.org"> JavaScript InfoVis Toolkit.</a>.  <br /><br />
+            Technical note: JIT uses a custom canvas class, migrating to use HTML5 canvas class is being looked at.<br /><br />
+      </div>
     </div>
 
-    <div id="id-list"></div>
-    <div style="text-align:center;"><a href="example1.js">See the Example Code</a></div>            
-    <p/>
+    <div id="testarea"></div>
+    <b>New Feature Test Area <br /><br />
     <div style="text-align:center;"><a href="#" onclick="javascript:viz_update('/bufs_info_doc/test_resync?user=test')">Re-sync to file datai</a></div>
     <div style="text-align:center;"><a href="#" onclick="javascript:show_create_node_form()">Create Node</a></div>
     <div style="text-align:center;"><a href="#" onclick="javascript:show_destroy_node_form()">Destroy Node</a></div>
     <div style="text-align:center;"><a href="/bufs_info_doc/log_out">Sign Out</a></div>
-  <div id="temp123">temp</div>
   </div>
 
   <div id="center-container">
-    <div id="infovis" onclick="javascript:show_create_node_form()"></div>    
+    <div id="infovis"></div>    
   </div>
 
   <div id="right-container">
@@ -98,8 +94,8 @@
         <p>
           <input name="action" value="Add Attachment" type="button" onclick="javascript:redirect_submit()">
         </p>
-
-        <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="">
+         
+        <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:none">
         </iframe>
        </form>
     </div>

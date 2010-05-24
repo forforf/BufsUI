@@ -3,6 +3,24 @@ class BufsInfoDocController < ApplicationController
 
   protect_from_forgery :except => :att_test
 
+  def index_nodes
+    #user = params[:user]
+    #user_db = UserDB.new(CouchDB, user)
+    @user_db = current_user_db
+    nodes = @user_db.docClass.all
+    jvis = BufsJsvisData.new(nodes)
+    top_cat= session[:user_id]  #top category
+    depth = 4
+    jvis_data = jvis.json_vis(top_cat, depth)
+
+    json_str = <<-EOS
+{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:598
+    EOS
+    json_obj = jvis_data
+    render :json => json_obj##, :content_type => 'text/plain'
+  end
+
+=begin
   def test_json_str
     #user = params[:user]
     #user_db = UserDB.new(CouchDB, user)
@@ -19,7 +37,7 @@ class BufsInfoDocController < ApplicationController
     json_obj = jvis_data
     render :json => json_obj##, :content_type => 'text/plain'
   end
-
+=end
   def get_current_nodes(depth=4)
     nodes = @user_db.docClass.all
     jvis = BufsJsvisData.new(nodes)
