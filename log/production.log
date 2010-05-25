@@ -6875,3 +6875,2564 @@ Completed in 115ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/pa
 Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 13:46:58) [POST]
   Parameters: {"node_cat"=>"web_test2"}
 Completed in 176ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:02:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:02:42) [GET]
+Completed in 75ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:02:46) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 96ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:02:48) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 38ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:20:59) [GET]
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:21:00) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:21:02) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 96ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:21:03) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 38ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:21:14) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 65ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:21:15) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:22:02) [GET]
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:22:04) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:25:07) [GET]
+Completed in 70ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:25:09) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:27:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:27:02) [GET]
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:27:05) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 99ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:27:05) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 142ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:27:10) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 134ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:27:10) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 145ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 14:29:04) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 14:29:03) [GET]
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:29:05) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 38ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:29:05) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 97ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 14:44:44) [GET]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 188ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=new_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 14:44:44) [POST]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 206ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:07:38) [GET]
+Completed in 154ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:07:39) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 93ms (View: 92 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:07:41) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:07:41) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:14:18) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:14:18) [GET]
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:14:21) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 131ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:14:21) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 139ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:17:49) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:17:49) [GET]
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:17:51) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:17:51) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 123ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:26:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:26:48) [GET]
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:26:50) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:96:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:104:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:26:50) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 168ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:26:59) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 125ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:26:59) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 49ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:27:46) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:27:46) [GET]
+Completed in 42ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:27:48) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 57ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:27:48) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 158ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:29:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:29:01) [GET]
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:29:03) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 128ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:29:03) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 208ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 15:33:43) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 15:33:43) [GET]
+Completed in 39ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:33:45) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 153ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:33:45) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:155:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:33:48) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 155ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:33:48) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 156ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 15:33:56) [POST]
+  Parameters: {"node_cat"=>"dummy3", "att_name"=>"AWS_contest_v3.txt"}
+Completed in 158ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:34:03) [POST]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 128ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:34:03) [GET]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 218ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=new_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 15:34:07) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 125ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 15:34:07) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 132ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 16:00:56) [GET]
+Completed in 222ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 16:00:56) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:03) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 156ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:03) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 162ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:06) [GET]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 51ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=new_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:06) [POST]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 167ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-05-25 16:01:14) [GET]
+  Parameters: {"node_cat"=>"new_test1"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=new_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:28) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 37ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:28) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 98ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:31) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 150ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:31) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:96:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:104:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:34) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:34) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 97ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 16:01:37) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 16:01:37) [GET]
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:40) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 94ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:40) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 104ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:49) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `parent_categories' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:157:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:49) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+Completed in 195ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:54) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:54) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 193ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 16:01:59) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 112ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 16:01:59) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 150ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:09:46) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:09:46) [GET]
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:09:51) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 88ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:09:51) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 123ms (View: 31 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:09:54) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 138ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 18:09:54) [POST]
+  Parameters: {"node_cat"=>"web_test1", "att_name"=>"description.txt"}
+Completed in 222ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:09:59) [GET]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 48ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=multi2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:09:59) [POST]
+  Parameters: {"node_cat"=>"multi2"}
+Completed in 160ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:10:02) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 52ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:10:02) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 205ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:10:12) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"web_test1", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1811-1lscy61-0>}
+Rendering bufs_info_doc/att_test
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:14:28) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:14:28) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:14:30) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 51ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:14:30) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 160ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:14:34) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:14:34) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 123ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:14:42) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:14:43) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 197ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:14:48) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:14:48) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 121ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:15:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:15:24) [GET]
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:15:26) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 117ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:15:26) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 196ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:17:09) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:17:09) [GET]
+Completed in 42ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:17:12) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 101ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:17:12) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 69ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:17:23) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"dummy3", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1811-w29rfg-0>}
+Rendering bufs_info_doc/att_test
+Completed in 168ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:17:29) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 113ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:17:29) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 121ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:17:33) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:17:33) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 139ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:17:44) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"dummy3", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1811-tcbcub-0>}
+Rendering bufs_info_doc/att_test
+Completed in 201ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:18:51) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:18:51) [GET]
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:18:54) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 126ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:18:54) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 125ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:19:03) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 135ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:19:03) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"dummy3", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1803-1bbbk1a-0>}
+Rendering bufs_info_doc/att_test
+Completed in 217ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:20:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:20:01) [GET]
+Completed in 42ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:20:04) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 153ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:20:04) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 150ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:20:08) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:20:08) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 195ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:20:11) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 195ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:20:11) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"web_test1", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1803-bee81h-0>}
+Rendering bufs_info_doc/att_test
+Completed in 321ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:20:21) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 179ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-05-25 18:20:21) [POST]
+  Parameters: {"authenticity_token"=>"7eGV0wBX1kwPN4uTYTVGUdoNPAH/S20J/EGkHdWbvK8=", "node_cat"=>"web_test1", "add_attachment"=>#<File:/tmp/RackMultipart20100525-1803-nd6xbj-0>}
+Rendering bufs_info_doc/att_test
+Completed in 291ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:29:35) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 146ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:29:35) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 206ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:32:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:32:02) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:43:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 159ms (View: 157 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:43:48) [GET]
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:43:57) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 58ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:43:57) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:44:07) [GET]
+  Parameters: {"node_cat"=>"web_test1", "node_tags"=>""}
+
+NoMethodError (undefined method `split' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:70:in `update_node'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:44:18) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:44:18) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 57ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:44:22) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 151ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:44:22) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 150ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:44:44) [GET]
+  Parameters: {"node_cat"=>"web_test1", "node_tags"=>""}
+
+NoMethodError (undefined method `split' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:70:in `update_node'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:45:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:45:42) [GET]
+Completed in 105ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:45:45) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 89ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:45:45) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 138ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:45:51) [GET]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002, web_test2"}
+
+ActionView::MissingTemplate (Missing template bufs_info_doc/update_node.erb in view path app/views):
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:47:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:47:02) [GET]
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:47:09) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 121ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:47:09) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 185ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:47:23) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test4, web_test2, web_test1"}
+Completed in 42ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test4%2C%20web_test2%2C%20web_test1]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:47:33) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:47:33) [GET]
+Completed in 45ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:49:52) [GET]
+Completed in 153ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:49:52) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:49:58) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 99ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:49:58) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 109ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:50:04) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 150ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:50:04) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 154ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:50:08) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:50:08) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 121ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:50:18) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 57ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:50:18) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 157ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:51:16) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test4, web_test1"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test4%2C%20web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:51:19) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 116ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:51:19) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 112ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:51:24) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 98ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:51:24) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 141ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:51:47) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test2, web_test1"}
+Completed in 93ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test2%2C%20web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:51:56) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:51:56) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 126ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:52:00) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 43ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:52:00) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 130ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:58:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:58:14) [GET]
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:58:20) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 106ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:58:20) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 187ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:58:25) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 109ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:58:25) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 152ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 18:58:39) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test4, web_test2"}
+Completed in 107ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test4%2C%20web_test2]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:58:45) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 43ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:58:45) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 43ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:58:48) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 52ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:58:48) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 169ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:58:56) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 51ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:58:56) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 165ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 18:59:00) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 50ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 18:59:00) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 131ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 18:59:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 18:59:54) [GET]
+Completed in 97ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:04) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 136ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:04) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 197ms (View: 65 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:10) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 101ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:10) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 143ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:13) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 140ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:13) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 149ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:16) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 97ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:16) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 134ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:00:30) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test2"}
+Completed in 105ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test2]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:38) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 68ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:38) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 88ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:00:43) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:00:43) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 146ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:04:29) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:04:29) [GET]
+Completed in 122ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:04:33) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 111ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:04:33) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 155ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:04:41) [GET]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002, web_test1"}
+Completed in 174ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=web_test2&related_tags=test_user002%2C%20web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:04:49) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 32ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:04:49) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 112ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:04:59) [GET]
+  Parameters: {"node_cat"=>"web_test1", "related_tags"=>"test_user002"}
+Completed in 120ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=web_test1&related_tags=test_user002]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:05:03) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:05:03) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 112ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:05:07) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:05:07) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 120ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:05:26) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test2, web_test1"}
+Completed in 157ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test2%2C%20web_test1]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:05:37) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test2, web_test1, multi2"}
+Completed in 168ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test2%2C%20web_test1%2C%20multi2]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:05:45) [GET]
+  Parameters: {"node_cat"=>"dummy3", "related_tags"=>"web_test2, multi2"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=dummy3&related_tags=web_test2%2C%20multi2]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:06:39) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:06:39) [GET]
+Completed in 105ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:06:45) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 101ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:06:45) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 214ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:07:11) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:07:11) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:07:15) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 45ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:07:15) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 113ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-05-25 19:07:25) [GET]
+  Parameters: {"node_cat"=>"web_test2", "related_tags"=>"test_user002, web_test1, web_test4"}
+Completed in 164ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=web_test2&related_tags=test_user002%2C%20web_test1%2C%20web_test4]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-05-25 19:08:41) [GET]
+  Parameters: {"node_cat"=>"web_test5", "related_tags"=>"web_test4, web_test1"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=web_test5&related_tags=web_test4%2C%20web_test1]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:08:49) [GET]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 37ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test5]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:08:49) [POST]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 99ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:11:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:11:24) [GET]
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:11:34) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 96ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:11:34) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 141ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:18:43) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:18:43) [GET]
+Completed in 157ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:18:52) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 42ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:18:52) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 125ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:20:29) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:20:29) [GET]
+Completed in 43ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:21:09) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:21:09) [GET]
+Completed in 92ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:21:13) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 103ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:21:13) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 143ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:22:22) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:22:22) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:22:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:22:48) [GET]
+Completed in 39ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:23:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:23:16) [GET]
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:23:24) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 50ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:23:24) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 127ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:23:50) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:23:50) [GET]
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:23:52) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:23:52) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:153:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:23:58) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 97ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:23:58) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:94:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:102:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:24:02) [GET]
+  Parameters: {"node_cat"=>"dummy3"}
+Completed in 213ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=dummy3]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:24:02) [POST]
+  Parameters: {"node_cat"=>"dummy3"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:94:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:102:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:24:13) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 164ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:24:13) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 249ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:24:17) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 122ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:24:17) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 157ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:27:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:27:01) [GET]
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:27:03) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:27:03) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 151ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:27:49) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:27:49) [GET]
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:27:51) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:27:51) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 167ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:27:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:27:54) [GET]
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:31:07) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:31:07) [GET]
+Completed in 99ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:31:10) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:31:10) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 119ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 19:31:13) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 110ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 19:31:13) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 154ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:31:17) [GET]
+Completed in 121ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:31:46) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:31:46) [GET]
+Completed in 44ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 19:32:07) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 19:32:07) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:31:08) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:31:08) [GET]
+Completed in 94ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:31:12) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 107ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:31:12) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:153:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:31:16) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 104ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:31:16) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 190ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:31:21) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:31:21) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 119ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:31:25) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"test_modified_time_stale.txt"}
+
+NoMethodError (undefined method `current_node_doc' for #<UserDB::UserDoctest_user002:0x9a081f0>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:233:in `remove_attachment'
+  app/controllers/bufs_info_doc_controller.rb:117:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:31:25) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 125ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:33:04) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:33:04) [GET]
+Completed in 130ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:33:08) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 93ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:33:08) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 143ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:33:12) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 130ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:33:12) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"description.txt"}
+
+ArgumentError (wrong number of arguments(0 for 1)):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `delete'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `remove_attachment'
+  app/controllers/bufs_info_doc_controller.rb:117:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:34:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:34:14) [GET]
+Completed in 173ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:34:16) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 103ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:34:16) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 155ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:34:20) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"description.txt"}
+
+ArgumentError (wrong number of arguments(0 for 1)):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `delete'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `remove_attachment'
+  app/controllers/bufs_info_doc_controller.rb:117:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:34:20) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 214ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:34:38) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:34:38) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 148ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:34:41) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 158ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:34:41) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 168ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:35:30) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"AWS_contest_v3.txt"}
+
+ArgumentError (wrong number of arguments(0 for 1)):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `delete'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:235:in `remove_attachment'
+  app/controllers/bufs_info_doc_controller.rb:117:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:35:30) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 275ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:36:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:36:21) [GET]
+Completed in 112ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:29) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:94:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:102:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:36:29) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 177ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:36:32) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 98ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:32) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 146ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:36:38) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 152ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:38) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 153ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:36:41) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"AWS_contest_v3.txt"}
+Completed in 157ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:41) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 181ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:36:54) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"description.txt"}
+Completed in 144ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:54) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 192ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-05-25 20:36:56) [POST]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"simple_text_file_2.txt"}
+Completed in 143ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:36:56) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 233ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 20:37:00) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 20:37:00) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 179ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:46:37) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:46:37) [GET]
+Completed in 124ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:47:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:47:14) [GET]
+Completed in 92ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 20:47:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 20:47:42) [GET]
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 21:36:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 21:36:24) [GET]
+Completed in 203ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 21:36:27) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 21:36:27) [GET]
+Completed in 99ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:36:32) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 145ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:36:32) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:109:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:117:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:37:06) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:37:06) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 119ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-05-25 21:37:14) [GET]
+  Parameters: {"node_cat"=>"web_test4", "att_name"=>"test_modified_time_fresh.txt"}
+
+NoMethodError (undefined method `env' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:101:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 21:39:03) [GET]
+Completed in 179ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 21:39:04) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:39:09) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 115ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:39:09) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+
+RestClient::RequestFailed (HTTP status code 409):
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:225:in `process_result'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:155:in `block in transmit'
+  /usr/local/lib/ruby/1.9.1/net/http.rb:564:in `start'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:153:in `transmit'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:62:in `execute_inner'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:52:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient/request.rb:29:in `execute'
+  /usr/local/lib/ruby/gems/1.9.1/gems/rest-client-1.2.0/lib/restclient.rb:76:in `put'
+  couchrest (0.35) lib/couchrest/core/adapters/restclient.rb:21:in `put'
+  couchrest (0.35) lib/couchrest/core/rest_api.rb:6:in `put'
+  couchrest (0.35) lib/couchrest/core/database.rb:169:in `save_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:90:in `update_design_doc'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:66:in `save_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/design_doc.rb:53:in `refresh_design_doc_on'
+  couchrest (0.35) lib/couchrest/mixins/views.rb:100:in `view'
+  couchrest (0.35) lib/couchrest/more/extended_document.rb:123:in `method_missing'
+  app/controllers/bufs_info_doc_controller.rb:168:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:39:12) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `parent_categories' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:170:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:39:12) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+Completed in 150ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:39:18) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 106ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:39:18) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 158ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-05-25 21:39:24) [GET]
+  Parameters: {"node_cat"=>"web_test1", "att_name"=>"simple_text_file1.txt"}
+
+NoMethodError (undefined method `host' for #<String:0x9a056d8>):
+  /usr/local/lib/ruby/1.9.1/net/http.rb:392:in `get_response'
+  app/controllers/bufs_info_doc_controller.rb:99:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 21:46:15) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 21:46:15) [GET]
+Completed in 133ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 21:46:18) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 91ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 21:46:18) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 181ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-05-25 21:46:22) [GET]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"simple_text_file_4.txt"}
+
+URI::InvalidURIError (bad URI(is not URI?): 127.0.0.1:5984/bufs_integration_test_spec/127.0.0.1:5984/bufs_integration_test_spec_UserDB::UserDoctest_user002_web_test2_att_temp_id/simple_text_file_4.txt):
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:156:in `split'
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:626:in `parse'
+  app/controllers/bufs_info_doc_controller.rb:99:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-05-25 22:04:25) [GET]
+Completed in 150ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-05-25 22:04:26) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 31ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-05-25 22:04:29) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 97ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-05-25 22:04:29) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 138ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-05-25 22:04:32) [GET]
+  Parameters: {"node_cat"=>"web_test2", "att_name"=>"simple_text_file_4.txt"}
+Sending data simple_text_file_4.txt
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=web_test2&att_name=simple_text_file_4.txt]

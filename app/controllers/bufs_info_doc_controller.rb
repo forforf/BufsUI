@@ -20,24 +20,6 @@ class BufsInfoDocController < ApplicationController
     render :json => json_obj##, :content_type => 'text/plain'
   end
 
-=begin
-  def test_json_str
-    #user = params[:user]
-    #user_db = UserDB.new(CouchDB, user)
-    @user_db = current_user_db
-    nodes = @user_db.docClass.all
-    jvis = BufsJsvisData.new(nodes)
-    top_cat= session[:user_id]  #top category
-    depth = 4
-    jvis_data = jvis.json_vis(top_cat, depth)
-
-    json_str = <<-EOS
-{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:5984\/bufs_integration_test_spec_a","name":"a","data":{},"children":[]}]
-    EOS
-    json_obj = jvis_data
-    render :json => json_obj##, :content_type => 'text/plain'
-  end
-=end
   def get_current_nodes(depth=4)
     nodes = @user_db.docClass.all
     jvis = BufsJsvisData.new(nodes)
@@ -81,6 +63,22 @@ class BufsInfoDocController < ApplicationController
 
   end
 
+  def update_node
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    parent_cats_munged = params[:related_tags]
+    parent_cats = parent_cats_munged.split(/, */)
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    raise "Duplicate keys for node doc" if node_docs.size > 1
+    node_doc = node_docs.first if node_docs
+    #Hack need to fix model
+    add_parents = parent_cats - node_doc.parent_categories
+    rmv_parents = node_doc.parent_categories - parent_cats
+    node_doc.add_parent_categories(add_parents)
+    node_doc.remove_parent_categories(rmv_parents)
+    render :json => get_current_nodes
+  end
+
   def echo_parms
     render :text => "Params: #{params.inspect}"
   end
@@ -89,6 +87,26 @@ class BufsInfoDocController < ApplicationController
   end
 
   def form_test
+  end
+
+  def get_attachment
+    node_cat = params[:node_cat]
+    attachment_name = params[:att_name]
+    @user_db = current_user_db
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    #The proxy approach is better than the file approach, but need to t/s
+    #attachment_url_text = node_doc.attachment_url(attachment_name)
+    #att_url = URI.parse(attachment_url_text)
+    #req = Net::HTTP::Get.new(att_url.path)
+    #res = Net::HTTP.start(att_url.host, att_url.port) {|http|
+    #        http.request(req)
+    #}
+        #render error if result. ...
+    #render :text => res.body
+    send_data( node_doc.attachment_data(attachment_name), 
+               { :filename => attachment_name }
+             )
   end
 
   def dry_list_attachments(node_cat)

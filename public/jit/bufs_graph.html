@@ -38,10 +38,9 @@
 
     <div id="testarea"></div>
     <b>New Feature Test Area <br /><br />
-    <div style="text-align:center;"><a href="#" onclick="javascript:viz_update('/bufs_info_doc/test_resync?user=test')">Re-sync to file datai</a></div>
-    <div style="text-align:center;"><a href="#" onclick="javascript:show_create_node_form()">Create Node</a></div>
-    <div style="text-align:center;"><a href="#" onclick="javascript:show_destroy_node_form()">Destroy Node</a></div>
     <div style="text-align:center;"><a href="/bufs_info_doc/log_out">Sign Out</a></div>
+    <div style="text-align:center;"><a href="#" onclick="javascript:alert('Not implemented yet, but it will be cool!')">Import from File System</a></div>
+    <div style="text-align:center;"><a href="#" onclick="javascript:alert('Not implemented yet, but it will be cool!')">Export to File System</a></div>
   </div>
 
   <div id="center-container">
@@ -49,9 +48,11 @@
   </div>
 
   <div id="right-container">
-    <div id="create-node-form" style="display:none;">
-      <b>Create New Node</b>
-        <p>
+    <div id="create-node-form" class="node-forms">
+      <div id="node_creator">
+        Create New Node Form
+        <fieldset>
+           <legend><small>New Node</small></legend>
           <b>Node Tag</b><br/>
           <input id="node_cat_create" name="node_cat" type="text" />
         </p>
@@ -66,20 +67,22 @@
         <p>
           <input name="commit" value="Submit" type="submit" onclick="javascript:create_node_data()">
         </p>
+        </fieldset>
+       </div>
     </div>
 
 
-    <div id="edit-node-form">
+    <div id="edit-node-form" class="node-forms" style="display:none;">
       <div id="node_editor">
       Edit Node
          <fieldset>
             <legend>
             Node ID: <span id="node_id_edit_label"></span>
             </legend>
-            Relations:
+            Parents:
             <textarea id="related_tags_edit" name="related_tags"></textarea>
-            <button id="update_node_button">Update</button>
-            <button id="delete_node_button">Delete Node</button>
+            <button id="update_node_button" onclick="javascript:update_node()">Update</button>
+            <button id="delete_node_button" onclick="javascript:delete_node()">Delete Node</button>
             <div id="attachment_list">No Node Selected
             </div>
             <form id="add_attach_form" action="/bufs_info_doc/att_test"  method="post" enctype="multipart/form-data">
@@ -88,8 +91,8 @@
               <input id="node_id_input_edit" name="node_cat" type="hidden" />
               <input id="add_attach_edit" name="add_attachment" type="file" />
 
-              <input name="action" value="Add New Attachment" type="button" onclick="javascript:redirect_submit()" />
-              <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:inline">
+              <input name="action" value="Add New Attachment" type="button" onclick="javascript:adda_attachment()" />
+              <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:none">
               </iframe>
 
             </form>

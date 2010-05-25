@@ -5,9 +5,10 @@
 document.observe("dom:loaded", initialize_page );
 
 function initialize_page(){
-  index_nodes('/bufs_info_doc/index_nodes');
+  index_nodes();
   //Add click event to the div holding the canvas
   $("infovis").observe("click", show_create_node_form ); 
+  //$("update_node_button").observe("click", alert("clicked") );
   $('node_id_input_edit').value = " ";
   //$('files_uploaded_iframe_id').onload = alert("Uploaded file");
   setAuthToken('authtok_attach_form');  
@@ -162,10 +163,46 @@ function show_edit_node_form(node_id){
   $('node_id_edit_label').innerHTML =  node_id;
   $('create-node-form').hide();
   $('edit-node-form').show();
-  update_node_form_attachments(node_id, 'attachment_list');
+  //$("update_node_button").observe("click", alert("clicked") );//update_node(node_id) );
+
+  update_node_form_attachments(node_id);
 };
 
-function update_node_form_attachments(node_id, el_name){
+function update_node(){
+  var node_id = $('node_id_edit_label').innerHTML;
+  var related_tags = $('related_tags_edit').value;
+  //alert('Update -> NodeID: ' + node_id);
+  var node_data = { 'node_cat': node_id, 'related_tags':related_tags }
+  new Ajax.Request('/bufs_info_doc/update_node', { method:'get',
+    parameters: node_data,
+    onSuccess: function(transport, json){
+        json = transport.responseJSON;
+        rgraph.op.morph(json, {
+          type: 'fade',
+          duration: 1500});
+      }
+  });
+};
+
+
+function delete_node(){
+  var node_id = $('node_id_edit_label').innerHTML;
+  alert('Delete Node ID: ' + node_id + '?');
+  var node_data = { 'node_cat': node_id }
+  new Ajax.Request('/bufs_info_doc/destroy_node', { method:'get',
+    parameters: node_data,
+    onSuccess: function(transport, json){
+        json = transport.responseJSON;
+        rgraph.op.morph(json, {
+          type: 'fade',
+          duration: 1500});
+      }
+  });
+};
+
+
+function update_node_form_attachments(node_id){
+  var el_name = 'attachment_list'
   new Ajax.Request('/bufs_info_doc/list_attachments',
         { method:'post',
           parameters: { 'node_cat':node_id },
@@ -184,24 +221,40 @@ function update_node_form_attachments(node_id, el_name){
 //                });
 
 function make_attachment_list(attachments, el_name){
-   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />"
+   //window.current_attachments = attachments;
+   var node_id = $('node_id_edit_label').innerHTML;
+   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />";
    for (var index = 0, len = attachments.length; index < len; ++ index) {
      var attachment = attachments[index];
+     var att_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
      //alert(attachment);
-     newHTML += "<div class='attachment_item'><a href='tbd'>" + attachment + "</a>";
-     newHTML += "<input type='checkbox' name='checkbox" + index + "'> Delete?</div>";
+     newHTML += "<div class='attachment_item'><a href='" + att_url + "'>" + attachment + "</a>";
+     newHTML += "<input type='checkbox' onclick='javascript:delete_attachment(this)' name='checkbox_" + index + "'> Delete?</div>";
    };
    $(el_name).innerHTML = newHTML;
 };
 
-function att_cb_clk(node_id, att_name){
-  new Ajax.Updater('', '/bufs_info_doc/remove_attachment',{
-    parameters: {node_cat: node_id}
-  });
-
-  show_edit_node_form(node_id);
+function delete_attachment(el){
+  //var index = el.name.replace(/checkbox_/g,''));
+  var attach_name = el.previousSibling.innerHTML;
+  var node_id = $('node_id_edit_label').innerHTML;
+  //alert(attach_name);
   //alert(node_id);
+  new Ajax.Updater('', '/bufs_info_doc/remove_attachment',{
+    parameters: {'node_cat': node_id, 'att_name':attach_name }
+  });
+  update_node_form_attachments(node_id);
+
 }
+
+//not needed anymore?
+//function att_cb_clk(node_id, att_name){
+//  new Ajax.Updater('', '/bufs_info_doc/remove_attachment',{
+//    parameters: {node_cat: node_id}
+//  });
+//
+//  show_edit_node_form(node_id);
+//}
 
 
 function redirect_submit(){
@@ -209,7 +262,10 @@ $('add_attach_form').target = 'files_uploaded_iframe'; //iframe
 $('add_attach_form').submit();
 };
 
-
+function adda_attachment(){
+  redirect_submit();
+  update_node_form_attachments($('node_id_edit_label').innerHTML);
+};
 //function show_create_node_form() {
 //  alert("Create New Node");
 //}
@@ -237,9 +293,9 @@ function create_node_data(){
 };
 
 function destroy_node_data(){
- var node_cat = $('node_cat_destroy');
-
- var node_data = { node_cat: node_cat.value }
+ //var node_cat = $('node_cat_destroy');
+ var node_id = $('node_id_edit_label').innerHTML;
+ var node_data = { 'node_cat': node_id }
  new Ajax.Request('/bufs_info_doc/destroy_node', { method:'get',
     parameters: node_data,
     onSuccess: function(transport, json){
@@ -257,16 +313,17 @@ function destroy_node_data(){
 };
 
 
-function index_nodes(data_url){
- new Ajax.Request(data_url,
-  {
-    method:'get',
-    onSuccess: function(transport){
-      json = transport.responseJSON
-      viz_init(json);  
-    },
-    onFailure: function(){ alert('Something went wrong...') }
-  });
+function index_nodes(){
+  var data_url = '/bufs_info_doc/index_nodes';
+  new Ajax.Request(data_url,
+    {
+      method:'get',
+      onSuccess: function(transport){
+        json = transport.responseJSON
+        viz_init(json);  
+      },
+      onFailure: function(){ alert('Something went wrong...') }
+    });
 };
 
 

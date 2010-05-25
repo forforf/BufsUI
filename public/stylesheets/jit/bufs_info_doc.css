@@ -22,7 +22,7 @@ textarea#related_tags_edit {
     border-style:solid
 }
 
-#edit-node-form {
+#edit-node-form, #create-node-form {
     margin:5px;
     padding:5px;
     border-style:solid;
