@@ -1,0 +1,44 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="javascripts/prototype.js"></script>
+
+<script>
+document.observe("dom:loaded", initialize_page );
+
+function initialize_page(){
+  setAuthToken('authtok');
+};
+function redirect_submit(){
+$('add_attach_form').target = 'files_uploaded_iframe'; //iframe
+alert("Target Set");
+$('add_attach_form').submit();
+};
+
+function setAuthToken(el_id){
+  new Ajax.Request('/bufs_info_doc/a_t',
+    {
+      method:'get',
+      onSuccess: function(transport){
+        window.authToken = transport.responseText;
+        $(el_id).value = window.authToken.replace(/\s/g,'');
+      },
+      onFailure: function(){alert('Auth Token not retrieved');}
+    });
+};
+
+</script>
+</head>
+
+<body>
+<form id="add_attach_form" action="/bufs_info_doc/echo_parms"  method="post" enctype="multipart/form-data">
+              <!-- Parameters: node_id -->
+              <input id="authtok" type="hidden" name="authenticity_token" value=" " />
+              <input id="node_id_input_edit" name="node_cat" type="hidden" />
+              <input id="add_attach_edit" name="add_attachment" type="file" />
+
+              <input name="action" value="Add New Attachment" type="button" onclick="javascript:redirect_submit()" />
+              <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:inline">
+              </iframe>
+</form>
+</body>
+</html>

@@ -82,15 +82,32 @@ class BufsInfoDocController < ApplicationController
   end
 
   def echo_parms
-    render :text => params.inspect
+    render :text => "Params: #{params.inspect}"
+  end
+ 
+  def a_t
   end
 
-  def list_attachments(node_cat=params[:node_cat])
+  def form_test
+  end
+
+  def dry_list_attachments(node_cat)
     @user_db = current_user_db
     node_docs = @user_db.docClass.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
-    @attachment_names = node_doc.get_attachment_names
+    @attachment_names = node_doc.get_attachment_names if node_doc
+  end
+
+  def list_attachments
+    node_cat=params[:node_cat]
+    @attachment_names = dry_list_attachments(node_cat)
+    #@user_db = current_user_db
+    #node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    #node_doc = node_docs.first
+    #@node_cat = node_cat
+    #@attachment_names = node_doc.get_attachment_names if node_doc
+    render :json => @attachment_names.to_json
   end
 
   def remove_attachment
@@ -127,7 +144,7 @@ class BufsInfoDocController < ApplicationController
     node_doc.add_data_file(new_file_loc)
     FileUtils.rm(new_file_loc)
     FileUtils.rmdir(new_file_dir)
-    @attachment_names = list_attachments(node_cat)
+    @attachment_names = dry_list_attachments(node_cat)
     #render :text => "OK"
     #render :text => @att_file.original_filename
   end

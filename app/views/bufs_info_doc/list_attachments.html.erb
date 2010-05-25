@@ -1,12 +1,1 @@
-<b>Attachments</b>
-<div class="entries_container">
-  <fieldset>
-  <legend>Attachments</legend>
-<% @attachment_names.each_with_index do |att_name, i| %>
-  <%=att_name%><input type="checkbox" name="checkbox<%=i%>" style="margin-left:9px"  onclick=<%="\"javascript:att_cb_clk(\'#{@node_cat}\', \'#{att_name}\')"%>">Delete?
-  <br/>
-<%end%>
-  </fieldset>
-</div>
-<br/>
-
+<%= @attachment_names.to_json %>

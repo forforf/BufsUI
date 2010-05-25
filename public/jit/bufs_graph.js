@@ -8,6 +8,9 @@ function initialize_page(){
   index_nodes('/bufs_info_doc/index_nodes');
   //Add click event to the div holding the canvas
   $("infovis").observe("click", show_create_node_form ); 
+  $('node_id_input_edit').value = " ";
+  //$('files_uploaded_iframe_id').onload = alert("Uploaded file");
+  setAuthToken('authtok_attach_form');  
 };
 
 
@@ -90,6 +93,7 @@ var Log = {
     }
 };
 
+
 //var jsonNoResp = {"id":"dummy","name":"no data from server","data":{},"children":[]}
 //function ajaxRequest(url) { new Ajax.Request(url,
 //  {
@@ -102,6 +106,18 @@ var Log = {
 //    onFailure: function(){ alert('Something went wrong...') }
 //  });
 //};
+
+function setAuthToken(el_id){
+  new Ajax.Request('/bufs_info_doc/a_t',
+    {
+      method:'get',
+      onSuccess: function(transport){
+        window.authToken = transport.responseText;
+        $(el_id).value = window.authToken.replace(/\s/g,'');
+      },
+      onFailure: function(){alert('Auth Token not retrieved');} 
+    });
+};
 
 function ajaxGetParentCats(el, node_cat){ new Ajax.Request('/bufs_info_doc/parent_cats',
   {
@@ -120,7 +136,7 @@ function viz_update(data_url){
   {
     method:'get',
     onSuccess: function(transport){
-      json = transport.responseJSON
+      json = transport.responseJSON;
       rgraph.op.morph(json, {
         type: 'fade',
 	duration: 1500 
@@ -142,13 +158,40 @@ function show_destroy_node_form(){
 
 function show_edit_node_form(node_id){
   //alert("Edit: " + node_id);
-  $('node_cat_edit').value = node_id
+  $('node_id_edit').value = node_id;
+  $('node_id_edit_label').innerHTML =  node_id;
   $('create-node-form').hide();
   $('edit-node-form').show();
-  new Ajax.Updater('attachment_list','/bufs_info_doc/list_attachments',{
-                  parameters:{ node_cat: node_id }
-                });
+  update_node_form_attachments(node_id, 'attachment_list');
+};
 
+function update_node_form_attachments(node_id, el_name){
+  new Ajax.Request('/bufs_info_doc/list_attachments',
+        { method:'post',
+          parameters: { 'node_cat':node_id },
+          onSuccess: function(transport){
+            json = transport.responseJSON;
+            $('node_id_input_edit').value = node_id;
+            make_attachment_list(json, el_name);
+            //dynamically_create_attachment_list(json);
+          },
+          onFailure: function(){ alert('Something went wrong updating attachments...')}
+        });
+};
+
+//  new Ajax.Updater('attachment_list','/bufs_info_doc/list_attachments',{
+//                  parameters:{ node_cat: node_id }
+//                });
+
+function make_attachment_list(attachments, el_name){
+   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />"
+   for (var index = 0, len = attachments.length; index < len; ++ index) {
+     var attachment = attachments[index];
+     //alert(attachment);
+     newHTML += "<div class='attachment_item'><a href='tbd'>" + attachment + "</a>";
+     newHTML += "<input type='checkbox' name='checkbox" + index + "'> Delete?</div>";
+   };
+   $(el_name).innerHTML = newHTML;
 };
 
 function att_cb_clk(node_id, att_name){
@@ -159,6 +202,7 @@ function att_cb_clk(node_id, att_name){
   show_edit_node_form(node_id);
   //alert(node_id);
 }
+
 
 function redirect_submit(){
 $('add_attach_form').target = 'files_uploaded_iframe'; //iframe

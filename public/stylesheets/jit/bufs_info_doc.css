@@ -1,0 +1,43 @@
+fieldset {
+    margin:5px;
+}
+
+input {
+    
+}
+
+button {
+ margin:5px;
+}
+
+.footnote {
+    font-size:0.7em;
+}
+
+textarea#related_tags_edit {
+    width:330px;
+}
+
+#testarea {
+    border-style:solid
+}
+
+#edit-node-form {
+    margin:5px;
+    padding:5px;
+    border-style:solid;
+    /*display:none;*/
+}
+
+#node_id_edit_label {
+    background-color:yellow;
+}
+
+#attachment_list {
+    margin:5px;
+    background-color:#DDDDDD;
+}
+
+/* Dynamically Appearing Elements */
+.attachment_item {
+}
