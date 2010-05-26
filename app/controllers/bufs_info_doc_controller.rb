@@ -1,5 +1,6 @@
 class BufsInfoDocController < ApplicationController
   CouchDB = CouchRest.database!('http://127.0.0.1:5984/bufs_integration_test_spec')
+  CouchDBLocation = 'http://127.0.0.1:5984/'
 
   protect_from_forgery :except => :att_test
 
@@ -186,8 +187,15 @@ class BufsInfoDocController < ApplicationController
     render :json => jvis_data
   end
 
+  def log_in_form
+    @couch_db_location = CouchDBLocation
+    @db_default = "bufs_integration_test_spec"
+    @user_id_default = "test_user002"
+  end
+
   def log_in
-    session[:couch_db_url] = params[:couch_db_url]
+    couch_db_url = "#{CouchDBLocation}#{params[:db_name]}" 
+    session[:couch_db_url] = couch_db_url
     session[:user_id] = params[:user_id]
     #render :text => session
     #@user_db = current_user_db  #method in application_controller.rb
@@ -198,7 +206,7 @@ class BufsInfoDocController < ApplicationController
   def log_out
     session[:load]
     session.clear
-    redirect_to '/bufs_info_doc/log_in_form'
+    redirect_to '/index'
   end
 
   def create_node_form

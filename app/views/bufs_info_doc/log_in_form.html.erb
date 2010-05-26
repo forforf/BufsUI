@@ -1,13 +1,14 @@
 <h1>Log In</h1>
-<% form_tag( 'log_in', :multipart => true )  do %>
+<% form_tag( 'bufs_info_doc/log_in', :multipart => true )  do %>
 
   <p>
-      <b>Couch DB Location</b><br/>
-      <%= text_field_tag :couch_db_url %>
+      <b>DB Name to use</b><br/>
+      <%= text_field_tag :db_name, @db_default, :size => 40 %><br/>
+      DB Location: <%= @couch_db_location %> <br/>
   <p>
   </p>
       <b>User ID</b><br/>
-      <%= text_field_tag :user_id %>
+      <%= text_field_tag :user_id, @user_id_default %>
   </p>
 
   <p>
