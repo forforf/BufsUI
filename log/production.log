@@ -9436,3 +9436,146 @@ Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-05-25
   Parameters: {"node_cat"=>"web_test2", "att_name"=>"simple_text_file_4.txt"}
 Sending data simple_text_file_4.txt
 Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=web_test2&att_name=simple_text_file_4.txt]
+
+
+Processing BufsInfoDocController#log_in (for 68.98.141.140 at 2010-05-25 22:34:36) [GET]
+Redirected to http://bufs.younghawk.org/jit/bufs_graph.html
+Completed in 2ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 68.98.141.140 at 2010-05-25 22:34:36) [GET]
+
+NoMethodError (undefined method `gsub' for nil:NilClass):
+  couchrest (0.35) lib/couchrest/core/database.rb:20:in `initialize'
+  couchrest (0.35) lib/couchrest/core/server.rb:53:in `new'
+  couchrest (0.35) lib/couchrest/core/server.rb:53:in `database'
+  couchrest (0.35) lib/couchrest/core/server.rb:59:in `database!'
+  couchrest (0.35) lib/couchrest.rb:139:in `database!'
+  app/controllers/application_controller.rb:12:in `current_user_db'
+  app/controllers/bufs_info_doc_controller.rb:9:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 68.98.141.140 at 2010-05-25 22:34:36) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_out (for 68.98.141.140 at 2010-05-25 22:34:41) [GET]
+Redirected to http://bufs.younghawk.org/bufs_info_doc/log_in_form
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 68.98.141.140 at 2010-05-25 22:34:41) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 17ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/log_in_form]
+
+
+Processing BufsInfoDocController#log_in (for 68.98.141.140 at 2010-05-25 22:34:53) [POST]
+  Parameters: {"authenticity_token"=>"vMmw+CxYKywDg2wJl5Jr3oliBhUPAvGGWdzLOmTuZZw=", "couch_db_url"=>"http://127.0.0.1:5984/bufs_integration_test", "user_id"=>"saf001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/jit/bufs_graph.html
+Completed in 0ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#a_t (for 68.98.141.140 at 2010-05-25 22:34:53) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 68.98.141.140 at 2010-05-25 22:34:53) [GET]
+Completed in 24ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 68.98.141.140 at 2010-05-25 22:34:58) [GET]
+  Parameters: {"node_cat"=>"t01"}
+Completed in 41ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=t01]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:34:59) [POST]
+  Parameters: {"node_cat"=>"t01", "_"=>""}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:35:50) [POST]
+  Parameters: {"node_cat"=>"t01", "_"=>""}
+Completed in 22ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 68.98.141.140 at 2010-05-25 22:35:50) [POST]
+  Parameters: {"authenticity_token"=>"vMmw+CxYKywDg2wJl5Jr3oliBhUPAvGGWdzLOmTuZZw=", "node_cat"=>"t01", "add_attachment"=>#<File:/tmp/RackMultipart20100525-5674-gxqc6k-0>}
+Rendering bufs_info_doc/att_test
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 68.98.141.140 at 2010-05-25 22:36:08) [GET]
+  Parameters: {"node_cat"=>"t01"}
+Completed in 34ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=t01]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:36:08) [POST]
+  Parameters: {"node_cat"=>"t01", "_"=>""}
+Completed in 36ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 68.98.141.140 at 2010-05-25 22:36:12) [GET]
+  Parameters: {"node_cat"=>"t01", "att_name"=>"Photo_62.jpg"}
+Sending data Photo_62.jpg
+Completed in 145ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=t01&att_name=Photo_62.jpg]
+
+
+Processing BufsInfoDocController#parent_cats (for 68.98.141.140 at 2010-05-25 22:36:41) [GET]
+  Parameters: {"node_cat"=>"t01"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=t01]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:36:41) [POST]
+  Parameters: {"node_cat"=>"t01", "_"=>""}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:36:48) [POST]
+  Parameters: {"node_cat"=>"t01", "_"=>""}
+Completed in 36ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 68.98.141.140 at 2010-05-25 22:36:48) [POST]
+  Parameters: {"node_cat"=>"t01", "att_name"=>"Photo_62.jpg", "_"=>""}
+Completed in 44ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#create_node (for 68.98.141.140 at 2010-05-25 22:49:48) [GET]
+  Parameters: {"node_cat"=>"t02", "related_tags"=>"t01"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=t02&related_tags=t01]
+
+
+Processing BufsInfoDocController#parent_cats (for 68.98.141.140 at 2010-05-25 22:49:53) [GET]
+  Parameters: {"node_cat"=>"t02"}
+Completed in 20ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=t02]
+
+
+Processing BufsInfoDocController#list_attachments (for 68.98.141.140 at 2010-05-25 22:49:53) [POST]
+  Parameters: {"node_cat"=>"t02", "_"=>""}
+Completed in 71ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
