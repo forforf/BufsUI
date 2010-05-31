@@ -371,6 +371,7 @@ function viz_init(json){
         },
         
         Edge: {
+            type: 'arrow',
             color: '#772277'
         },
 

@@ -83,6 +83,14 @@ class BufsInfoDocController < ApplicationController
   def echo_parms
     render :text => "Params: #{params.inspect}"
   end
+
+  def echo_node
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    render :text => node_doc.inspect
+  end
  
   def a_t
   end
@@ -118,15 +126,27 @@ class BufsInfoDocController < ApplicationController
     @attachment_names = node_doc.get_attachment_names if node_doc
   end
 
+  def dry_list_links(node_cat)
+    @user_db = current_user_db
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    @node_cat = node_cat
+    @link_names = node_doc.get_link_names
+  end
+
   def list_attachments
-    node_cat=params[:node_cat]
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
     @attachment_names = dry_list_attachments(node_cat)
-    #@user_db = current_user_db
-    #node_docs = @user_db.docClass.by_my_category(:key => node_cat)
-    #node_doc = node_docs.first
-    #@node_cat = node_cat
-    #@attachment_names = node_doc.get_attachment_names if node_doc
     render :json => @attachment_names.to_json
+  end
+
+  def list_links
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    @link_names = dry_list_links(node_cat)
+    render :text => @link_names.inspect
+    #render :json => @link_names.to_json
   end
 
   def remove_attachment
@@ -137,6 +157,18 @@ class BufsInfoDocController < ApplicationController
     node_doc = node_docs.first
     node_doc.remove_attachment(att_name)
     render :text => "Attachment Removed"
+  end
+
+  def add_link
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    link_to_add = params[:link_uri]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    node_doc.add_links(link_to_add)
+    
+    @link_names = dry_list_links(node_cat)
+    render :text => node_doc.inspect #@link_names.inspect
   end
 
 
