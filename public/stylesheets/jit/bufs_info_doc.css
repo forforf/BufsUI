@@ -29,6 +29,14 @@ textarea#related_tags_edit {
     /*display:none;*/
 }
 
+#att_button_area, #link_button_area {
+    margin:5px;
+    padding:5px;
+    border-color:gray;
+    border-width:1px;
+    border-style:solid;
+}
+
 #node_id_edit_label {
     background-color:yellow;
 }

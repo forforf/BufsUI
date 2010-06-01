@@ -145,8 +145,8 @@ class BufsInfoDocController < ApplicationController
     @user_db = current_user_db
     node_cat = params[:node_cat]
     @link_names = dry_list_links(node_cat)
-    render :text => @link_names.inspect
-    #render :json => @link_names.to_json
+    #render :text => @link_names.inspect
+    render :json => @link_names.to_json
   end
 
   def remove_attachment
@@ -159,6 +159,17 @@ class BufsInfoDocController < ApplicationController
     render :text => "Attachment Removed"
   end
 
+  def remove_link
+    @user_db = current_user_db
+    node_cat = params[:node_cat]
+    link_name = params[:link_name]
+    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_doc = node_docs.first
+    node_doc.remove_links(link_name)
+    render :text => "Link Removed"
+  end
+
+
   def add_link
     @user_db = current_user_db
     node_cat = params[:node_cat]
@@ -170,7 +181,6 @@ class BufsInfoDocController < ApplicationController
     @link_names = dry_list_links(node_cat)
     render :text => node_doc.inspect #@link_names.inspect
   end
-
 
   def att_test
     @user_db = current_user_db

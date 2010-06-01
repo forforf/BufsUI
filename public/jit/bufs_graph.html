@@ -85,13 +85,23 @@
             <button id="delete_node_button" onclick="javascript:delete_node()">Delete Node</button>
             <div id="attachment_list">No Node Selected
             </div>
+            <div id="links_list">No Node Selected
+            </div>
             <form id="add_attach_form" action="/bufs_info_doc/att_test"  method="post" enctype="multipart/form-data">
               <!-- Parameters: node_id -->
               <input id="authtok_attach_form" type="hidden" value=" " name="authenticity_token">
               <input id="node_id_input_edit" name="node_cat" type="hidden" />
-              <input id="add_attach_edit" name="add_attachment" type="file" />
 
-              <input name="action" value="Add New Attachment" type="button" onclick="javascript:adda_attachment()" />
+              <div id="att_button_area">
+                <input id="add_attach_edit" name="add_attachment" type="file" />
+                <input name="action" value="Add New Attachment" type="button" onclick="javascript:adda_attachment()" />
+              </div>
+
+              <div id="link_button_area">
+                <input id="add_link_edit" name="add_link" />
+                <input name="action" value="Add New Link" type="button" onclick="javascript:adda_link()" />
+              </div>
+
               <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:none">
               </iframe>
 
