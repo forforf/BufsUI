@@ -213,7 +213,7 @@ function update_node_form_attachments(node_id){
             make_attachment_list(json, el_name);
             //dynamically_create_attachment_list(json);
           },
-          onFailure: function(){ alert('Something went wrong updating attachments...')}
+          onFailure: function(){ alert('Something went wrong updating attachments... \n Response:' + transport.headerJSON)}
         });
 };
 
@@ -228,7 +228,7 @@ function update_node_form_links(node_id){
             make_links_list(json, el_name);
             //dynamically_create_attachment_list(json);
           },
-          onFailure: function(){ alert('Something went wrong updating links...')}
+          onFailure: function(){ alert('Something went wrong updating links...\n Response:' + transport.headerJSON)}
         });
 };
 

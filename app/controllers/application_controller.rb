@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   def current_user_db
     couch_db = CouchRest.database!( session[:couch_db_url] )
-    @_current_user_db ||= UserDB.new(couch_db, session[:user_id])
+    @current_user_db ||= UserDB.new(couch_db, session[:user_id])
   end
 end

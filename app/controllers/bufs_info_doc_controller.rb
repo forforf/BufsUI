@@ -255,5 +255,24 @@ class BufsInfoDocController < ApplicationController
     #render :text => params.to_s
   end
 
+  def export_to_file
+    @user_db = current_user_db
+    user_id = session[:user_id]
+    #TODO Add passwords to sessions
+    user_pw = session[:pw]||"1234"
+    #retrieve user specific file node class
+    file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
+    node_docs = @user_db.docClass.all
+    node_docs.each do |node_doc|
+      file_nodeClass.create_from_doc_node(node_doc)
+    end
+    #home_dir = ::BindUserFileSystem.get_home_dir(user_id)
+    #dir_list = Dir["#{home_dir}*"].sort_by {|f| test(?M, f)}
+    #render :text => dir_list
+    user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
+    redirect_to user_dir_frontend
+  end
+
+
 end
 
