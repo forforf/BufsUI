@@ -273,11 +273,11 @@ class BufsInfoDocController < ApplicationController
     #create view
     #TODO: Unhack build viewer
     #TODO: fix BufsViewBuilder to allow home as parent
-    home_dir = ::BindUserFileSystem.get_home_dir(user_id) + 'view/'
+    home_dir = ::BindUserFileSystem.get_home_dir(user_id) 
+
     #TODO: Fix so model dir is set right in the correct spot (wherever that may be
-    amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
+    #amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
     view_builder = ::BufsViewBuilder.new
-    top_level_nodes = []
     top_level_nodes = file_nodeClass.by_parent_categories(user_id)
     view_builder.build_view(home_dir, top_level_nodes, file_nodes, amodel_dir) unless top_level_nodes.empty?
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
