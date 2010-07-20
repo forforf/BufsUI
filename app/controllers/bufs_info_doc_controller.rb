@@ -262,17 +262,27 @@ class BufsInfoDocController < ApplicationController
     user_pw = session[:pw]||"1234"
     #retrieve user specific file node class
     file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
+    file_nodes = []
     node_docs = @user_db.docClass.all
+    #TODO: Hack to delete model directory here, perhaps sync node is required for proper solution?
+    amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
+    FileUtils.rm_rf(amodel_dir)
     node_docs.each do |node_doc|
-      file_nodeClass.create_from_doc_node(node_doc)
+      file_nodes << file_nodeClass.create_from_doc_node(node_doc)
     end
-    #home_dir = ::BindUserFileSystem.get_home_dir(user_id)
-    #dir_list = Dir["#{home_dir}*"].sort_by {|f| test(?M, f)}
-    #render :text => dir_list
+    #create view
+    #TODO: Unhack build viewer
+    #TODO: fix BufsViewBuilder to allow home as parent
+    home_dir = ::BindUserFileSystem.get_home_dir(user_id) + 'view/'
+    #TODO: Fix so model dir is set right in the correct spot (wherever that may be
+    amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
+    view_builder = ::BufsViewBuilder.new
+    top_level_nodes = []
+    top_level_nodes = file_nodeClass.by_parent_categories(user_id)
+    view_builder.build_view(home_dir, top_level_nodes, file_nodes, amodel_dir) unless top_level_nodes.empty?
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
     redirect_to user_dir_frontend
   end
-
 
 end
 
