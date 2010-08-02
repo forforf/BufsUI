@@ -255,12 +255,19 @@ function make_links_list(links, el_name){
    var node_id = $('node_id_edit_label').innerHTML;
    newHTML = "<span id='dynamic_links_label'>Links</span><br />";
    for (var index = 0, len = links.length; index < len; ++ index) {
-     var link = links[index];
-     //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
-     //alert(attachment);
-     newHTML += "<div class='link_item'><a href='" + link + "'>" + link + "</a>";
-     newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
+     linkData = links[index]
+     for (var src in linkData){
+       var linkName = linkData[src];
+       //alert(inspect(linkName));
+       //alert(src);
+       //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
+       //alert(attachment);
+       newHTML += "<div class='link_item'><a href='" + src + "'>" + linkName + "</a>";
+       //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
+       newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
+     };
    };
+   //alert(newHTML);
    $(el_name).innerHTML = newHTML;
 };
 
@@ -315,11 +322,15 @@ function adda_attachment(){
 function adda_link(){
   //redirect_submit();
   var node_id = $('node_id_edit_label').innerHTML;
+  //TODO: clean up link naming (maybe link_src and link_label?)
   var link_name = $('add_link_edit').value;
+  var link_name_label = $('add_link_name_edit').value;
   //alert(link_name);
+  //alert(link_name_label);
   new Ajax.Updater('', '/bufs_info_doc/add_link',{
-    parameters: {'node_cat': node_id, 'link_uri':link_name }
+    parameters: {'node_cat': node_id, 'link_uri':link_name, 'link_label':link_name_label }
   });
+  //alert($('node_id_edit_label').innerHTML);
   update_node_form_links($('node_id_edit_label').innerHTML);
 };
 

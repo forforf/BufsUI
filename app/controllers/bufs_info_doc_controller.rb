@@ -146,6 +146,7 @@ class BufsInfoDocController < ApplicationController
     node_cat = params[:node_cat]
     @link_names = dry_list_links(node_cat)
     #render :text => @link_names.inspect
+    #raise @link_names.to_json.inspect
     render :json => @link_names.to_json
   end
 
@@ -174,9 +175,11 @@ class BufsInfoDocController < ApplicationController
     @user_db = current_user_db
     node_cat = params[:node_cat]
     link_to_add = params[:link_uri]
+    link_label_to_add = params[:link_label]
     node_docs = @user_db.docClass.by_my_category(:key => node_cat)
     node_doc = node_docs.first
-    node_doc.add_links(link_to_add)
+    link_data_to_add = {link_to_add => link_label_to_add}
+    node_doc.add_links(link_data_to_add)
     
     @link_names = dry_list_links(node_cat)
     render :text => node_doc.inspect #@link_names.inspect
