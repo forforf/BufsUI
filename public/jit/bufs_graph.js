@@ -254,10 +254,12 @@ function make_links_list(links, el_name){
    //window.current_attachments = attachments;
    var node_id = $('node_id_edit_label').innerHTML;
    newHTML = "<span id='dynamic_links_label'>Links</span><br />";
-   for (var index = 0, len = links.length; index < len; ++ index) {
-     linkData = links[index]
-     for (var src in linkData){
-       var linkName = linkData[src];
+   var index = 0
+   for (var src in links) {
+   //for (var index = 0, len = links.length; index < len; ++ index) {
+     //linkData = links[index]
+     //for (var src in linkData){
+     var linkName = links[src];
        //alert(inspect(linkName));
        //alert(src);
        //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
@@ -265,7 +267,8 @@ function make_links_list(links, el_name){
        newHTML += "<div class='link_item'><a href='" + src + "'>" + linkName + "</a>";
        //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
        newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
-     };
+     index += 1
+     //};
    };
    //alert(newHTML);
    $(el_name).innerHTML = newHTML;
@@ -331,6 +334,8 @@ function adda_link(){
     parameters: {'node_cat': node_id, 'link_uri':link_name, 'link_label':link_name_label }
   });
   //alert($('node_id_edit_label').innerHTML);
+  //TODO: This should only be ran after the ajax update?  Right now it
+  // seems like it will execute asynchrounously
   update_node_form_links($('node_id_edit_label').innerHTML);
 };
 

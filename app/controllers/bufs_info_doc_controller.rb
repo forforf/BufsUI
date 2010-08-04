@@ -174,11 +174,11 @@ class BufsInfoDocController < ApplicationController
   def add_link
     @user_db = current_user_db
     node_cat = params[:node_cat]
-    link_to_add = params[:link_uri]
+    link_uri_to_add = params[:link_uri]
     link_label_to_add = params[:link_label]
     node_docs = @user_db.docClass.by_my_category(:key => node_cat)
     node_doc = node_docs.first
-    link_data_to_add = {link_to_add => link_label_to_add}
+    link_data_to_add = {link_uri_to_add => link_label_to_add}
     node_doc.add_links(link_data_to_add)
     
     @link_names = dry_list_links(node_cat)

@@ -10495,3 +10495,932 @@ Completed in 66ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/lis
 Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-06-10 21:22:10) [POST]
   Parameters: {"node_cat"=>"dummy3"}
 Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-08-03 19:33:53) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 55ms (View: 55 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-08-03 19:33:57) [POST]
+  Parameters: {"authenticity_token"=>"HRDTjgRV+tywTQx5l/jEq39Rpi1Ff2cgJ5s5iNowA9Y=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:33:59) [GET]
+Completed in 81ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:33:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 56ms (View: 55 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:34:10) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:34:10) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:34:10) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 19:34:15) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"the google"}
+Completed in 88ms (View: 29 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:34:16) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:39:58) [GET]
+Completed in 111ms (View: 57 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:39:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:40:00) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 132ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:40:01) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 130ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:40:01) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 19:40:05) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"the google"}
+Completed in 83ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:40:05) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:41:24) [GET]
+Completed in 49ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:41:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:41:25) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 52ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:41:25) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:41:25) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 128ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 19:41:28) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"http://www.google.com/"}
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:41:28) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 94ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:41:33) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 61ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:41:33) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 50ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:41:33) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 65ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:41:46) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 61ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:41:46) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 128ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:41:46) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:42:13) [GET]
+Completed in 41ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:42:13) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:42:15) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:42:15) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:42:15) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:42:19) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 56ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:42:19) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:42:19) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:42:25) [GET]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 74ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test4]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:42:25) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:42:25) [POST]
+  Parameters: {"node_cat"=>"web_test4"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:42:30) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:42:30) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 74ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:42:30) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 75ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:45:17) [GET]
+Completed in 75ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:45:17) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:20) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:20) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:20) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:26) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:27) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:27) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:34) [GET]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test5]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:34) [POST]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 74ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:35) [POST]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:38) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 54ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:38) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 74ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:38) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:43) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 84ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:43) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:43) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:45:51) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 61ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:45:51) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:45:51) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 19:47:50) [GET]
+Completed in 58ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 19:47:50) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:47:53) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 28ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:47:53) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 26ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:47:53) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:47:57) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 80ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:47:57) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:47:57) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 57ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-03 19:48:24) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com/", "link_label"=>"the google"}
+Completed in 191ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:48:25) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 19:48:29) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"http://www.google.com/"}
+Completed in 107ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:48:29) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 75ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:48:35) [GET]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 83ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test5]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:48:36) [POST]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:48:36) [POST]
+  Parameters: {"node_cat"=>"web_test5"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 19:48:39) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 59ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 19:48:39) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:48:39) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 96ms (View: 10 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 19:48:53) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"http://www.google.com/"}
+Completed in 83ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 19:48:53) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 21:36:53) [GET]
+Completed in 85ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 21:36:53) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 20ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:36:55) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 24ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:36:55) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:36:55) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-03 21:37:00) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com/", "link_label"=>"the google"}
+
+TypeError (can't convert String into Integer):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:72:in `[]'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:72:in `block in add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:71:in `each'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:71:in `add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:293:in `add_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (74.4ms)
+Rendered rescues/_request_and_response (23.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:37:00) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 87ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-03 21:37:10) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"the google"}
+Completed in 83ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:37:10) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:37:14) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:37:14) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:37:14) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:37:18) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 48ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:37:18) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 66ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:37:18) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 21:39:49) [GET]
+Completed in 117ms (View: 46 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 21:39:50) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 11ms (View: 10 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:39:54) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 85ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:39:54) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 137ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:39:54) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 57ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-03 21:39:57) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com/", "link_label"=>"the google"}
+
+RuntimeError (link_doc uris error, [{"http://www.google.com/"=>"the google"}]):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:70:in `add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:293:in `add_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (111.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:39:58) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 21:41:26) [GET]
+Completed in 85ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 21:41:26) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:41:28) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 50ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:41:28) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 72ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:41:28) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-03 21:41:32) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com/", "link_label"=>"the google"}
+
+RuntimeError (link_doc uris error, nil):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:70:in `add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:293:in `add_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (124.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:41:32) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 63ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-03 21:42:40) [GET]
+Completed in 154ms (View: 48 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-03 21:42:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:42:43) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 75ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:42:43) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 141ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:42:43) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-03 21:42:47) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com/", "link_label"=>"the google"}
+Completed in 110ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:42:47) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 58ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:42:54) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 81ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:42:54) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 61ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:42:54) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 66ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-03 21:42:57) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 71ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-03 21:42:58) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-03 21:42:58) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-08-04 14:00:07) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 62ms (View: 61 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-08-04 16:36:20) [POST]
+  Parameters: {"authenticity_token"=>"HRDTjgRV+tywTQx5l/jEq39Rpi1Ff2cgJ5s5iNowA9Y=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-04 16:36:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-04 16:36:21) [GET]
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:36:23) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 44ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:36:23) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:36:23) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 74ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:36:28) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 74ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:36:28) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:36:28) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:36:32) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:36:32) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:36:32) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-04 16:36:45) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http:\\\\www.google.com", "link_label"=>"google"}
+
+URI::InvalidURIError (bad URI(is not URI?): http:\\www.google.com):
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:156:in `split'
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
+  /usr/local/lib/ruby/1.9.1/uri/common.rb:626:in `parse'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:47:in `block in add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:46:in `each'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:46:in `add_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:293:in `add_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (96.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:36:46) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-04 16:37:06) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com", "link_label"=>"google"}
+Completed in 201ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:37:06) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:37:12) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 64ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:37:12) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:37:13) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:37:16) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 78ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:37:16) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:37:16) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 136ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-04 16:50:14) [GET]
+Completed in 27ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-04 16:50:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:50:17) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:50:17) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:50:17) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 65ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-04 16:50:23) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"google"}
+
+NoMethodError (undefined method `-' for #<Hash:0x8958708>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:96:in `remove_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:299:in `remove_links'
+  app/controllers/bufs_info_doc_controller.rb:169:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (131.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:50:23) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 41ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:50:26) [GET]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 91ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:50:27) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:50:27) [POST]
+  Parameters: {"node_cat"=>"web_test2"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:50:32) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:50:32) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:50:32) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 75ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-04 16:51:01) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"google"}
+
+NoMethodError (undefined method `-' for #<Hash:0x9ab4630>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_link.rb:96:in `remove_links'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_info_doc.rb:299:in `remove_links'
+  app/controllers/bufs_info_doc_controller.rb:169:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (66.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:51:02) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 74ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-04 16:52:42) [GET]
+Completed in 93ms (View: 58 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-04 16:52:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 47ms (View: 46 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-08-04 16:52:45) [GET]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 37ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=web_test1]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-08-04 16:52:45) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:52:45) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 52ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-08-04 16:52:49) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_name"=>"google"}
+Completed in 89ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:52:49) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-08-04 16:53:10) [POST]
+  Parameters: {"node_cat"=>"web_test1", "link_uri"=>"http://www.google.com", "link_label"=>"another google"}
+Completed in 140ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-08-04 16:53:10) [POST]
+  Parameters: {"node_cat"=>"web_test1"}
+Completed in 74ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
