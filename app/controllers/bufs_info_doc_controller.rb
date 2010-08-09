@@ -131,7 +131,7 @@ class BufsInfoDocController < ApplicationController
     node_docs = @user_db.docClass.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
-    @link_names = node_doc.get_link_names
+    @link_names = node_doc.get_link_names if node_doc
   end
 
   def list_attachments
@@ -285,6 +285,27 @@ class BufsInfoDocController < ApplicationController
     view_builder.build_view(home_dir, top_level_nodes, file_nodes, amodel_dir) unless top_level_nodes.empty?
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
     redirect_to user_dir_frontend
+  end
+
+  def import_from_file
+    @user_db = current_user_db
+    user_id = session[:user_id]
+    user_pw = session[:pw]||"1234"
+    file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
+    doc_nodes = @user_db.docClass.all
+    file_nodes = file_nodeClass.all
+    doc_nodes.each do |doc_node|
+      doc_node.destroy
+    end
+    doc_nodes = [] 
+    file_nodes.each do |file_node|
+      doc_nodes << @user_db.docClass.create_from_file_node(file_node)
+    end 
+    #TODO: Better way than deleting all previous docs?
+    #TODO: Better way than individually destroying records?
+    #TODO: undo for imports and exports 
+    #render :text => "soon ..."
+    redirect_to '/jit/bufs_graph.html'
   end
 
 end

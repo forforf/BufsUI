@@ -259,15 +259,18 @@ function make_links_list(links, el_name){
    //for (var index = 0, len = links.length; index < len; ++ index) {
      //linkData = links[index]
      //for (var src in linkData){
-     var linkName = links[src];
+     var linkNames = links[src];
        //alert(inspect(linkName));
        //alert(src);
        //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
        //alert(attachment);
-       newHTML += "<div class='link_item'><a href='" + src + "'>" + linkName + "</a>";
-       //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
-       newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
-     index += 1
+       for (var index = 0, len = linkNames.length; index < len; ++ index) {
+         newHTML += "<div class='link_item'><a href='" + src + "' target='_blank'>" + linkNames[index] + "</a>";
+         //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
+         newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
+         //index += 1
+       };
+     index += 1;
      //};
    };
    //alert(newHTML);
