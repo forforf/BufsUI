@@ -1,5 +1,5 @@
 class BufsInfoDocController < ApplicationController
-  CouchDB = CouchRest.database!('http://127.0.0.1:5984/bufs_integration_test_spec')
+  #CouchDB = CouchRest.database!('http://127.0.0.1:5984/bufs_integration_test_spec')
   CouchDBLocation = 'http://127.0.0.1:5984/'
 
   protect_from_forgery :except => :att_test
@@ -7,8 +7,8 @@ class BufsInfoDocController < ApplicationController
   def index_nodes
     #user = params[:user]
     #user_db = UserDB.new(CouchDB, user)
-    @user_db = current_user_db
-    nodes = @user_db.docClass.all
+    @user_class = current_user_db
+    nodes = @user_class.all
     jvis = BufsJsvisData.new(nodes)
     top_cat= session[:user_id]  #top category
     depth = 4
@@ -22,7 +22,7 @@ class BufsInfoDocController < ApplicationController
   end
 
   def get_current_nodes(depth=4)
-    nodes = @user_db.docClass.all
+    nodes = @user_class.all
     jvis = BufsJsvisData.new(nodes)
     top_cat= session[:user_id]  #top category
     #depth = 4
@@ -32,14 +32,14 @@ class BufsInfoDocController < ApplicationController
   def create_node
     #test_hash = {'test_key' => 'test_value'}
     #test = params
-    @user_db = current_user_db
-    #puts "User DB Doc Class#{@user_db.docClass.inspect}"
+    @user_class = current_user_db
+    #puts "User DB Doc Class#{@user_class.inspect}"
     my_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
     parent_cats = parent_cats_munged.split(/, */)
     new_node = {:my_category => my_cat, :parent_categories => parent_cats}
     #puts "New Node Params: #{new_node.inspect}"
-    new_doc = @user_db.docClass.new(new_node)
+    new_doc = @user_class.new(new_node)
     #puts "New Doc: #{new_doc.inspect}"
     #puts "New Doc Class: #{new_doc.class.inspect}"
     new_doc.save
@@ -51,12 +51,12 @@ class BufsInfoDocController < ApplicationController
   end
 
   def edit_node
-    @user_db = current_user_db
+    @user_class = current_user_db
     new_node_cat = params[:node_cat]
     new_parent_cats_munged = params[:related_tags]
     parent_cats = parent_cats_munged.split(/, */)
     raise "Need to figure out what to do with edits"
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
 
     #jvis_data = get_current_nodes
@@ -65,11 +65,11 @@ class BufsInfoDocController < ApplicationController
   end
 
   def update_node
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
     parent_cats = parent_cats_munged.split(/, */)
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     raise "Duplicate keys for node doc" if node_docs.size > 1
     node_doc = node_docs.first if node_docs
     #Hack need to fix model
@@ -85,9 +85,9 @@ class BufsInfoDocController < ApplicationController
   end
 
   def echo_node
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     render :text => node_doc.inspect
   end
@@ -101,8 +101,8 @@ class BufsInfoDocController < ApplicationController
   def get_attachment
     node_cat = params[:node_cat]
     attachment_name = params[:att_name]
-    @user_db = current_user_db
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    @user_class = current_user_db
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     #The proxy approach is better than the file approach, but need to t/s
     #attachment_url_text = node_doc.attachment_url(attachment_name)
@@ -119,30 +119,31 @@ class BufsInfoDocController < ApplicationController
   end
 
   def dry_list_attachments(node_cat)
-    @user_db = current_user_db
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    @user_class = current_user_db
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
-    @attachment_names = node_doc.get_attachment_names if node_doc
+    @attachment_names = node_doc.attached_files if node_doc
   end
 
   def dry_list_links(node_cat)
-    @user_db = current_user_db
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    @user_class = current_user_db
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
+    #FIXME: GET LINKS IS BROKEN
     @link_names = node_doc.get_link_names if node_doc
   end
 
   def list_attachments
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     @attachment_names = dry_list_attachments(node_cat)
     render :json => @attachment_names.to_json
   end
 
   def list_links
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     @link_names = dry_list_links(node_cat)
     #render :text => @link_names.inspect
@@ -151,20 +152,21 @@ class BufsInfoDocController < ApplicationController
   end
 
   def remove_attachment
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     att_name = params[:att_name]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
+   #FIXME: remove attachment is broken 
     node_doc.remove_attachment(att_name)
     render :text => "Attachment Removed"
   end
 
   def remove_link
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     link_name = params[:link_name]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     node_doc.remove_links(link_name)
     render :text => "Link Removed"
@@ -172,11 +174,11 @@ class BufsInfoDocController < ApplicationController
 
 
   def add_link
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
     link_uri_to_add = params[:link_uri]
     link_label_to_add = params[:link_label]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     link_data_to_add = {link_uri_to_add => link_label_to_add}
     node_doc.add_links(link_data_to_add)
@@ -186,16 +188,16 @@ class BufsInfoDocController < ApplicationController
   end
 
   def att_test
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     
     #render :text => node_doc.my_category
     #render :text => params[:add_attachment].inspect.gsub("<","[-").gsub(">","-]")
     @att_file = params[:add_attachment]
     #FIXME: Real fix is to the bufs_info_doc model
-    new_file_dir = "/tmp/#{@user_db.hash}"
+    new_file_dir = "/tmp/#{@user_class.hash}"
     new_file_loc = "#{new_file_dir}/#{@att_file.original_filename}"
     if File.exist?(new_file_dir)
       FileUtils.cp(@att_file.path, new_file_loc)
@@ -214,20 +216,20 @@ class BufsInfoDocController < ApplicationController
   end
 
   def parent_cats
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
     render :text => node_doc.parent_categories.join(", ")
 
   end
 
   def destroy_node
-    @user_db = current_user_db
+    @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_db.docClass.by_my_category(:key => node_cat)
+    node_docs = @user_class.by_my_category(:key => node_cat)
     node_doc = node_docs.first
-    node_doc.destroy
+    node_doc.destroy_node
     jvis_data = get_current_nodes
     render :json => jvis_data
   end
@@ -239,12 +241,29 @@ class BufsInfoDocController < ApplicationController
   end
 
   def log_in
+    user_id = params[:user_id]
+    node_class_id = "BufsUI#{user_id}"
+    core_lib_path = "/home/bufs/bufs/lib"
+    bufs_lib_path = "glue_envs/bufs_couchrest_glue_env"
+    bufs_libs = [File.join(core_lib_path, bufs_lib_path)]
+    bufs_includes = [:CouchRestEnv]
     couch_db_url = "#{CouchDBLocation}#{params[:db_name]}" 
-    session[:couch_db_url] = couch_db_url
-    session[:user_id] = params[:user_id]
+    couchdb = CouchRest.database!(couch_db_url)
+    couchdb_env = { node_class_id => {
+                      :requires => bufs_libs,
+                      :includes => bufs_includes,
+                      :glue_name => "BufsCouchRestEnv",
+                      :class_env => {
+                         :bufs_info_doc_env => {
+                           :host => couchdb.host,
+                           :path => couchdb.uri,
+                           :user_id => user_id}}}}
+    session[:bufs_couch_env] = couchdb_env                                      
+    #session[:couch_db_url] = couch_db_url
+    session[:user_id] = user_id #params[:user_id]
     #render :text => session
-    #@user_db = current_user_db  #method in application_controller.rb
-    #render :text => "Log In User DB: #{@user_db.inspect}"
+    @user_class = current_user_db  #method in application_controller.rb
+    #render :text => "Log In User Class: #{@user_class.inspect}"
     redirect_to '/jit/bufs_graph.html'
   end
 
@@ -259,15 +278,15 @@ class BufsInfoDocController < ApplicationController
   end
 
   def export_to_file
-    @user_db = current_user_db
+    @user_class = current_user_db
     user_id = session[:user_id]
     #TODO Add passwords to sessions
     user_pw = session[:pw]||"1234"
     #retrieve user specific file node class
+    #FIXME: export to file probably broken
     file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
     file_nodes = []
-    node_docs = @user_db.docClass.all
-    #TODO: Hack to delete model directory here, perhaps sync node is required for proper solution?
+    node_docs = @user_class.all
     amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
     FileUtils.rm_rf(amodel_dir)
     node_docs.each do |node_doc|
@@ -288,18 +307,18 @@ class BufsInfoDocController < ApplicationController
   end
 
   def import_from_file
-    @user_db = current_user_db
+    @user_class = current_user_db
     user_id = session[:user_id]
     user_pw = session[:pw]||"1234"
     file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
-    doc_nodes = @user_db.docClass.all
+    doc_nodes = @user_class.all
     file_nodes = file_nodeClass.all
     doc_nodes.each do |doc_node|
       doc_node.destroy
     end
     doc_nodes = [] 
     file_nodes.each do |file_node|
-      doc_nodes << @user_db.docClass.create_from_file_node(file_node)
+      doc_nodes << @user_class.create_from_other_node(file_node)
     end 
     #TODO: Better way than deleting all previous docs?
     #TODO: Better way than individually destroying records?

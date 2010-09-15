@@ -7,9 +7,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 #Load requires at boot
+require 'couchrest'
 require '../lib/bufs_jsvis_data'
-require '../lib/user_doc'
-require '../lib/sync_node'
+require '../lib/bufs_node_factory'
+#require '../lib/sync_node'
 require '../lib/bind_user_file_system'
 #require '../lib/helpers/more_open_struct'
 

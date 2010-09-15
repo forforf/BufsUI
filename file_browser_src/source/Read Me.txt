@@ -1,0 +1,18 @@
+// jQuery File Tree for Ruby on Rails
+//
+// Version 0.1
+//
+// Bachir El Khoury
+// Rtistique Pty Ltd (http://www.rtistique.com)
+// Dnamique (http://www.dnamique.com)
+// 5 June 2009
+//
+// Visit http://www.dnamique.com for instructions on how to install
+//
+
+***********************************
+* For the demo, don't forget      *    
+* to enter your database settings *
+* in config/database.yml          *
+*                                 *
+***********************************

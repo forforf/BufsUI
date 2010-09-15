@@ -1,0 +1,103 @@
+diff --git a/log/development.log b/log/development.log
+index bb5d7c4..1a73e2c 100644
+--- a/log/development.log
++++ b/log/development.log
+@@ -10495,3 +10495,98 @@ Completed in 66ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/lis
+ Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-06-10 21:22:10) [POST]
+   Parameters: {"node_cat"=>"dummy3"}
+ Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
++
++
++Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-08-11 19:23:31) [POST]
++  Parameters: {"authenticity_token"=>"kbMV92oVsnyPgLg+0tKyXNzWxg//mqgj65GjdLzGafw=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
++Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
++Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
++
++
++Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-11 19:23:32) [GET]
++Completed in 96ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
++
++
++Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-11 19:23:32) [GET]
++Rendering bufs_info_doc/a_t
++Completed in 28ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
++
++
++Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-08-11 19:23:36) [GET]
++Redirected to http://bufsuser.younghawk.org/test_user002
++Completed in 633ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
++
++
++Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-08-11 19:23:50) [GET]
++Redirected to http://bufs.younghawk.org:3000/index
++Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
++
++
++Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-08-11 19:23:50) [GET]
++Rendering bufs_info_doc/log_in_form
++Completed in 153ms (View: 129 | 200 OK [http://bufs.younghawk.org/index]
++
++
++Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-08-11 19:23:54) [POST]
++  Parameters: {"authenticity_token"=>"PaqQZUYddFlOjYfO9lgz4elWIJTD71ZFcfaI+ww+V74=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user001", "commit"=>"Submit"}
++Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
++Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
++
++
++Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-11 19:23:54) [GET]
++Completed in 57ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
++
++
++Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-11 19:23:54) [GET]
++Rendering bufs_info_doc/a_t
++Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
++
++
++Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-08-11 19:23:57) [GET]
++Redirected to http://bufsuser.younghawk.org/test_user001
++Completed in 787ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
++
++
++Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-08-11 19:24:09) [GET]
++Redirected to http://bufs.younghawk.org:3000/index
++Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
++
++
++Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-08-11 19:24:09) [GET]
++Rendering bufs_info_doc/log_in_form
++Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/index]
++
++
++Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-08-11 19:24:12) [POST]
++  Parameters: {"authenticity_token"=>"QleKJWvlX9+CGgAVnjl7bpRYhBe7TJRRzapKHKxXPfA=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user003", "commit"=>"Submit"}
++Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
++Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
++
++
++Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-08-11 19:24:13) [GET]
++Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
++
++
++Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-08-11 19:24:13) [GET]
++Rendering bufs_info_doc/a_t
++Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
++
++
++Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-08-11 19:24:15) [GET]
++
++NoMethodError (undefined method `merge' for [{""=>["", ""], "http://www.google.com/"=>["google", "google"]}]:Array):
++  /media-ec2/ec2a/projects/bufs/lib/bufs_file_system.rb:458:in `add_links'
++  /media-ec2/ec2a/projects/bufs/lib/bufs_file_system.rb:331:in `create_from_doc_node'
++  app/controllers/bufs_info_doc_controller.rb:267:in `block in export_to_file'
++  couchrest (0.35) lib/couchrest/mixins/collection.rb:146:in `block in method_missing'
++  couchrest (0.35) lib/couchrest/mixins/collection.rb:146:in `each'
++  couchrest (0.35) lib/couchrest/mixins/collection.rb:146:in `method_missing'
++  app/controllers/bufs_info_doc_controller.rb:266:in `export_to_file'
++  <internal:prelude>:8:in `synchronize'
++  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
++  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
++  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
++
++Rendered rescues/_trace (93.6ms)
++Rendered rescues/_request_and_response (1.0ms)
++Rendering rescues/layout (internal_server_error)
