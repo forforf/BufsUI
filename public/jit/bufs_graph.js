@@ -398,7 +398,7 @@ function index_nodes(){
         json = transport.responseJSON
         viz_init(json);  
       },
-      onFailure: function(){ alert('Something went wrong...') }
+      onFailure: function(){ alert('Something went wrong indexing nodes...') }
     });
 };
 

@@ -8,7 +8,8 @@ class BufsInfoDocController < ApplicationController
     #user = params[:user]
     #user_db = UserDB.new(CouchDB, user)
     @user_class = current_user_db
-    nodes = @user_class.all
+    puts "Index Nodes: #{@user_class.inspect}"
+    nodes = @user_class.all :add => {:links => nil}
     jvis = BufsJsvisData.new(nodes)
     top_cat= session[:user_id]  #top category
     depth = 4
@@ -22,6 +23,8 @@ class BufsInfoDocController < ApplicationController
   end
 
   def get_current_nodes(depth=4)
+    @user_class = current_user_db
+    puts "GCN: #{@user_class.inspect}"
     nodes = @user_class.all
     jvis = BufsJsvisData.new(nodes)
     top_cat= session[:user_id]  #top category
@@ -42,7 +45,7 @@ class BufsInfoDocController < ApplicationController
     new_doc = @user_class.new(new_node)
     #puts "New Doc: #{new_doc.inspect}"
     #puts "New Doc Class: #{new_doc.class.inspect}"
-    new_doc.save
+    new_doc.__save
     #jvis_data = get_current_nodes #jvis.json_vis(top_cat, depth)
     #puts "JVIS: #{jvis_data.inspect}"
     render :json => get_current_nodes
@@ -56,7 +59,7 @@ class BufsInfoDocController < ApplicationController
     new_parent_cats_munged = params[:related_tags]
     parent_cats = parent_cats_munged.split(/, */)
     raise "Need to figure out what to do with edits"
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
 
     #jvis_data = get_current_nodes
@@ -69,7 +72,7 @@ class BufsInfoDocController < ApplicationController
     node_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
     parent_cats = parent_cats_munged.split(/, */)
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     raise "Duplicate keys for node doc" if node_docs.size > 1
     node_doc = node_docs.first if node_docs
     #Hack need to fix model
@@ -87,7 +90,7 @@ class BufsInfoDocController < ApplicationController
   def echo_node
     @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     render :text => node_doc.inspect
   end
@@ -102,7 +105,7 @@ class BufsInfoDocController < ApplicationController
     node_cat = params[:node_cat]
     attachment_name = params[:att_name]
     @user_class = current_user_db
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     #The proxy approach is better than the file approach, but need to t/s
     #attachment_url_text = node_doc.attachment_url(attachment_name)
@@ -120,7 +123,7 @@ class BufsInfoDocController < ApplicationController
 
   def dry_list_attachments(node_cat)
     @user_class = current_user_db
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
     @attachment_names = node_doc.attached_files if node_doc
@@ -128,11 +131,11 @@ class BufsInfoDocController < ApplicationController
 
   def dry_list_links(node_cat)
     @user_class = current_user_db
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     @node_cat = node_cat
     #FIXME: GET LINKS IS BROKEN
-    @link_names = node_doc.get_link_names if node_doc
+    @link_names = node_doc.links if node_doc
   end
 
   def list_attachments
@@ -155,10 +158,9 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     node_cat = params[:node_cat]
     att_name = params[:att_name]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
-   #FIXME: remove attachment is broken 
-    node_doc.remove_attachment(att_name)
+    node_doc.files_subtract(att_name)
     render :text => "Attachment Removed"
   end
 
@@ -166,9 +168,9 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     node_cat = params[:node_cat]
     link_name = params[:link_name]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
-    node_doc.remove_links(link_name)
+    node_doc.links_subtract(link_name)
     render :text => "Link Removed"
   end
 
@@ -178,10 +180,10 @@ class BufsInfoDocController < ApplicationController
     node_cat = params[:node_cat]
     link_uri_to_add = params[:link_uri]
     link_label_to_add = params[:link_label]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     link_data_to_add = {link_uri_to_add => link_label_to_add}
-    node_doc.add_links(link_data_to_add)
+    node_doc.links_add(link_data_to_add)
     
     @link_names = dry_list_links(node_cat)
     render :text => node_doc.inspect #@link_names.inspect
@@ -190,7 +192,7 @@ class BufsInfoDocController < ApplicationController
   def att_test
     @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     
     #render :text => node_doc.my_category
@@ -207,7 +209,7 @@ class BufsInfoDocController < ApplicationController
     end
     #TODO test for success before deleting Rack tmp file
     FileUtils.rm(@att_file.path)
-    node_doc.add_data_file(new_file_loc)
+    node_doc.files_add(:src_filename => new_file_loc)
     FileUtils.rm(new_file_loc)
     FileUtils.rmdir(new_file_dir)
     @attachment_names = dry_list_attachments(node_cat)
@@ -217,8 +219,9 @@ class BufsInfoDocController < ApplicationController
 
   def parent_cats
     @user_class = current_user_db
+    puts "PC: #{@user_class.inspect}"
     node_cat = params[:node_cat]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     render :text => node_doc.parent_categories.join(", ")
 
@@ -227,7 +230,7 @@ class BufsInfoDocController < ApplicationController
   def destroy_node
     @user_class = current_user_db
     node_cat = params[:node_cat]
-    node_docs = @user_class.by_my_category(:key => node_cat)
+    node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
     node_doc.destroy_node
     jvis_data = get_current_nodes
@@ -278,6 +281,7 @@ class BufsInfoDocController < ApplicationController
   end
 
   def export_to_file
+    raise "refactor from new arch"
     @user_class = current_user_db
     user_id = session[:user_id]
     #TODO Add passwords to sessions

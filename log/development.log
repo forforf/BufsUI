@@ -1,0 +1,1633 @@
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 17:55:50) [GET]
+
+RuntimeError (No Node Environment provided):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_node_factory.rb:5:in `make'
+  app/controllers/application_controller.rb:15:in `current_user_db'
+  app/controllers/bufs_info_doc_controller.rb:10:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (125.6ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 17:55:51) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 8ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-09-17 17:55:57) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 40ms (View: 39 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 17:56:04) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 366ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 17:56:05) [GET]
+
+NoMethodError (undefined method `[]' for #<BufsNodeFactory::BufsUItest_user002:0x9a16148>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:43:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `block in make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `map'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:34:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (81.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 17:56:05) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:00:36) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 307ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:00:37) [GET]
+
+NoMethodError (undefined method `[]' for #<BufsNodeFactory::BufsUItest_user002:0xa467774>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:43:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `block in make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `map'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:34:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (89.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:00:38) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 50ms (View: 49 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:01:21) [GET]
+
+NoMethodError (undefined method `[]' for #<BufsNodeFactory::BufsUItest_user002:0xaf6c3d8>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:43:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `block in make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `map'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:34:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (97.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:01:22) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:01:27) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 58ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:01:27) [GET]
+
+NoMethodError (undefined method `[]' for #<BufsNodeFactory::BufsUItest_user002:0xb04e518>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:43:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `block in make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `map'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:51:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:34:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (81.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:01:28) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:08:04) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 344ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:08:06) [GET]
+
+RuntimeError (test_user002):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:35:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (84.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:08:06) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 19ms (View: 18 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:14:15) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 309ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:14:16) [GET]
+
+NoMethodError (undefined method `model_metadata' for #<BufsNodeFactory::BufsUItest_user002:0x95295b0>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:47:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:50:in `block in make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:50:in `map'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:50:in `make_json_vis_from_node'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:38:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (86.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:14:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 9ms (View: 8 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:15:18) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 331ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:15:19) [GET]
+Completed in 19ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:15:19) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:17:15) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 332ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:17:17) [GET]
+
+RuntimeError ({"id"=>"dummy_test_user002", "data"=>{}, "children"=>[{"id"=>"bufs_integration_test_spec_test_user002::test", "data"=>{}, "children"=>[]}]}):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:39:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (74.8ms)
+Rendered rescues/_request_and_response (22.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:17:17) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 19ms (View: 18 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:18:39) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 336ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:18:40) [GET]
+
+RuntimeError ({"id"=>"test_user002", "data"=>{}, "children"=>[{"id"=>"test", "data"=>{}, "children"=>[]}]}):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:39:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:18:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 52ms (View: 51 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:19:15) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 44ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:19:16) [GET]
+
+RuntimeError ({"id"=>"test_user002", "data"=>{}, "children"=>[{"id"=>"test", "data"=>{}, "children"=>[]}]}):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_jsvis_data.rb:39:in `json_vis'
+  app/controllers/bufs_info_doc_controller.rb:15:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (176.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:19:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:19:50) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 313ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:19:52) [GET]
+Completed in 30ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:19:53) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 27ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:19:58) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 35ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:19:59) [GET]
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:19:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:21:16) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 341ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:21:17) [GET]
+Completed in 59ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:21:17) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 31ms (View: 30 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:22:16) [GET]
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:22:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:22:57) [GET]
+Completed in 74ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:22:57) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:23:45) [GET]
+Completed in 60ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:23:45) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:28:33) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 337ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:28:34) [GET]
+Completed in 55ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:28:34) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:30:53) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 316ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:30:54) [GET]
+Completed in 62ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:30:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 27ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 18:31:37) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 337ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:31:38) [GET]
+Completed in 53ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:31:38) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 47ms (View: 47 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:31:52) [GET]
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:31:52) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-09-17 18:32:49) [GET]
+  Parameters: {"node_cat"=>"test2", "related_tags"=>"test_user002"}
+
+NoMethodError (undefined method `save' for #<BufsNodeFactory::BufsUItest_user002:0x9c984bc>):
+  app/controllers/bufs_info_doc_controller.rb:45:in `create_node'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (74.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 18:34:00) [GET]
+Completed in 366ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 18:34:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-09-17 18:34:03) [GET]
+  Parameters: {"node_cat"=>"test2", "related_tags"=>"test_user002"}
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=test2&related_tags=test_user002]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-09-17 18:42:10) [GET]
+  Parameters: {"node_cat"=>"test2", "related_tags"=>"test_user002"}
+
+RuntimeError (Document Conflict in the Database, most likely this is duplication. Error Code was 409. Need to build handling routine
+Additonal Data: model params: {:db=>#<CouchRest::Database:0xa497ac4 @name="bufs_integration_test_spec", @server=#<CouchRest::Server:0x933db8c @uri="127.0.0.1:5984", @uuid_batch_count=1000>, @host="127.0.0.1:5984", @uri="/bufs_integration_test_spec", @root="127.0.0.1:5984/bufs_integration_test_spec", @streamer=#<CouchRest::Streamer:0xa5f61a8 @db=#<CouchRest::Database:0xa497ac4 ...>>, @bulk_save_cache=[], @bulk_save_cache_limit=500>}
+                model data: {"my_category"=>"test2", "parent_categories"=>["test_user002"], "_id"=>"bufs_integration_test_spec_test_user002::test2", "bufs_namespace"=>"bufs_integration_test_spec_test_user002"}
+                all data: {:my_category=>"test2", :parent_categories=>["test_user002"], :_id=>"bufs_integration_test_spec_test_user002::test2", :bufs_namespace=>"bufs_integration_test_spec_test_user002"}):
+  /home/bufs/bufs/lib/moabs/moab_couchrest_env.rb:348:in `rescue in save'
+  /home/bufs/bufs/lib/moabs/moab_couchrest_env.rb:338:in `save'
+  /home/bufs/bufs/lib/glue_envs/bufs_couchrest_glue_env.rb:164:in `save'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:262:in `__save'
+  app/controllers/bufs_info_doc_controller.rb:45:in `create_node'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (74.7ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-09-17 19:20:15) [GET]
+  Parameters: {"node_cat"=>"test2", "related_tags"=>"test_user002"}
+
+RuntimeError (Document Conflict in the Database, most likely this is duplication. Error Code was 409. Need to build handling routine
+Additonal Data: model params: {:db=>#<CouchRest::Database:0x95b1250 @name="bufs_integration_test_spec", @server=#<CouchRest::Server:0x84a0a70 @uri="127.0.0.1:5984", @uuid_batch_count=1000>, @host="127.0.0.1:5984", @uri="/bufs_integration_test_spec", @root="127.0.0.1:5984/bufs_integration_test_spec", @streamer=#<CouchRest::Streamer:0x9939b78 @db=#<CouchRest::Database:0x95b1250 ...>>, @bulk_save_cache=[], @bulk_save_cache_limit=500>}
+                model data: {"my_category"=>"test2", "parent_categories"=>["test_user002"], "_id"=>"bufs_integration_test_spec_test_user002::test2", "bufs_namespace"=>"bufs_integration_test_spec_test_user002"}
+                all data: {:my_category=>"test2", :parent_categories=>["test_user002"], :_id=>"bufs_integration_test_spec_test_user002::test2", :bufs_namespace=>"bufs_integration_test_spec_test_user002"}):
+  /home/bufs/bufs/lib/moabs/moab_couchrest_env.rb:348:in `rescue in save'
+  /home/bufs/bufs/lib/moabs/moab_couchrest_env.rb:338:in `save'
+  /home/bufs/bufs/lib/glue_envs/bufs_couchrest_glue_env.rb:164:in `save'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:262:in `__save'
+  app/controllers/bufs_info_doc_controller.rb:45:in `create_node'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (106.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 19:24:20) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 365ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:24:21) [GET]
+Completed in 71ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:24:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-09-17 19:24:30) [GET]
+  Parameters: {"node_cat"=>"", "related_tags"=>""}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=&related_tags=]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:24:36) [GET]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:221:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (82.7ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:24:36) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:123:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:141:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:24:36) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:131:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:148:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (156.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-09-17 19:34:32) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "db_name"=>"bufs_integration_test_spec", "user_id"=>"test_user002", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 335ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:34:34) [GET]
+
+RuntimeError (BufsNodeFactory::BufsUItest_user002):
+  app/controllers/bufs_info_doc_controller.rb:11:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (76.6ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:34:34) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 9ms (View: 8 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:35:15) [GET]
+Completed in 306ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:35:15) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 27ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:35:20) [GET]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:221:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:35:20) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:123:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:141:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (105.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:35:21) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:131:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:148:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (76.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:42:15) [GET]
+Completed in 365ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:42:15) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 44ms (View: 43 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:42:42) [GET]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:225:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:42:42) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:126:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:145:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (145.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:42:42) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+RuntimeError (DLL: BufsNodeFactory::BufsUItest_user002):
+  app/controllers/bufs_info_doc_controller.rb:134:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:152:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (85.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:46:35) [GET]
+Completed in 307ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:46:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 35ms (View: 34 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:46:42) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:225:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (79.2ms)
+Rendered rescues/_request_and_response (14.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:46:42) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:126:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:145:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (141.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:46:42) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+RuntimeError (DLL: BufsNodeFactory::BufsUItest_user002):
+  app/controllers/bufs_info_doc_controller.rb:134:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:152:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (86.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:51:54) [GET]
+Completed in 321ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:51:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:51:56) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:226:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (77.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:51:57) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+RuntimeError (DLL: BufsNodeFactory::BufsUItest_user002):
+  app/controllers/bufs_info_doc_controller.rb:134:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:152:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (76.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:51:57) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:126:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:145:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (82.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:56:28) [GET]
+Completed in 345ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:56:28) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:56:30) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:126:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:144:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (56.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:56:31) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+Completed in 108ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:56:31) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:225:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (145.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:57:35) [GET]
+Completed in 343ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:57:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:57:37) [GET]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:225:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:57:37) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+
+NoMethodError (undefined method `call_veiw' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:126:in `dry_list_attachments'
+  app/controllers/bufs_info_doc_controller.rb:144:in `list_attachments'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (106.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:57:38) [POST]
+  Parameters: {"node_cat"=>"test_user002"}
+Completed in 45ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:58:43) [GET]
+Completed in 293ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:58:43) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 27ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:58:46) [GET]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `by_my_category' for BufsNodeFactory::BufsUItest_user002:Class):
+  app/controllers/bufs_info_doc_controller.rb:225:in `parent_cats'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (94.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 19:58:46) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `get_link_names' for #<BufsNodeFactory::BufsUItest_user002:0xb6737ac>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (95.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 19:58:46) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 19:59:58) [GET]
+Completed in 316ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 19:59:58) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 17ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 19:59:59) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 75ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:00:00) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 74ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:00:00) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `get_link_names' for #<BufsNodeFactory::BufsUItest_user002:0x962a278>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (84.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 20:04:40) [GET]
+Completed in 332ms (View: 31 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 20:04:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:04:43) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 116ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:04:44) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:04:44) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `get_link_names' for #<BufsNodeFactory::BufsUItest_user002:0x9eac6ec>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (85.1ms)
+Rendered rescues/_request_and_response (41.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:04:53) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 126ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 20:04:53) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-2716-9gzyuf-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 159ms (View: 20 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:05:06) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:05:06) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `get_link_names' for #<BufsNodeFactory::BufsUItest_user002:0x98eb234>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (210.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:05:06) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:05:10) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 75ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:05:10) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:05:10) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `get_link_names' for #<BufsNodeFactory::BufsUItest_user002:0xa137e5c>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (101.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 20:07:35) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-3248-1f2wluy-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 379ms (View: 8 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 20:07:36) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 20:07:36) [GET]
+Completed in 52ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:07:38) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 82ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:38) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:07:38) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUItest_user002:0xa629010>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (92.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:07:41) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 106ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:41) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 53ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:07:41) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUItest_user002:0xab9976c>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (158.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 20:07:45) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_2.txt"}
+
+NoMethodError (undefined method `remove_attachment' for #<BufsNodeFactory::BufsUItest_user002:0xade3354>):
+  app/controllers/bufs_info_doc_controller.rb:164:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (82.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:45) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 44ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:07:48) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 54ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:48) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 93ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:07:49) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUItest_user002:0xaf0e4d0>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (80.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:07:52) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 77ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:52) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 53ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:07:52) [POST]
+  Parameters: {"node_cat"=>"test2"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUItest_user002:0xa252e0c>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (169.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 20:07:58) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 70ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 20:07:59) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 20:07:59) [POST]
+  Parameters: {"node_cat"=>"test"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUItest_user002:0xaae8e44>):
+  app/controllers/bufs_info_doc_controller.rb:138:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:151:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (104.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 21:58:57) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-30134-1ybf37d-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 375ms (View: 8 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 21:58:57) [GET]
+Completed in 50ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 21:58:58) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 8ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 21:59:01) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 21:59:01) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 21:59:01) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:00:29) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-09-17 22:00:29) [POST]
+  Parameters: {"node_cat"=>"test", "link_uri"=>"blah", "link_label"=>"to_blah"}
+Completed in 160ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:00:39) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 102ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:00:39) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 55ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:00:39) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 65ms (View: 11 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 22:00:44) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_2.txt"}
+
+NoMethodError (undefined method `remove_attachment' for #<BufsNodeFactory::BufsUItest_user002:0x940d2c0>):
+  app/controllers/bufs_info_doc_controller.rb:164:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:00:44) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-09-17 22:00:55) [POST]
+  Parameters: {"node_cat"=>"test2", "link_uri"=>"blah", "link_label"=>"to_blah"}
+Completed in 75ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:00:55) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 52ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 22:01:35) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_2.txt"}
+
+NoMethodError (undefined method `remove_attachment' for #<BufsNodeFactory::BufsUItest_user002:0xa374c6c>):
+  app/controllers/bufs_info_doc_controller.rb:164:in `remove_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (75.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:01:35) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:02:13) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-30134-1g07nix-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 22:02:13) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 22:02:13) [GET]
+Completed in 38ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:02:16) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:16) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:02:16) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 60ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 22:02:19) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_2.txt"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:20) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:02:32) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 60ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:32) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 63ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:02:32) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 69ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:02:35) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 113ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:35) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 50ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:02:35) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:02:39) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-30134-vyraa0-0>, "add_link"=>"blah", "add_link_name"=>"to_blah"}
+Rendering bufs_info_doc/att_test
+Completed in 432ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:39) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 150ms (View: 41 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:02:50) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-30134-b0b96b-0>, "add_link"=>"blah", "add_link_name"=>"to_blah"}
+Rendering bufs_info_doc/att_test
+Completed in 196ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:50) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 87ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:02:59) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-30134-vpd2ct-0>, "add_link"=>"blah", "add_link_name"=>"to_blah"}
+Rendering bufs_info_doc/att_test
+Completed in 182ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:02:59) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 127ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 22:03:01) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_2.txt"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:03:01) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-09-17 22:03:06) [POST]
+  Parameters: {"node_cat"=>"test2", "link_name"=>"to_blah"}
+
+NoMethodError (undefined method `remove_links' for #<BufsNodeFactory::BufsUItest_user002:0x9da6bd4>):
+  app/controllers/bufs_info_doc_controller.rb:173:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (102.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:03:06) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:03:44) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-31148-d9lyb3-0>, "add_link"=>"blah", "add_link_name"=>"to_blah"}
+Rendering bufs_info_doc/att_test
+Completed in 473ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 22:03:45) [GET]
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 22:03:45) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:03:48) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 73ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:03:48) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:03:48) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 68ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-09-17 22:03:50) [POST]
+  Parameters: {"node_cat"=>"test2", "link_name"=>"to_blah"}
+
+NoMethodError (undefined method `keys' for "to_blah":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:48:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:271:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:271:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:173:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (115.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:03:50) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-09-17 22:06:01) [POST]
+  Parameters: {"authenticity_token"=>"y/qXrKaUW7wYxn4Fai8yPoZ0nnpEN3IfGKoCNJUqsBI=", "node_cat"=>"test2", "add_attachment"=>#<File:/tmp/RackMultipart20100917-31509-zd78r7-0>, "add_link"=>"blah", "add_link_name"=>"to_blah"}
+Rendering bufs_info_doc/att_test
+Completed in 452ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-09-17 22:06:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 28ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-09-17 22:06:01) [GET]
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:06:03) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 102ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:06:03) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:06:03) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-09-17 22:06:12) [POST]
+  Parameters: {"node_cat"=>"test2", "att_name"=>"simple_text_file_3.txt"}
+Completed in 92ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:06:13) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 139ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-09-17 22:06:22) [POST]
+  Parameters: {"node_cat"=>"test2", "link_uri"=>"blah2", "link_label"=>"to2to"}
+Completed in 138ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:06:23) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:06:25) [GET]
+  Parameters: {"node_cat"=>"test"}
+Completed in 112ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:06:25) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:06:26) [POST]
+  Parameters: {"node_cat"=>"test"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#parent_cats (for 66.92.144.112 at 2010-09-17 22:06:29) [GET]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 187ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/parent_cats?node_cat=test2]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-09-17 22:06:29) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:06:29) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 59ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-09-17 22:06:34) [POST]
+  Parameters: {"node_cat"=>"test2", "link_name"=>"to_blah"}
+
+NoMethodError (undefined method `each' for "to_blah":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:271:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:271:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:173:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (117.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-09-17 22:06:35) [POST]
+  Parameters: {"node_cat"=>"test2"}
+Completed in 58ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
