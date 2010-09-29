@@ -390,12 +390,14 @@ function destroy_node_data(){
 
 
 function index_nodes(){
+  //alert('indexing nodes');
   var data_url = '/bufs_info_doc/index_nodes';
   new Ajax.Request(data_url,
     {
       method:'get',
       onSuccess: function(transport){
         json = transport.responseJSON
+        //alert(json["id"]);
         viz_init(json);  
       },
       onFailure: function(){ alert('Something went wrong indexing nodes...') }

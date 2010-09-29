@@ -10,15 +10,16 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     puts "Index Nodes: #{@user_class.inspect}"
     nodes = @user_class.all :add => {:links => nil}
-    jvis = BufsJsvisData.new(nodes)
+    jvis = BufsJsvisData.new(@user_class.name, nodes)
     top_cat= session[:user_id]  #top category
     depth = 4
-    jvis_data = jvis.json_vis(top_cat, depth)
+    jvis_data = jvis.json_vis_tree(top_cat, depth)
 
     json_str = <<-EOS
 {"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:598
     EOS
     json_obj = jvis_data
+    puts "Rendering json: #{json_obj.inspect}"
     render :json => json_obj##, :content_type => 'text/plain'
   end
 
@@ -26,10 +27,10 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     puts "GCN: #{@user_class.inspect}"
     nodes = @user_class.all
-    jvis = BufsJsvisData.new(nodes)
+    jvis = BufsJsvisData.new(@user_class.name, nodes)
     top_cat= session[:user_id]  #top category
     #depth = 4
-    return jvis.json_vis(top_cat, depth)
+    return jvis.json_vis_tree(top_cat, depth)
   end
 
   def create_node
@@ -39,6 +40,9 @@ class BufsInfoDocController < ApplicationController
     #puts "User DB Doc Class#{@user_class.inspect}"
     my_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
+    if parent_cats_munged.empty?||parent_cats_munged.is_nil?
+      parent_cats_munged= @user_class.myGlueEnv.user_id
+    end
     parent_cats = parent_cats_munged.split(/, */)
     new_node = {:my_category => my_cat, :parent_categories => parent_cats}
     #puts "New Node Params: #{new_node.inspect}"
