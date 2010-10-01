@@ -10,10 +10,18 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     puts "Index Nodes: #{@user_class.inspect}"
     nodes = @user_class.all :add => {:links => nil}
-    jvis = BufsJsvisData.new(@user_class.name, nodes)
-    top_cat= session[:user_id]  #top category
+    
+    full_id = session[:user_id] 
+    user_name = full_id.to_s.gsub(@user_class.name.to_s, "") #top category
+    puts "Nodes: #{nodes.last.inspect}" 
+    puts "Nodes size: #{nodes.size}"
+    
+    jvis = BufsJsvisData.new(user_name, nodes)
+    
+    puts "Top Category: #{user_name}"
     depth = 4
-    jvis_data = jvis.json_vis_tree(top_cat, depth)
+    jvis_data = jvis.json_vis_tree(user_name, depth)
+    #puts "Jvis_Data: #{jvis_data.inspect}"
 
     json_str = <<-EOS
 {"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:598
@@ -40,7 +48,7 @@ class BufsInfoDocController < ApplicationController
     #puts "User DB Doc Class#{@user_class.inspect}"
     my_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
-    if parent_cats_munged.empty?||parent_cats_munged.is_nil?
+    if parent_cats_munged.empty?||parent_cats_munged.nil?
       parent_cats_munged= @user_class.myGlueEnv.user_id
     end
     parent_cats = parent_cats_munged.split(/, */)
