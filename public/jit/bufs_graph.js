@@ -14,7 +14,24 @@ function initialize_page(){
   setAuthToken('authtok_attach_form');  
 };
 
+//New Jit2 Functions
+var labelType, useGradients, nativeTextSupport, animate;
 
+(function() {
+  var ua = navigator.userAgent,
+      iStuff = ua.match(/iPhone/i) || ua.match(/iPad/i),
+      typeOfCanvas = typeof HTMLCanvasElement,
+      nativeCanvasSupport = (typeOfCanvas == 'object' || typeOfCanvas == 'function'),
+      textSupport = nativeCanvasSupport 
+        && (typeof document.createElement('canvas').getContext('2d').fillText == 'function');
+  //I'm setting this based on the fact that ExCanvas provides text support for IE
+  //and that as of today iPhone/iPad current text support is lame
+  labelType = (!nativeCanvasSupport || (textSupport && !iStuff))? 'Native' : 'HTML';
+  nativeTextSupport = labelType == 'Native';
+  useGradients = nativeCanvasSupport;
+  animate = !(iStuff || !nativeCanvasSupport);
+})();
+//End Jit2
 
 //Helper Functions
 //Prototype already does this?
@@ -120,6 +137,125 @@ function setAuthToken(el_id){
     });
 };
 
+
+function routeClickedNodeDataToElements(node) {
+  //elements to receive node data
+  var parentCatEditBox = $('related_tags_edit');
+  var nodeIdBox = $('node_id_edit');
+  var nodeIdBoxLabel = $('node_id_edit_label');
+  var attachmentListBox = $('attachment_list');
+  var linksListBox = $('links_list');
+  //alert(node.data.attached_files);
+  //distribute node data
+  parentCatEditBox.value = node.data.parent_categories;
+  nodeIdBox.value = node.name;
+  nodeIdBoxLabel.innerHTML = node.name;
+  //functions to distribute data to 
+  show_edit_node_form(node.name);
+  make_attachment_list(node.data.attached_files, attachmentListBox);
+  make_links_list(node.data.links, linksListBox);
+}
+
+function make_attachment_list(attachments, el_name){
+   //window.current_attachments = attachments;
+   if(!attachments) attachments = [];
+   var node_id = $('node_id_edit_label').innerHTML;
+   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />";
+   for (var index = 0, len = attachments.length; index < len; ++ index) {
+     var attachment = attachments[index];
+     var att_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
+     //alert(attachment);
+     newHTML += "<div class='attachment_item'><a href='" + att_url + "'>" + attachment + "</a>";
+     newHTML += "<input type='checkbox' onclick='javascript:delete_attachment(this)' name='checkbox_" + index + "'> Delete?</div>";
+   };
+   $(el_name).innerHTML = newHTML;
+};
+
+function make_links_list(links, el_name){
+   //window.current_attachments = attachments;
+   if(!links) links = {0:null};
+   var node_id = $('node_id_edit_label').innerHTML;
+   //alert(links["http://www.yahoo.com"]);
+   
+
+   newHTML = "<span id='dynamic_links_label'>Links</span><br />";
+   var index = 0
+   for (var src in links) {
+   //for (var i = 0, len = links.length; i < len; ++ i) {
+     //linkData = links[i]
+     //for (var src in linkData){
+     var linkName = links[src];
+       //alert(inspect(linkNames));
+       //alert(src);
+       //alert(linkNames.length);
+       //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
+       //alert(attachment);
+       //for (var j = 0, len = linkNames.length; j < len; ++ j) {
+       if(linkName){
+         newHTML += "<div class='link_item'><a href='" + src + "' target='_blank'>" + linkName + "</a>";
+         //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
+         newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
+         }
+        //else newHTML = "";
+         //index += 1
+       //};
+     index += 1;
+     //};
+   };
+   //alert(newHTML);
+   $(el_name).innerHTML = newHTML;
+};
+
+function show_edit_node_form(node_id){
+  //alert("Edit: " + node_id);
+  //$('node_id_edit').value = node_id;
+  //$('node_id_edit_label').innerHTML =  node_id;
+  $('create-node-form').hide();
+  $('edit-node-form').show();
+  //$("update_node_button").observe("click", alert("clicked") );//update_node(node_id) );
+
+  //update_node_form_attachments(node_id);
+  //update_node_form_links(node_id);
+};
+
+/*
+function update_node_form_links(node_id){
+  var el_name = 'links_list'
+  new Ajax.Request('/bufs_info_doc/list_links',
+        { method:'post',
+          parameters: { 'node_cat':node_id },
+          onSuccess: function(transport){
+            //alert("got links");
+            json = transport.responseJSON;
+            $('node_id_input_edit').value = node_id;
+            make_links_list(json, el_name);
+            //dynamically_create_attachment_list(json);
+          },
+          onFailure: function(){ alert('Something went wrong updating links...\n Response:' + transport.headerJSON)}
+        });
+};
+*/
+
+/*
+function update_node_form_attachments(node_id){
+  var el_name = 'attachment_list'
+  new Ajax.Request('/bufs_info_doc/list_attachments',
+        { method:'post',
+          parameters: { 'node_cat':node_id },
+          onSuccess: function(transport){
+            json = transport.responseJSON;
+            $('node_id_input_edit').value = node_id;
+            make_attachment_list(json, el_name);
+            //dynamically_create_attachment_list(json);
+          },
+          onFailure: function(){ alert('Something went wrong updating attachments... \n Response:' + transport.headerJSON)}
+        });
+};
+*/
+
+
+
+/*  Replaced by routeNodeDataToElements (and no longer needs server side ajax request
 function ajaxGetParentCats(el, node_cat){ new Ajax.Request('/bufs_info_doc/parent_cats',
   {
     method:'get',
@@ -131,6 +267,7 @@ function ajaxGetParentCats(el, node_cat){ new Ajax.Request('/bufs_info_doc/paren
     onFailure: function(){ alert('Unable to retrieve parent cats') }
   });
 };
+*/
 
 function viz_update(data_url){
  new Ajax.Request(data_url,
@@ -157,6 +294,7 @@ function show_destroy_node_form(){
    $('destroy-node-form').show();
 };
 
+/* replaced by routeNodeDataToElements
 function show_edit_node_form(node_id){
   //alert("Edit: " + node_id);
   $('node_id_edit').value = node_id;
@@ -168,7 +306,7 @@ function show_edit_node_form(node_id){
   update_node_form_attachments(node_id);
   update_node_form_links(node_id);
 };
-
+*/
 function update_node(){
   var node_id = $('node_id_edit_label').innerHTML;
   var related_tags = $('related_tags_edit').value;
@@ -202,80 +340,16 @@ function delete_node(){
 };
 
 
-function update_node_form_attachments(node_id){
-  var el_name = 'attachment_list'
-  new Ajax.Request('/bufs_info_doc/list_attachments',
-        { method:'post',
-          parameters: { 'node_cat':node_id },
-          onSuccess: function(transport){
-            json = transport.responseJSON;
-            $('node_id_input_edit').value = node_id;
-            make_attachment_list(json, el_name);
-            //dynamically_create_attachment_list(json);
-          },
-          onFailure: function(){ alert('Something went wrong updating attachments... \n Response:' + transport.headerJSON)}
-        });
-};
 
-function update_node_form_links(node_id){
-  var el_name = 'links_list'
-  new Ajax.Request('/bufs_info_doc/list_links',
-        { method:'post',
-          parameters: { 'node_cat':node_id },
-          onSuccess: function(transport){
-            json = transport.responseJSON;
-            $('node_id_input_edit').value = node_id;
-            make_links_list(json, el_name);
-            //dynamically_create_attachment_list(json);
-          },
-          onFailure: function(){ alert('Something went wrong updating links...\n Response:' + transport.headerJSON)}
-        });
-};
+
 
 //  new Ajax.Updater('attachment_list','/bufs_info_doc/list_attachments',{
 //                  parameters:{ node_cat: node_id }
 //                });
 
-function make_attachment_list(attachments, el_name){
-   //window.current_attachments = attachments;
-   var node_id = $('node_id_edit_label').innerHTML;
-   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />";
-   for (var index = 0, len = attachments.length; index < len; ++ index) {
-     var attachment = attachments[index];
-     var att_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
-     //alert(attachment);
-     newHTML += "<div class='attachment_item'><a href='" + att_url + "'>" + attachment + "</a>";
-     newHTML += "<input type='checkbox' onclick='javascript:delete_attachment(this)' name='checkbox_" + index + "'> Delete?</div>";
-   };
-   $(el_name).innerHTML = newHTML;
-};
 
-function make_links_list(links, el_name){
-   //window.current_attachments = attachments;
-   var node_id = $('node_id_edit_label').innerHTML;
-   newHTML = "<span id='dynamic_links_label'>Links</span><br />";
-   var index = 0
-   for (var src in links) {
-   //for (var index = 0, len = links.length; index < len; ++ index) {
-     //linkData = links[index]
-     //for (var src in linkData){
-     var linkNames = links[src];
-       //alert(inspect(linkName));
-       //alert(src);
-       //var link_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
-       //alert(attachment);
-       for (var index = 0, len = linkNames.length; index < len; ++ index) {
-         newHTML += "<div class='link_item'><a href='" + src + "' target='_blank'>" + linkNames[index] + "</a>";
-         //newHTML += "<div class='link_item'><span id='link_src'>" + link + "</a>";
-         newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
-         //index += 1
-       };
-     index += 1;
-     //};
-   };
-   //alert(newHTML);
-   $(el_name).innerHTML = newHTML;
-};
+
+
 
 function delete_attachment(el){
   //var index = el.name.replace(/checkbox_/g,''));
@@ -390,14 +464,12 @@ function destroy_node_data(){
 
 
 function index_nodes(){
-  //alert('indexing nodes');
   var data_url = '/bufs_info_doc/index_nodes';
   new Ajax.Request(data_url,
     {
       method:'get',
       onSuccess: function(transport){
         json = transport.responseJSON
-        //alert(json["id"]);
         viz_init(json);  
       },
       onFailure: function(){ alert('Something went wrong indexing nodes...') }
@@ -406,12 +478,13 @@ function index_nodes(){
 
 
 function viz_init(json){
-    
+/*
     var infovis = document.getElementById('infovis');
     var w = infovis.offsetWidth, h = infovis.offsetHeight;
     
     //init canvas
     //Create a new canvas instance.
+    
     var canvas = new Canvas('mycanvas', {
         //Where to append the canvas widget
         'injectInto': 'infovis',
@@ -420,6 +493,7 @@ function viz_init(json){
         
         //Optional: create a background canvas and plot
         //concentric circles in it.
+        //alert("background canvas");
         'backgroundCanvas': {
             'styles': {
                 'strokeStyle': '#555'
@@ -441,7 +515,19 @@ function viz_init(json){
         }
     });
     //end
-    //init RGraph
+*/
+/*
+    var viz = new $jit.Viz({
+ 		//Where to inject the canvas. Any div container will do.
+ 		'injectInto':'infovis',
+		 //width and height for canvas. 
+		 //Default's to the container offsetWidth and Height.
+		 'width': 900,
+		 'height':500
+	 });
+*/
+/*
+    //init RGraph old
     rgraph = new RGraph(canvas, {
         //Set Node and Edge colors.
         Node: {
@@ -505,7 +591,94 @@ function viz_init(json){
             style.left = (left - w / 2) + 'px';
         }
     });
-    
+ */   
+     //init RGraph new
+    var rgraph = new $jit.RGraph({
+        //Where to append the visualization
+        injectInto: 'infovis',
+        //Optional: create a background canvas that plots
+        //concentric circles.
+        background: {
+          CanvasStyles: {
+            strokeStyle: '#555'
+          }
+        },
+        //Add navigation capabilities:
+        //zooming by scrolling and panning.
+        Navigation: {
+          enable: true,
+          panning: true,
+          zooming: 10
+        },
+        //Set Node and Edge styles.
+        Node: {
+            color: '#ddeeff'
+        },
+        
+        Edge: {
+          color: '#C17878',
+          lineWidth:1.5
+        },
+
+        onBeforeCompute: function(node){
+            Log.write("centering " + node.name + "...");
+            //Add the relation list in the right column.
+            //This list is taken from the data property of each JSON node.
+            $jit.id('inner-details').innerHTML = node.data.relation;
+        },
+        
+        onAfterCompute: function(){
+            Log.write("done");
+        },
+        //Add the name of the node in the correponding label
+        //and a click handler to move the graph.
+        //This method is called once, on label creation.
+        //onCreateLabel: function(domElement, node){
+        //    domElement.innerHTML = node.name;
+        //    domElement.onclick = function(){
+        //        rgraph.onClick(node.id);
+        //    };
+        //},
+        onCreateLabel: function(domElement, node){
+            domElement.innerHTML = node.name;
+            domElement.addEventListener('click',function (e) {
+                rgraph.onClick(node.id);
+                routeClickedNodeDataToElements(node);
+                //ajaxGetParentCats($('related_tags_edit'),node.name);
+                //show_edit_node_form(node.name);
+                //e.stopPropagation();
+                stoppropagation(e);
+                },true);
+
+            //domElement.onclick = function(){
+            //    rgraph.onClick(node.id);
+            //    show_edit_node_form(node.name);
+            //};
+        },
+        //Change some label dom properties.
+        //This method is called each time a label is plotted.
+        onPlaceLabel: function(domElement, node){
+            var style = domElement.style;
+            style.display = '';
+            style.cursor = 'pointer';
+
+            if (node._depth <= 1) {
+                style.fontSize = "0.8em";
+                style.color = "#ccc";
+            
+            } else if(node._depth == 2){
+                style.fontSize = "0.7em";
+                style.color = "#494949";
+            
+            } else {
+                style.display = 'none';
+            }
+
+            var left = parseInt(style.left);
+            var w = domElement.offsetWidth;
+            style.left = (left - w / 2) + 'px';
+        }
+    });
     //load JSON data
     rgraph.loadJSON(json);
     //compute positions and make the first plot
