@@ -36,19 +36,6 @@ var labelType, useGradients, nativeTextSupport, animate;
 })();
 //End Jit2
 
-//Helper Functions
-//Prototype already does this?
-//function addEvent(obj, type, fn) {
-//    if (obj.addEventListener) obj.addEventListener(type, fn, false);
-//    else obj.attachEvent('on' + type, fn);
-//};
-
-function stoppropagation(e) 
-{ 
-e=e||event; 
-e.stoppropagation? e.stoppropagation() : e.cancelBubble=true; 
-}
-
 function inspect(obj, maxLevels, level)
 {
   var str = '', type, msg;
@@ -145,7 +132,7 @@ function routeClickedNodeDataToElements(node) {
   //Recenter graph (note this is redundancy rgraph and myGraph
   //alert(inspect(myGraph));
   //alert(node.id);
-  myGraph.onClick(node.id); 
+  //myGraph.onClick(node.id); <-- duplicates OnCreateLabel controller functions
   //elements to receive node data
   var parentCatEditBox = $('related_tags_edit');
   var nodeIdBox = $('node_id_edit');
@@ -482,7 +469,7 @@ function adda_link(){
 //  alert("Create New Node");
 //}
 
-// Ajax Example
+// Ajax Example 
 
 function create_node_data(){
  var node_cat = $('node_cat_create');
@@ -597,28 +584,7 @@ function traverse(obj,func,extObj) {
 
 function rgraph_init(json){
     alert(myGraph);
-    
 
-    //remove canvas
-    //var canvasElement = document.getElementById('infovis');
-    //canvasElement.parentNode.removeChild(canvasElement);
-    //make a new instance
-    //canvas = new Canvas('mycanvas', {'injectInto': canvasElementId,});
-    //ht = new Hypertree(canvas, { .. } ) 
-/*    
-    myGraph.canvas = myCanvas.canvas ||new Canvas("mycanvas",{
-    //Where to append the visualization
-        injectInto: 'infovis',
-        //Optional: create a background canvas that plots
-        //concentric circles.
-        background: {
-          CanvasStyles: {
-            strokeStyle: '#555'
-          }
-        }
-      });
-*/
-    alert(myGraph);
 //    $("mycanvas-label").empty();
     
      //init RGraph new
@@ -656,7 +622,7 @@ function rgraph_init(json){
             if(node==false){
               show_create_node_form(); }
             else {
-              myGraph.onClick(node.id);
+              //myGraph.onClick(node.id);
             };
           }   
         },  
@@ -682,21 +648,10 @@ function rgraph_init(json){
         //},
         onCreateLabel: function(domElement, node){
             domElement.innerHTML = node.name;
-            domElement.addEventListener('click',function (e) {
-                alert('clicked');
+            domElement.onclick = function() {
                 rgraph.onClick(node.id);
-                alert('clicked past onClick');
                 routeClickedNodeDataToElements(node);
-                //ajaxGetParentCats($('related_tags_edit'),node.name);
-                //show_edit_node_form(node.name);
-                //e.stopPropagation();
-                stoppropagation(e);
-                },true);
-
-            //domElement.onclick = function(){
-            //    rgraph.onClick(node.id);
-            //    show_edit_node_form(node.name);
-            //};
+            }
         },
         //Change some label dom properties.
         //This method is called each time a label is plotted.
@@ -723,6 +678,7 @@ function rgraph_init(json){
         }
     });
     //load JSON data
+    alert("RGraph Set Up");
     myGraph = rgraph;
     myGraph.loadJSON(json);
     //compute positions and make the first plot

@@ -278,7 +278,7 @@ class BufsInfoDocController < ApplicationController
     #render :text => session
     @user_class = current_user_db  #method in application_controller.rb
     #render :text => "Log In User Class: #{@user_class.inspect}"
-    redirect_to '/jit/bufs_graph.html'
+    redirect_to '/bufs_vis/bufs_graph.html'
   end
 
   def log_out

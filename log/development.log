@@ -9469,3 +9469,105 @@ Rendering rescues/layout (internal_server_error)
 Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 13:23:05) [GET]
   Parameters: {"uniqIterator"=>"0"}
 Completed in 387ms (View: 27 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:00:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 414ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-10-08 16:00:18) [GET]
+Redirected to http://bufs.younghawk.org:3000/index
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-08 16:00:19) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 39ms (View: 38 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-08 16:00:30) [POST]
+  Parameters: {"authenticity_token"=>"ysjN+qHxp+fdpwdtAfVpq8ldlX/5fGggxUzgLlKSzQM=", "db_name"=>"sample_data", "user_id"=>"SampleCouchUser001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/jit/bufs_graph.html
+Completed in 81ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:00:31) [GET]
+Completed in 76ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-08 16:00:31) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-10-08 16:00:43) [GET]
+Redirected to http://bufs.younghawk.org:3000/index
+Completed in 49ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-08 16:00:43) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-08 16:03:59) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 23ms (View: 22 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-08 16:04:11) [POST]
+  Parameters: {"authenticity_token"=>"0rp+gKvObFAOO1d5RLOgQ7ekcCKB7km1IyPUiyqmNdM=", "db_name"=>"sample_data", "user_id"=>"SampleCouchUser001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/bufs_vis/bufs_graph.html
+Completed in 58ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:04:14) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 138ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-10-08 16:04:38) [GET]
+Redirected to http://bufs.younghawk.org:3000/index
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-08 16:04:38) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-08 16:04:53) [POST]
+  Parameters: {"authenticity_token"=>"XWuGP1v10oHwty3JgQFOzVATf91IFpvmpmmK25XrmX8=", "db_name"=>"sample_data", "user_id"=>"SampleCouchUser001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/bufs_vis/bufs_graph.html
+Completed in 68ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:04:56) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 79ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:05:17) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 80ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:08:06) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 93ms (View: 71 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:09:55) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 76ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:10:21) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 26ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:12:05) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 123ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
