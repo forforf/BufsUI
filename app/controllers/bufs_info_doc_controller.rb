@@ -7,25 +7,24 @@ class BufsInfoDocController < ApplicationController
   def index_nodes
     #user = params[:user]
     #user_db = UserDB.new(CouchDB, user)
+    uniq_id_postfix = params[:uniqIterator]
+    puts "Uniq Iterator: #{uniq_id_postfix}"
     @user_class = current_user_db
     puts "Index Nodes: #{@user_class.inspect}"
     nodes = @user_class.all :add => {:links => nil}
     
     full_id = session[:user_id] 
     user_name = full_id.to_s.gsub(@user_class.name.to_s, "") #top category
-    puts "Nodes: #{nodes.last.inspect}" 
-    puts "Nodes size: #{nodes.size}"
+    #puts "Nodes: #{nodes.last.inspect}" 
+    #puts "Nodes size: #{nodes.size}"
     
     jvis = BufsJsvisData.new(user_name, nodes)
     
-    puts "Top Category: #{user_name}"
+    #puts "Top Category: #{user_name}"
     depth = 4
     jvis_data = jvis.json_vis_tree(user_name, depth)
     #puts "Jvis_Data: #{jvis_data.inspect}"
 
-    json_str = <<-EOS
-{"id":"dummy_view2","name":"bid_view","data":{},"children":[{"id":"127.0.0.1:598
-    EOS
     json_obj = jvis_data
     puts "Rendering json: #{json_obj.inspect}"
     render :json => json_obj##, :content_type => 'text/plain'
@@ -244,7 +243,7 @@ class BufsInfoDocController < ApplicationController
     node_cat = params[:node_cat]
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
-    node_doc.destroy_node
+    node_doc.__destroy_node
     jvis_data = get_current_nodes
     render :json => jvis_data
   end

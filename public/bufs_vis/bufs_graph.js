@@ -4,10 +4,11 @@
 //Event.observe(window, "load", initialize_page );
 document.observe("dom:loaded", initialize_page );
 
-myGraph = "not set yet";
+var myGraph = "not set yet";
+var uniqIteration = 0;
 
 function initialize_page(){
-  index_nodes();
+  myGraph = index_nodes();
   //Add click event to the div holding the canvas
   $("infovis").observe("click", show_create_node_form ); 
   //$("update_node_button").observe("click", alert("clicked") );
@@ -142,8 +143,8 @@ function setAuthToken(el_id){
 
 function routeClickedNodeDataToElements(node) {
   //Recenter graph (note this is redundancy rgraph and myGraph
-  alert(inspect(myGraph));
-  alert(node.id);
+  //alert(inspect(myGraph));
+  //alert(node.id);
   myGraph.onClick(node.id); 
   //elements to receive node data
   var parentCatEditBox = $('related_tags_edit');
@@ -333,11 +334,13 @@ function update_node(){
 function delete_node(){
   var node_id = $('node_id_edit_label').innerHTML;
   alert('Delete Node ID: ' + node_id + '?');
-  var node_data = { 'node_cat': node_id }
+  var node_data = { 'node_cat': node_id, uniqIterator : uniqIteration+'' }
   new Ajax.Request('/bufs_info_doc/destroy_node', { method:'get',
     parameters: node_data,
     onSuccess: function(transport, json){
         var json = transport.responseJSON;
+        uniqIteration += 1;
+/*
         var parent_node;
         //alert(myGraph.toJSON().children.length);
         //alert('deleting node');
@@ -345,27 +348,31 @@ function delete_node(){
         visnode.eachSubnode(function(node) {
           //alert(visnode.data.parent_categories);
           visnode.data.parent_categories.each(function(parCat, index){
-            alert(index + ':' + parCat);
+            //alert(index + ':' + parCat);
             if(parCat == node.id){
               parent_node = parCat;
-              alert('found: ' + parCat);
+              //alert('found: ' + parCat);
             }
           });  
-          alert(node.id);  
+          //alert(node.id);  
          });
-        alert('click on: ' + parent_node);
-        alert(inspect(myGraph));
+        //alert('click on: ' + parent_node);
+        //alert(inspect(myGraph));
         myGraph.onClick(parent_node);
-        myGraph.op.removeNode(node_id, {
+*/
+      //  myGraph.op.removeNode(node_id, {
+      //    type: 'fade:seq',
+      //    duration: 1500});
+        myGraph.op.morph(json, {
           type: 'fade:seq',
           duration: 1500});
         alert('node removed');
         //guessing below
         //$jit.Graph.Util.computeLevels(myGraph.graph, parent_node);
-        newJson = myGraph.toJSON();
-        myGraph.loadJSON(newJson);
-        myGraph.compute();
-        myGraph.refresh();
+        //newJson = myGraph.toJSON();
+        //myGraph.loadJSON(newJson);
+        //myGraph.compute();
+        //myGraph.refresh();
         alert('refreshed');
         //node is undefined at this point
         //myGraph.onclick(this.root);
@@ -376,6 +383,12 @@ function delete_node(){
         //  type: 'fade:con',
         //  duration: 1500});
         //myGraph.refresh();
+        
+        myGraph.empty();
+        myGraph.fx.clearLabels(true);
+        tmpGraph = rgraph_init(json);
+        //myGraph = null;
+        //myGraph = tmpGraph;
       }
   });
 };
@@ -474,17 +487,23 @@ function adda_link(){
 function create_node_data(){
  var node_cat = $('node_cat_create');
  var related_tags = $('related_tags_create');
+ //TODO Create Node using local information
+ // then use ajax to update it to the final authoritative view
    
- var node_data = { node_cat: node_cat.value, related_tags: related_tags.value }
+ var node_data = { node_cat: node_cat.value, related_tags: related_tags.value, uniqIterator : uniqIteration+'' }
  new Ajax.Request('/bufs_info_doc/create_node', { method:'get',
     parameters: node_data,
     onSuccess: function(transport, json){
+        uniqIteration += 1; 
         json = transport.responseJSON;
-        //alert('graphing new node');
+        //The below should move to the local section
+        //using locally provided json manipulation
         myGraph.op.sum(json, {
           type: 'fade:con',
           duration: 1500});
-        //myGraph.refresh;
+        myGraph.empty();
+        tmpGraph = rgraph_init(json);
+        myGraph = tmpGraph;
         //alert('new node graphed');
       }
   });
@@ -523,129 +542,85 @@ function index_nodes(){
   new Ajax.Request(data_url,
     {
       method:'get',
+      parameters: {uniqIterator : uniqIteration+''},
       onSuccess: function(transport){
+        uniqIteration += 1;
+        //uniq_id = '__' + uniqIteration;
+        //alert(uniq_id);
         json = transport.responseJSON
-        var rgraph = viz_init(json);  
+        //console.log("============= ORIGINAL ==============");
+        //traverse(json,log, 0);
+        //traverse(json,rekey, uniq_id);
+        //console.log("============= REKEYED ==============");
+        //traverse(json,log, 0);
+        var rgraph = rgraph_init(json);
       },
       onFailure: function(){ alert('Something went wrong indexing nodes...') }
     });
+  return rgraph
 };
 
-function viz_init(json){
-/*
-    var infovis = document.getElementById('infovis');
-    var w = infovis.offsetWidth, h = infovis.offsetHeight;
-    
-    //init canvas
-    //Create a new canvas instance.
-    
-    var canvas = new Canvas('mycanvas', {
-        //Where to append the canvas widget
-        'injectInto': 'infovis',
-        'width': w,
-        'height': h,
-        
-        //Optional: create a background canvas and plot
-        //concentric circles in it.
-        //alert("background canvas");
-        'backgroundCanvas': {
-            'styles': {
-                'strokeStyle': '#555'
-            },
-            
-            'impl': {
-                'init': function(){},
-                'plot': function(canvas, ctx){
-                    var times = 6, d = 100;
-                    var pi2 = Math.PI * 2;
-                    for (var i = 1; i <= times; i++) {
-                        ctx.beginPath();
-                        ctx.arc(0, 0, i * d, 0, pi2, true);
-                        ctx.stroke();
-                        ctx.closePath();
-                    }
-                }
-            }
+//Based off of an answery by Hippo on StackOverflow
+//an object is traversed, and every sub-object of that object is traversed as well
+//if the sub-object is not a function than the function passed in to traverse
+// will be applied to that sub-object
+// An external object can also be carried through and refrenced in the paramterized function
+function log(obj, key,value,newValue, extObj) {
+    if(key=="id"){
+      console.log(key + " ::: "+value);}
+    else{
+      console.log(key + " : " + value);
+    }
+}
+
+function rekey(obj, key,value, extObj) {
+    if(key=="id"){
+      //key = key + "test"}
+      obj[key] = value + extObj;
+    //else{
+    //  console.log(key + " : " + value);
+    }
+}
+function traverse(obj,func,extObj) {
+    for (o in obj) {
+    //obj.each(function(o){
+        //console.log('Type: ' + typeof(obj[o]));
+        if(typeof(obj[o])!="function" )func.apply(this,[obj,o,obj[o],extObj]);      
+        if (typeof(obj[o])=="object") {
+                //going on step down in the object tree!!
+                traverse(obj[o],func, extObj);
         }
-    });
-    //end
-*/
-/*
-    var viz = new $jit.Viz({
- 		//Where to inject the canvas. Any div container will do.
- 		'injectInto':'infovis',
-		 //width and height for canvas. 
-		 //Default's to the container offsetWidth and Height.
-		 'width': 900,
-		 'height':500
-	 });
-*/
-/*
-    //init RGraph old
-    rgraph = new RGraph(canvas, {
-        //Set Node and Edge colors.
-        Node: {
-            color: '#ccddee'
-        },
-        
-        Edge: {
-            type: 'arrow',
-            color: '#772277'
-        },
+    }
+    //);//close each
+}
+//End Hippo Stuff
 
-        onBeforeCompute: function(node){
-            Log.write("centering " + node.name + "...");
-            //Add the relation list in the right column.
-            //This list is taken from the data property of each JSON node.
-            //document.getElementById('inner-details').innerHTML = node.data.relation;
-        },
-        
-        onAfterCompute: function(){
-            Log.write("done");
-        },
-        //Add the name of the node in the correponding label
-        //and a click handler to move the graph.
-        //This method is called once, on label creation.
-        onCreateLabel: function(domElement, node){
-            domElement.innerHTML = node.name;
-            domElement.addEventListener('click',function (e) {
-                rgraph.onClick(node.id);
-                ajaxGetParentCats($('related_tags_edit'),node.name);
-                show_edit_node_form(node.name);
-                //e.stopPropagation();
-                stoppropagation(e);
-                },true);
+function rgraph_init(json){
+    alert(myGraph);
+    
 
-            //domElement.onclick = function(){
-            //    rgraph.onClick(node.id);
-            //    show_edit_node_form(node.name);
-            //};
-        },
-        //Change some label dom properties.
-        //This method is called each time a label is plotted.
-        onPlaceLabel: function(domElement, node){
-            var style = domElement.style;
-            style.display = '';
-            style.cursor = 'pointer';
-
-            if (node._depth <= 1) {
-                style.fontSize = "0.8em";
-                style.color = "#ccc";
-            
-            } else if(node._depth == 2){
-                style.fontSize = "0.7em";
-                style.color = "#494949";
-            
-            } else {
-                style.display = 'none';
-            }
-
-            var left = parseInt(style.left);
-            var w = domElement.offsetWidth;
-            style.left = (left - w / 2) + 'px';
+    //remove canvas
+    //var canvasElement = document.getElementById('infovis');
+    //canvasElement.parentNode.removeChild(canvasElement);
+    //make a new instance
+    //canvas = new Canvas('mycanvas', {'injectInto': canvasElementId,});
+    //ht = new Hypertree(canvas, { .. } ) 
+/*    
+    myGraph.canvas = myCanvas.canvas ||new Canvas("mycanvas",{
+    //Where to append the visualization
+        injectInto: 'infovis',
+        //Optional: create a background canvas that plots
+        //concentric circles.
+        background: {
+          CanvasStyles: {
+            strokeStyle: '#555'
+          }
         }
-    });
- */   
+      });
+*/
+    alert(myGraph);
+//    $("mycanvas-label").empty();
+    
      //init RGraph new
     var rgraph = new $jit.RGraph({
         //Where to append the visualization
@@ -657,6 +632,7 @@ function viz_init(json){
             strokeStyle: '#555'
           }
         },
+      //canvas,{
         //Add navigation capabilities:
         //zooming by scrolling and panning.
         Navigation: {
@@ -673,6 +649,17 @@ function viz_init(json){
           color: '#C17878',
           lineWidth:1.5
         },
+        
+        Events: {  
+          enable: true,  
+          onClick: function(node, eventInfo, e) {  
+            if(node==false){
+              show_create_node_form(); }
+            else {
+              myGraph.onClick(node.id);
+            };
+          }   
+        },  
 
         onBeforeCompute: function(node){
             Log.write("centering " + node.name + "...");
@@ -740,7 +727,6 @@ function viz_init(json){
     myGraph.loadJSON(json);
     //compute positions and make the first plot
     myGraph.refresh();
-    //end
-    //append information about the root relations in the right column
-    //document.getElementById('inner-details').innerHTML = rgraph.graph.getNode(rgraph.root).data.relation;
+    
+    return myGraph;
 }

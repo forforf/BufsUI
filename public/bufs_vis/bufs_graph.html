@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Relationship Manager -- or something</title>
+
+<!-- CSS Files -->
+<link type="text/css" href="../stylesheets/jit2/base.css" rel="stylesheet" />
+<link type="text/css" href="../stylesheets/jit/bufs_info_doc.css" rel="stylesheet" />
+
+<!--[if IE]><script language="javascript" type="text/javascript" src="../javascripts/jit/Extras/excanvas.js"></script><![endif]-->
+
+<!-- JIT Library File -->
+<script language="javascript" type="text/javascript" src="../javascripts/jit2/jit.js"></script>
+<script language="javascript" type="text/javascript" src="../javascripts/prototype.js"></script>
+
+<!-- Example File -->
+<script language="javascript" type="text/javascript" src="bufs_graph.js"></script>
+</head>
+
+<body>
+<div id="container">
+  <div id="left-container">
+    <div class="text">
+      <h4>
+      Relationships as a Tree   
+      </h4> 
+
+            User data is provided in a tree structure with the root node being the User's Id.   Updates to the data structure are reflected in the animation after successful update to the server.<br /><br />
+            Clicking on the background canvas allows a new node to be created.<br /><br />
+            Clicking on an existing node should move the tree and center on that node.<br /><br />
+            The centered node's information is displayed in the right column and can be edited.<br /><br />
+      <div class="footnote">
+            The current data visualization scheme is heavily based on <a href="http://blog.thejit.org/">Nicolas Garcia Belmonte's</a><a href="http://thejit.org"> JavaScript InfoVis Toolkit.</a>.  <br /><br />
+
+             I will be redoing the UI to make the visualiztion prettier, the operations more intuitive, and the relationships clearer. Lucky for me a new version of the JavaScript InfoVis Toolkit is out that should be able to support the UI concepts I want to implement.
+      </div>
+    </div>
+
+    <div id="testarea"></div>
+    <b>New Feature Test Area <br /><br />
+    <div style="text-align:center;"><a href="/bufs_info_doc/log_out">Sign Out</a></div>
+    <div style="text-align:center;"><a href="/bufs_info_doc/import_from_file">Import from File System</a></div>
+    <div style="text-align:center;"><a href="/bufs_info_doc/export_to_file")">Export to File System</a></div>
+  </div>
+
+  <div id="center-container">
+    <div id="infovis"></div>    
+  </div>
+
+  <div id="right-container">
+    <div id="create-node-form" class="node-forms">
+      <div id="node_creator">
+        Create New Node Form
+        <fieldset>
+           <legend><small>New Node</small></legend>
+          <b>Node Tag</b><br/>
+          <input id="node_cat_create" name="node_cat" type="text" />
+        </p>
+        <p>
+          <b>Related Tags</b><br/>
+          <input id="related_tags_create" name="related_tags" type="text" />
+        </p>
+        <p>
+           <b> Add Attachment</b><br/>
+           <input name="add_attachment" type="file" />
+        </p>
+        <p>
+          <input name="commit" value="Submit" type="submit" onclick="javascript:create_node_data()">
+        </p>
+        </fieldset>
+       </div>
+    </div>
+
+
+    <div id="edit-node-form" class="node-forms" style="display:none;">
+      <div id="node_editor">
+      Edit Node
+         <fieldset>
+            <legend>
+            Node ID: <span id="node_id_edit_label"></span>
+            </legend>
+            Parents:
+            <textarea id="related_tags_edit" name="related_tags"></textarea>
+            <button id="update_node_button" onclick="javascript:update_node()">Update</button>
+            <button id="delete_node_button" onclick="javascript:delete_node()">Delete Node</button>
+            <div id="attachment_list">No Node Selected
+            </div>
+            <div id="links_list">No Node Selected
+            </div>
+            <form id="add_attach_form" action="/bufs_info_doc/att_test"  method="post" enctype="multipart/form-data">
+              <!-- Parameters: node_id -->
+              <input id="authtok_attach_form" type="hidden" value=" " name="authenticity_token">
+              <input id="node_id_input_edit" name="node_cat" type="hidden" />
+
+              <div id="att_button_area">
+                <input id="add_attach_edit" name="add_attachment" type="file" />
+                <input name="action" value="Add New Attachment" type="button" onclick="javascript:adda_attachment()" />
+              </div>
+
+              <div id="link_button_area">
+                <input id="add_link_edit" name="add_link" />
+                <input id="add_link_name_edit" name="add_link_name" />
+                <input name="action" value="Add New Link" type="button" onclick="javascript:adda_link()" />
+              </div>
+
+              <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:none">
+              </iframe>
+
+            </form>
+
+         </fieldset> 
+      </div>
+
+      <div id="node_id_edit">
+      </div>
+
+<!--
+      <form id="add_attach_form2" action="/bufs_info_doc/att_test" method="post" enctype="multipart/form-data">
+        <p>
+          <b>Node Tag</b><br/>
+          <input id="node_id_edit" name="node_cat" type="text"/>
+        </p>
+        <p>
+          <b>Related Tags</b><br/>
+          <input id="related_tags_edit2" name="related_tags2" type="text"t/>
+        </p>
+        <p>
+          <input name="commit" value="Edit Node" type="button" onclick="javascript:edit_node_data()">
+        </p>
+         <p>
+        </p>
+        <br/>
+
+           <b> Add Attachment</b><br/>
+           <input id="add_attach_edit" name="add_attachment" type="file" />
+        </p>
+        <p>
+          <input name="action" value="Add Attachment" type="button" onclick="javascript:redirect_submit()">
+        </p>
+         
+        <iframe id="files_uploaded_iframe" name="files_uploaded_iframe" src="" style="display:none">
+        </iframe>
+       </form>
+-->
+
+
+    <div id="destroy-node-form" style="display:none;">
+      <b>Destroy Node</b>
+        <p>
+          <b>Node Tag</b><br>
+          <input id="node_cat_destroy" name="node_cat" type="text">
+        </p>
+
+        <p>
+          <input name="commit" value="Submit" type="submit" onclick="javascript:destroy_node_data()">
+        </p>
+    </div>
+
+
+    <div id="inner-details"></div>
+
+  </div>
+
+</div>
+<div id="log"></div>
+</div>
+</body>
+</html>

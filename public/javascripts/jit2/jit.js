@@ -4842,8 +4842,11 @@ Graph.Util = {
             elem._depth = -1;
         }, flags);
         var root = graph.getNode(id);
-        root._depth = startDepth;
+        //added if statement to get around undefined node (after removeNode called)
+        if(root) root._depth = startDepth;
         var queue = [root];
+        //added if statement to get around undefined node (after removeNode called)
+        if(!root) queue = [];
         while(queue.length != 0) {
             var node = queue.pop();
             node._flag = true;
