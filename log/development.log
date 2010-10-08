@@ -9571,3 +9571,49 @@ Completed in 26ms (View: 4 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/ind
 Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:12:05) [GET]
   Parameters: {"uniqIterator"=>"0"}
 Completed in 123ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-10-08 16:29:42) [GET]
+Redirected to http://bufs.younghawk.org:3000/index
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-08 16:29:42) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 14ms (View: 13 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-08 16:29:54) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "db_name"=>"sample_data", "user_id"=>"SampleWebUI001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/bufs_vis/bufs_graph.html
+Completed in 56ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:29:56) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 73ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-08 16:30:03) [GET]
+  Parameters: {"node_cat"=>"a", "related_tags"=>"", "uniqIterator"=>"1"}
+Completed in 124ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=a&related_tags=&uniqIterator=1]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:30:14) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 58ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-08 16:30:28) [GET]
+  Parameters: {"node_cat"=>"aa", "related_tags"=>"a", "uniqIterator"=>"1"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=aa&related_tags=a&uniqIterator=1]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:33:55) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-08 16:39:42) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]

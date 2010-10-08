@@ -9,9 +9,6 @@ var uniqIteration = 0;
 
 function initialize_page(){
   myGraph = index_nodes();
-  //Add click event to the div holding the canvas
-  $("infovis").observe("click", show_create_node_form ); 
-  //$("update_node_button").observe("click", alert("clicked") );
   $('node_id_input_edit').value = " ";
   //$('files_uploaded_iframe_id').onload = alert("Uploaded file");
   setAuthToken('authtok_attach_form');  
@@ -102,18 +99,6 @@ var Log = {
 };
 
 
-//var jsonNoResp = {"id":"dummy","name":"no data from server","data":{},"children":[]}
-//function ajaxRequest(url) { new Ajax.Request(url,
-//  {
-//    method:'get',
-//    onSuccess: function(transport){
-//      alert("text:\n" + transport.responseText + "\nhead json:\n" + transport.headerJSON + "\nresp json:\n" + transport.responseJSON);
-//      json = transport.responseJSON
-//      alert("Ajax json: " + json.name);
-//    },
-//    onFailure: function(){ alert('Something went wrong...') }
-//  });
-//};
 
 function setAuthToken(el_id){
   new Ajax.Request('/bufs_info_doc/a_t',
@@ -129,10 +114,6 @@ function setAuthToken(el_id){
 
 
 function routeClickedNodeDataToElements(node) {
-  //Recenter graph (note this is redundancy rgraph and myGraph
-  //alert(inspect(myGraph));
-  //alert(node.id);
-  //myGraph.onClick(node.id); <-- duplicates OnCreateLabel controller functions
   //elements to receive node data
   var parentCatEditBox = $('related_tags_edit');
   var nodeIdBox = $('node_id_edit');
@@ -678,11 +659,11 @@ function rgraph_init(json){
         }
     });
     //load JSON data
-    alert("RGraph Set Up");
-    myGraph = rgraph;
-    myGraph.loadJSON(json);
+    alert("RGraph Configured");
+    //myGraph = rgraph;
+    rgraph.loadJSON(json);
     //compute positions and make the first plot
-    myGraph.refresh();
-    
-    return myGraph;
+    rgraph.refresh();
+    alert("RGraph Setup");
+    return rgraph;
 }
