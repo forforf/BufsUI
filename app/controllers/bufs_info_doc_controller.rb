@@ -91,11 +91,12 @@ class BufsInfoDocController < ApplicationController
     node_docs = @user_class.call_view(:my_category, node_cat)
     raise "Duplicate keys for node doc" if node_docs.size > 1
     node_doc = node_docs.first if node_docs
+    node_doc.parent_categories_add(parent_cats)
     #Hack need to fix model
-    add_parents = parent_cats - node_doc.parent_categories
-    rmv_parents = node_doc.parent_categories - parent_cats
-    node_doc.add_parent_categories(add_parents)
-    node_doc.remove_parent_categories(rmv_parents)
+    #add_parents = parent_cats - node_doc.parent_categories
+    #rmv_parents = node_doc.parent_categories - parent_cats
+    #node_doc.add_parent_categories(add_parents)
+    #node_doc.remove_parent_categories(rmv_parents)
     render :json => get_current_nodes
   end
 

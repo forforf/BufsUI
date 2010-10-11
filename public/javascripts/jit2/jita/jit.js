@@ -38,6 +38,7 @@
  This variable is the *only* global variable defined in the Toolkit. 
  There are also other interesting properties attached to this variable described below.
  */
+
 window.$jit = function(w) {
   w = w || window;
   for(var k in $jit) {
@@ -47,7 +48,7 @@ window.$jit = function(w) {
   }
 };
 
-$jit.version = '2.0.0b';
+$jit.version = '2.0.0a';
 /*
   Object: $jit.id
   
@@ -341,6 +342,109 @@ $.hexToRgb = function(hex) {
     hex = parseInt(hex.slice(1), 16);
     return [ hex >> 16, hex >> 8 & 0xff, hex & 0xff ];
   }
+};
+
+// hsl/hsv manipulation functions adapted from
+// http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript
+
+$.rgbToHsl = function(rgbArray) {
+  r = rgbArray[0] / 255, g = rgbArray[1] / 255, b = rgbArray[2] / 255;
+
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+
+  if(max == min) {
+    h = s = 0; // achromatic
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch(max){
+      case r:h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+  }
+
+  return [Math.round(h*360), Math.round(s*100), Math.round(l*100)];
+};
+
+$.hslToRgb = function(hslArray){
+  var h = hslArray[0] / 360, s = hslArray[1] / 100, l = hslArray[2] / 100;
+  var r, g, b;
+
+  if(s == 0) {
+    r = g = b = l; // achromatic
+  } else {
+    function hue2rgb(p, q, t) {
+      if(t < 0) t += 1;
+      if(t > 1) t -= 1;
+      if(t < 1/6) return p + (q - p) * 6 * t;
+      if(t < 1/2) return q;
+      if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    }
+
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+
+  return [Math.round(r*255), Math.round(g*255), Math.round(b*255)];
+};
+
+$.hslToHex = function(hslArray) {
+  return $.rgbToHex($.hslToRgb(hslArray));
+};
+
+$.rgbToHsv = function (rgbArray) {
+  r = rgbArray[0]/255, g = rgbArray[1]/255, b = rgbArray[2]/255;
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, v = max;
+
+  var d = max - min;
+  s = max == 0 ? 0 : d / max;
+
+  if(max == min) {
+    h = 0; // achromatic
+  } else {
+    switch(max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+  }
+
+  return [Math.round(h*360), Math.round(s*100), Math.round(v*100)];
+};
+
+$.hsvToRgb = function(hsvArray){
+  var h = hsvArray[0] / 360, s = hsvArray[1] / 100, v = hsvArray[2] / 100;
+  var r, g, b;
+
+  var i = Math.floor(h * 6);
+  var f = h * 6 - i;
+  var p = v * (1 - s);
+  var q = v * (1 - f * s);
+  var t = v * (1 - (1 - f) * s);
+
+  switch(i % 6) {
+    case 0: r = v, g = t, b = p; break;
+    case 1: r = q, g = v, b = p; break;
+    case 2: r = p, g = v, b = t; break;
+    case 3: r = p, g = q, b = v; break;
+    case 4: r = t, g = p, b = v; break;
+    case 5: r = v, g = p, b = q; break;
+  }
+
+  return [Math.round(r*255), Math.round(g*255), Math.round(b*255)];
+};
+
+$.hsvToHex = function(hsvArray) {
+  return $.rgbToHex($.hsvToRgb(hsvArray));
 };
 
 $.destroy = function(elem) {
@@ -912,7 +1016,7 @@ var Options = function() {
   Object: Options.AreaChart
   
   <AreaChart> options. 
-  Other options included in the AreaChart are <Options.Canvas>, <Options.Label>, <Options.Margin>, <Options.Tips> and <Options.Events>.
+  Other options included in the AreaChart are <Options.Canvas>, <Options.Label>, <Options.Tips> and <Options.Events>.
   
   Syntax:
   
@@ -920,6 +1024,7 @@ var Options = function() {
 
   Options.AreaChart = {
     animate: true,
+    offset: 25,
     labelOffset: 3,
     type: 'stacked',
     selectOnHover: true,
@@ -948,6 +1053,7 @@ var Options = function() {
   Parameters:
   
   animate - (boolean) Default's *true*. Whether to add animated transitions when filtering/restoring stacks.
+  offset - (number) Default's *25*. Adds margin between the visualization and the canvas.
   labelOffset - (number) Default's *3*. Adds margin between the label and the default place where it should be drawn.
   type - (string) Default's *'stacked'*. Stack style. Posible values are 'stacked', 'stacked:gradient' to add gradients.
   selectOnHover - (boolean) Default's *true*. If true, it will add a mark to the hovered stack.
@@ -962,6 +1068,7 @@ Options.AreaChart = {
   $extend: true,
 
   animate: true,
+  offset: 25, // page offset
   labelOffset: 3, // label offset
   type: 'stacked', // gradient
   Tips: {
@@ -978,60 +1085,6 @@ Options.AreaChart = {
   showLabels: true,
   filterOnClick: false,
   restoreOnRightClick: false
-};
-
-/*
- * File: Options.Margin.js
- *
-*/
-
-/*
-  Object: Options.Margin
-  
-  Canvas drawing margins. 
-  
-  Syntax:
-  
-  (start code js)
-
-  Options.Margin = {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
-  };
-  
-  (end code)
-  
-  Example:
-  
-  (start code js)
-
-  var viz = new $jit.Viz({
-    Margin: {
-      right: 10,
-      bottom: 20
-    }
-  });
-  
-  (end code)
-
-  Parameters:
-  
-  top - (number) Default's *0*. Top margin.
-  left - (number) Default's *0*. Left margin.
-  right - (number) Default's *0*. Right margin.
-  bottom - (number) Default's *0*. Bottom margin.
-  
-*/
-
-Options.Margin = {
-  $extend: false,
-  
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0
 };
 
 /*
@@ -1282,7 +1335,6 @@ Options.Node = {
    lineWidth - (number) Default's *1*. Line/Edge width.
    alpha - (number) Default's *1*. The Edge's alpha value. *1* is for full opacity.
    dim - (number) Default's *15*. An extra parameter used by other complex shapes such as quadratic, bezier or arrow, to determine the shape's diameter.
-   epsilon - (number) Default's *7*. Only used when using *enableForEdges* in <Options.Events>. This dimension is used to create an area for the line where the contains method for the edge returns *true*.
    CanvasStyles - (object) Default's an empty object (i.e. {}). Attach any other canvas specific property that you'd set to the canvas context before plotting an Edge.
 
   See also:
@@ -1292,13 +1344,12 @@ Options.Node = {
 Options.Edge = {
   $extend: false,
   
-  overridable: false,
+  overridable: true,  //was false
   type: 'line',
   color: '#ccb',
   lineWidth: 1,
   dim:15,
   alpha: 1,
-  epsilon: 7,
 
   //Raw canvas styles to be
   //applied to the context instance
@@ -1663,7 +1714,6 @@ Options.NodeStyles = {
   (start code js)
   Options.Events = {
     enable: false,
-    enableForEdges: false,
     type: 'auto',
     onClick: $.empty,
     onRightClick: $.empty,
@@ -1704,7 +1754,6 @@ Options.NodeStyles = {
   Parameters:
   
   enable - (boolean) Default's *false*. Whether to enable the Event system.
-  enableForEdges - (boolean) Default's *false*. Whether to track events also in arcs. If *true* the same callbacks -described below- are used for nodes *and* edges. A simple duck type check for edges is to check for *node.nodeFrom*.
   type - (string) Default's 'auto'. Whether to attach the events onto the HTML labels (via event delegation) or to use the custom 'Native' canvas Event System of the library. 'auto' is set when you let the <Options.Label> *type* parameter decide this.
   onClick(node, eventInfo, e) - Triggered when a user performs a click in the canvas. *node* is the <Graph.Node> clicked or false if no node has been clicked. *e* is the grabbed event (should return the native event in a cross-browser manner). *eventInfo* is an object containing useful methods like *getPos* to get the mouse position relative to the canvas. 
   onRightClick(node, eventInfo, e) - Triggered when a user performs a right click in the canvas. *node* is the <Graph.Node> right clicked or false if no node has been clicked. *e* is the grabbed event (should return the native event in a cross-browser manner). *eventInfo* is an object containing useful methods like *getPos* to get the mouse position relative to the canvas. 
@@ -1726,7 +1775,6 @@ Options.Events = {
   $extend: false,
   
   enable: false,
-  enableForEdges: false,
   type: 'auto',
   onClick: $.empty,
   onRightClick: $.empty,
@@ -1950,7 +1998,6 @@ var MouseEventsManager = new Class({
     this.viz = viz;
     this.canvas = viz.canvas;
     this.node = false;
-    this.edge = false;
     this.registeredObjects = [];
     this.attachEvents();
   },
@@ -2020,18 +2067,14 @@ var MouseEventsManager = new Class({
     var that = this,
         graph = this.viz.graph,
         fx = this.viz.fx,
-        ntypes = fx.nodeTypes,
-        etypes = fx.edgeTypes;
+        types = fx.nodeTypes;
     return {
       pos: false,
       node: false,
-      edge: false,
       contains: false,
       getNodeCalled: false,
-      getEdgeCalled: false,
       getPos: function() {
-        //TODO(nico): check why this can't be cache anymore when using edge detection
-        //if(this.pos) return this.pos;
+        if(this.pos) return this.pos;
         var canvas = that.viz.canvas,
             s = canvas.getSize(),
             p = canvas.getPos(),
@@ -2049,9 +2092,18 @@ var MouseEventsManager = new Class({
       getNode: function() {
         if(this.getNodeCalled) return this.node;
         this.getNodeCalled = true;
+        if(that.node) {
+          var n = graph.getNode(that.node),
+              geom = n && types[n.getData('type')],
+              contains = geom && geom.contains && geom.contains.call(fx, n, this.getPos());
+          if(contains) {
+            this.contains = contains;
+            return this.node = n;
+          }
+        }
         for(var id in graph.nodes) {
           var n = graph.nodes[id],
-              geom = n && ntypes[n.getData('type')],
+              geom = n && types[n.getData('type')],
               contains = geom && geom.contains && geom.contains.call(fx, n, this.getPos());
           if(contains) {
             this.contains = contains;
@@ -2059,26 +2111,6 @@ var MouseEventsManager = new Class({
           }
         }
         return that.node = this.node = false;
-      },
-      getEdge: function() {
-        if(this.getEdgeCalled) return this.edge;
-        this.getEdgeCalled = true;
-        var hashset = {};
-        for(var id in graph.edges) {
-          var edgeFrom = graph.edges[id];
-          hashset[id] = true;
-          for(var edgeId in edgeFrom) {
-            if(edgeId in hashset) continue;
-            var e = edgeFrom[edgeId],
-                geom = e && etypes[e.getData('type')],
-                contains = geom && geom.contains && geom.contains.call(fx, e, this.getPos());
-            if(contains) {
-              this.contains = contains;
-              return that.edge = this.edge = e;
-            }
-          }
-        }
-        return that.edge = this.edge = false;
       },
       getContains: function() {
         if(this.getNodeCalled) return this.contains;
@@ -2122,36 +2154,30 @@ Extras.Classes.Events = new Class({
   
   initializePost: function() {
     this.fx = this.viz.fx;
-    this.ntypes = this.viz.fx.nodeTypes;
-    this.etypes = this.viz.fx.edgeTypes;
-    
-    this.hovered = false;
-    this.pressed = false;
-    this.touched = false;
-
+    this.types = this.viz.fx.nodeTypes;
+    this.hoveredNode = false;
+    this.pressedNode = false;
+    this.touchedNode = false;
     this.touchMoved = false;
     this.moved = false;
-    
   },
   
   setAsProperty: $.lambda(true),
   
   onMouseUp: function(e, win, event, isRightClick) {
     var evt = $.event.get(e, win);
-    if(!this.moved) {
-      if(isRightClick) {
-        this.config.onRightClick(this.hovered, event, evt);
-      } else {
-        this.config.onClick(this.pressed, event, evt);
-      }
+    if(isRightClick) {
+      this.config.onRightClick(this.hoveredNode, event, evt);
+    } else {
+      this.config.onClick(this.pressedNode, event, evt);
     }
-    if(this.pressed) {
+    if(this.pressedNode) {
       if(this.moved) {
-        this.config.onDragEnd(this.pressed, event, evt);
+        this.config.onDragEnd(this.pressedNode, event, evt);
       } else {
-        this.config.onDragCancel(this.pressed, event, evt);
+        this.config.onDragCancel(this.pressedNode, event, evt);
       }
-      this.pressed = this.moved = false;
+      this.pressedNode = this.moved = false;
     }
   },
 
@@ -2161,7 +2187,7 @@ Extras.Classes.Events = new Class({
    if(this.dom && (label = this.isLabel(e, win))) {
      this.config.onMouseLeave(this.viz.graph.getNode(label.id),
                               event, evt);
-     this.hovered = false;
+     this.hoveredNode = false;
      return;
    }
    //mouseout canvas
@@ -2171,10 +2197,10 @@ Extras.Classes.Events = new Class({
      if(canvasWidget == rt.parentNode) return;
      rt = rt.parentNode;
    }
-   if(this.hovered) {
-     this.config.onMouseLeave(this.hovered,
+   if(this.hoveredNode) {
+     this.config.onMouseLeave(this.hoveredNode,
          event, evt);
-     this.hovered = false;
+     this.hoveredNode = false;
    }
   },
   
@@ -2182,26 +2208,26 @@ Extras.Classes.Events = new Class({
     //mouseover a label
     var evt = $.event.get(e, win), label;
     if(this.dom && (label = this.isLabel(e, win))) {
-      this.hovered = this.viz.graph.getNode(label.id);
-      this.config.onMouseEnter(this.hovered,
+      this.hoveredNode = this.viz.graph.getNode(label.id);
+      this.config.onMouseEnter(this.hoveredNode,
                                event, evt);
     }
   },
   
   onMouseMove: function(e, win, event) {
    var label, evt = $.event.get(e, win);
-   if(this.pressed) {
+   if(this.pressedNode) {
      this.moved = true;
-     this.config.onDragMove(this.pressed, event, evt);
+     this.config.onDragMove(this.pressedNode, event, evt);
      return;
    }
    if(this.dom) {
-     this.config.onMouseMove(this.hovered,
+     this.config.onMouseMove(this.hoveredNode,
          event, evt);
    } else {
-     if(this.hovered) {
-       var hn = this.hovered;
-       var geom = hn.nodeFrom? this.etypes[hn.getData('type')] : this.ntypes[hn.getData('type')];
+     if(this.hoveredNode) {
+       var hn = this.hoveredNode;
+       var geom = this.types[hn.getData('type')];
        var contains = geom && geom.contains 
          && geom.contains.call(this.fx, hn, event.getPos());
        if(contains) {
@@ -2209,11 +2235,11 @@ Extras.Classes.Events = new Class({
          return;
        } else {
          this.config.onMouseLeave(hn, event, evt);
-         this.hovered = false;
+         this.hoveredNode = false;
        }
      }
-     if(this.hovered = (event.getNode() || (this.config.enableForEdges && event.getEdge()))) {
-       this.config.onMouseEnter(this.hovered, event, evt);
+     if(this.hoveredNode = event.getNode()) {
+       this.config.onMouseEnter(this.hoveredNode, event, evt);
      } else {
        this.config.onMouseMove(false, event, evt);
      }
@@ -2226,33 +2252,33 @@ Extras.Classes.Events = new Class({
   
   onMouseDown: function(e, win, event) {
     var evt = $.event.get(e, win);
-    this.pressed = event.getNode() || (this.config.enableForEdges && event.getEdge());
-    this.config.onDragStart(this.pressed, event, evt);
+    this.pressedNode = event.getNode();
+    this.config.onDragStart(this.pressedNode, event, evt);
   },
   
   onTouchStart: function(e, win, event) {
     var evt = $.event.get(e, win);
-    this.touched = event.getNode() || (this.config.enableForEdges && event.getEdge());
-    this.config.onTouchStart(this.touched, event, evt);
+    this.touchedNode = event.getNode();
+    this.config.onTouchStart(this.touchedNode, event, evt);
   },
   
   onTouchMove: function(e, win, event) {
     var evt = $.event.get(e, win);
-    if(this.touched) {
+    if(this.touchedNode) {
       this.touchMoved = true;
-      this.config.onTouchMove(this.touched, event, evt);
+      this.config.onTouchMove(this.touchedNode, event, evt);
     }
   },
   
   onTouchEnd: function(e, win, event) {
     var evt = $.event.get(e, win);
-    if(this.touched) {
+    if(this.touchedNode) {
       if(this.touchMoved) {
-        this.config.onTouchEnd(this.touched, event, evt);
+        this.config.onTouchEnd(this.touchedNode, event, evt);
       } else {
-        this.config.onTouchCancel(this.touched, event, evt);
+        this.config.onTouchCancel(this.touchedNode, event, evt);
       }
-      this.touched = this.touchMoved = false;
+      this.touchedNode = this.touchMoved = false;
     }
   }
 });
@@ -3989,7 +4015,7 @@ $jit.Graph = new Class({
      this.nodes[obj.id] = new Graph.Node($.extend({
         'id': obj.id,
         'name': obj.name,
-        'data': $.merge(obj.data || {}, {}),
+        'data': obj.data || {},
         'adjacencies': edges 
       }, this.opt.Node), 
       this.opt.complex, 
@@ -4019,13 +4045,10 @@ $jit.Graph = new Class({
     if(!this.hasNode(obj.id)) { this.addNode(obj); }
     if(!this.hasNode(obj2.id)) { this.addNode(obj2); }
     obj = this.nodes[obj.id]; obj2 = this.nodes[obj2.id];
-    if(!obj.adjacentTo(obj2)) {
-      var adjsObj = this.edges[obj.id] = this.edges[obj.id] || {};
-      var adjsObj2 = this.edges[obj2.id] = this.edges[obj2.id] || {};
-      adjsObj[obj2.id] = adjsObj2[obj.id] = new Graph.Adjacence(obj, obj2, data, this.Edge, this.Label);
-      return adjsObj[obj2.id];
-    }
-    return this.edges[obj.id][obj2.id];
+    var adjsObj = this.edges[obj.id] = this.edges[obj.id] || {};
+    var adjsObj2 = this.edges[obj2.id] = this.edges[obj2.id] || {};
+    adjsObj[obj2.id] = adjsObj2[obj.id] = new Graph.Adjacence(obj, obj2, data, this.Edge, this.Label);
+    return adjsObj[obj2.id];
  },
 
     /*
@@ -4819,8 +4842,11 @@ Graph.Util = {
             elem._depth = -1;
         }, flags);
         var root = graph.getNode(id);
-        root._depth = startDepth;
+        //added if statement to get around undefined node (after removeNode called)
+        if(root) root._depth = startDepth;
         var queue = [root];
+        //added if statement to get around undefined node (after removeNode called)
+        if(!root) queue = [];
         while(queue.length != 0) {
             var node = queue.pop();
             node._flag = true;
@@ -5196,11 +5222,6 @@ Graph.Op = {
       hideLabels: true,
       fps:30
     },
-    
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-
     /*
        Method: removeNode
     
@@ -5598,10 +5619,6 @@ Graph.Op = {
                 that = this;
                 graph = viz.construct(json);
                 //preprocessing for nodes to delete.
-                //get node property modes to interpolate
-                var nodeModes = extraModes && ('node-property' in extraModes) 
-                  && $.map($.splat(extraModes['node-property']), 
-                      function(n) { return '$' + n; });
                 viz.graph.eachNode(function(elem) {
                   var graphNode = graph.getNode(elem.id);   
                   if(!graphNode) {
@@ -5613,7 +5630,7 @@ Graph.Op = {
                       //Update node data information
                       var graphNodeData = graphNode.data;
                       for(var prop in graphNodeData) {
-                        if(nodeModes && ($.indexOf(nodeModes, prop) > -1)) {
+                        if(prop[0] == '$' && prop != '$type') {
                           elem.endData[prop] = graphNodeData[prop];
                         } else {
                           elem.data[prop] = graphNodeData[prop];
@@ -5644,13 +5661,13 @@ Graph.Op = {
                                          'edge-property:alpha'];
                 //Append extra node-property animations (if any)
                 modes[0] = modes[0] + ((extraModes && ('node-property' in extraModes))? 
-                    (':' + $.splat(extraModes['node-property']).join(':')) : '');
+                    $.splat(extraModes['node-property']).join(':') : '');
                 //Append extra edge-property animations (if any)
                 modes[1] = (modes[1] || 'edge-property:alpha') + ((extraModes && ('edge-property' in extraModes))? 
-                    (':' + $.splat(extraModes['edge-property']).join(':')) : '');
+                    $.splat(extraModes['edge-property']).join(':') : '');
                 //Add label-property animations (if any)
                 if(extraModes && ('label-property' in extraModes)) {
-                  modes.push('label-property:' + $.splat(extraModes['label-property']).join(':'))
+                  modes.push('label-property' + $.splat(extraModes['label-property']).join(':'))
                 }
                 viz.reposition();
                 viz.graph.eachNode(function(elem) {
@@ -5847,15 +5864,10 @@ Graph.Op = {
      }
    });
    //implement an edge type
+   //edges do not implement the contains method
    $jit.Viz.Plot.EdgeTypes.implement({
-     'customNodeType': {
-       'render': function(node, canvas) {
-         this.edgeHelper.circle.render ...
-       },
-       //optional
-       'contains': function(node, pos) {
-         this.edgeHelper.circle.contains ...
-       }
+     'customEdgeType': function(adj, canvas) {
+       this.edgeHelper.line ...
      }
    });
    (end code)
@@ -6202,265 +6214,175 @@ var NodeHelper = {
   Contains rendering primitives for simple edge shapes.
 */
 var EdgeHelper = {
-  /*
-    Object: EdgeHelper.line
-  */
-  'line': {
-      /*
-      Method: render
-      
-      Renders a line into the canvas.
-      
-      Parameters:
-      
-      from - (object) An *x*, *y* object with the starting position of the line.
-      to - (object) An *x*, *y* object with the ending position of the line.
-      canvas - (object) A <Canvas> instance.
-      
-      Example:
-      (start code js)
-      EdgeHelper.line.render({ x: 10, y: 30 }, { x: 10, y: 50 }, viz.canvas);
-      (end code)
-      */
-      'render': function(from, to, canvas){
-        var ctx = canvas.getCtx();
-        ctx.beginPath();
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
-        ctx.stroke();
-      },
-      /*
-      Method: contains
-      
-      Returns *true* if *pos* is contained in the area of the shape. Returns *false* otherwise.
-      
-      Parameters:
-      
-      posFrom - (object) An *x*, *y* object with a <Graph.Node> position.
-      posTo - (object) An *x*, *y* object with a <Graph.Node> position.
-      pos - (object) An *x*, *y* object with the position to check.
-      epsilon - (number) The dimension of the shape.
-      
-      Example:
-      (start code js)
-      EdgeHelper.line.contains({ x: 10, y: 30 }, { x: 15, y: 35 }, { x: 15, y: 35 }, 30);
-      (end code)
-      */
-      'contains': function(posFrom, posTo, pos, epsilon) {
-        var min = Math.min, 
-            max = Math.max,
-            minPosX = min(posFrom.x, posTo.x),
-            maxPosX = max(posFrom.x, posTo.x),
-            minPosY = min(posFrom.y, posTo.y),
-            maxPosY = max(posFrom.y, posTo.y);
-        
-        if(pos.x >= minPosX && pos.x <= maxPosX 
-            && pos.y >= minPosY && pos.y <= maxPosY) {
-          if(Math.abs(posTo.x - posFrom.x) <= epsilon) {
-            return true;
-          }
-          var dist = (posTo.y - posFrom.y) / (posTo.x - posFrom.x) * (pos.x - posFrom.x) + posFrom.y;
-          return Math.abs(dist - pos.y) <= epsilon;
-        }
-        return false;
-      }
-    },
-  /*
-    Object: EdgeHelper.arrow
-  */
-  'arrow': {
-      /*
-      Method: render
-      
-      Renders an arrow into the canvas.
-      
-      Parameters:
-      
-      from - (object) An *x*, *y* object with the starting position of the arrow.
-      to - (object) An *x*, *y* object with the ending position of the arrow.
-      dim - (number) The dimension of the arrow.
-      swap - (boolean) Whether to set the arrow pointing to the starting position or the ending position.
-      canvas - (object) A <Canvas> instance.
-      
-      Example:
-      (start code js)
-      EdgeHelper.arrow.render({ x: 10, y: 30 }, { x: 10, y: 50 }, 13, false, viz.canvas);
-      (end code)
-      */
-    'render': function(from, to, dim, swap, canvas){
-        var ctx = canvas.getCtx();
-        // invert edge direction
-        if (swap) {
-          var tmp = from;
-          from = to;
-          to = tmp;
-        }
-        var vect = new Complex(to.x - from.x, to.y - from.y);
-        vect.$scale(dim / vect.norm());
-        var intermediatePoint = new Complex(to.x - vect.x, to.y - vect.y),
-            normal = new Complex(-vect.y / 2, vect.x / 2),
-            v1 = intermediatePoint.add(normal), 
-            v2 = intermediatePoint.$add(normal.$scale(-1));
-        
-        ctx.beginPath();
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(v1.x, v1.y);
-        ctx.lineTo(v2.x, v2.y);
-        ctx.lineTo(to.x, to.y);
-        ctx.closePath();
-        ctx.fill();
-    },
     /*
-    Method: contains
+    Method: line
     
-    Returns *true* if *pos* is contained in the area of the shape. Returns *false* otherwise.
+    Renders a line into the canvas.
     
     Parameters:
     
-    posFrom - (object) An *x*, *y* object with a <Graph.Node> position.
-    posTo - (object) An *x*, *y* object with a <Graph.Node> position.
-    pos - (object) An *x*, *y* object with the position to check.
-    epsilon - (number) The dimension of the shape.
-    
-    Example:
-    (start code js)
-    EdgeHelper.arrow.contains({ x: 10, y: 30 }, { x: 15, y: 35 }, { x: 15, y: 35 }, 30);
-    (end code)
-    */
-    'contains': function(posFrom, posTo, pos, epsilon) {
-      return EdgeHelper.line.contains(posFrom, posTo, pos, epsilon);
-    }
-  },
-  /*
-    Object: EdgeHelper.hyperline
-  */
-  'hyperline': {
-    /*
-    Method: render
-    
-    Renders a hyperline into the canvas. A hyperline are the lines drawn for the <Hypertree> visualization.
-    
-    Parameters:
-    
-    from - (object) An *x*, *y* object with the starting position of the hyperline. *x* and *y* must belong to [0, 1).
-    to - (object) An *x*, *y* object with the ending position of the hyperline. *x* and *y* must belong to [0, 1).
-    r - (number) The scaling factor.
+    from - (object) An *x*, *y* object with the starting position of the line.
+    to - (object) An *x*, *y* object with the ending position of the line.
     canvas - (object) A <Canvas> instance.
     
     Example:
     (start code js)
-    EdgeHelper.hyperline.render({ x: 10, y: 30 }, { x: 10, y: 50 }, 100, viz.canvas);
+    EdgeHelper.line({ x: 10, y: 30 }, { x: 10, y: 50 }, viz.canvas);
     (end code)
     */
-    'render': function(from, to, r, canvas){
-      var ctx = canvas.getCtx();  
-      var centerOfCircle = computeArcThroughTwoPoints(from, to);
-      if (centerOfCircle.a > 1000 || centerOfCircle.b > 1000
-          || centerOfCircle.ratio < 0) {
-        ctx.beginPath();
-        ctx.moveTo(from.x * r, from.y * r);
-        ctx.lineTo(to.x * r, to.y * r);
-        ctx.stroke();
-      } else {
-        var angleBegin = Math.atan2(to.y - centerOfCircle.y, to.x
-            - centerOfCircle.x);
-        var angleEnd = Math.atan2(from.y - centerOfCircle.y, from.x
-            - centerOfCircle.x);
-        var sense = sense(angleBegin, angleEnd);
-        ctx.beginPath();
-        ctx.arc(centerOfCircle.x * r, centerOfCircle.y * r, centerOfCircle.ratio
-            * r, angleBegin, angleEnd, sense);
-        ctx.stroke();
-      }
-      /*      
-        Calculates the arc parameters through two points.
-        
-        More information in <http://en.wikipedia.org/wiki/Poincar%C3%A9_disc_model#Analytic_geometry_constructions_in_the_hyperbolic_plane> 
-      
-        Parameters:
-      
-        p1 - A <Complex> instance.
-        p2 - A <Complex> instance.
-        scale - The Disk's diameter.
-      
-        Returns:
-      
-        An object containing some arc properties.
-      */
-      function computeArcThroughTwoPoints(p1, p2){
-        var aDen = (p1.x * p2.y - p1.y * p2.x), bDen = aDen;
-        var sq1 = p1.squaredNorm(), sq2 = p2.squaredNorm();
-        // Fall back to a straight line
-        if (aDen == 0)
-          return {
-            x: 0,
-            y: 0,
-            ratio: -1
-          };
+  'line': function(from, to, canvas){
+    var ctx = canvas.getCtx();
+    ctx.beginPath();
+    ctx.moveTo(from.x, from.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.stroke();
+  },
+  /*
+  Method: arrow
+  
+  Renders an arrow into the canvas.
+  
+  Parameters:
+  
+  from - (object) An *x*, *y* object with the starting position of the arrow.
+  to - (object) An *x*, *y* object with the ending position of the arrow.
+  dim - (number) The dimension of the arrow.
+  swap - (boolean) Whether to set the arrow pointing to the starting position or the ending position.
+  canvas - (object) A <Canvas> instance.
+  
+  Example:
+  (start code js)
+  EdgeHelper.arrow({ x: 10, y: 30 }, { x: 10, y: 50 }, 13, false, viz.canvas);
+  (end code)
+  */
+  'arrow': function(from, to, dim, swap, canvas){
+    var ctx = canvas.getCtx();
+    // invert edge direction
+    if (swap) {
+      var tmp = from;
+      from = to;
+      to = tmp;
+    }
+    var vect = new Complex(to.x - from.x, to.y - from.y);
+    vect.$scale(dim / vect.norm());
+    var intermediatePoint = new Complex(to.x - vect.x, to.y - vect.y),
+        normal = new Complex(-vect.y / 2, vect.x / 2),
+        v1 = intermediatePoint.add(normal), 
+        v2 = intermediatePoint.$add(normal.$scale(-1));
     
-        var a = (p1.y * sq2 - p2.y * sq1 + p1.y - p2.y) / aDen;
-        var b = (p2.x * sq1 - p1.x * sq2 + p2.x - p1.x) / bDen;
-        var x = -a / 2;
-        var y = -b / 2;
-        var squaredRatio = (a * a + b * b) / 4 - 1;
-        // Fall back to a straight line
-        if (squaredRatio < 0)
-          return {
-            x: 0,
-            y: 0,
-            ratio: -1
-          };
-        var ratio = Math.sqrt(squaredRatio);
-        var out = {
-          x: x,
-          y: y,
-          ratio: ratio > 1000? -1 : ratio,
-          a: a,
-          b: b
+    ctx.beginPath();
+    ctx.moveTo(from.x, from.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(v1.x, v1.y);
+    ctx.lineTo(v2.x, v2.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.closePath();
+    ctx.fill();
+  },
+  /*
+  Method: hyperline
+  
+  Renders a hyperline into the canvas. A hyperline are the lines drawn for the <Hypertree> visualization.
+  
+  Parameters:
+  
+  from - (object) An *x*, *y* object with the starting position of the hyperline. *x* and *y* must belong to [0, 1).
+  to - (object) An *x*, *y* object with the ending position of the hyperline. *x* and *y* must belong to [0, 1).
+  r - (number) The scaling factor.
+  canvas - (object) A <Canvas> instance.
+  
+  Example:
+  (start code js)
+  EdgeHelper.hyperline({ x: 10, y: 30 }, { x: 10, y: 50 }, 100, viz.canvas);
+  (end code)
+  */
+  'hyperline': function(from, to, r, canvas){
+    var ctx = canvas.getCtx();  
+    var centerOfCircle = computeArcThroughTwoPoints(from, to);
+    if (centerOfCircle.a > 1000 || centerOfCircle.b > 1000
+        || centerOfCircle.ratio < 0) {
+      ctx.beginPath();
+      ctx.moveTo(from.x * r, from.y * r);
+      ctx.lineTo(to.x * r, to.y * r);
+      ctx.stroke();
+    } else {
+      var angleBegin = Math.atan2(to.y - centerOfCircle.y, to.x
+          - centerOfCircle.x);
+      var angleEnd = Math.atan2(from.y - centerOfCircle.y, from.x
+          - centerOfCircle.x);
+      var sense = sense(angleBegin, angleEnd);
+      ctx.beginPath();
+      ctx.arc(centerOfCircle.x * r, centerOfCircle.y * r, centerOfCircle.ratio
+          * r, angleBegin, angleEnd, sense);
+      ctx.stroke();
+    }
+    /*      
+      Calculates the arc parameters through two points.
+      
+      More information in <http://en.wikipedia.org/wiki/Poincar%C3%A9_disc_model#Analytic_geometry_constructions_in_the_hyperbolic_plane> 
+    
+      Parameters:
+    
+      p1 - A <Complex> instance.
+      p2 - A <Complex> instance.
+      scale - The Disk's diameter.
+    
+      Returns:
+    
+      An object containing some arc properties.
+    */
+    function computeArcThroughTwoPoints(p1, p2){
+      var aDen = (p1.x * p2.y - p1.y * p2.x), bDen = aDen;
+      var sq1 = p1.squaredNorm(), sq2 = p2.squaredNorm();
+      // Fall back to a straight line
+      if (aDen == 0)
+        return {
+          x: 0,
+          y: 0,
+          ratio: -1
         };
+  
+      var a = (p1.y * sq2 - p2.y * sq1 + p1.y - p2.y) / aDen;
+      var b = (p2.x * sq1 - p1.x * sq2 + p2.x - p1.x) / bDen;
+      var x = -a / 2;
+      var y = -b / 2;
+      var squaredRatio = (a * a + b * b) / 4 - 1;
+      // Fall back to a straight line
+      if (squaredRatio < 0)
+        return {
+          x: 0,
+          y: 0,
+          ratio: -1
+        };
+      var ratio = Math.sqrt(squaredRatio);
+      var out = {
+        x: x,
+        y: y,
+        ratio: ratio > 1000? -1 : ratio,
+        a: a,
+        b: b
+      };
+  
+      return out;
+    }
+    /*      
+      Sets angle direction to clockwise (true) or counterclockwise (false). 
+       
+      Parameters: 
     
-        return out;
-      }
-      /*      
-        Sets angle direction to clockwise (true) or counterclockwise (false). 
-         
-        Parameters: 
-      
-           angleBegin - Starting angle for drawing the arc. 
-           angleEnd - The HyperLine will be drawn from angleBegin to angleEnd. 
-      
-        Returns: 
-      
-           A Boolean instance describing the sense for drawing the HyperLine. 
-      */
-      function sense(angleBegin, angleEnd){
-        return (angleBegin < angleEnd)? ((angleBegin + Math.PI > angleEnd)? false
-            : true) : ((angleEnd + Math.PI > angleBegin)? true : false);
-      }
-    },
-    /*
-    Method: contains
+         angleBegin - Starting angle for drawing the arc. 
+         angleEnd - The HyperLine will be drawn from angleBegin to angleEnd. 
     
-    Not Implemented
+      Returns: 
     
-    Returns *true* if *pos* is contained in the area of the shape. Returns *false* otherwise.
-    
-    Parameters:
-    
-    posFrom - (object) An *x*, *y* object with a <Graph.Node> position.
-    posTo - (object) An *x*, *y* object with a <Graph.Node> position.
-    pos - (object) An *x*, *y* object with the position to check.
-    epsilon - (number) The dimension of the shape.
-    
-    Example:
-    (start code js)
-    EdgeHelper.hyperline.contains({ x: 10, y: 30 }, { x: 15, y: 35 }, { x: 15, y: 35 }, 30);
-    (end code)
+         A Boolean instance describing the sense for drawing the HyperLine. 
     */
-    'contains': $.lambda(false)
+    function sense(angleBegin, angleEnd){
+      return (angleBegin < angleEnd)? ((angleBegin + Math.PI > angleEnd)? false
+          : true) : ((angleEnd + Math.PI > angleBegin)? true : false);
+    }
   }
 };
 
@@ -6480,18 +6402,6 @@ var EdgeHelper = {
    edgeHelper - <EdgeHelper> object.
 */
 Graph.Plot = {
-    //Default intializer
-    initialize: function(viz, klass){
-      this.viz = viz;
-      this.config = viz.config;
-      this.node = viz.config.Node;
-      this.edge = viz.config.Edge;
-      this.animation = new Animation;
-      this.nodeTypes = new klass.Plot.NodeTypes;
-      this.edgeTypes = new klass.Plot.EdgeTypes;
-      this.labels = viz.labels;
-   },
-
     //Add helpers
     nodeHelper: NodeHelper,
     edgeHelper: EdgeHelper,
@@ -6974,10 +6884,7 @@ Graph.Plot = {
       opt = opt || this.viz.controller;
       opt.clearCanvas && canvas.clear();
         
-      var root = aGraph.getNode(id);
-      if(!root) return;
-      
-      var T = !!root.visited;
+      var T = !!aGraph.getNode(id).visited;
       aGraph.eachNode(function(node) {
         var nodeAlpha = node.getData('alpha');
         node.eachAdjacency(function(adj) {
@@ -7102,7 +7009,7 @@ Graph.Plot = {
           ctx[s] = adj.getCanvasStyle(s);
         }
 
-        this.edgeTypes[f].render.call(this, adj, canvas, animating);
+        this.edgeTypes[f].call(this, adj, canvas, animating);
       }
     }    
   
@@ -7613,7 +7520,7 @@ var Loader = {
                     for(var j=0, lj=adj.length; j<lj; j++) {
                       var node = adj[j], data = {};
                       if(typeof adj[j] != 'string') {
-                        data = $.merge(node.data, {});
+                        data = node.data;
                         node = node.nodeTo;
                       }
                       ans.addAdjacence(json[i], getNode(node), data);
@@ -8297,7 +8204,7 @@ $jit.ST= (function() {
             };
             this.graph = new Graph(this.graphOptions, this.config.Node, this.config.Edge);
             this.labels = new $ST.Label[canvasConfig.Label.type](this);
-            this.fx = new $ST.Plot(this, $ST);
+            this.fx = new $ST.Plot(this);
             this.op = new $ST.Op(this);
             this.group = new $ST.Group(this);
             this.geom = new $ST.Geom(this);
@@ -8807,9 +8714,11 @@ $jit.ST.$extend = true;
 
 */
 $jit.ST.Op = new Class({
-
-  Implements: Graph.Op
+    Implements: Graph.Op,
     
+    initialize: function(viz) {
+        this.viz = viz;
+    }
 });
 
 /*
@@ -9240,6 +9149,17 @@ $jit.ST.Plot = new Class({
     
     Implements: Graph.Plot,
     
+    initialize: function(viz) {
+        this.viz = viz;
+        this.config = viz.config;
+        this.node = this.config.Node;
+        this.edge = this.config.Edge;
+        this.animation = new Animation;
+        this.nodeTypes = new $jit.ST.Plot.NodeTypes;
+        this.edgeTypes = new $jit.ST.Plot.EdgeTypes;        
+        this.labels = viz.labels;
+    },
+    
     /*
        Plots a subtree from the spacetree.
     */
@@ -9589,14 +9509,8 @@ $jit.ST.Plot.NodeTypes = new Class({
 
   (start code js)
     ST.Plot.EdgeTypes.implement({
-      'mySpecialType': {
-        'render': function(adj, canvas) {
-          //print your custom edge to canvas
-        },
-        //optional
-        'contains': function(adj, pos) {
-          //return true if pos is inside the arc or false otherwise
-        }
+      'mySpecialType': function(adj, canvas) {
+        //print your custom edge to canvas
       }
     });
   (end code)
@@ -9604,134 +9518,106 @@ $jit.ST.Plot.NodeTypes = new Class({
 */
 $jit.ST.Plot.EdgeTypes = new Class({
     'none': $.empty,
-    'line': {
-      'render': function(adj, canvas) {
-        var orn = this.getOrientation(adj),
-            nodeFrom = adj.nodeFrom, 
-            nodeTo = adj.nodeTo,
-            rel = nodeFrom._depth < nodeTo._depth,
-            from = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-            to =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn);
-        this.edgeHelper.line.render(from, to, canvas);
-      },
-      'contains': function(adj, pos) {
-        var orn = this.getOrientation(adj),
-            nodeFrom = adj.nodeFrom, 
-            nodeTo = adj.nodeTo,
-            rel = nodeFrom._depth < nodeTo._depth,
-            from = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-            to =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn);
-        return this.edgeHelper.line.contains(from, to, pos, this.edge.epsilon);
+    'line': function(adj, canvas) {
+    	var orn = this.getOrientation(adj),
+    	    nodeFrom = adj.nodeFrom, 
+    	    nodeTo = adj.nodeTo,
+    	    rel = nodeFrom._depth < nodeTo._depth,
+    	    from = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
+          to =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn);
+    	this.edgeHelper.line(from, to, canvas);
+     },
+     'arrow': function(adj, canvas) {
+       var orn = this.getOrientation(adj),
+           node = adj.nodeFrom, 
+           child = adj.nodeTo,
+           dim = adj.getData('dim'),
+           from = this.viz.geom.getEdge(node, 'begin', orn),
+           to = this.viz.geom.getEdge(child, 'end', orn),
+           direction = adj.data.$direction,
+           inv = (direction && direction.length>1 && direction[0] != node.id);
+       this.edgeHelper.arrow(from, to, dim, inv, canvas);
+     },
+    'quadratic:begin': function(adj, canvas) {
+    	var orn = this.getOrientation(adj);
+    	var nodeFrom = adj.nodeFrom, 
+    	    nodeTo = adj.nodeTo,
+    	    rel = nodeFrom._depth < nodeTo._depth,
+    	    begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
+          end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
+          dim = adj.getData('dim'),
+          ctx = canvas.getCtx();
+    	ctx.beginPath();
+    	ctx.moveTo(begin.x, begin.y);
+      switch(orn) {
+        case "left":
+          ctx.quadraticCurveTo(begin.x + dim, begin.y, end.x, end.y);
+          break;
+        case "right":
+          ctx.quadraticCurveTo(begin.x - dim, begin.y, end.x, end.y);
+          break;
+        case "top":
+          ctx.quadraticCurveTo(begin.x, begin.y + dim, end.x, end.y);
+          break;
+        case "bottom":
+          ctx.quadraticCurveTo(begin.x, begin.y - dim, end.x, end.y);
+          break;
       }
+      ctx.stroke();
     },
-     'arrow': {
-       'render': function(adj, canvas) {
-         var orn = this.getOrientation(adj),
-             node = adj.nodeFrom, 
-             child = adj.nodeTo,
-             dim = adj.getData('dim'),
-             from = this.viz.geom.getEdge(node, 'begin', orn),
-             to = this.viz.geom.getEdge(child, 'end', orn),
-             direction = adj.data.$direction,
-             inv = (direction && direction.length>1 && direction[0] != node.id);
-         this.edgeHelper.arrow.render(from, to, dim, inv, canvas);
-       },
-       'contains': function(adj, pos) {
-         var orn = this.getOrientation(adj),
-             nodeFrom = adj.nodeFrom, 
-             nodeTo = adj.nodeTo,
-             rel = nodeFrom._depth < nodeTo._depth,
-             from = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-             to =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn);
-         return this.edgeHelper.arrow.contains(from, to, pos, this.edge.epsilon);
-       }
-     },
-    'quadratic:begin': {
-       'render': function(adj, canvas) {
-          var orn = this.getOrientation(adj);
-          var nodeFrom = adj.nodeFrom, 
-              nodeTo = adj.nodeTo,
-              rel = nodeFrom._depth < nodeTo._depth,
-              begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-              end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
-              dim = adj.getData('dim'),
-              ctx = canvas.getCtx();
-          ctx.beginPath();
-          ctx.moveTo(begin.x, begin.y);
-          switch(orn) {
-            case "left":
-              ctx.quadraticCurveTo(begin.x + dim, begin.y, end.x, end.y);
-              break;
-            case "right":
-              ctx.quadraticCurveTo(begin.x - dim, begin.y, end.x, end.y);
-              break;
-            case "top":
-              ctx.quadraticCurveTo(begin.x, begin.y + dim, end.x, end.y);
-              break;
-            case "bottom":
-              ctx.quadraticCurveTo(begin.x, begin.y - dim, end.x, end.y);
-              break;
-          }
-          ctx.stroke();
-        }
-     },
-    'quadratic:end': {
-       'render': function(adj, canvas) {
-          var orn = this.getOrientation(adj);
-          var nodeFrom = adj.nodeFrom, 
-              nodeTo = adj.nodeTo,
-              rel = nodeFrom._depth < nodeTo._depth,
-              begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-              end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
-              dim = adj.getData('dim'),
-              ctx = canvas.getCtx();
-          ctx.beginPath();
-          ctx.moveTo(begin.x, begin.y);
-          switch(orn) {
-            case "left":
-              ctx.quadraticCurveTo(end.x - dim, end.y, end.x, end.y);
-              break;
-            case "right":
-              ctx.quadraticCurveTo(end.x + dim, end.y, end.x, end.y);
-              break;
-            case "top":
-              ctx.quadraticCurveTo(end.x, end.y - dim, end.x, end.y);
-              break;
-            case "bottom":
-              ctx.quadraticCurveTo(end.x, end.y + dim, end.x, end.y);
-              break;
-          }
-          ctx.stroke();
-       }
-     },
-    'bezier': {
-       'render': function(adj, canvas) {
-         var orn = this.getOrientation(adj),
-             nodeFrom = adj.nodeFrom, 
-             nodeTo = adj.nodeTo,
-             rel = nodeFrom._depth < nodeTo._depth,
-             begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
-             end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
-             dim = adj.getData('dim'),
-             ctx = canvas.getCtx();
-         ctx.beginPath();
-         ctx.moveTo(begin.x, begin.y);
-         switch(orn) {
-           case "left":
-             ctx.bezierCurveTo(begin.x + dim, begin.y, end.x - dim, end.y, end.x, end.y);
-             break;
-           case "right":
-             ctx.bezierCurveTo(begin.x - dim, begin.y, end.x + dim, end.y, end.x, end.y);
-             break;
-           case "top":
-             ctx.bezierCurveTo(begin.x, begin.y + dim, end.x, end.y - dim, end.x, end.y);
-             break;
-           case "bottom":
-             ctx.bezierCurveTo(begin.x, begin.y - dim, end.x, end.y + dim, end.x, end.y);
-             break;
-         }
-         ctx.stroke();
-       }
+    'quadratic:end': function(adj, canvas) {
+    	var orn = this.getOrientation(adj);
+    	var nodeFrom = adj.nodeFrom, 
+    	    nodeTo = adj.nodeTo,
+    	    rel = nodeFrom._depth < nodeTo._depth,
+    	    begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
+          end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
+          dim = adj.getData('dim'),
+          ctx = canvas.getCtx();
+      ctx.beginPath();
+      ctx.moveTo(begin.x, begin.y);
+    	switch(orn) {
+        case "left":
+          ctx.quadraticCurveTo(end.x - dim, end.y, end.x, end.y);
+          break;
+        case "right":
+          ctx.quadraticCurveTo(end.x + dim, end.y, end.x, end.y);
+          break;
+        case "top":
+          ctx.quadraticCurveTo(end.x, end.y - dim, end.x, end.y);
+          break;
+        case "bottom":
+          ctx.quadraticCurveTo(end.x, end.y + dim, end.x, end.y);
+          break;
+      }
+    	ctx.stroke();
+    },
+    'bezier': function(adj, canvas) {
+    	var orn = this.getOrientation(adj),
+    	    nodeFrom = adj.nodeFrom, 
+    	    nodeTo = adj.nodeTo,
+    	    rel = nodeFrom._depth < nodeTo._depth,
+    	    begin = this.viz.geom.getEdge(rel? nodeFrom:nodeTo, 'begin', orn),
+    	    end =  this.viz.geom.getEdge(rel? nodeTo:nodeFrom, 'end', orn),
+    	    dim = adj.getData('dim'),
+    	    ctx = canvas.getCtx();
+      ctx.beginPath();
+    	ctx.moveTo(begin.x, begin.y);
+    	switch(orn) {
+        case "left":
+          ctx.bezierCurveTo(begin.x + dim, begin.y, end.x - dim, end.y, end.x, end.y);
+          break;
+        case "right":
+          ctx.bezierCurveTo(begin.x - dim, begin.y, end.x + dim, end.y, end.x, end.y);
+          break;
+        case "top":
+          ctx.bezierCurveTo(begin.x, begin.y + dim, end.x, end.y - dim, end.x, end.y);
+          break;
+        case "bottom":
+          ctx.bezierCurveTo(begin.x, begin.y - dim, end.x, end.y + dim, end.x, end.y);
+          break;
+      }
+    	ctx.stroke();
     }
 });
 
@@ -9886,7 +9772,7 @@ $jit.AreaChart = new Class({
   
   initialize: function(opt) {
     this.controller = this.config = 
-      $.merge(Options("Canvas", "Margin", "Label", "AreaChart"), {
+      $.merge(Options("Canvas", "Label", "AreaChart"), {
         Label: { type: 'Native' }
       }, opt);
     //set functions for showLabels and showAggregates
@@ -10045,11 +9931,9 @@ $jit.AreaChart = new Class({
       }
     });
     
-    var size = st.canvas.getSize(),
-        margin = config.Margin;
-    st.config.offsetY = -size.height/2 + margin.bottom 
-      + (config.showLabels && (config.labelOffset + config.Label.size));
-    st.config.offsetX = (margin.right - margin.left)/2;
+    var size = st.canvas.getSize();
+    st.config.offsetY = -size.height/2 + config.offset 
+      + (config.showLabels && (config.labelOffset + config.Label.size));    
     this.st = st;
     this.canvas = this.st.canvas;
   },
@@ -10093,7 +9977,7 @@ $jit.AreaChart = new Class({
           '$colorArray': color,
           '$stringArray': name,
           '$next': next.label,
-          '$prev': prev? prev.label:false,
+          '$prev': prev? prev.label:null,
           '$config': config,
           '$gradient': gradient
         },
@@ -10164,23 +10048,14 @@ $jit.AreaChart = new Class({
           if(labels) stringArray[i] = labels[i];
         });
         n.setData('valueArray', valArray);
-        var prev = n.getData('prev'),
-            next = n.getData('next'),
-            nextNode = graph.getByName(next);
+        var prev = n.getData('prev');
         if(prev) {
           var p = graph.getByName(prev);
-          if(p) {
-            var valArray = p.getData('valueArray');
-            $.each(valArray, function(a, i) {
-              a[1] = v.values[i];
-            });
-          }
-        }
-        if(!nextNode) {
-          var valArray = n.getData('valueArray');
+          var valArray = p.getData('valueArray');
           $.each(valArray, function(a, i) {
             a[1] = v.values[i];
           });
+          p.setData('valueArray', valArray);
         }
       }
     });
@@ -10376,14 +10251,14 @@ $jit.AreaChart = new Class({
     root.eachAdjacency(function() {
       l++;
     });
-    var maxValue = this.getMaxValue() || 1,
+    var maxValue = this.getMaxValue(),
         size = this.st.canvas.getSize(),
         config = this.config,
-        margin = config.Margin,
+        offset = config.offset,
         labelOffset = config.labelOffset + config.Label.size,
-        fixedDim = (size.width - (margin.left + margin.right)) / l,
+        fixedDim = (size.width - 2 * offset) / l,
         animate = config.animate,
-        height = size.height - (margin.top + margin.bottom) - (config.showAggregates && labelOffset) 
+        height = size.height - 2 * offset - (config.showAggregates && labelOffset) 
           - (config.showLabels && labelOffset);
     this.st.graph.eachNode(function(n) {
       var acumLeft = 0, acumRight = 0, animateValue = [];
@@ -10414,6 +10289,4247 @@ $jit.AreaChart = new Class({
 });
 
 /*
+ * Class: Layouts.Radial
+ * 
+ * Implements a Radial Layout.
+ * 
+ * Implemented By:
+ * 
+ * <RGraph>, <Hypertree>
+ * 
+ */
+Layouts.Radial = new Class({
+
+  /*
+   * Method: compute
+   * 
+   * Computes nodes' positions.
+   * 
+   * Parameters:
+   * 
+   * property - _optional_ A <Graph.Node> position property to store the new
+   * positions. Possible values are 'pos', 'end' or 'start'.
+   * 
+   */
+  compute : function(property) {
+    var prop = $.splat(property || [ 'current', 'start', 'end' ]);
+    NodeDim.compute(this.graph, prop, this.config);
+    this.graph.computeLevels(this.root, 0, "ignore");
+    var lengthFunc = this.createLevelDistanceFunc(); 
+    this.computeAngularWidths(prop);
+    this.computePositions(prop, lengthFunc);
+  },
+
+  /*
+   * computePositions
+   * 
+   * Performs the main algorithm for computing node positions.
+   */
+  computePositions : function(property, getLength) {
+    var propArray = property;
+    var graph = this.graph;
+    var root = graph.getNode(this.root);
+    var parent = this.parent;
+    var config = this.config;
+
+    for ( var i=0, l=propArray.length; i < l; i++) {
+      var pi = propArray[i];
+      root.setPos($P(0, 0), pi);
+      root.setData('span', Math.PI * 2, pi);
+    }
+
+    root.angleSpan = {
+      begin : 0,
+      end : 2 * Math.PI
+    };
+
+    graph.eachBFS(this.root, function(elem) {
+      var angleSpan = elem.angleSpan.end - elem.angleSpan.begin;
+      var angleInit = elem.angleSpan.begin;
+      var len = getLength(elem);
+      //Calculate the sum of all angular widths
+      var totalAngularWidths = 0, subnodes = [], maxDim = {};
+      elem.eachSubnode(function(sib) {
+        totalAngularWidths += sib._treeAngularWidth;
+        //get max dim
+        for ( var i=0, l=propArray.length; i < l; i++) {
+          var pi = propArray[i], dim = sib.getData('dim', pi);
+          maxDim[pi] = (pi in maxDim)? (dim > maxDim[pi]? dim : maxDim[pi]) : dim;
+        }
+        subnodes.push(sib);
+      }, "ignore");
+      //Maintain children order
+      //Second constraint for <http://bailando.sims.berkeley.edu/papers/infovis01.htm>
+      if (parent && parent.id == elem.id && subnodes.length > 0
+          && subnodes[0].dist) {
+        subnodes.sort(function(a, b) {
+          return (a.dist >= b.dist) - (a.dist <= b.dist);
+        });
+      }
+      //Calculate nodes positions.
+      for (var k = 0, ls=subnodes.length; k < ls; k++) {
+        var child = subnodes[k];
+        if (!child._flag) {
+          var angleProportion = child._treeAngularWidth / totalAngularWidths * angleSpan;
+          var theta = angleInit + angleProportion / 2;
+
+          for ( var i=0, l=propArray.length; i < l; i++) {
+            var pi = propArray[i];
+            child.setPos($P(theta, len), pi);
+            child.setData('span', angleProportion, pi);
+            child.setData('dim-quotient', child.getData('dim', pi) / maxDim[pi], pi);
+          }
+
+          child.angleSpan = {
+            begin : angleInit,
+            end : angleInit + angleProportion
+          };
+          angleInit += angleProportion;
+        }
+      }
+    }, "ignore");
+  },
+
+  /*
+   * Method: setAngularWidthForNodes
+   * 
+   * Sets nodes angular widths.
+   */
+  setAngularWidthForNodes : function(prop) {
+    this.graph.eachBFS(this.root, function(elem, i) {
+      var diamValue = elem.getData('angularWidth', prop[0]) || 5;
+      elem._angularWidth = diamValue / i;
+    }, "ignore");
+  },
+
+  /*
+   * Method: setSubtreesAngularWidth
+   * 
+   * Sets subtrees angular widths.
+   */
+  setSubtreesAngularWidth : function() {
+    var that = this;
+    this.graph.eachNode(function(elem) {
+      that.setSubtreeAngularWidth(elem);
+    }, "ignore");
+  },
+
+  /*
+   * Method: setSubtreeAngularWidth
+   * 
+   * Sets the angular width for a subtree.
+   */
+  setSubtreeAngularWidth : function(elem) {
+    var that = this, nodeAW = elem._angularWidth, sumAW = 0;
+    elem.eachSubnode(function(child) {
+      that.setSubtreeAngularWidth(child);
+      sumAW += child._treeAngularWidth;
+    }, "ignore");
+    elem._treeAngularWidth = Math.max(nodeAW, sumAW);
+  },
+
+  /*
+   * Method: computeAngularWidths
+   * 
+   * Computes nodes and subtrees angular widths.
+   */
+  computeAngularWidths : function(prop) {
+    this.setAngularWidthForNodes(prop);
+    this.setSubtreesAngularWidth();
+  }
+
+});
+
+
+/*
+ * File: Hypertree.js
+ * 
+*/
+
+/* 
+     Complex 
+     
+     A multi-purpose Complex Class with common methods. Extended for the Hypertree. 
+ 
+*/
+/* 
+   moebiusTransformation 
+ 
+   Calculates a moebius transformation for this point / complex. 
+    For more information go to: 
+        http://en.wikipedia.org/wiki/Moebius_transformation. 
+ 
+   Parameters: 
+ 
+      c - An initialized Complex instance representing a translation Vector. 
+*/
+
+Complex.prototype.moebiusTransformation = function(c) {
+  var num = this.add(c);
+  var den = c.$conjugate().$prod(this);
+  den.x++;
+  return num.$div(den);
+};
+
+/* 
+    moebiusTransformation 
+     
+    Calculates a moebius transformation for the hyperbolic tree. 
+     
+    <http://en.wikipedia.org/wiki/Moebius_transformation> 
+      
+     Parameters: 
+     
+        graph - A <Graph> instance.
+        pos - A <Complex>.
+        prop - A property array.
+        theta - Rotation angle. 
+        startPos - _optional_ start position. 
+*/
+Graph.Util.moebiusTransformation = function(graph, pos, prop, startPos, flags) {
+  this.eachNode(graph, function(elem) {
+    for ( var i = 0; i < prop.length; i++) {
+      var p = pos[i].scale(-1), property = startPos ? startPos : prop[i];
+      elem.getPos(prop[i]).set(elem.getPos(property).getc().moebiusTransformation(p));
+    }
+  }, flags);
+};
+
+/* 
+   Class: Hypertree 
+   
+   A Hyperbolic Tree/Graph visualization.
+   
+   Inspired by:
+ 
+   A Focus+Context Technique Based on Hyperbolic Geometry for Visualizing Large Hierarchies (John Lamping, Ramana Rao, and Peter Pirolli). 
+   <http://www.cs.tau.ac.il/~asharf/shrek/Projects/HypBrowser/startree-chi95.pdf>
+ 
+  Note:
+ 
+  This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the Hypertree described in the paper.
+
+  Implements:
+  
+  All <Loader> methods
+  
+  Constructor Options:
+  
+  Inherits options from
+  
+  - <Options.Canvas>
+  - <Options.Controller>
+  - <Options.Node>
+  - <Options.Edge>
+  - <Options.Label>
+  - <Options.Events>
+  - <Options.Tips>
+  - <Options.NodeStyles>
+  - <Options.Navigation>
+  
+  Additionally, there are other parameters and some default values changed
+  
+  radius - (string|number) Default's *auto*. The radius of the disc to plot the <Hypertree> in. 'auto' will take the smaller value from the width and height canvas dimensions. You can also set this to a custom value, for example *250*.
+  offset - (number) Default's *0*. A number in the range [0, 1) that will be substracted to each node position to make a more compact <Hypertree>. This will avoid placing nodes too far from each other when a there's a selected node.
+  fps - Described in <Options.Fx>. It's default value has been changed to *35*.
+  duration - Described in <Options.Fx>. It's default value has been changed to *1500*.
+  Edge.type - Described in <Options.Edge>. It's default value has been changed to *hyperline*. 
+  
+  Instance Properties:
+  
+  canvas - Access a <Canvas> instance.
+  graph - Access a <Graph> instance.
+  op - Access a <Hypertree.Op> instance.
+  fx - Access a <Hypertree.Plot> instance.
+  labels - Access a <Hypertree.Label> interface implementation.
+
+*/
+
+$jit.Hypertree = new Class( {
+
+  Implements: [ Loader, Extras, Layouts.Radial ],
+
+  initialize: function(controller) {
+    var $Hypertree = $jit.Hypertree;
+
+    var config = {
+      radius: "auto",
+      offset: 0,
+      Edge: {
+        type: 'hyperline'
+      },
+      duration: 1500,
+      fps: 35
+    };
+    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
+        "Fx", "Tips", "NodeStyles", "Events", "Navigation", "Controller", "Label"), config, controller);
+
+    var canvasConfig = this.config;
+    if(canvasConfig.useCanvas) {
+      this.canvas = canvasConfig.useCanvas;
+      this.config.labelContainer = this.canvas.id + '-label';
+    } else {
+      if(canvasConfig.background) {
+        canvasConfig.background = $.merge({
+          type: 'Circles'
+        }, canvasConfig.background);
+      }
+      this.canvas = new Canvas(this, canvasConfig);
+      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
+    }
+
+    this.graphOptions = {
+      'complex': false,
+      'Node': {
+        'selected': false,
+        'exist': true,
+        'drawn': true
+      }
+    };
+    this.graph = new Graph(this.graphOptions, this.config.Node,
+        this.config.Edge);
+    this.labels = new $Hypertree.Label[canvasConfig.Label.type](this);
+    this.fx = new $Hypertree.Plot(this);
+    this.op = new $Hypertree.Op(this);
+    this.json = null;
+    this.root = null;
+    this.busy = false;
+    // initialize extras
+    this.initializeExtras();
+  },
+
+  /* 
+  
+  createLevelDistanceFunc 
+
+  Returns the levelDistance function used for calculating a node distance 
+  to its origin. This function returns a function that is computed 
+  per level and not per node, such that all nodes with the same depth will have the 
+  same distance to the origin. The resulting function gets the 
+  parent node as parameter and returns a float.
+
+  */
+  createLevelDistanceFunc: function() {
+    // get max viz. length.
+    var r = this.getRadius();
+    // get max depth.
+    var depth = 0, max = Math.max, config = this.config;
+    this.graph.eachNode(function(node) {
+      depth = max(node._depth, depth);
+    }, "ignore");
+    depth++;
+    // node distance generator
+    var genDistFunc = function(a) {
+      return function(node) {
+        node.scale = r;
+        var d = node._depth + 1;
+        var acum = 0, pow = Math.pow;
+        while (d) {
+          acum += pow(a, d--);
+        }
+        return acum - config.offset;
+      };
+    };
+    // estimate better edge length.
+    for ( var i = 0.51; i <= 1; i += 0.01) {
+      var valSeries = (1 - Math.pow(i, depth)) / (1 - i);
+      if (valSeries >= 2) { return genDistFunc(i - 0.01); }
+    }
+    return genDistFunc(0.75);
+  },
+
+  /* 
+    Method: getRadius 
+    
+    Returns the current radius of the visualization. If *config.radius* is *auto* then it 
+    calculates the radius by taking the smaller size of the <Canvas> widget.
+    
+    See also:
+    
+    <Canvas.getSize>
+   
+  */
+  getRadius: function() {
+    var rad = this.config.radius;
+    if (rad !== "auto") { return rad; }
+    var s = this.canvas.getSize();
+    return Math.min(s.width, s.height) / 2;
+  },
+
+  /* 
+    Method: refresh 
+    
+    Computes positions and plots the tree.
+
+    Parameters:
+
+    reposition - (optional|boolean) Set this to *true* to force all positions (current, start, end) to match.
+
+   */
+  refresh: function(reposition) {
+    if (reposition) {
+      this.reposition();
+      this.graph.eachNode(function(node) {
+        node.startPos.rho = node.pos.rho = node.endPos.rho;
+        node.startPos.theta = node.pos.theta = node.endPos.theta;
+      });
+    } else {
+      this.compute();
+    }
+    this.plot();
+  },
+
+  /* 
+   reposition 
+   
+   Computes nodes' positions and restores the tree to its previous position.
+
+   For calculating nodes' positions the root must be placed on its origin. This method does this 
+     and then attemps to restore the hypertree to its previous position.
+    
+  */
+  reposition: function() {
+    this.compute('end');
+    var vector = this.graph.getNode(this.root).pos.getc().scale(-1);
+    Graph.Util.moebiusTransformation(this.graph, [ vector ], [ 'end' ],
+        'end', "ignore");
+    this.graph.eachNode(function(node) {
+      if (node.ignore) {
+        node.endPos.rho = node.pos.rho;
+        node.endPos.theta = node.pos.theta;
+      }
+    });
+  },
+
+  /* 
+   Method: plot 
+   
+   Plots the <Hypertree>. This is a shortcut to *fx.plot*. 
+
+  */
+  plot: function() {
+    this.fx.plot();
+  },
+
+  /* 
+   Method: onClick 
+   
+   Animates the <Hypertree> to center the node specified by *id*.
+
+   Parameters:
+
+   id - A <Graph.Node> id.
+   opt - (optional|object) An object containing some extra properties described below
+   hideLabels - (boolean) Default's *true*. Hide labels when performing the animation.
+
+   Example:
+
+   (start code js)
+     ht.onClick('someid');
+     //or also...
+     ht.onClick('someid', {
+      hideLabels: false
+     });
+    (end code)
+    
+  */
+  onClick: function(id, opt) {
+    var pos = this.graph.getNode(id).pos.getc(true);
+    this.move(pos, opt);
+  },
+
+  /* 
+   Method: move 
+
+   Translates the tree to the given position. 
+
+   Parameters:
+
+   pos - (object) A *x, y* coordinate object where x, y in [0, 1), to move the tree to.
+   opt - This object has been defined in <Hypertree.onClick>
+   
+   Example:
+   
+   (start code js)
+     ht.move({ x: 0, y: 0.7 }, {
+       hideLabels: false
+     });
+   (end code)
+
+  */
+  move: function(pos, opt) {
+    var versor = $C(pos.x, pos.y);
+    if (this.busy === false && versor.norm() < 1) {
+      this.busy = true;
+      var root = this.graph.getClosestNodeToPos(versor), that = this;
+      this.graph.computeLevels(root.id, 0);
+      this.controller.onBeforeCompute(root);
+      opt = $.merge( {
+        onComplete: $.empty
+      }, opt || {});
+      this.fx.animate($.merge( {
+        modes: [ 'moebius' ],
+        hideLabels: true
+      }, opt, {
+        onComplete: function() {
+          that.busy = false;
+          opt.onComplete();
+        }
+      }), versor);
+    }
+  }
+});
+
+$jit.Hypertree.$extend = true;
+
+(function(Hypertree) {
+
+  /* 
+     Class: Hypertree.Op 
+   
+     Custom extension of <Graph.Op>.
+
+     Extends:
+
+     All <Graph.Op> methods
+     
+     See also:
+     
+     <Graph.Op>
+
+  */
+  Hypertree.Op = new Class( {
+
+    Implements: Graph.Op,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    }
+  });
+
+  /* 
+     Class: Hypertree.Plot 
+   
+    Custom extension of <Graph.Plot>.
+  
+    Extends:
+  
+    All <Graph.Plot> methods
+    
+    See also:
+    
+    <Graph.Plot>
+  
+  */
+  Hypertree.Plot = new Class( {
+
+    Implements: Graph.Plot,
+
+    initialize: function(viz) {
+      this.viz = viz;
+      this.config = viz.config;
+      this.node = this.config.Node;
+      this.edge = this.config.Edge;
+      this.animation = new Animation;
+      this.nodeTypes = new Hypertree.Plot.NodeTypes;
+      this.edgeTypes = new Hypertree.Plot.EdgeTypes;
+      this.labels = viz.labels;
+    }
+  });
+
+  /*
+    Object: Hypertree.Label
+
+    Custom extension of <Graph.Label>. 
+    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
+  
+    Extends:
+  
+    All <Graph.Label> methods and subclasses.
+  
+    See also:
+  
+    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
+
+   */
+  Hypertree.Label = {};
+
+  /*
+     Hypertree.Label.Native
+
+     Custom extension of <Graph.Label.Native>.
+
+     Extends:
+
+     All <Graph.Label.Native> methods
+
+     See also:
+
+     <Graph.Label.Native>
+
+  */
+  Hypertree.Label.Native = new Class( {
+    Implements: Graph.Label.Native,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    },
+
+    renderLabel: function(canvas, node, controller) {
+      var ctx = canvas.getCtx();
+      var coord = node.pos.getc(true);
+      var s = this.viz.getRadius();
+      ctx.fillText(node.name, coord.x * s, coord.y * s);
+    }
+  });
+
+  /*
+     Hypertree.Label.SVG
+
+    Custom extension of <Graph.Label.SVG>.
+  
+    Extends:
+  
+    All <Graph.Label.SVG> methods
+  
+    See also:
+  
+    <Graph.Label.SVG>
+  
+  */
+  Hypertree.Label.SVG = new Class( {
+    Implements: Graph.Label.SVG,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    },
+
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Plot>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller) {
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize(),
+          r = this.viz.getRadius();
+      var labelPos = {
+        x: Math.round((pos.x * sx) * r + ox + radius.width / 2),
+        y: Math.round((pos.y * sy) * r + oy + radius.height / 2)
+      };
+      tag.setAttribute('x', labelPos.x);
+      tag.setAttribute('y', labelPos.y);
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+     Hypertree.Label.HTML
+
+     Custom extension of <Graph.Label.HTML>.
+
+     Extends:
+
+     All <Graph.Label.HTML> methods.
+
+     See also:
+
+     <Graph.Label.HTML>
+
+  */
+  Hypertree.Label.HTML = new Class( {
+    Implements: Graph.Label.HTML,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    },
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Plot>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller) {
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize(),
+          r = this.viz.getRadius();
+      var labelPos = {
+        x: Math.round((pos.x * sx) * r + ox + radius.width / 2),
+        y: Math.round((pos.y * sy) * r + oy + radius.height / 2)
+      };
+      var style = tag.style;
+      style.left = labelPos.x + 'px';
+      style.top = labelPos.y + 'px';
+      style.display = this.fitsInCanvas(labelPos, canvas) ? '' : 'none';
+
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+    Class: Hypertree.Plot.NodeTypes
+
+    This class contains a list of <Graph.Node> built-in types. 
+    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
+
+    You can add your custom node types, customizing your visualization to the extreme.
+
+    Example:
+
+    (start code js)
+      Hypertree.Plot.NodeTypes.implement({
+        'mySpecialType': {
+          'render': function(node, canvas) {
+            //print your custom node to canvas
+          },
+          //optional
+          'contains': function(node, pos) {
+            //return true if pos is inside the node or false otherwise
+          }
+        }
+      });
+    (end code)
+
+  */
+  Hypertree.Plot.NodeTypes = new Class({
+    'none': {
+      'render': $.empty,
+      'contains': $.lambda(false)
+    },
+    'circle': {
+      'render': function(node, canvas) {
+        var nconfig = this.node,
+            dim = node.getData('dim'),
+            p = node.pos.getc();
+        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
+        p.$scale(node.scale);
+        if (dim > 0.2) {
+          this.nodeHelper.circle.render('fill', p, dim, canvas);
+        }
+      },
+      'contains': function(node, pos) {
+        var dim = node.getData('dim'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.circle.contains(npos, pos, dim);
+      }
+    },
+    'ellipse': {
+      'render': function(node, canvas) {
+        var pos = node.pos.getc().$scale(node.scale),
+            width = node.getData('width'),
+            height = node.getData('height');
+        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
+      },
+      'contains': function(node, pos) {
+        var width = node.getData('width'),
+            height = node.getData('height'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.circle.contains(npos, pos, width, height);
+      }
+    },
+    'square': {
+      'render': function(node, canvas) {
+        var nconfig = this.node,
+            dim = node.getData('dim'),
+            p = node.pos.getc();
+        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
+        p.$scale(node.scale);
+        if (dim > 0.2) {
+          this.nodeHelper.square.render('fill', p, dim, canvas);
+        }
+      },
+      'contains': function(node, pos) {
+        var dim = node.getData('dim'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.square.contains(npos, pos, dim);
+      }
+    },
+    'rectangle': {
+      'render': function(node, canvas) {
+        var nconfig = this.node,
+            width = node.getData('width'),
+            height = node.getData('height'),
+            pos = node.pos.getc();
+        width = nconfig.transform? width * (1 - pos.squaredNorm()) : width;
+        height = nconfig.transform? height * (1 - pos.squaredNorm()) : height;
+        pos.$scale(node.scale);
+        if (width > 0.2 && height > 0.2) {
+          this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
+        }
+      },
+      'contains': function(node, pos) {
+        var width = node.getData('width'),
+            height = node.getData('height'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.square.contains(npos, pos, width, height);
+      }
+    },
+    'triangle': {
+      'render': function(node, canvas) {
+        var nconfig = this.node,
+            dim = node.getData('dim'),
+            p = node.pos.getc();
+        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
+        p.$scale(node.scale);
+        if (dim > 0.2) {
+          this.nodeHelper.triangle.render('fill', p, dim, canvas);
+        }
+      },
+      'contains': function(node, pos) {
+        var dim = node.getData('dim'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.triangle.contains(npos, pos, dim);
+      }
+    },
+    'star': {
+      'render': function(node, canvas) {
+        var nconfig = this.node,
+            dim = node.getData('dim'),
+            p = node.pos.getc();
+        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
+        p.$scale(node.scale);
+        if (dim > 0.2) {
+          this.nodeHelper.star.render('fill', p, dim, canvas);
+        }
+      },
+      'contains': function(node, pos) {
+        var dim = node.getData('dim'),
+            npos = node.pos.getc().$scale(node.scale);
+        return this.nodeHelper.star.contains(npos, pos, dim);
+      }
+    }
+  });
+
+  /*
+   Class: Hypertree.Plot.EdgeTypes
+
+    This class contains a list of <Graph.Adjacence> built-in types. 
+    Edge types implemented are 'none', 'line', 'arrow' and 'hyperline'.
+  
+    You can add your custom edge types, customizing your visualization to the extreme.
+  
+    Example:
+  
+    (start code js)
+      Hypertree.Plot.EdgeTypes.implement({
+        'mySpecialType': function(adj, canvas) {
+          //print your custom edge to canvas
+        }
+      });
+    (end code)
+  
+  */
+  Hypertree.Plot.EdgeTypes = new Class({
+    'none': $.empty,
+    'line': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true),
+          r = adj.nodeFrom.scale;
+      this.edgeHelper.line({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, canvas);
+    },
+    'arrow': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true),
+          r = adj.nodeFrom.scale,
+          dim = adj.getData('dim'),
+          direction = adj.data.$direction,
+          inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
+      this.edgeHelper.arrow({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, dim, inv, canvas);
+    },
+    'hyperline': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(),
+          to = adj.nodeTo.pos.getc(),
+          dim = this.viz.getRadius();
+      this.edgeHelper.hyperline(from, to, dim, canvas);
+    }
+  });
+
+})($jit.Hypertree);
+
+
+/*
+ * Class: Layouts.TM
+ * 
+ * Implements TreeMaps layouts (SliceAndDice, Squarified, Strip).
+ * 
+ * Implemented By:
+ * 
+ * <TM>
+ * 
+ */
+Layouts.TM = {};
+
+Layouts.TM.SliceAndDice = new Class({
+  compute: function(prop) {
+    var root = this.graph.getNode(this.clickedNode && this.clickedNode.id || this.root);
+    this.controller.onBeforeCompute(root);
+    var size = this.canvas.getSize(),
+        config = this.config,
+        width = size.width,
+        height = size.height;
+    this.graph.computeLevels(this.root, 0, "ignore");
+    //set root position and dimensions
+    root.getPos(prop).setc(-width/2, -height/2);
+    root.setData('width', width, prop);
+    root.setData('height', height + config.titleHeight, prop);
+    this.computePositions(root, root, this.layout.orientation, prop);
+    this.controller.onAfterCompute(root);
+  },
+  
+  computePositions: function(par, ch, orn, prop) {
+    //compute children areas
+    var totalArea = 0;
+    par.eachSubnode(function(n) {
+      totalArea += n.getData('area', prop);
+    });
+    
+    var config = this.config,
+        offst = config.offset,
+        width  = par.getData('width', prop),
+        height = par.getData('height', prop) - config.titleHeight,
+        fact = par == ch? 1: (ch.getData('area', prop) / totalArea);
+    
+    var otherSize, size, dim, pos, pos2, posth, pos2th;
+    var horizontal = (orn == "h");
+    if(horizontal) {
+      orn = 'v';    
+      otherSize = height;
+      size = width * fact;
+      dim = 'height';
+      pos = 'y';
+      pos2 = 'x';
+      posth = config.titleHeight;
+      pos2th = 0;
+    } else {
+      orn = 'h';    
+      otherSize = height * fact;
+      size = width;
+      dim = 'width';
+      pos = 'x';
+      pos2 = 'y';
+      posth = 0;
+      pos2th = config.titleHeight;
+    }
+    var cpos = ch.getPos(prop);
+    ch.setData('width', size, prop);
+    ch.setData('height', otherSize, prop);
+    var offsetSize = 0, tm = this;
+    ch.eachSubnode(function(n) {
+      var p = n.getPos(prop);
+      p[pos] = offsetSize + cpos[pos] + posth;
+      p[pos2] = cpos[pos2] + pos2th;
+      tm.computePositions(ch, n, orn, prop);
+      offsetSize += n.getData(dim, prop);
+    });
+  }
+
+});
+
+Layouts.TM.Area = {
+ /*
+    Method: compute
+ 
+   Called by loadJSON to calculate recursively all node positions and lay out the tree.
+ 
+    Parameters:
+
+       json - A JSON tree. See also <Loader.loadJSON>.
+       coord - A coordinates object specifying width, height, left and top style properties.
+ */
+ compute: function(prop) {
+    prop = prop || "current";
+    var root = this.graph.getNode(this.clickedNode && this.clickedNode.id || this.root);
+    this.controller.onBeforeCompute(root);
+    var config = this.config,
+        size = this.canvas.getSize(),
+        width = size.width,
+        height = size.height,
+        offst = config.offset,
+        offwdth = width - offst,
+        offhght = height - offst;
+    this.graph.computeLevels(this.root, 0, "ignore");
+    //set root position and dimensions
+    root.getPos(prop).setc(-width/2, -height/2);
+    root.setData('width', width, prop);
+    root.setData('height', height, prop);
+    //create a coordinates object
+    var coord = {
+        'top': -height/2 + config.titleHeight,
+        'left': -width/2,
+        'width': offwdth,
+        'height': offhght - config.titleHeight
+    };
+    this.computePositions(root, coord, prop);
+    this.controller.onAfterCompute(root);
+ }, 
+ 
+ /*
+    Method: computeDim
+ 
+   Computes dimensions and positions of a group of nodes
+   according to a custom layout row condition. 
+ 
+    Parameters:
+
+       tail - An array of nodes.  
+       initElem - An array of nodes (containing the initial node to be laid).
+       w - A fixed dimension where nodes will be layed out.
+       coord - A coordinates object specifying width, height, left and top style properties.
+       comp - A custom comparison function
+ */
+ computeDim: function(tail, initElem, w, coord, comp, prop) {
+   if(tail.length + initElem.length == 1) {
+     var l = (tail.length == 1)? tail : initElem;
+     this.layoutLast(l, w, coord, prop);
+     return;
+   }
+   if(tail.length >= 2 && initElem.length == 0) {
+     initElem = [tail.shift()];
+   }
+   if(tail.length == 0) {
+     if(initElem.length > 0) this.layoutRow(initElem, w, coord, prop);
+     return;
+   }
+   var c = tail[0];
+   if(comp(initElem, w) >= comp([c].concat(initElem), w)) {
+     this.computeDim(tail.slice(1), initElem.concat([c]), w, coord, comp, prop);
+   } else {
+     var newCoords = this.layoutRow(initElem, w, coord, prop);
+     this.computeDim(tail, [], newCoords.dim, newCoords, comp, prop);
+   }
+ },
+
+ 
+ /*
+    Method: worstAspectRatio
+ 
+   Calculates the worst aspect ratio of a group of rectangles. 
+       
+    See also:
+       
+       <http://en.wikipedia.org/wiki/Aspect_ratio>
+   
+    Parameters:
+
+     ch - An array of nodes.  
+     w  - The fixed dimension where rectangles are being laid out.
+
+    Returns:
+ 
+        The worst aspect ratio.
+
+
+ */
+ worstAspectRatio: function(ch, w) {
+   if(!ch || ch.length == 0) return Number.MAX_VALUE;
+   var areaSum = 0, maxArea = 0, minArea = Number.MAX_VALUE;
+   for(var i=0, l=ch.length; i<l; i++) {
+     var area = ch[i]._area;
+     areaSum += area; 
+     minArea = minArea < area? minArea : area;
+     maxArea = maxArea > area? maxArea : area; 
+   }
+   var sqw = w * w, sqAreaSum = areaSum * areaSum;
+   return Math.max(sqw * maxArea / sqAreaSum,
+           sqAreaSum / (sqw * minArea));
+ },
+ 
+ /*
+    Method: avgAspectRatio
+ 
+   Calculates the average aspect ratio of a group of rectangles. 
+       
+       See also:
+       
+       <http://en.wikipedia.org/wiki/Aspect_ratio>
+   
+    Parameters:
+
+     ch - An array of nodes.  
+       w - The fixed dimension where rectangles are being laid out.
+
+    Returns:
+ 
+        The average aspect ratio.
+
+
+ */
+ avgAspectRatio: function(ch, w) {
+   if(!ch || ch.length == 0) return Number.MAX_VALUE;
+   var arSum = 0;
+   for(var i=0, l=ch.length; i<l; i++) {
+     var area = ch[i]._area;
+     var h = area / w;
+     arSum += w > h? w / h : h / w;
+   }
+   return arSum / l;
+ },
+
+ /*
+    layoutLast
+ 
+   Performs the layout of the last computed sibling.
+ 
+    Parameters:
+
+       ch - An array of nodes.  
+       w - A fixed dimension where nodes will be layed out.
+     coord - A coordinates object specifying width, height, left and top style properties.
+ */
+ layoutLast: function(ch, w, coord, prop) {
+   var child = ch[0];
+   child.getPos(prop).setc(coord.left, coord.top);
+   child.setData('width', coord.width, prop);
+   child.setData('height', coord.height, prop);
+ }
+};
+
+
+Layouts.TM.Squarified = new Class({
+ Implements: Layouts.TM.Area,
+ 
+ computePositions: function(node, coord, prop) {
+   var config = this.config;
+   
+   if (!(coord.width >= coord.height 
+       && this.layout.horizontal())) 
+     this.layout.change();
+   
+   var ch = node.getSubnodes([1, 1], "ignore");
+   if(ch.length > 0) {
+     this.processChildrenLayout(node, ch, coord, prop);
+     for(var i=0, l=ch.length; i<l; i++) {
+       var chi = ch[i]; 
+       var offst = config.offset,
+           height = chi.getData('height', prop) - offst - config.titleHeight,
+           width = chi.getData('width', prop) - offst;
+       var chipos = chi.getPos(prop);
+       coord = {
+         'width': width,
+         'height': height,
+         'top': chipos.y + config.titleHeight,
+         'left': chipos.x
+       };
+       this.computePositions(chi, coord, prop);
+     }
+   }
+ },
+
+ /*
+    Method: processChildrenLayout
+ 
+   Computes children real areas and other useful parameters for performing the Squarified algorithm.
+ 
+    Parameters:
+
+       par - The parent node of the json subtree.  
+       ch - An Array of nodes
+     coord - A coordinates object specifying width, height, left and top style properties.
+ */
+ processChildrenLayout: function(par, ch, coord, prop) {
+   //compute children real areas
+   var parentArea = coord.width * coord.height;
+   var i, l=ch.length, totalChArea=0, chArea = [];
+   for(i=0; i<l; i++) {
+     chArea[i] = parseFloat(ch[i].getData('area', prop));
+     totalChArea += chArea[i];
+   }
+   for(i=0; i<l; i++) {
+     ch[i]._area = parentArea * chArea[i] / totalChArea;
+   }
+   var minimumSideValue = this.layout.horizontal()? coord.height : coord.width;
+   ch.sort(function(a, b) { return (a._area <= b._area) - (a._area >= b._area); });
+   var initElem = [ch[0]];
+   var tail = ch.slice(1);
+   this.squarify(tail, initElem, minimumSideValue, coord, prop);
+ },
+
+ /*
+   Method: squarify
+ 
+   Performs an heuristic method to calculate div elements sizes in order to have a good aspect ratio.
+ 
+    Parameters:
+
+       tail - An array of nodes.  
+       initElem - An array of nodes, containing the initial node to be laid out.
+       w - A fixed dimension where nodes will be laid out.
+       coord - A coordinates object specifying width, height, left and top style properties.
+ */
+ squarify: function(tail, initElem, w, coord, prop) {
+   this.computeDim(tail, initElem, w, coord, this.worstAspectRatio, prop);
+ },
+ 
+ /*
+    Method: layoutRow
+ 
+   Performs the layout of an array of nodes.
+ 
+    Parameters:
+
+       ch - An array of nodes.  
+       w - A fixed dimension where nodes will be laid out.
+       coord - A coordinates object specifying width, height, left and top style properties.
+ */
+ layoutRow: function(ch, w, coord, prop) {
+   if(this.layout.horizontal()) {
+     return this.layoutV(ch, w, coord, prop);
+   } else {
+     return this.layoutH(ch, w, coord, prop);
+   }
+ },
+ 
+ layoutV: function(ch, w, coord, prop) {
+   var totalArea = 0, rnd = function(x) { return x; }; 
+   $.each(ch, function(elem) { totalArea += elem._area; });
+   var width = rnd(totalArea / w), top =  0; 
+   for(var i=0, l=ch.length; i<l; i++) {
+     var h = rnd(ch[i]._area / width);
+     var chi = ch[i];
+     chi.getPos(prop).setc(coord.left, coord.top + top);
+     chi.setData('width', width, prop);
+     chi.setData('height', h, prop);
+     top += h;
+   }
+   var ans = {
+     'height': coord.height,
+     'width': coord.width - width,
+     'top': coord.top,
+     'left': coord.left + width
+   };
+   //take minimum side value.
+   ans.dim = Math.min(ans.width, ans.height);
+   if(ans.dim != ans.height) this.layout.change();
+   return ans;
+ },
+ 
+ layoutH: function(ch, w, coord, prop) {
+   var totalArea = 0; 
+   $.each(ch, function(elem) { totalArea += elem._area; });
+   var height = totalArea / w,
+       top = coord.top, 
+       left = 0;
+   
+   for(var i=0, l=ch.length; i<l; i++) {
+     var chi = ch[i];
+     var w = chi._area / height;
+     chi.getPos(prop).setc(coord.left + left, top);
+     chi.setData('width', w, prop);
+     chi.setData('height', height, prop);
+     left += w;
+   }
+   var ans = {
+     'height': coord.height - height,
+     'width': coord.width,
+     'top': coord.top + height,
+     'left': coord.left
+   };
+   ans.dim = Math.min(ans.width, ans.height);
+   if(ans.dim != ans.width) this.layout.change();
+   return ans;
+ }
+});
+
+Layouts.TM.Strip = new Class({
+  Implements: Layouts.TM.Area,
+
+    /*
+      Method: compute
+    
+     Called by loadJSON to calculate recursively all node positions and lay out the tree.
+    
+      Parameters:
+    
+         json - A JSON subtree. See also <Loader.loadJSON>. 
+       coord - A coordinates object specifying width, height, left and top style properties.
+    */
+    computePositions: function(node, coord, prop) {
+     var ch = node.getSubnodes([1, 1], "ignore"), config = this.config;
+     if(ch.length > 0) {
+       this.processChildrenLayout(node, ch, coord, prop);
+       for(var i=0, l=ch.length; i<l; i++) {
+         var chi = ch[i];
+         var offst = config.offset,
+             height = chi.getData('height', prop) - offst - config.titleHeight,
+             width  = chi.getData('width', prop)  - offst;
+         var chipos = chi.getPos(prop);
+         coord = {
+           'width': width,
+           'height': height,
+           'top': chipos.y + config.titleHeight,
+           'left': chipos.x
+         };
+         this.computePositions(chi, coord, prop);
+       }
+     }
+    },
+    
+    /*
+      Method: processChildrenLayout
+    
+     Computes children real areas and other useful parameters for performing the Strip algorithm.
+    
+      Parameters:
+    
+         par - The parent node of the json subtree.  
+         ch - An Array of nodes
+         coord - A coordinates object specifying width, height, left and top style properties.
+    */
+    processChildrenLayout: function(par, ch, coord, prop) {
+     //compute children real areas
+      var parentArea = coord.width * coord.height;
+      var i, l=ch.length, totalChArea=0, chArea = [];
+      for(i=0; i<l; i++) {
+        chArea[i] = +ch[i].getData('area', prop);
+        totalChArea += chArea[i];
+      }
+      for(i=0; i<l; i++) {
+        ch[i]._area = parentArea * chArea[i] / totalChArea;
+      }
+     var side = this.layout.horizontal()? coord.width : coord.height;
+     var initElem = [ch[0]];
+     var tail = ch.slice(1);
+     this.stripify(tail, initElem, side, coord, prop);
+    },
+    
+    /*
+      Method: stripify
+    
+     Performs an heuristic method to calculate div elements sizes in order to have 
+     a good compromise between aspect ratio and order.
+    
+      Parameters:
+    
+         tail - An array of nodes.  
+         initElem - An array of nodes.
+         w - A fixed dimension where nodes will be layed out.
+       coord - A coordinates object specifying width, height, left and top style properties.
+    */
+    stripify: function(tail, initElem, w, coord, prop) {
+     this.computeDim(tail, initElem, w, coord, this.avgAspectRatio, prop);
+    },
+    
+    /*
+      Method: layoutRow
+    
+     Performs the layout of an array of nodes.
+    
+      Parameters:
+    
+         ch - An array of nodes.  
+         w - A fixed dimension where nodes will be laid out.
+         coord - A coordinates object specifying width, height, left and top style properties.
+    */
+    layoutRow: function(ch, w, coord, prop) {
+     if(this.layout.horizontal()) {
+       return this.layoutH(ch, w, coord, prop);
+     } else {
+       return this.layoutV(ch, w, coord, prop);
+     }
+    },
+    
+    layoutV: function(ch, w, coord, prop) {
+     var totalArea = 0; 
+     $.each(ch, function(elem) { totalArea += elem._area; });
+     var width = totalArea / w, top =  0; 
+     for(var i=0, l=ch.length; i<l; i++) {
+       var chi = ch[i];
+       var h = chi._area / width;
+       chi.getPos(prop).setc(coord.left, 
+           coord.top + (w - h - top));
+       chi.setData('width', width, prop);
+       chi.setData('height', h, prop);
+       top += h;
+     }
+    
+     return {
+       'height': coord.height,
+       'width': coord.width - width,
+       'top': coord.top,
+       'left': coord.left + width,
+       'dim': w
+     };
+    },
+    
+    layoutH: function(ch, w, coord, prop) {
+     var totalArea = 0; 
+     $.each(ch, function(elem) { totalArea += elem._area; });
+     var height = totalArea / w,
+         top = coord.height - height, 
+         left = 0;
+     
+     for(var i=0, l=ch.length; i<l; i++) {
+       var chi = ch[i];
+       var s = chi._area / height;
+       chi.getPos(prop).setc(coord.left + left, coord.top + top);
+       chi.setData('width', s, prop);
+       chi.setData('height', height, prop);
+       left += s;
+     }
+     return {
+       'height': coord.height - height,
+       'width': coord.width,
+       'top': coord.top,
+       'left': coord.left,
+       'dim': w
+     };
+    }
+ });
+
+/*
+ * Class: Layouts.Icicle
+ *
+ * Implements the icicle tree layout.
+ *
+ * Implemented By:
+ *
+ * <Icicle>
+ *
+ */
+
+Layouts.Icicle = new Class({
+ /*
+  * Method: compute
+  *
+  * Called by loadJSON to calculate all node positions.
+  *
+  * Parameters:
+  *
+  * posType - The nodes' position to compute. Either "start", "end" or
+  *            "current". Defaults to "current".
+  */
+  compute: function(posType) {
+    posType = posType || "current";
+
+    var root = this.graph.getNode(this.root),
+        config = this.config,
+        size = this.canvas.getSize(),
+        width = size.width,
+        height = size.height,
+        offset = config.offset,
+        levelsToShow = config.constrained ? config.levelsToShow : Number.MAX_VALUE;
+
+    this.controller.onBeforeCompute(root);
+
+    Graph.Util.computeLevels(this.graph, root.id, 0, "ignore");
+
+    var treeDepth = 0;
+
+    Graph.Util.eachLevel(root, 0, false, function (n, d) { if(d > treeDepth) treeDepth = d; });
+
+    var startNode = this.graph.getNode(this.clickedNode && this.clickedNode.id || root.id);
+    var maxDepth = Math.min(treeDepth, levelsToShow-1);
+    var initialDepth = startNode._depth;
+    if(this.layout.horizontal()) {
+      this.computeSubtree(startNode, -width/2, -height/2, width/(maxDepth+1), height, initialDepth, maxDepth, posType);
+    } else {
+      this.computeSubtree(startNode, -width/2, -height/2, width, height/(maxDepth+1), initialDepth, maxDepth, posType);
+    }
+  },
+
+  computeSubtree: function (root, x, y, width, height, initialDepth, maxDepth, posType) {
+    root.getPos(posType).setc(x, y);
+    root.setData('width', width, posType);
+    root.setData('height', height, posType);
+
+    var nodeLength, prevNodeLength = 0, totalDim = 0;
+    var children = Graph.Util.getSubnodes(root, [1, 1]); // next level from this node
+
+    if(!children.length)
+      return;
+
+    $.each(children, function(e) { totalDim += e.getData('dim'); });
+
+    for(var i=0, l=children.length; i < l; i++) {
+      if(this.layout.horizontal()) {
+        nodeLength = height * children[i].getData('dim') / totalDim;
+        this.computeSubtree(children[i], x+width, y, width, nodeLength, initialDepth, maxDepth, posType);
+        y += nodeLength;
+      } else {
+        nodeLength = width * children[i].getData('dim') / totalDim;
+        this.computeSubtree(children[i], x, y+height, nodeLength, height, initialDepth, maxDepth, posType);
+        x += nodeLength;
+      }
+    }
+  }
+});
+
+
+
+/*
+ * File: Icicle.js
+ *
+*/
+
+/*
+  Class: Icicle
+  
+  Icicle space filling visualization.
+  
+  Implements:
+  
+  All <Loader> methods
+  
+  Constructor Options:
+  
+  Inherits options from
+  
+  - <Options.Canvas>
+  - <Options.Controller>
+  - <Options.Node>
+  - <Options.Edge>
+  - <Options.Label>
+  - <Options.Events>
+  - <Options.Tips>
+  - <Options.NodeStyles>
+  - <Options.Navigation>
+  
+  Additionally, there are other parameters and some default values changed
+
+  orientation - (string) Default's *h*. Whether to set horizontal or vertical layouts. Possible values are 'h' and 'v'.
+  offset - (number) Default's *2*. Boxes offset.
+  constrained - (boolean) Default's *false*. Whether to show the entire tree when loaded or just the number of levels specified by _levelsToShow_.
+  levelsToShow - (number) Default's *3*. The number of levels to show for a subtree. This number is relative to the selected node.
+  animate - (boolean) Default's *false*. Whether to animate transitions.
+  Node.type - Described in <Options.Node>. Default's *rectangle*.
+  Label.type - Described in <Options.Label>. Default's *Native*.
+  duration - Described in <Options.Fx>. Default's *700*.
+  fps - Described in <Options.Fx>. Default's *45*.
+  
+  Instance Properties:
+  
+  canvas - Access a <Canvas> instance.
+  graph - Access a <Graph> instance.
+  op - Access a <Icicle.Op> instance.
+  fx - Access a <Icicle.Plot> instance.
+  labels - Access a <Icicle.Label> interface implementation.
+
+*/
+
+$jit.Icicle = new Class({
+  Implements: [ Loader, Extras, Layouts.Icicle ],
+
+  layout: {
+    orientation: "h",
+    vertical: function(){
+      return this.orientation == "v";
+    },
+    horizontal: function(){
+      return this.orientation == "h";
+    },
+    change: function(){
+      this.orientation = this.vertical()? "h" : "v";
+    }
+  },
+
+  initialize: function(controller) {
+    var config = {
+      animate: false,
+      orientation: "h",
+      offset: 2,
+      levelsToShow: Number.MAX_VALUE,
+      constrained: false,
+      Node: {
+        type: 'rectangle',
+        overridable: true
+      },
+      Edge: {
+        type: 'none'
+      },
+      Label: {
+        type: 'Native'
+      },
+      duration: 700,
+      fps: 45
+    };
+
+    var opts = Options("Canvas", "Node", "Edge", "Fx", "Tips", "NodeStyles",
+                       "Events", "Navigation", "Controller", "Label");
+    this.controller = this.config = $.merge(opts, config, controller);
+    this.layout.orientation = this.config.orientation;
+
+    var canvasConfig = this.config;
+    if (canvasConfig.useCanvas) {
+      this.canvas = canvasConfig.useCanvas;
+      this.config.labelContainer = this.canvas.id + '-label';
+    } else {
+      this.canvas = new Canvas(this, canvasConfig);
+      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
+    }
+
+    this.graphOptions = {
+      'complex': true,
+      'Node': {
+        'selected': false,
+        'exist': true,
+        'drawn': true
+      }
+    };
+
+    this.graph = new Graph(
+      this.graphOptions, this.config.Node, this.config.Edge, this.config.Label);
+
+    this.labels = new $jit.Icicle.Label[this.config.Label.type](this);
+    this.fx = new $jit.Icicle.Plot(this);
+    this.op = new $jit.Icicle.Op(this);
+    this.group = new $jit.Icicle.Group(this);
+    this.clickedNode = null;
+
+    this.initializeExtras();
+  },
+
+  /* 
+    Method: refresh 
+    
+    Computes positions and plots the tree.
+  */
+  refresh: function(){
+    var labelType = this.config.Label.type;
+    if(labelType != 'Native') {
+      var that = this;
+      this.graph.eachNode(function(n) { that.labels.hideLabel(n, false); });
+    }
+    this.compute();
+    this.plot();
+  },
+
+  /* 
+    Method: plot 
+    
+    Plots the Icicle visualization. This is a shortcut to *fx.plot*. 
+  
+   */
+  plot: function(){
+    this.fx.plot(this.config);
+  },
+
+  /* 
+    Method: enter 
+    
+    Sets the node as root.
+    
+     Parameters:
+     
+     node - (object) A <Graph.Node>.
+  
+   */
+  enter: function (node) {
+    if (this.busy)
+      return;
+    this.busy = true;
+
+    var that = this,
+        config = this.config;
+
+    var callback = {
+      onComplete: function() {
+        //compute positions of newly inserted nodes
+        if(config.request)
+          that.compute();
+
+        if(config.animate) {
+          that.graph.nodeList.setDataset(['current', 'end'], {
+            'alpha': [1, 0] //fade nodes
+          });
+
+          Graph.Util.eachSubgraph(node, function(n) {
+            n.setData('alpha', 1, 'end');
+          }, "ignore");
+
+          that.fx.animate({
+            duration: 500,
+            modes:['node-property:alpha'],
+            onComplete: function() {
+              that.clickedNode = node;
+              that.compute('end');
+
+              that.fx.animate({
+                modes:['linear', 'node-property:width:height'],
+                duration: 1000,
+                onComplete: function() {
+                  that.busy = false;
+                  that.clickedNode = node;
+                }
+              });
+            }
+          });
+        } else {
+          that.clickedNode = node;
+          that.busy = false;
+          that.refresh();
+        }
+      }
+    };
+
+    if(config.request) {
+      this.requestNodes(clickedNode, callback);
+    } else {
+      callback.onComplete();
+    }
+  },
+
+  /* 
+    Method: out 
+    
+    Sets the parent node of the current selected node as root.
+  
+   */
+  out: function(){
+    if(this.busy)
+      return;
+
+    var that = this,
+        GUtil = Graph.Util,
+        config = this.config,
+        graph = this.graph,
+        parents = GUtil.getParents(graph.getNode(this.clickedNode && this.clickedNode.id || this.root)),
+        parent = parents[0],
+        clickedNode = parent,
+        previousClickedNode = this.clickedNode;
+
+    this.busy = true;
+    this.events.hoveredNode = false;
+
+    if(!parent) {
+      this.busy = false;
+      return;
+    }
+
+    //final plot callback
+    callback = {
+      onComplete: function() {
+        that.clickedNode = parent;
+        if(config.request) {
+          that.requestNodes(parent, {
+            onComplete: function() {
+              that.compute();
+              that.plot();
+              that.busy = false;
+            }
+          });
+        } else {
+          that.compute();
+          that.plot();
+          that.busy = false;
+        }
+      }
+    };
+
+    //animate node positions
+    if(config.animate) {
+      this.clickedNode = clickedNode;
+      this.compute('end');
+      //animate the visible subtree only
+      this.clickedNode = previousClickedNode;
+      this.fx.animate({
+        modes:['linear', 'node-property:width:height'],
+        duration: 1000,
+        onComplete: function() {
+          //animate the parent subtree
+          that.clickedNode = clickedNode;
+          //change nodes alpha
+          graph.nodeList.setDataset(['current', 'end'], {
+            'alpha': [0, 1]
+          });
+          GUtil.eachSubgraph(previousClickedNode, function(node) {
+            node.setData('alpha', 1);
+          }, "ignore");
+          that.fx.animate({
+            duration: 500,
+            modes:['node-property:alpha'],
+            onComplete: function() {
+              callback.onComplete();
+            }
+          });
+        }
+      });
+    } else {
+      callback.onComplete();
+    }
+  },
+  requestNodes: function(node, onComplete){
+    var handler = $.merge(this.controller, onComplete),
+        levelsToShow = this.config.constrained ? this.config.levelsToShow : Number.MAX_VALUE;
+
+    if (handler.request) {
+      var leaves = [], d = node._depth;
+      Graph.Util.eachLevel(node, 0, levelsToShow, function(n){
+        if (n.drawn && !Graph.Util.anySubnode(n)) {
+          leaves.push(n);
+          n._level = n._depth - d;
+          if (this.config.constrained)
+            n._level = levelsToShow - n._level;
+
+        }
+      });
+      this.group.requestNodes(leaves, handler);
+    } else {
+      handler.onComplete();
+    }
+  }
+});
+
+/*
+  Class: Icicle.Op
+  
+  Custom extension of <Graph.Op>.
+  
+  Extends:
+  
+  All <Graph.Op> methods
+  
+  See also:
+  
+  <Graph.Op>
+  
+  */
+$jit.Icicle.Op = new Class({
+  Implements: Graph.Op,
+
+  initialize: function(viz) {
+    this.viz = viz;
+  }
+});
+
+/*
+ * Performs operations on group of nodes.
+ */
+$jit.Icicle.Group = new Class({
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.canvas = viz.canvas;
+    this.config = viz.config;
+  },
+
+  /*
+   * Calls the request method on the controller to request a subtree for each node.
+   */
+  requestNodes: function(nodes, controller){
+    var counter = 0, len = nodes.length, nodeSelected = {};
+    var complete = function(){
+      controller.onComplete();
+    };
+    var viz = this.viz;
+    if (len == 0)
+      complete();
+    for(var i = 0; i < len; i++) {
+      nodeSelected[nodes[i].id] = nodes[i];
+      controller.request(nodes[i].id, nodes[i]._level, {
+        onComplete: function(nodeId, data){
+          if (data && data.children) {
+            data.id = nodeId;
+            viz.op.sum(data, {
+              type: 'nothing'
+            });
+          }
+          if (++counter == len) {
+            Graph.Util.computeLevels(viz.graph, viz.root, 0);
+            complete();
+          }
+        }
+      });
+    }
+  }
+});
+
+/*
+  Class: Icicle.Plot
+  
+  Custom extension of <Graph.Plot>.
+  
+  Extends:
+  
+  All <Graph.Plot> methods
+  
+  See also:
+  
+  <Graph.Plot>
+  
+  */
+$jit.Icicle.Plot = new Class({
+  Implements: Graph.Plot,
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.config = viz.config;
+    this.node = this.config.Node;
+    this.edge = this.config.Edge;
+    this.animation = new Animation;
+    this.nodeTypes = new $jit.Icicle.Plot.NodeTypes;
+    this.edgeTypes = new $jit.Icicle.Plot.EdgeTypes;
+    this.labels = viz.labels;
+  },
+
+  plot: function(opt, animating){
+    opt = opt || this.viz.controller;
+    var viz = this.viz,
+        graph = viz.graph,
+        root = graph.getNode(viz.clickedNode && viz.clickedNode.id || viz.root),
+        initialDepth = root._depth;
+
+    viz.canvas.clear();
+    this.plotTree(root, $.merge(opt, {
+      'withLabels': true,
+      'hideLabels': false,
+      'plotSubtree': function(root, node) {
+        return !viz.config.constrained ||
+               (node._depth - initialDepth < viz.config.levelsToShow);
+      }
+    }), animating);
+  }
+});
+
+/*
+  Class: Icicle.Label
+  
+  Custom extension of <Graph.Label>. 
+  Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
+  
+  Extends:
+  
+  All <Graph.Label> methods and subclasses.
+  
+  See also:
+  
+  <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
+  
+  */
+$jit.Icicle.Label = {};
+
+/*
+  Icicle.Label.Native
+  
+  Custom extension of <Graph.Label.Native>.
+  
+  Extends:
+  
+  All <Graph.Label.Native> methods
+  
+  See also:
+  
+  <Graph.Label.Native>
+
+  */
+$jit.Icicle.Label.Native = new Class({
+  Implements: Graph.Label.Native,
+
+  renderLabel: function(canvas, node, controller) {
+    var ctx = canvas.getCtx(),
+        width = node.getData('width'),
+        height = node.getData('height'),
+        size = node.getLabelData('size'),
+        m = ctx.measureText(node.name);
+
+    // Guess as much as possible if the label will fit in the node
+    if(height < (size * 1.5) || width < m.width)
+      return;
+
+    var pos = node.pos.getc(true);
+    ctx.fillText(node.name,
+                 pos.x + width / 2,
+                 pos.y + height / 2);
+  }
+});
+
+/*
+  Icicle.Label.SVG
+  
+  Custom extension of <Graph.Label.SVG>.
+  
+  Extends:
+  
+  All <Graph.Label.SVG> methods
+  
+  See also:
+  
+  <Graph.Label.SVG>
+*/
+$jit.Icicle.Label.SVG = new Class( {
+  Implements: Graph.Label.SVG,
+
+  initialize: function(viz){
+    this.viz = viz;
+  },
+
+  /*
+    placeLabel
+   
+    Overrides abstract method placeLabel in <Graph.Plot>.
+   
+    Parameters:
+   
+    tag - A DOM label element.
+    node - A <Graph.Node>.
+    controller - A configuration/controller object passed to the visualization.
+   */
+  placeLabel: function(tag, node, controller){
+    var pos = node.pos.getc(true), canvas = this.viz.canvas;
+    var radius = canvas.getSize();
+    var labelPos = {
+      x: Math.round(pos.x + radius.width / 2),
+      y: Math.round(pos.y + radius.height / 2)
+    };
+    tag.setAttribute('x', labelPos.x);
+    tag.setAttribute('y', labelPos.y);
+
+    controller.onPlaceLabel(tag, node);
+  }
+});
+
+/*
+  Icicle.Label.HTML
+  
+  Custom extension of <Graph.Label.HTML>.
+  
+  Extends:
+  
+  All <Graph.Label.HTML> methods.
+  
+  See also:
+  
+  <Graph.Label.HTML>
+  
+  */
+$jit.Icicle.Label.HTML = new Class( {
+  Implements: Graph.Label.HTML,
+
+  initialize: function(viz){
+    this.viz = viz;
+  },
+
+  /*
+    placeLabel
+   
+    Overrides abstract method placeLabel in <Graph.Plot>.
+   
+    Parameters:
+   
+    tag - A DOM label element.
+    node - A <Graph.Node>.
+    controller - A configuration/controller object passed to the visualization.
+   */
+  placeLabel: function(tag, node, controller){
+    var pos = node.pos.getc(true), canvas = this.viz.canvas;
+    var radius = canvas.getSize();
+    var labelPos = {
+      x: Math.round(pos.x + radius.width / 2),
+      y: Math.round(pos.y + radius.height / 2)
+    };
+
+    var style = tag.style;
+    style.left = labelPos.x + 'px';
+    style.top = labelPos.y + 'px';
+    style.display = '';
+
+    controller.onPlaceLabel(tag, node);
+  }
+});
+
+/*
+  Class: Icicle.Plot.NodeTypes
+  
+  This class contains a list of <Graph.Node> built-in types. 
+  Node types implemented are 'none', 'rectangle'.
+  
+  You can add your custom node types, customizing your visualization to the extreme.
+  
+  Example:
+  
+  (start code js)
+    Icicle.Plot.NodeTypes.implement({
+      'mySpecialType': {
+        'render': function(node, canvas) {
+          //print your custom node to canvas
+        },
+        //optional
+        'contains': function(node, pos) {
+          //return true if pos is inside the node or false otherwise
+        }
+      }
+    });
+  (end code)
+  
+  */
+$jit.Icicle.Plot.NodeTypes = new Class( {
+  'none': {
+    'render': $.empty
+  },
+
+  'rectangle': {
+    'render': function(node, canvas, animating) {
+      var config = this.viz.config;
+      var offset = config.offset;
+      var width = node.getData('width');
+      var height = node.getData('height');
+      var border = node.getData('border');
+      var pos = node.pos.getc(true);
+      var posx = pos.x + offset / 2, posy = pos.y + offset / 2;
+      var ctx = canvas.getCtx();
+      
+      if(width - offset < 2 || height - offset < 2) return;
+      
+      if(config.cushion) {
+        var color = node.getData('color');
+        var lg = ctx.createRadialGradient(posx + (width - offset)/2, 
+                                          posy + (height - offset)/2, 1, 
+                                          posx + (width-offset)/2, posy + (height-offset)/2, 
+                                          width < height? height : width);
+        var colorGrad = $.rgbToHex($.map($.hexToRgb(color), 
+            function(r) { return r * 0.3 >> 0; }));
+        lg.addColorStop(0, color);
+        lg.addColorStop(1, colorGrad);
+        ctx.fillStyle = lg;
+      }
+
+      if (border) {
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 3;
+      }
+
+      ctx.fillRect(posx, posy, Math.max(0, width - offset), Math.max(0, height - offset));
+      border && ctx.strokeRect(pos.x, pos.y, width, height);
+    },
+
+    'contains': function(node, pos) {
+      if(this.viz.clickedNode && !$jit.Graph.Util.isDescendantOf(node, this.viz.clickedNode.id)) return false;
+      var npos = node.pos.getc(true),
+          width = node.getData('width'),
+          height = node.getData('height');
+      return this.nodeHelper.rectangle.contains({x: npos.x + width/2, y: npos.y + height/2}, pos, width, height);
+    }
+  }
+});
+
+$jit.Icicle.Plot.EdgeTypes = new Class( {
+  'none': $.empty
+});
+
+
+
+/*
+ * File: RGraph.js
+ *
+ */
+
+/*
+   Class: RGraph
+   
+   A radial graph visualization with advanced animations.
+   
+   Inspired by:
+ 
+   Animated Exploration of Dynamic Graphs with Radial Layout (Ka-Ping Yee, Danyel Fisher, Rachna Dhamija, Marti Hearst) <http://bailando.sims.berkeley.edu/papers/infovis01.htm>
+   
+   Note:
+   
+   This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the visualization described in the paper.
+   
+  Implements:
+  
+  All <Loader> methods
+  
+   Constructor Options:
+   
+   Inherits options from
+   
+   - <Options.Canvas>
+   - <Options.Controller>
+   - <Options.Node>
+   - <Options.Edge>
+   - <Options.Label>
+   - <Options.Events>
+   - <Options.Tips>
+   - <Options.NodeStyles>
+   - <Options.Navigation>
+   
+   Additionally, there are other parameters and some default values changed
+   
+   interpolation - (string) Default's *linear*. Describes the way nodes are interpolated. Possible values are 'linear' and 'polar'.
+   levelDistance - (number) Default's *100*. The distance between levels of the tree. 
+     
+   Instance Properties:
+
+   canvas - Access a <Canvas> instance.
+   graph - Access a <Graph> instance.
+   op - Access a <RGraph.Op> instance.
+   fx - Access a <RGraph.Plot> instance.
+   labels - Access a <RGraph.Label> interface implementation.   
+*/
+
+$jit.RGraph = new Class( {
+
+  Implements: [
+      Loader, Extras, Layouts.Radial
+  ],
+
+  initialize: function(controller){
+    var $RGraph = $jit.RGraph;
+
+    var config = {
+      interpolation: 'linear',
+      levelDistance: 100
+    };
+
+    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
+        "Fx", "Controller", "Tips", "NodeStyles", "Events", "Navigation", "Label"), config, controller);
+
+    var canvasConfig = this.config;
+    if(canvasConfig.useCanvas) {
+      this.canvas = canvasConfig.useCanvas;
+      this.config.labelContainer = this.canvas.id + '-label';
+    } else {
+      if(canvasConfig.background) {
+        canvasConfig.background = $.merge({
+          type: 'Circles'
+        }, canvasConfig.background);
+      }
+      this.canvas = new Canvas(this, canvasConfig);
+      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
+    }
+
+    this.graphOptions = {
+      'complex': false,
+      'Node': {
+        'selected': false,
+        'exist': true,
+        'drawn': true
+      }
+    };
+    this.graph = new Graph(this.graphOptions, this.config.Node,
+        this.config.Edge);
+    this.labels = new $RGraph.Label[canvasConfig.Label.type](this);
+    this.fx = new $RGraph.Plot(this);
+    this.op = new $RGraph.Op(this);
+    this.json = null;
+    this.root = null;
+    this.busy = false;
+    this.parent = false;
+    // initialize extras
+    this.initializeExtras();
+  },
+
+  /* 
+  
+    createLevelDistanceFunc 
+  
+    Returns the levelDistance function used for calculating a node distance 
+    to its origin. This function returns a function that is computed 
+    per level and not per node, such that all nodes with the same depth will have the 
+    same distance to the origin. The resulting function gets the 
+    parent node as parameter and returns a float.
+
+   */
+  createLevelDistanceFunc: function(){
+    var ld = this.config.levelDistance;
+    return function(elem){
+      return (elem._depth + 1) * ld;
+    };
+  },
+
+  /* 
+     Method: refresh 
+     
+     Computes positions and plots the tree.
+
+   */
+  refresh: function(){
+    this.compute();
+    this.plot();
+  },
+
+  reposition: function(){
+    this.compute('end');
+  },
+
+  /*
+   Method: plot
+  
+   Plots the RGraph. This is a shortcut to *fx.plot*.
+  */
+  plot: function(){
+    this.fx.plot();
+  },
+  /*
+   getNodeAndParentAngle
+  
+   Returns the _parent_ of the given node, also calculating its angle span.
+  */
+  getNodeAndParentAngle: function(id){
+    var theta = false;
+    var n = this.graph.getNode(id);
+    var ps = n.getParents();
+    var p = (ps.length > 0)? ps[0] : false;
+    if (p) {
+      var posParent = p.pos.getc(), posChild = n.pos.getc();
+      var newPos = posParent.add(posChild.scale(-1));
+      theta = Math.atan2(newPos.y, newPos.x);
+      if (theta < 0)
+        theta += 2 * Math.PI;
+    }
+    return {
+      parent: p,
+      theta: theta
+    };
+  },
+  /*
+   tagChildren
+  
+   Enumerates the children in order to maintain child ordering (second constraint of the paper).
+  */
+  tagChildren: function(par, id){
+    if (par.angleSpan) {
+      var adjs = [];
+      par.eachAdjacency(function(elem){
+        adjs.push(elem.nodeTo);
+      }, "ignore");
+      var len = adjs.length;
+      for ( var i = 0; i < len && id != adjs[i].id; i++)
+        ;
+      for ( var j = (i + 1) % len, k = 0; id != adjs[j].id; j = (j + 1) % len) {
+        adjs[j].dist = k++;
+      }
+    }
+  },
+  /* 
+  Method: onClick 
+  
+  Animates the <RGraph> to center the node specified by *id*.
+
+   Parameters:
+
+   id - A <Graph.Node> id.
+   opt - (optional|object) An object containing some extra properties described below
+   hideLabels - (boolean) Default's *true*. Hide labels when performing the animation.
+
+   Example:
+
+   (start code js)
+     rgraph.onClick('someid');
+     //or also...
+     rgraph.onClick('someid', {
+      hideLabels: false
+     });
+    (end code)
+    
+  */
+  onClick: function(id, opt){
+    if (this.root != id && !this.busy) {
+      this.busy = true;
+      this.root = id;
+      that = this;
+      this.controller.onBeforeCompute(this.graph.getNode(id));
+      var obj = this.getNodeAndParentAngle(id);
+
+      // second constraint
+      this.tagChildren(obj.parent, id);
+      this.parent = obj.parent;
+      this.compute('end');
+
+      // first constraint
+      var thetaDiff = obj.theta - obj.parent.endPos.theta;
+      this.graph.eachNode(function(elem){
+        elem.endPos.set(elem.endPos.getp().add($P(thetaDiff, 0)));
+      });
+
+      var mode = this.config.interpolation;
+      opt = $.merge( {
+        onComplete: $.empty
+      }, opt || {});
+
+      this.fx.animate($.merge( {
+        hideLabels: true,
+        modes: [
+          mode
+        ]
+      }, opt, {
+        onComplete: function(){
+          that.busy = false;
+          opt.onComplete();
+        }
+      }));
+    }
+  }
+});
+
+$jit.RGraph.$extend = true;
+
+(function(RGraph){
+
+  /*
+     Class: RGraph.Op
+     
+     Custom extension of <Graph.Op>.
+
+     Extends:
+
+     All <Graph.Op> methods
+     
+     See also:
+     
+     <Graph.Op>
+
+  */
+  RGraph.Op = new Class( {
+
+    Implements: Graph.Op,
+
+    initialize: function(viz){
+      this.viz = viz;
+    }
+  });
+
+  /*
+     Class: RGraph.Plot
+    
+    Custom extension of <Graph.Plot>.
+  
+    Extends:
+  
+    All <Graph.Plot> methods
+    
+    See also:
+    
+    <Graph.Plot>
+  
+  */
+  RGraph.Plot = new Class( {
+
+    Implements: Graph.Plot,
+
+    initialize: function(viz){
+      this.viz = viz;
+      this.config = viz.config;
+      this.node = viz.config.Node;
+      this.edge = viz.config.Edge;
+      this.animation = new Animation;
+      this.nodeTypes = new RGraph.Plot.NodeTypes;
+      this.edgeTypes = new RGraph.Plot.EdgeTypes;
+      this.labels = viz.labels;
+    }
+  });
+
+  /*
+    Object: RGraph.Label
+
+    Custom extension of <Graph.Label>. 
+    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
+  
+    Extends:
+  
+    All <Graph.Label> methods and subclasses.
+  
+    See also:
+  
+    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
+  
+   */
+  RGraph.Label = {};
+
+  /*
+     RGraph.Label.Native
+
+     Custom extension of <Graph.Label.Native>.
+
+     Extends:
+
+     All <Graph.Label.Native> methods
+
+     See also:
+
+     <Graph.Label.Native>
+
+  */
+  RGraph.Label.Native = new Class( {
+    Implements: Graph.Label.Native
+  });
+
+  /*
+     RGraph.Label.SVG
+    
+    Custom extension of <Graph.Label.SVG>.
+  
+    Extends:
+  
+    All <Graph.Label.SVG> methods
+  
+    See also:
+  
+    <Graph.Label.SVG>
+  
+  */
+  RGraph.Label.SVG = new Class( {
+    Implements: Graph.Label.SVG,
+
+    initialize: function(viz){
+      this.viz = viz;
+    },
+
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Plot>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller){
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize();
+      var labelPos = {
+        x: Math.round(pos.x * sx + ox + radius.width / 2),
+        y: Math.round(pos.y * sy + oy + radius.height / 2)
+      };
+      tag.setAttribute('x', labelPos.x);
+      tag.setAttribute('y', labelPos.y);
+
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+     RGraph.Label.HTML
+
+     Custom extension of <Graph.Label.HTML>.
+
+     Extends:
+
+     All <Graph.Label.HTML> methods.
+
+     See also:
+
+     <Graph.Label.HTML>
+
+  */
+  RGraph.Label.HTML = new Class( {
+    Implements: Graph.Label.HTML,
+
+    initialize: function(viz){
+      this.viz = viz;
+    },
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Plot>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller){
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize();
+      var labelPos = {
+        x: Math.round(pos.x * sx + ox + radius.width / 2),
+        y: Math.round(pos.y * sy + oy + radius.height / 2)
+      };
+
+      var style = tag.style;
+      style.left = labelPos.x + 'px';
+      style.top = labelPos.y + 'px';
+      style.display = this.fitsInCanvas(labelPos, canvas)? '' : 'none';
+
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+    Class: RGraph.Plot.NodeTypes
+
+    This class contains a list of <Graph.Node> built-in types. 
+    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
+
+    You can add your custom node types, customizing your visualization to the extreme.
+
+    Example:
+
+    (start code js)
+      RGraph.Plot.NodeTypes.implement({
+        'mySpecialType': {
+          'render': function(node, canvas) {
+            //print your custom node to canvas
+          },
+          //optional
+          'contains': function(node, pos) {
+            //return true if pos is inside the node or false otherwise
+          }
+        }
+      });
+    (end code)
+
+  */
+  RGraph.Plot.NodeTypes = new Class({
+    'none': {
+      'render': $.empty,
+      'contains': $.lambda(false)
+    },
+    'circle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.circle.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.circle.contains(npos, pos, dim);
+      }
+    },
+    'ellipse': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
+        },
+      // TODO(nico): be more precise...
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        return this.nodeHelper.ellipse.contains(npos, pos, width, height);
+      }
+    },
+    'square': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.square.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.square.contains(npos, pos, dim);
+      }
+    },
+    'rectangle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        return this.nodeHelper.rectangle.contains(npos, pos, width, height);
+      }
+    },
+    'triangle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.triangle.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos) {
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.triangle.contains(npos, pos, dim);
+      }
+    },
+    'star': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true),
+            dim = node.getData('dim');
+        this.nodeHelper.star.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos) {
+        var npos = node.pos.getc(true),
+            dim = node.getData('dim');
+        return this.nodeHelper.star.contains(npos, pos, dim);
+      }
+    }
+  });
+
+  /*
+    Class: RGraph.Plot.EdgeTypes
+
+    This class contains a list of <Graph.Adjacence> built-in types. 
+    Edge types implemented are 'none', 'line' and 'arrow'.
+  
+    You can add your custom edge types, customizing your visualization to the extreme.
+  
+    Example:
+  
+    (start code js)
+      RGraph.Plot.EdgeTypes.implement({
+        'mySpecialType': function(adj, canvas) {
+          //print your custom edge to canvas
+        }
+      });
+    (end code)
+  
+  */
+  RGraph.Plot.EdgeTypes = new Class({
+    'none': $.empty,
+    'line': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true);
+      this.edgeHelper.line(from, to, canvas);
+    },
+    'arrow': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true),
+          dim = adj.getData('dim'),
+          direction = adj.data.$direction,
+          inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
+      this.edgeHelper.arrow(from, to, dim, inv, canvas);
+    }
+  });
+
+})($jit.RGraph);
+
+
+/*
+ * File: Layouts.ForceDirected.js
+ *
+*/
+
+/*
+ * Class: Layouts.ForceDirected
+ * 
+ * Implements a Force Directed Layout.
+ * 
+ * Implemented By:
+ * 
+ * <ForceDirected>
+ * 
+ * Credits:
+ * 
+ * Marcus Cobden <http://marcuscobden.co.uk>
+ * 
+ */
+Layouts.ForceDirected = new Class({
+
+  getOptions: function(random) {
+    var s = this.canvas.getSize();
+    var w = s.width, h = s.height;
+    //count nodes
+    var count = 0;
+    this.graph.eachNode(function(n) { 
+      count++;
+    });
+    var k2 = w * h / count, k = Math.sqrt(k2);
+    var l = this.config.levelDistance;
+    
+    return {
+      width: w,
+      height: h,
+      tstart: w * 0.1,
+      nodef: function(x) { return k2 / (x || 1); },
+      edgef: function(x) { return /* x * x / k; */ k * (x - l); }
+    };
+  },
+  
+  compute: function(property, incremental) {
+    var prop = $.splat(property || ['current', 'start', 'end']);
+    var opt = this.getOptions();
+    NodeDim.compute(this.graph, prop, this.config);
+    this.graph.computeLevels(this.root, 0, "ignore");
+    this.graph.eachNode(function(n) {
+      $.each(prop, function(p) {
+        var pos = n.getPos(p);
+        if(pos.equals(Complex.KER)) {
+          pos.x = opt.width/5 * (Math.random() - 0.5);
+          pos.y = opt.height/5 * (Math.random() - 0.5);
+        }
+        //initialize disp vector
+        n.disp = {};
+        $.each(prop, function(p) {
+          n.disp[p] = $C(0, 0);
+        });
+      });
+    });
+    this.computePositions(prop, opt, incremental);
+  },
+  
+  computePositions: function(property, opt, incremental) {
+    var times = this.config.iterations, i = 0, that = this;
+    if(incremental) {
+      (function iter() {
+        for(var total=incremental.iter, j=0; j<total; j++) {
+          opt.t = opt.tstart * (1 - i++/(times -1));
+          that.computePositionStep(property, opt);
+          if(i >= times) {
+            incremental.onComplete();
+            return;
+          }
+        }
+        incremental.onStep(Math.round(i / (times -1) * 100));
+        setTimeout(iter, 1);
+      })();
+    } else {
+      for(; i < times; i++) {
+        opt.t = opt.tstart * (1 - i/(times -1));
+        this.computePositionStep(property, opt);
+      }
+    }
+  },
+  
+  computePositionStep: function(property, opt) {
+    var graph = this.graph;
+    var min = Math.min, max = Math.max;
+    var dpos = $C(0, 0);
+    //calculate repulsive forces
+    graph.eachNode(function(v) {
+      //initialize disp
+      $.each(property, function(p) {
+        v.disp[p].x = 0; v.disp[p].y = 0;
+      });
+      graph.eachNode(function(u) {
+        if(u.id != v.id) {
+          $.each(property, function(p) {
+            var vp = v.getPos(p), up = u.getPos(p);
+            dpos.x = vp.x - up.x;
+            dpos.y = vp.y - up.y;
+            var norm = dpos.norm() || 1;
+            v.disp[p].$add(dpos
+                .$scale(opt.nodef(norm) / norm));
+          });
+        }
+      });
+    });
+    //calculate attractive forces
+    var T = !!graph.getNode(this.root).visited;
+    graph.eachNode(function(node) {
+      node.eachAdjacency(function(adj) {
+        var nodeTo = adj.nodeTo;
+        if(!!nodeTo.visited === T) {
+          $.each(property, function(p) {
+            var vp = node.getPos(p), up = nodeTo.getPos(p);
+            dpos.x = vp.x - up.x;
+            dpos.y = vp.y - up.y;
+            var norm = dpos.norm() || 1;
+            node.disp[p].$add(dpos.$scale(-opt.edgef(norm) / norm));
+            nodeTo.disp[p].$add(dpos.$scale(-1));
+          });
+        }
+      });
+      node.visited = !T;
+    });
+    //arrange positions to fit the canvas
+    var t = opt.t, w2 = opt.width / 2, h2 = opt.height / 2;
+    graph.eachNode(function(u) {
+      $.each(property, function(p) {
+        var disp = u.disp[p];
+        var norm = disp.norm() || 1;
+        var p = u.getPos(p);
+        p.$add($C(disp.x * min(Math.abs(disp.x), t) / norm, 
+            disp.y * min(Math.abs(disp.y), t) / norm));
+        p.x = min(w2, max(-w2, p.x));
+        p.y = min(h2, max(-h2, p.y));
+      });
+    });
+  }
+});
+
+/*
+ * File: ForceDirected.js
+ */
+
+/*
+   Class: ForceDirected
+      
+   A visualization that lays graphs using a Force-Directed layout algorithm.
+   
+   Inspired by:
+  
+   Force-Directed Drawing Algorithms (Stephen G. Kobourov) <http://www.cs.brown.edu/~rt/gdhandbook/chapters/force-directed.pdf>
+   
+  Implements:
+  
+  All <Loader> methods
+  
+   Constructor Options:
+   
+   Inherits options from
+   
+   - <Options.Canvas>
+   - <Options.Controller>
+   - <Options.Node>
+   - <Options.Edge>
+   - <Options.Label>
+   - <Options.Events>
+   - <Options.Tips>
+   - <Options.NodeStyles>
+   - <Options.Navigation>
+   
+   Additionally, there are two parameters
+   
+   levelDistance - (number) Default's *50*. The natural length desired for the edges.
+   iterations - (number) Default's *50*. The number of iterations for the spring layout simulation. Depending on the browser's speed you could set this to a more 'interesting' number, like *200*. 
+     
+   Instance Properties:
+
+   canvas - Access a <Canvas> instance.
+   graph - Access a <Graph> instance.
+   op - Access a <ForceDirected.Op> instance.
+   fx - Access a <ForceDirected.Plot> instance.
+   labels - Access a <ForceDirected.Label> interface implementation.
+
+*/
+
+$jit.ForceDirected = new Class( {
+
+  Implements: [ Loader, Extras, Layouts.ForceDirected ],
+
+  initialize: function(controller) {
+    var $ForceDirected = $jit.ForceDirected;
+
+    var config = {
+      iterations: 50,
+      levelDistance: 50
+    };
+
+    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
+        "Fx", "Tips", "NodeStyles", "Events", "Navigation", "Controller", "Label"), config, controller);
+
+    var canvasConfig = this.config;
+    if(canvasConfig.useCanvas) {
+      this.canvas = canvasConfig.useCanvas;
+      this.config.labelContainer = this.canvas.id + '-label';
+    } else {
+      if(canvasConfig.background) {
+        canvasConfig.background = $.merge({
+          type: 'Circles'
+        }, canvasConfig.background);
+      }
+      this.canvas = new Canvas(this, canvasConfig);
+      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
+    }
+
+    this.graphOptions = {
+      'complex': true,
+      'Node': {
+        'selected': false,
+        'exist': true,
+        'drawn': true
+      }
+    };
+    this.graph = new Graph(this.graphOptions, this.config.Node,
+        this.config.Edge);
+    this.labels = new $ForceDirected.Label[canvasConfig.Label.type](this);
+    this.fx = new $ForceDirected.Plot(this);
+    this.op = new $ForceDirected.Op(this);
+    this.json = null;
+    this.busy = false;
+    // initialize extras
+    this.initializeExtras();
+  },
+
+  /* 
+    Method: refresh 
+    
+    Computes positions and plots the tree.
+  */
+  refresh: function() {
+    this.compute();
+    this.plot();
+  },
+
+  reposition: function() {
+    this.compute('end');
+  },
+
+/*
+  Method: computeIncremental
+  
+  Performs the Force Directed algorithm incrementally.
+  
+  Description:
+  
+  ForceDirected algorithms can perform many computations and lead to JavaScript taking too much time to complete. 
+  This method splits the algorithm into smaller parts allowing the user to track the evolution of the algorithm and 
+  avoiding browser messages such as "This script is taking too long to complete".
+  
+  Parameters:
+  
+  opt - (object) The object properties are described below
+  
+  iter - (number) Default's *20*. Split the algorithm into pieces of _iter_ iterations. For example, if the _iterations_ configuration property 
+  of your <ForceDirected> class is 100, then you could set _iter_ to 20 to split the main algorithm into 5 smaller pieces.
+  
+  property - (string) Default's *end*. Whether to update starting, current or ending node positions. Possible values are 'end', 'start', 'current'. 
+  You can also set an array of these properties. If you'd like to keep the current node positions but to perform these 
+  computations for final animation positions then you can just choose 'end'.
+  
+  onStep - (function) A callback function called when each "small part" of the algorithm completed. This function gets as first formal 
+  parameter a percentage value.
+  
+  onComplete - A callback function called when the algorithm completed.
+  
+  Example:
+  
+  In this example I calculate the end positions and then animate the graph to those positions
+  
+  (start code js)
+  var fd = new $jit.ForceDirected(...);
+  fd.computeIncremental({
+    iter: 20,
+    property: 'end',
+    onStep: function(perc) {
+      Log.write("loading " + perc + "%");
+    },
+    onComplete: function() {
+      Log.write("done");
+      fd.animate();
+    }
+  });
+  (end code)
+  
+  In this example I calculate all positions and (re)plot the graph
+  
+  (start code js)
+  var fd = new ForceDirected(...);
+  fd.computeIncremental({
+    iter: 20,
+    property: ['end', 'start', 'current'],
+    onStep: function(perc) {
+      Log.write("loading " + perc + "%");
+    },
+    onComplete: function() {
+      Log.write("done");
+      fd.plot();
+    }
+  });
+  (end code)
+  
+  */
+  computeIncremental: function(opt) {
+    opt = $.merge( {
+      iter: 20,
+      property: 'end',
+      onStep: $.empty,
+      onComplete: $.empty
+    }, opt || {});
+
+    this.config.onBeforeCompute(this.graph.getNode(this.root));
+    this.compute(opt.property, opt);
+  },
+
+  /*
+    Method: plot
+   
+    Plots the ForceDirected graph. This is a shortcut to *fx.plot*.
+   */
+  plot: function() {
+    this.fx.plot();
+  },
+
+  /*
+     Method: animate
+    
+     Animates the graph from the current positions to the 'end' node positions.
+  */
+  animate: function(opt) {
+    this.fx.animate($.merge( {
+      modes: [ 'linear' ]
+    }, opt || {}));
+  }
+});
+
+$jit.ForceDirected.$extend = true;
+
+(function(ForceDirected) {
+
+  /*
+     Class: ForceDirected.Op
+     
+     Custom extension of <Graph.Op>.
+
+     Extends:
+
+     All <Graph.Op> methods
+     
+     See also:
+     
+     <Graph.Op>
+
+  */
+  ForceDirected.Op = new Class( {
+
+    Implements: Graph.Op,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    }
+  });
+
+  /*
+    Class: ForceDirected.Plot
+    
+    Custom extension of <Graph.Plot>.
+  
+    Extends:
+  
+    All <Graph.Plot> methods
+    
+    See also:
+    
+    <Graph.Plot>
+  
+  */
+  ForceDirected.Plot = new Class( {
+
+    Implements: Graph.Plot,
+
+    initialize: function(viz) {
+      this.viz = viz;
+      this.config = viz.config;
+      this.node = viz.config.Node;
+      this.edge = viz.config.Edge;
+      this.animation = new Animation;
+      this.nodeTypes = new ForceDirected.Plot.NodeTypes;
+      this.edgeTypes = new ForceDirected.Plot.EdgeTypes;
+      this.labels = viz.labels;
+    }
+  });
+
+  /*
+    Class: ForceDirected.Label
+    
+    Custom extension of <Graph.Label>. 
+    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
+  
+    Extends:
+  
+    All <Graph.Label> methods and subclasses.
+  
+    See also:
+  
+    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
+  
+  */
+  ForceDirected.Label = {};
+
+  /*
+     ForceDirected.Label.Native
+     
+     Custom extension of <Graph.Label.Native>.
+
+     Extends:
+
+     All <Graph.Label.Native> methods
+
+     See also:
+
+     <Graph.Label.Native>
+
+  */
+  ForceDirected.Label.Native = new Class( {
+    Implements: Graph.Label.Native
+  });
+
+  /*
+    ForceDirected.Label.SVG
+    
+    Custom extension of <Graph.Label.SVG>.
+  
+    Extends:
+  
+    All <Graph.Label.SVG> methods
+  
+    See also:
+  
+    <Graph.Label.SVG>
+  
+  */
+  ForceDirected.Label.SVG = new Class( {
+    Implements: Graph.Label.SVG,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    },
+
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Label>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller) {
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize();
+      var labelPos = {
+        x: Math.round(pos.x * sx + ox + radius.width / 2),
+        y: Math.round(pos.y * sy + oy + radius.height / 2)
+      };
+      tag.setAttribute('x', labelPos.x);
+      tag.setAttribute('y', labelPos.y);
+
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+     ForceDirected.Label.HTML
+     
+     Custom extension of <Graph.Label.HTML>.
+
+     Extends:
+
+     All <Graph.Label.HTML> methods.
+
+     See also:
+
+     <Graph.Label.HTML>
+
+  */
+  ForceDirected.Label.HTML = new Class( {
+    Implements: Graph.Label.HTML,
+
+    initialize: function(viz) {
+      this.viz = viz;
+    },
+    /* 
+       placeLabel
+
+       Overrides abstract method placeLabel in <Graph.Plot>.
+
+       Parameters:
+
+       tag - A DOM label element.
+       node - A <Graph.Node>.
+       controller - A configuration/controller object passed to the visualization.
+      
+     */
+    placeLabel: function(tag, node, controller) {
+      var pos = node.pos.getc(true), 
+          canvas = this.viz.canvas,
+          ox = canvas.translateOffsetX,
+          oy = canvas.translateOffsetY,
+          sx = canvas.scaleOffsetX,
+          sy = canvas.scaleOffsetY,
+          radius = canvas.getSize();
+      var labelPos = {
+        x: Math.round(pos.x * sx + ox + radius.width / 2),
+        y: Math.round(pos.y * sy + oy + radius.height / 2)
+      };
+      var style = tag.style;
+      style.left = labelPos.x + 'px';
+      style.top = labelPos.y + 'px';
+      style.display = this.fitsInCanvas(labelPos, canvas) ? '' : 'none';
+
+      controller.onPlaceLabel(tag, node);
+    }
+  });
+
+  /*
+    Class: ForceDirected.Plot.NodeTypes
+
+    This class contains a list of <Graph.Node> built-in types. 
+    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
+
+    You can add your custom node types, customizing your visualization to the extreme.
+
+    Example:
+
+    (start code js)
+      ForceDirected.Plot.NodeTypes.implement({
+        'mySpecialType': {
+          'render': function(node, canvas) {
+            //print your custom node to canvas
+          },
+          //optional
+          'contains': function(node, pos) {
+            //return true if pos is inside the node or false otherwise
+          }
+        }
+      });
+    (end code)
+
+  */
+  ForceDirected.Plot.NodeTypes = new Class({
+    'none': {
+      'render': $.empty,
+      'contains': $.lambda(false)
+    },
+    'circle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.circle.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.circle.contains(npos, pos, dim);
+      }
+    },
+    'ellipse': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
+        },
+      // TODO(nico): be more precise...
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        return this.nodeHelper.ellipse.contains(npos, pos, width, height);
+      }
+    },
+    'square': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.square.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.square.contains(npos, pos, dim);
+      }
+    },
+    'rectangle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
+      },
+      'contains': function(node, pos){
+        var npos = node.pos.getc(true), 
+            width = node.getData('width'), 
+            height = node.getData('height');
+        return this.nodeHelper.rectangle.contains(npos, pos, width, height);
+      }
+    },
+    'triangle': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        this.nodeHelper.triangle.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos) {
+        var npos = node.pos.getc(true), 
+            dim = node.getData('dim');
+        return this.nodeHelper.triangle.contains(npos, pos, dim);
+      }
+    },
+    'star': {
+      'render': function(node, canvas){
+        var pos = node.pos.getc(true),
+            dim = node.getData('dim');
+        this.nodeHelper.star.render('fill', pos, dim, canvas);
+      },
+      'contains': function(node, pos) {
+        var npos = node.pos.getc(true),
+            dim = node.getData('dim');
+        return this.nodeHelper.star.contains(npos, pos, dim);
+      }
+    }
+  });
+
+  /*
+    Class: ForceDirected.Plot.EdgeTypes
+  
+    This class contains a list of <Graph.Adjacence> built-in types. 
+    Edge types implemented are 'none', 'line' and 'arrow'.
+  
+    You can add your custom edge types, customizing your visualization to the extreme.
+  
+    Example:
+  
+    (start code js)
+      ForceDirected.Plot.EdgeTypes.implement({
+        'mySpecialType': function(adj, canvas) {
+          //print your custom edge to canvas
+        }
+      });
+    (end code)
+  
+  */
+  ForceDirected.Plot.EdgeTypes = new Class({
+    'none': $.empty,
+    'line': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true);
+      this.edgeHelper.line(from, to, canvas);
+    },
+    'arrow': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true),
+          dim = adj.getData('dim'),
+          direction = adj.data.$direction,
+          inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
+      this.edgeHelper.arrow(from, to, dim, inv, canvas);
+    }
+  });
+
+})($jit.ForceDirected);
+
+
+/*
+ * File: Treemap.js
+ *
+*/
+
+$jit.TM = {};
+
+var TM = $jit.TM;
+
+$jit.TM.$extend = true;
+
+/*
+  Class: TM.Base
+  
+  Abstract class providing base functionality for <TM.Squarified>, <TM.Strip> and <TM.SliceAndDice> visualizations.
+  
+  Implements:
+  
+  All <Loader> methods
+  
+  Constructor Options:
+  
+  Inherits options from
+  
+  - <Options.Canvas>
+  - <Options.Controller>
+  - <Options.Node>
+  - <Options.Edge>
+  - <Options.Label>
+  - <Options.Events>
+  - <Options.Tips>
+  - <Options.NodeStyles>
+  - <Options.Navigation>
+  
+  Additionally, there are other parameters and some default values changed
+
+  orientation - (string) Default's *h*. Whether to set horizontal or vertical layouts. Possible values are 'h' and 'v'.
+  titleHeight - (number) Default's *13*. The height of the title rectangle for inner (non-leaf) nodes.
+  offset - (number) Default's *2*. Boxes offset.
+  constrained - (boolean) Default's *false*. Whether to show the entire tree when loaded or just the number of levels specified by _levelsToShow_.
+  levelsToShow - (number) Default's *3*. The number of levels to show for a subtree. This number is relative to the selected node.
+  animate - (boolean) Default's *false*. Whether to animate transitions.
+  Node.type - Described in <Options.Node>. Default's *rectangle*.
+  duration - Described in <Options.Fx>. Default's *700*.
+  fps - Described in <Options.Fx>. Default's *45*.
+  
+  Instance Properties:
+  
+  canvas - Access a <Canvas> instance.
+  graph - Access a <Graph> instance.
+  op - Access a <TM.Op> instance.
+  fx - Access a <TM.Plot> instance.
+  labels - Access a <TM.Label> interface implementation.
+
+  Inspired by:
+  
+  Squarified Treemaps (Mark Bruls, Kees Huizing, and Jarke J. van Wijk) <http://www.win.tue.nl/~vanwijk/stm.pdf>
+  
+  Tree visualization with tree-maps: 2-d space-filling approach (Ben Shneiderman) <http://hcil.cs.umd.edu/trs/91-03/91-03.html>
+  
+   Note:
+   
+   This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the visualization described in the paper.
+
+*/
+TM.Base = {
+  layout: {
+    orientation: "h",
+    vertical: function(){
+      return this.orientation == "v";
+    },
+    horizontal: function(){
+      return this.orientation == "h";
+    },
+    change: function(){
+      this.orientation = this.vertical()? "h" : "v";
+    }
+  },
+
+  initialize: function(controller){
+    var config = {
+      orientation: "h",
+      titleHeight: 13,
+      offset: 2,
+      levelsToShow: 3,
+      constrained: false,
+      animate: false,
+      Node: {
+        type: 'rectangle',
+        overridable: true,
+        //we all know why this is not zero,
+        //right, Firefox?
+        width: 3,
+        height: 3,
+        color: '#444'
+      },
+      Label: {
+        textAlign: 'center',
+        textBaseline: 'top'
+      },
+      Edge: {
+        type: 'none'
+      },
+      duration: 700,
+      fps: 45
+    };
+
+    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
+        "Fx", "Controller", "Tips", "NodeStyles", "Events", "Navigation", "Label"), config, controller);
+    this.layout.orientation = this.config.orientation;
+
+    var canvasConfig = this.config;
+    if (canvasConfig.useCanvas) {
+      this.canvas = canvasConfig.useCanvas;
+      this.config.labelContainer = this.canvas.id + '-label';
+    } else {
+      if(canvasConfig.background) {
+        canvasConfig.background = $.merge({
+          type: 'Circles'
+        }, canvasConfig.background);
+      }
+      this.canvas = new Canvas(this, canvasConfig);
+      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
+    }
+
+    this.graphOptions = {
+      'complex': true,
+      'Node': {
+        'selected': false,
+        'exist': true,
+        'drawn': true
+      }
+    };
+    this.graph = new Graph(this.graphOptions, this.config.Node,
+        this.config.Edge);
+    this.labels = new TM.Label[canvasConfig.Label.type](this);
+    this.fx = new TM.Plot(this);
+    this.op = new TM.Op(this);
+    this.group = new TM.Group(this);
+    this.geom = new TM.Geom(this);
+    this.clickedNode = null;
+    this.busy = false;
+    // initialize extras
+    this.initializeExtras();
+  },
+
+  /* 
+    Method: refresh 
+    
+    Computes positions and plots the tree.
+  */
+  refresh: function(){
+    if(this.busy) return;
+    this.busy = true;
+    var that = this;
+    if(this.config.animate) {
+      this.compute('end');
+      this.geom.setRightLevelToShow(this.graph.getNode(this.root));
+      this.fx.animate($.merge(this.config, {
+        modes: ['linear', 'node-property:width:height'],
+        onComplete: function() {
+          that.busy = false;
+        }
+      }));
+    } else {
+      var labelType = this.config.Label.type;
+      if(labelType != 'Native') {
+        var that = this;
+        this.graph.eachNode(function(n) { that.labels.hideLabel(n, false); });
+      }
+      this.busy = false;
+      this.compute();
+      this.plot();
+    }
+  },
+
+  /* 
+    Method: plot 
+    
+    Plots the TreeMap. This is a shortcut to *fx.plot*. 
+  
+   */
+  plot: function(){
+    this.fx.plot();
+  },
+
+  /* 
+  Method: leaf 
+  
+  Returns whether the node is a leaf.
+  
+   Parameters:
+   
+   n - (object) A <Graph.Node>.
+
+ */
+  leaf: function(n){
+    return n.getSubnodes([
+        1, 1
+    ], "ignore").length == 0;
+  },
+  
+  /* 
+  Method: enter 
+  
+  Sets the node as root.
+  
+   Parameters:
+   
+   n - (object) A <Graph.Node>.
+
+ */
+  enter: function(n){
+    if(this.busy) return;
+    this.busy = true;
+    
+    var that = this,
+        config = this.config,
+        graph = this.graph,
+        clickedNode = n,
+        previousClickedNode = this.clickedNode;
+
+    var callback = {
+      onComplete: function() {
+        //ensure that nodes are shown for that level
+        if(config.levelsToShow > 0) {
+          that.geom.setRightLevelToShow(n);
+        }
+        //compute positions of newly inserted nodes
+        if(config.request) that.compute();
+        if(config.animate) {
+          //fade nodes
+          graph.nodeList.setDataset(['current', 'end'], {
+            'alpha': [1, 0]
+          });
+          n.eachSubgraph(function(n) {
+            n.setData('alpha', 1, 'end');
+          }, "ignore");
+          that.fx.animate({
+            duration: 500,
+            modes:['node-property:alpha'],
+            onComplete: function() {
+              //compute end positions
+              that.clickedNode = clickedNode;
+              that.compute('end');
+              //animate positions
+              //TODO(nico) commenting this line didn't seem to throw errors...
+              that.clickedNode = previousClickedNode;
+              that.fx.animate({
+                modes:['linear', 'node-property:width:height'],
+                duration: 1000,
+                onComplete: function() { 
+                  that.busy = false;
+                  //TODO(nico) check comment above
+                  that.clickedNode = clickedNode;
+                }
+              });
+            }
+          });
+        } else {
+          that.busy = false;
+          that.clickedNode = n;
+          that.refresh();
+        }
+      }
+    };
+    if(config.request) {
+      this.requestNodes(clickedNode, callback);
+    } else {
+      callback.onComplete();
+    }
+  },
+
+  /* 
+  Method: out 
+  
+  Sets the parent node of the current selected node as root.
+
+ */
+  out: function(){
+    if(this.busy) return;
+    this.busy = true;
+    this.events.hoveredNode = false;
+    var that = this,
+        config = this.config,
+        graph = this.graph,
+        parents = graph.getNode(this.clickedNode 
+            && this.clickedNode.id || this.root).getParents(),
+        parent = parents[0],
+        clickedNode = parent,
+        previousClickedNode = this.clickedNode;
+    
+    //if no parents return
+    if(!parent) {
+      this.busy = false;
+      return;
+    }
+    //final plot callback
+    callback = {
+      onComplete: function() {
+        that.clickedNode = parent;
+        if(config.request) {
+          that.requestNodes(parent, {
+            onComplete: function() {
+              that.compute();
+              that.plot();
+              that.busy = false;
+            }
+          });
+        } else {
+          that.compute();
+          that.plot();
+          that.busy = false;
+        }
+      }
+    };
+    //prune tree
+    if (config.levelsToShow > 0)
+      this.geom.setRightLevelToShow(parent);
+    //animate node positions
+    if(config.animate) {
+      this.clickedNode = clickedNode;
+      this.compute('end');
+      //animate the visible subtree only
+      this.clickedNode = previousClickedNode;
+      this.fx.animate({
+        modes:['linear', 'node-property:width:height'],
+        duration: 1000,
+        onComplete: function() {
+          //animate the parent subtree
+          that.clickedNode = clickedNode;
+          //change nodes alpha
+          graph.nodeList.setDataset(['current', 'end'], {
+            'alpha': [0, 1]
+          });
+          previousClickedNode.eachSubgraph(function(node) {
+            node.setData('alpha', 1);
+          }, "ignore");
+          that.fx.animate({
+            duration: 500,
+            modes:['node-property:alpha'],
+            onComplete: function() {
+              callback.onComplete();
+            }
+          });
+        }
+      });
+    } else {
+      callback.onComplete();
+    }
+  },
+
+  requestNodes: function(node, onComplete){
+    var handler = $.merge(this.controller, onComplete), 
+        lev = this.config.levelsToShow;
+    if (handler.request) {
+      var leaves = [], d = node._depth;
+      node.eachLevel(0, lev, function(n){
+        var nodeLevel = lev - (n._depth - d);
+        if (n.drawn && !n.anySubnode() && nodeLevel > 0) {
+          leaves.push(n);
+          n._level = nodeLevel;
+        }
+      });
+      this.group.requestNodes(leaves, handler);
+    } else {
+      handler.onComplete();
+    }
+  }
+};
+
+/*
+  Class: TM.Op
+  
+  Custom extension of <Graph.Op>.
+  
+  Extends:
+  
+  All <Graph.Op> methods
+  
+  See also:
+  
+  <Graph.Op>
+  
+  */
+TM.Op = new Class({
+  Implements: Graph.Op,
+
+  initialize: function(viz){
+    this.viz = viz;
+  }
+});
+
+//extend level methods of Graph.Geom
+TM.Geom = new Class({
+  Implements: Graph.Geom,
+  
+  getRightLevelToShow: function() {
+    return this.viz.config.levelsToShow;
+  },
+  
+  setRightLevelToShow: function(node) {
+    var level = this.getRightLevelToShow(), 
+        fx = this.viz.labels;
+    node.eachLevel(0, level+1, function(n) {
+      var d = n._depth - node._depth;
+      if(d > level) {
+        n.drawn = false; 
+        n.exist = false;
+        n.ignore = true;
+        fx.hideLabel(n, false);
+      } else {
+        n.drawn = true;
+        n.exist = true;
+        delete n.ignore;
+      }
+    });
+    node.drawn = true;
+    delete node.ignore;
+  }
+});
+
+/*
+
+Performs operations on group of nodes.
+
+*/
+TM.Group = new Class( {
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.canvas = viz.canvas;
+    this.config = viz.config;
+  },
+
+  /*
+  
+    Calls the request method on the controller to request a subtree for each node. 
+  */
+  requestNodes: function(nodes, controller){
+    var counter = 0, len = nodes.length, nodeSelected = {};
+    var complete = function(){
+      controller.onComplete();
+    };
+    var viz = this.viz;
+    if (len == 0)
+      complete();
+    for ( var i = 0; i < len; i++) {
+      nodeSelected[nodes[i].id] = nodes[i];
+      controller.request(nodes[i].id, nodes[i]._level, {
+        onComplete: function(nodeId, data){
+          if (data && data.children) {
+            data.id = nodeId;
+            viz.op.sum(data, {
+              type: 'nothing'
+            });
+          }
+          if (++counter == len) {
+            viz.graph.computeLevels(viz.root, 0);
+            complete();
+          }
+        }
+      });
+    }
+  }
+});
+
+/*
+  Class: TM.Plot
+  
+  Custom extension of <Graph.Plot>.
+  
+  Extends:
+  
+  All <Graph.Plot> methods
+  
+  See also:
+  
+  <Graph.Plot>
+  
+  */
+TM.Plot = new Class({
+
+  Implements: Graph.Plot,
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.config = viz.config;
+    this.node = this.config.Node;
+    this.edge = this.config.Edge;
+    this.animation = new Animation;
+    this.nodeTypes = new TM.Plot.NodeTypes;
+    this.edgeTypes = new TM.Plot.EdgeTypes;
+    this.labels = viz.labels;
+  },
+
+  plot: function(opt, animating){
+    var viz = this.viz, 
+        graph = viz.graph;
+    viz.canvas.clear();
+    this.plotTree(graph.getNode(viz.clickedNode && viz.clickedNode.id || viz.root), $.merge(viz.config, opt || {}, {
+      'withLabels': true,
+      'hideLabels': false,
+      'plotSubtree': function(n, ch){
+        return n.anySubnode("exist");
+      }
+    }), animating);
+  }
+});
+
+/*
+  Class: TM.Label
+  
+  Custom extension of <Graph.Label>. 
+  Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
+
+  Extends:
+
+  All <Graph.Label> methods and subclasses.
+
+  See also:
+
+  <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
+  
+*/
+TM.Label = {};
+
+/*
+ TM.Label.Native
+
+ Custom extension of <Graph.Label.Native>.
+
+ Extends:
+
+ All <Graph.Label.Native> methods
+
+ See also:
+
+ <Graph.Label.Native>
+*/
+TM.Label.Native = new Class({
+  Implements: Graph.Label.Native,
+
+  initialize: function(viz) {
+    this.config = viz.config;
+    this.leaf = viz.leaf;
+  },
+  
+  renderLabel: function(canvas, node, controller){
+    if(!this.leaf(node) && !this.config.titleHeight) return;
+    var pos = node.pos.getc(true), 
+        ctx = canvas.getCtx(),
+        width = node.getData('width'),
+        height = node.getData('height'),
+        x = pos.x + width/2,
+        y = pos.y;
+        
+    ctx.fillText(node.name, x, y, width);
+  }
+});
+
+/*
+ TM.Label.SVG
+
+  Custom extension of <Graph.Label.SVG>.
+
+  Extends:
+
+  All <Graph.Label.SVG> methods
+
+  See also:
+
+  <Graph.Label.SVG>
+*/
+TM.Label.SVG = new Class( {
+  Implements: Graph.Label.SVG,
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.leaf = viz.leaf;
+    this.config = viz.config;
+  },
+
+  /* 
+  placeLabel
+
+  Overrides abstract method placeLabel in <Graph.Plot>.
+
+  Parameters:
+
+  tag - A DOM label element.
+  node - A <Graph.Node>.
+  controller - A configuration/controller object passed to the visualization.
+  
+  */
+  placeLabel: function(tag, node, controller){
+    var pos = node.pos.getc(true), 
+        canvas = this.viz.canvas,
+        ox = canvas.translateOffsetX,
+        oy = canvas.translateOffsetY,
+        sx = canvas.scaleOffsetX,
+        sy = canvas.scaleOffsetY,
+        radius = canvas.getSize();
+    var labelPos = {
+      x: Math.round(pos.x * sx + ox + radius.width / 2),
+      y: Math.round(pos.y * sy + oy + radius.height / 2)
+    };
+    tag.setAttribute('x', labelPos.x);
+    tag.setAttribute('y', labelPos.y);
+
+    if(!this.leaf(node) && !this.config.titleHeight) {
+      tag.style.display = 'none';
+    }
+    controller.onPlaceLabel(tag, node);
+  }
+});
+
+/*
+ TM.Label.HTML
+
+ Custom extension of <Graph.Label.HTML>.
+
+ Extends:
+
+ All <Graph.Label.HTML> methods.
+
+ See also:
+
+ <Graph.Label.HTML>
+
+*/
+TM.Label.HTML = new Class( {
+  Implements: Graph.Label.HTML,
+
+  initialize: function(viz){
+    this.viz = viz;
+    this.leaf = viz.leaf;
+    this.config = viz.config;
+  },
+
+  /* 
+    placeLabel
+  
+    Overrides abstract method placeLabel in <Graph.Plot>.
+  
+    Parameters:
+  
+    tag - A DOM label element.
+    node - A <Graph.Node>.
+    controller - A configuration/controller object passed to the visualization.
+  
+  */
+  placeLabel: function(tag, node, controller){
+    var pos = node.pos.getc(true), 
+        canvas = this.viz.canvas,
+        ox = canvas.translateOffsetX,
+        oy = canvas.translateOffsetY,
+        sx = canvas.scaleOffsetX,
+        sy = canvas.scaleOffsetY,
+        radius = canvas.getSize();
+    var labelPos = {
+      x: Math.round(pos.x * sx + ox + radius.width / 2),
+      y: Math.round(pos.y * sy + oy + radius.height / 2)
+    };
+
+    var style = tag.style;
+    style.left = labelPos.x + 'px';
+    style.top = labelPos.y + 'px';
+    style.width = node.getData('width') * sx + 'px';
+    style.height = node.getData('height') * sy + 'px';
+    style.zIndex = node._depth * 100;
+    style.display = '';
+
+    if(!this.leaf(node) && !this.config.titleHeight) {
+      tag.style.display = 'none';
+    }
+    controller.onPlaceLabel(tag, node);
+  }
+});
+
+/*
+  Class: TM.Plot.NodeTypes
+
+  This class contains a list of <Graph.Node> built-in types. 
+  Node types implemented are 'none', 'rectangle'.
+
+  You can add your custom node types, customizing your visualization to the extreme.
+
+  Example:
+
+  (start code js)
+    TM.Plot.NodeTypes.implement({
+      'mySpecialType': {
+        'render': function(node, canvas) {
+          //print your custom node to canvas
+        },
+        //optional
+        'contains': function(node, pos) {
+          //return true if pos is inside the node or false otherwise
+        }
+      }
+    });
+  (end code)
+
+*/
+TM.Plot.NodeTypes = new Class( {
+  'none': {
+    'render': $.empty
+  },
+
+  'rectangle': {
+    'render': function(node, canvas, animating){
+      var leaf = this.viz.leaf(node),
+          config = this.config,
+          offst = config.offset,
+          titleHeight = config.titleHeight,
+          pos = node.pos.getc(true),
+          width = node.getData('width'),
+          height = node.getData('height'),
+          border = node.getData('border'),
+          ctx = canvas.getCtx(),
+          posx = pos.x + offst / 2, 
+          posy = pos.y + offst / 2;
+      if(width <= offst || height <= offst) return;
+      if (leaf) {
+        if(config.cushion) {
+          var lg = ctx.createRadialGradient(posx + (width-offst)/2, posy + (height-offst)/2, 1, 
+              posx + (width-offst)/2, posy + (height-offst)/2, width < height? height : width);
+          var color = node.getData('color');
+          var colorGrad = $.rgbToHex($.map($.hexToRgb(color), 
+              function(r) { return r * 0.2 >> 0; }));
+          lg.addColorStop(0, color);
+          lg.addColorStop(1, colorGrad);
+          ctx.fillStyle = lg;
+        }
+        ctx.fillRect(posx, posy, width - offst, height - offst);
+        if(border) {
+          ctx.save();
+          ctx.strokeStyle = border;
+          ctx.strokeRect(posx, posy, width - offst, height - offst);
+          ctx.restore();
+        }
+      } else if(titleHeight > 0){
+        ctx.fillRect(pos.x + offst / 2, pos.y + offst / 2, width - offst,
+            titleHeight - offst);
+        if(border) {
+          ctx.save();
+          ctx.strokeStyle = border;
+          ctx.strokeRect(pos.x + offst / 2, pos.y + offst / 2, width - offst,
+              height - offst);
+          ctx.restore();
+        }
+      }
+    },
+    'contains': function(node, pos) {
+      if(this.viz.clickedNode && !node.isDescendantOf(this.viz.clickedNode.id)) return false;
+      var npos = node.pos.getc(true),
+          width = node.getData('width'), 
+          leaf = this.viz.leaf(node),
+          height = leaf? node.getData('height') : this.config.titleHeight;
+      return this.nodeHelper.rectangle.contains({x: npos.x + width/2, y: npos.y + height/2}, pos, width, height);
+    }
+  }
+});
+
+TM.Plot.EdgeTypes = new Class( {
+  'none': $.empty
+});
+
+/*
+  Class: TM.SliceAndDice
+  
+  A slice and dice TreeMap visualization.
+  
+  Implements:
+  
+  All <TM.Base> methods and properties.
+*/
+TM.SliceAndDice = new Class( {
+  Implements: [
+      Loader, Extras, TM.Base, Layouts.TM.SliceAndDice
+  ]
+});
+
+/*
+  Class: TM.Squarified
+  
+  A squarified TreeMap visualization.
+
+  Implements:
+  
+  All <TM.Base> methods and properties.
+*/
+TM.Squarified = new Class( {
+  Implements: [
+      Loader, Extras, TM.Base, Layouts.TM.Squarified
+  ]
+});
+
+/*
+  Class: TM.Strip
+  
+  A strip TreeMap visualization.
+
+  Implements:
+  
+  All <TM.Base> methods and properties.
+*/
+TM.Strip = new Class( {
+  Implements: [
+      Loader, Extras, TM.Base, Layouts.TM.Strip
+  ]
+});
+
+
+/*
  * File: Options.BarChart.js
  *
 */
@@ -10422,7 +14538,7 @@ $jit.AreaChart = new Class({
   Object: Options.BarChart
   
   <BarChart> options. 
-  Other options included in the BarChart are <Options.Canvas>, <Options.Label>, <Options.Margin>, <Options.Tips> and <Options.Events>.
+  Other options included in the BarChart are <Options.Canvas>, <Options.Label>, <Options.Tips> and <Options.Events>.
   
   Syntax:
   
@@ -10430,6 +14546,7 @@ $jit.AreaChart = new Class({
 
   Options.BarChart = {
     animate: true,
+    offset: 25, 
     labelOffset: 3,
     barsOffset: 0,
     type: 'stacked',
@@ -10459,7 +14576,7 @@ $jit.AreaChart = new Class({
   offset - (number) Default's *25*. Adds margin between the visualization and the canvas.
   labelOffset - (number) Default's *3*. Adds margin between the label and the default place where it should be drawn.
   barsOffset - (number) Default's *0*. Separation between bars.
-  type - (string) Default's *'stacked'*. Stack or grouped styles. Posible values are 'stacked', 'grouped', 'stacked:gradient', 'grouped:gradient' to add gradients.
+  type - (string) Default's *'stacked'*. Stack style. Posible values are 'stacked', 'stacked:gradient' to add gradients.
   hoveredColor - (boolean|string) Default's *'#9fd4ff'*. Sets the selected color for a hovered bar stack.
   orientation - (string) Default's 'horizontal'. Sets the direction of the bars. Possible options are 'vertical' or 'horizontal'.
   showAggregates - (boolean) Default's *true*. Display the sum of the values of the different stacks.
@@ -10472,6 +14589,7 @@ Options.BarChart = {
   
   animate: true,
   type: 'stacked', //stacked, grouped, : gradient
+  offset: 25, //page offset
   labelOffset: 3, //label offset
   barsOffset: 0, //distance between bars
   hoveredColor: '#9fd4ff',
@@ -10621,8 +14739,7 @@ $jit.ST.Plot.NodeTypes.implement({
             return {
               'name': node.getData('stringArray')[i],
               'color': node.getData('colorArray')[i],
-              'value': node.getData('valueArray')[i],
-              'label': node.name
+              'value': node.getData('valueArray')[i]
             };
           }
         } else {
@@ -10632,8 +14749,7 @@ $jit.ST.Plot.NodeTypes.implement({
             return {
               'name': node.getData('stringArray')[i],
               'color': node.getData('colorArray')[i],
-              'value': node.getData('valueArray')[i],
-              'label': node.name
+              'value': node.getData('valueArray')[i]
             };
           }
         }
@@ -10770,8 +14886,7 @@ $jit.ST.Plot.NodeTypes.implement({
             return {
               'name': node.getData('stringArray')[i],
               'color': node.getData('colorArray')[i],
-              'value': node.getData('valueArray')[i],
-              'label': node.name
+              'value': node.getData('valueArray')[i]
             };
           }
         } else {
@@ -10780,8 +14895,7 @@ $jit.ST.Plot.NodeTypes.implement({
             return {
               'name': node.getData('stringArray')[i],
               'color': node.getData('colorArray')[i],
-              'value': node.getData('valueArray')[i],
-              'label': node.name
+              'value': node.getData('valueArray')[i]
             };
           }
         }
@@ -10809,7 +14923,7 @@ $jit.BarChart = new Class({
   
   initialize: function(opt) {
     this.controller = this.config = 
-      $.merge(Options("Canvas", "Margin", "Label", "BarChart"), {
+      $.merge(Options("Canvas", "Label", "BarChart"), {
         Label: { type: 'Native' }
       }, opt);
     //set functions for showLabels and showAggregates
@@ -10969,16 +15083,13 @@ $jit.BarChart = new Class({
       }
     });
     
-    var size = st.canvas.getSize(),
-        margin = config.Margin;
+    var size = st.canvas.getSize();
     if(horz) {
-      st.config.offsetX = size.width/2 - margin.left
+      st.config.offsetX = + size.width/2 - config.offset
         - (config.showLabels && (config.labelOffset + config.Label.size));    
-      st.config.offsetY = (margin.bottom - margin.top)/2;
     } else {
-      st.config.offsetY = -size.height/2 + margin.bottom 
-        + (config.showLabels && (config.labelOffset + config.Label.size));
-      st.config.offsetX = (margin.right - margin.left)/2;
+      st.config.offsetY = -size.height/2 + config.offset 
+        + (config.showLabels && (config.labelOffset + config.Label.size));    
     }
     this.st = st;
     this.canvas = this.st.canvas;
@@ -11234,16 +15345,14 @@ $jit.BarChart = new Class({
     root.eachAdjacency(function() {
       l++;
     });
-    var maxValue = this.getMaxValue() || 1,
+    var maxValue = this.getMaxValue(),
         size = this.st.canvas.getSize(),
         config = this.config,
-        margin = config.Margin,
-        marginWidth = margin.left + margin.right,
-        marginHeight = margin.top + margin.bottom,
+        offset = config.offset,
         horz = config.orientation == 'horizontal',
-        fixedDim = (size[horz? 'height':'width'] - (horz? marginHeight:marginWidth) - (l -1) * config.barsOffset) / l,
+        fixedDim = (size[horz? 'height':'width'] - 2 * offset - (l -1) * config.barsOffset) / l,
         animate = config.animate,
-        height = size[horz? 'width':'height'] - (horz? marginWidth:marginHeight) 
+        height = size[horz? 'width':'height'] - 2 * offset 
           - (!horz && config.showAggregates && (config.Label.size + config.labelOffset))
           - (config.showLabels && (config.Label.size + config.labelOffset)),
         dim1 = horz? 'height':'width',
@@ -11353,159 +15462,6 @@ Options.PieChart = {
 };
 
 /*
- * Class: Layouts.Radial
- * 
- * Implements a Radial Layout.
- * 
- * Implemented By:
- * 
- * <RGraph>, <Hypertree>
- * 
- */
-Layouts.Radial = new Class({
-
-  /*
-   * Method: compute
-   * 
-   * Computes nodes' positions.
-   * 
-   * Parameters:
-   * 
-   * property - _optional_ A <Graph.Node> position property to store the new
-   * positions. Possible values are 'pos', 'end' or 'start'.
-   * 
-   */
-  compute : function(property) {
-    var prop = $.splat(property || [ 'current', 'start', 'end' ]);
-    NodeDim.compute(this.graph, prop, this.config);
-    this.graph.computeLevels(this.root, 0, "ignore");
-    var lengthFunc = this.createLevelDistanceFunc(); 
-    this.computeAngularWidths(prop);
-    this.computePositions(prop, lengthFunc);
-  },
-
-  /*
-   * computePositions
-   * 
-   * Performs the main algorithm for computing node positions.
-   */
-  computePositions : function(property, getLength) {
-    var propArray = property;
-    var graph = this.graph;
-    var root = graph.getNode(this.root);
-    var parent = this.parent;
-    var config = this.config;
-
-    for ( var i=0, l=propArray.length; i < l; i++) {
-      var pi = propArray[i];
-      root.setPos($P(0, 0), pi);
-      root.setData('span', Math.PI * 2, pi);
-    }
-
-    root.angleSpan = {
-      begin : 0,
-      end : 2 * Math.PI
-    };
-
-    graph.eachBFS(this.root, function(elem) {
-      var angleSpan = elem.angleSpan.end - elem.angleSpan.begin;
-      var angleInit = elem.angleSpan.begin;
-      var len = getLength(elem);
-      //Calculate the sum of all angular widths
-      var totalAngularWidths = 0, subnodes = [], maxDim = {};
-      elem.eachSubnode(function(sib) {
-        totalAngularWidths += sib._treeAngularWidth;
-        //get max dim
-        for ( var i=0, l=propArray.length; i < l; i++) {
-          var pi = propArray[i], dim = sib.getData('dim', pi);
-          maxDim[pi] = (pi in maxDim)? (dim > maxDim[pi]? dim : maxDim[pi]) : dim;
-        }
-        subnodes.push(sib);
-      }, "ignore");
-      //Maintain children order
-      //Second constraint for <http://bailando.sims.berkeley.edu/papers/infovis01.htm>
-      if (parent && parent.id == elem.id && subnodes.length > 0
-          && subnodes[0].dist) {
-        subnodes.sort(function(a, b) {
-          return (a.dist >= b.dist) - (a.dist <= b.dist);
-        });
-      }
-      //Calculate nodes positions.
-      for (var k = 0, ls=subnodes.length; k < ls; k++) {
-        var child = subnodes[k];
-        if (!child._flag) {
-          var angleProportion = child._treeAngularWidth / totalAngularWidths * angleSpan;
-          var theta = angleInit + angleProportion / 2;
-
-          for ( var i=0, l=propArray.length; i < l; i++) {
-            var pi = propArray[i];
-            child.setPos($P(theta, len), pi);
-            child.setData('span', angleProportion, pi);
-            child.setData('dim-quotient', child.getData('dim', pi) / maxDim[pi], pi);
-          }
-
-          child.angleSpan = {
-            begin : angleInit,
-            end : angleInit + angleProportion
-          };
-          angleInit += angleProportion;
-        }
-      }
-    }, "ignore");
-  },
-
-  /*
-   * Method: setAngularWidthForNodes
-   * 
-   * Sets nodes angular widths.
-   */
-  setAngularWidthForNodes : function(prop) {
-    this.graph.eachBFS(this.root, function(elem, i) {
-      var diamValue = elem.getData('angularWidth', prop[0]) || 5;
-      elem._angularWidth = diamValue / i;
-    }, "ignore");
-  },
-
-  /*
-   * Method: setSubtreesAngularWidth
-   * 
-   * Sets subtrees angular widths.
-   */
-  setSubtreesAngularWidth : function() {
-    var that = this;
-    this.graph.eachNode(function(elem) {
-      that.setSubtreeAngularWidth(elem);
-    }, "ignore");
-  },
-
-  /*
-   * Method: setSubtreeAngularWidth
-   * 
-   * Sets the angular width for a subtree.
-   */
-  setSubtreeAngularWidth : function(elem) {
-    var that = this, nodeAW = elem._angularWidth, sumAW = 0;
-    elem.eachSubnode(function(child) {
-      that.setSubtreeAngularWidth(child);
-      sumAW += child._treeAngularWidth;
-    }, "ignore");
-    elem._treeAngularWidth = Math.max(nodeAW, sumAW);
-  },
-
-  /*
-   * Method: computeAngularWidths
-   * 
-   * Computes nodes and subtrees angular widths.
-   */
-  computeAngularWidths : function(prop) {
-    this.setAngularWidthForNodes(prop);
-    this.setSubtreesAngularWidth();
-  }
-
-});
-
-
-/*
  * File: Sunburst.js
  */
 
@@ -11611,7 +15567,7 @@ $jit.Sunburst = new Class({
     this.graph = new Graph(this.graphOptions, this.config.Node,
         this.config.Edge);
     this.labels = new $Sunburst.Label[canvasConfig.Label.type](this);
-    this.fx = new $Sunburst.Plot(this, $Sunburst);
+    this.fx = new $Sunburst.Plot(this);
     this.op = new $Sunburst.Op(this);
     this.json = null;
     this.root = null;
@@ -11756,8 +15712,11 @@ $jit.Sunburst.$extend = true;
   */
   Sunburst.Op = new Class( {
 
-    Implements: Graph.Op
+    Implements: Graph.Op,
 
+    initialize: function(viz) {
+      this.viz = viz;
+    }
   });
 
   /*
@@ -11776,8 +15735,18 @@ $jit.Sunburst.$extend = true;
   */
   Sunburst.Plot = new Class( {
 
-    Implements: Graph.Plot
+    Implements: Graph.Plot,
 
+    initialize: function(viz) {
+      this.viz = viz;
+      this.config = viz.config;
+      this.node = viz.config.Node;
+      this.edge = viz.config.Edge;
+      this.animation = new Animation;
+      this.nodeTypes = new Sunburst.Plot.NodeTypes;
+      this.edgeTypes = new Sunburst.Plot.EdgeTypes;
+      this.labels = viz.labels;
+    }
   });
 
   /*
@@ -12168,14 +16137,8 @@ $jit.Sunburst.$extend = true;
   
     (start code js)
       Sunburst.Plot.EdgeTypes.implement({
-        'mySpecialType': {
-          'render': function(adj, canvas) {
-            //print your custom edge to canvas
-          },
-          //optional
-          'contains': function(adj, pos) {
-            //return true if pos is inside the arc or false otherwise
-          }
+        'mySpecialType': function(adj, canvas) {
+          //print your custom edge to canvas
         }
       });
     (end code)
@@ -12183,41 +16146,24 @@ $jit.Sunburst.$extend = true;
   */
   Sunburst.Plot.EdgeTypes = new Class({
     'none': $.empty,
-    'line': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        this.edgeHelper.line.render(from, to, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.line.contains(from, to, pos, this.edge.epsilon);
-      }
+    'line': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true);
+      this.edgeHelper.line(from, to, canvas);
     },
-    'arrow': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            dim = adj.getData('dim'),
-            direction = adj.data.$direction,
-            inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
-        this.edgeHelper.arrow.render(from, to, dim, inv, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.arrow.contains(from, to, pos, this.edge.epsilon);
-      }
+    'arrow': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(true),
+          to = adj.nodeTo.pos.getc(true),
+          dim = adj.getData('dim'),
+          direction = adj.data.$direction,
+          inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
+      this.edgeHelper.arrow(from, to, dim, inv, canvas);
     },
-    'hyperline': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(),
-            to = adj.nodeTo.pos.getc(),
-            dim = Math.max(from.norm(), to.norm());
-        this.edgeHelper.hyperline.render(from.$scale(1/dim), to.$scale(1/dim), dim, canvas);
-      },
-      'contains': $.lambda(false) //TODO(nico): Implement this!
+    'hyperline': function(adj, canvas) {
+      var from = adj.nodeFrom.pos.getc(),
+          to = adj.nodeTo.pos.getc(),
+          dim = Math.max(from.norm(), to.norm());
+      this.edgeHelper.hyperline(from.$scale(1/dim), to.$scale(1/dim), dim, canvas);
     }
   });
 
@@ -12699,7 +16645,7 @@ $jit.PieChart = new Class({
     root.eachAdjacency(function() {
       l++;
     });
-    var maxValue = this.getMaxValue() || 1,
+    var maxValue = this.getMaxValue(),
         config = this.config,
         animate = config.animate,
         rho = this.sb.config.levelDistance;
@@ -12727,4114 +16673,6 @@ $jit.PieChart = new Class({
     });
   }
 });
-
-/*
- * Class: Layouts.TM
- * 
- * Implements TreeMaps layouts (SliceAndDice, Squarified, Strip).
- * 
- * Implemented By:
- * 
- * <TM>
- * 
- */
-Layouts.TM = {};
-
-Layouts.TM.SliceAndDice = new Class({
-  compute: function(prop) {
-    var root = this.graph.getNode(this.clickedNode && this.clickedNode.id || this.root);
-    this.controller.onBeforeCompute(root);
-    var size = this.canvas.getSize(),
-        config = this.config,
-        width = size.width,
-        height = size.height;
-    this.graph.computeLevels(this.root, 0, "ignore");
-    //set root position and dimensions
-    root.getPos(prop).setc(-width/2, -height/2);
-    root.setData('width', width, prop);
-    root.setData('height', height + config.titleHeight, prop);
-    this.computePositions(root, root, this.layout.orientation, prop);
-    this.controller.onAfterCompute(root);
-  },
-  
-  computePositions: function(par, ch, orn, prop) {
-    //compute children areas
-    var totalArea = 0;
-    par.eachSubnode(function(n) {
-      totalArea += n.getData('area', prop);
-    });
-    
-    var config = this.config,
-        offst = config.offset,
-        width  = par.getData('width', prop),
-        height = par.getData('height', prop) - config.titleHeight,
-        fact = par == ch? 1: (ch.getData('area', prop) / totalArea);
-    
-    var otherSize, size, dim, pos, pos2, posth, pos2th;
-    var horizontal = (orn == "h");
-    if(horizontal) {
-      orn = 'v';    
-      otherSize = height;
-      size = width * fact;
-      dim = 'height';
-      pos = 'y';
-      pos2 = 'x';
-      posth = config.titleHeight;
-      pos2th = 0;
-    } else {
-      orn = 'h';    
-      otherSize = height * fact;
-      size = width;
-      dim = 'width';
-      pos = 'x';
-      pos2 = 'y';
-      posth = 0;
-      pos2th = config.titleHeight;
-    }
-    var cpos = ch.getPos(prop);
-    ch.setData('width', size, prop);
-    ch.setData('height', otherSize, prop);
-    var offsetSize = 0, tm = this;
-    ch.eachSubnode(function(n) {
-      var p = n.getPos(prop);
-      p[pos] = offsetSize + cpos[pos] + posth;
-      p[pos2] = cpos[pos2] + pos2th;
-      tm.computePositions(ch, n, orn, prop);
-      offsetSize += n.getData(dim, prop);
-    });
-  }
-
-});
-
-Layouts.TM.Area = {
- /*
-    Method: compute
- 
-   Called by loadJSON to calculate recursively all node positions and lay out the tree.
- 
-    Parameters:
-
-       json - A JSON tree. See also <Loader.loadJSON>.
-       coord - A coordinates object specifying width, height, left and top style properties.
- */
- compute: function(prop) {
-    prop = prop || "current";
-    var root = this.graph.getNode(this.clickedNode && this.clickedNode.id || this.root);
-    this.controller.onBeforeCompute(root);
-    var config = this.config,
-        size = this.canvas.getSize(),
-        width = size.width,
-        height = size.height,
-        offst = config.offset,
-        offwdth = width - offst,
-        offhght = height - offst;
-    this.graph.computeLevels(this.root, 0, "ignore");
-    //set root position and dimensions
-    root.getPos(prop).setc(-width/2, -height/2);
-    root.setData('width', width, prop);
-    root.setData('height', height, prop);
-    //create a coordinates object
-    var coord = {
-        'top': -height/2 + config.titleHeight,
-        'left': -width/2,
-        'width': offwdth,
-        'height': offhght - config.titleHeight
-    };
-    this.computePositions(root, coord, prop);
-    this.controller.onAfterCompute(root);
- }, 
- 
- /*
-    Method: computeDim
- 
-   Computes dimensions and positions of a group of nodes
-   according to a custom layout row condition. 
- 
-    Parameters:
-
-       tail - An array of nodes.  
-       initElem - An array of nodes (containing the initial node to be laid).
-       w - A fixed dimension where nodes will be layed out.
-       coord - A coordinates object specifying width, height, left and top style properties.
-       comp - A custom comparison function
- */
- computeDim: function(tail, initElem, w, coord, comp, prop) {
-   if(tail.length + initElem.length == 1) {
-     var l = (tail.length == 1)? tail : initElem;
-     this.layoutLast(l, w, coord, prop);
-     return;
-   }
-   if(tail.length >= 2 && initElem.length == 0) {
-     initElem = [tail.shift()];
-   }
-   if(tail.length == 0) {
-     if(initElem.length > 0) this.layoutRow(initElem, w, coord, prop);
-     return;
-   }
-   var c = tail[0];
-   if(comp(initElem, w) >= comp([c].concat(initElem), w)) {
-     this.computeDim(tail.slice(1), initElem.concat([c]), w, coord, comp, prop);
-   } else {
-     var newCoords = this.layoutRow(initElem, w, coord, prop);
-     this.computeDim(tail, [], newCoords.dim, newCoords, comp, prop);
-   }
- },
-
- 
- /*
-    Method: worstAspectRatio
- 
-   Calculates the worst aspect ratio of a group of rectangles. 
-       
-    See also:
-       
-       <http://en.wikipedia.org/wiki/Aspect_ratio>
-   
-    Parameters:
-
-     ch - An array of nodes.  
-     w  - The fixed dimension where rectangles are being laid out.
-
-    Returns:
- 
-        The worst aspect ratio.
-
-
- */
- worstAspectRatio: function(ch, w) {
-   if(!ch || ch.length == 0) return Number.MAX_VALUE;
-   var areaSum = 0, maxArea = 0, minArea = Number.MAX_VALUE;
-   for(var i=0, l=ch.length; i<l; i++) {
-     var area = ch[i]._area;
-     areaSum += area; 
-     minArea = minArea < area? minArea : area;
-     maxArea = maxArea > area? maxArea : area; 
-   }
-   var sqw = w * w, sqAreaSum = areaSum * areaSum;
-   return Math.max(sqw * maxArea / sqAreaSum,
-           sqAreaSum / (sqw * minArea));
- },
- 
- /*
-    Method: avgAspectRatio
- 
-   Calculates the average aspect ratio of a group of rectangles. 
-       
-       See also:
-       
-       <http://en.wikipedia.org/wiki/Aspect_ratio>
-   
-    Parameters:
-
-     ch - An array of nodes.  
-       w - The fixed dimension where rectangles are being laid out.
-
-    Returns:
- 
-        The average aspect ratio.
-
-
- */
- avgAspectRatio: function(ch, w) {
-   if(!ch || ch.length == 0) return Number.MAX_VALUE;
-   var arSum = 0;
-   for(var i=0, l=ch.length; i<l; i++) {
-     var area = ch[i]._area;
-     var h = area / w;
-     arSum += w > h? w / h : h / w;
-   }
-   return arSum / l;
- },
-
- /*
-    layoutLast
- 
-   Performs the layout of the last computed sibling.
- 
-    Parameters:
-
-       ch - An array of nodes.  
-       w - A fixed dimension where nodes will be layed out.
-     coord - A coordinates object specifying width, height, left and top style properties.
- */
- layoutLast: function(ch, w, coord, prop) {
-   var child = ch[0];
-   child.getPos(prop).setc(coord.left, coord.top);
-   child.setData('width', coord.width, prop);
-   child.setData('height', coord.height, prop);
- }
-};
-
-
-Layouts.TM.Squarified = new Class({
- Implements: Layouts.TM.Area,
- 
- computePositions: function(node, coord, prop) {
-   var config = this.config;
-   
-   if (coord.width >= coord.height) 
-     this.layout.orientation = 'h';
-   else
-     this.layout.orientation = 'v';
-   
-   var ch = node.getSubnodes([1, 1], "ignore");
-   if(ch.length > 0) {
-     this.processChildrenLayout(node, ch, coord, prop);
-     for(var i=0, l=ch.length; i<l; i++) {
-       var chi = ch[i]; 
-       var offst = config.offset,
-           height = chi.getData('height', prop) - offst - config.titleHeight,
-           width = chi.getData('width', prop) - offst;
-       var chipos = chi.getPos(prop);
-       coord = {
-         'width': width,
-         'height': height,
-         'top': chipos.y + config.titleHeight,
-         'left': chipos.x
-       };
-       this.computePositions(chi, coord, prop);
-     }
-   }
- },
-
- /*
-    Method: processChildrenLayout
- 
-   Computes children real areas and other useful parameters for performing the Squarified algorithm.
- 
-    Parameters:
-
-       par - The parent node of the json subtree.  
-       ch - An Array of nodes
-     coord - A coordinates object specifying width, height, left and top style properties.
- */
- processChildrenLayout: function(par, ch, coord, prop) {
-   //compute children real areas
-   var parentArea = coord.width * coord.height;
-   var i, l=ch.length, totalChArea=0, chArea = [];
-   for(i=0; i<l; i++) {
-     chArea[i] = parseFloat(ch[i].getData('area', prop));
-     totalChArea += chArea[i];
-   }
-   for(i=0; i<l; i++) {
-     ch[i]._area = parentArea * chArea[i] / totalChArea;
-   }
-   var minimumSideValue = this.layout.horizontal()? coord.height : coord.width;
-   ch.sort(function(a, b) { 
-     var diff = b._area - a._area; 
-     return diff? diff : (b.id == a.id? 0 : (b.id < a.id? 1 : -1)); 
-   });
-   var initElem = [ch[0]];
-   var tail = ch.slice(1);
-   this.squarify(tail, initElem, minimumSideValue, coord, prop);
- },
-
- /*
-   Method: squarify
- 
-   Performs an heuristic method to calculate div elements sizes in order to have a good aspect ratio.
- 
-    Parameters:
-
-       tail - An array of nodes.  
-       initElem - An array of nodes, containing the initial node to be laid out.
-       w - A fixed dimension where nodes will be laid out.
-       coord - A coordinates object specifying width, height, left and top style properties.
- */
- squarify: function(tail, initElem, w, coord, prop) {
-   this.computeDim(tail, initElem, w, coord, this.worstAspectRatio, prop);
- },
- 
- /*
-    Method: layoutRow
- 
-   Performs the layout of an array of nodes.
- 
-    Parameters:
-
-       ch - An array of nodes.  
-       w - A fixed dimension where nodes will be laid out.
-       coord - A coordinates object specifying width, height, left and top style properties.
- */
- layoutRow: function(ch, w, coord, prop) {
-   if(this.layout.horizontal()) {
-     return this.layoutV(ch, w, coord, prop);
-   } else {
-     return this.layoutH(ch, w, coord, prop);
-   }
- },
- 
- layoutV: function(ch, w, coord, prop) {
-   var totalArea = 0, rnd = function(x) { return x; }; 
-   $.each(ch, function(elem) { totalArea += elem._area; });
-   var width = rnd(totalArea / w), top =  0; 
-   for(var i=0, l=ch.length; i<l; i++) {
-     var h = rnd(ch[i]._area / width);
-     var chi = ch[i];
-     chi.getPos(prop).setc(coord.left, coord.top + top);
-     chi.setData('width', width, prop);
-     chi.setData('height', h, prop);
-     top += h;
-   }
-   var ans = {
-     'height': coord.height,
-     'width': coord.width - width,
-     'top': coord.top,
-     'left': coord.left + width
-   };
-   //take minimum side value.
-   ans.dim = Math.min(ans.width, ans.height);
-   if(ans.dim != ans.height) this.layout.change();
-   return ans;
- },
- 
- layoutH: function(ch, w, coord, prop) {
-   var totalArea = 0; 
-   $.each(ch, function(elem) { totalArea += elem._area; });
-   var height = totalArea / w,
-       top = coord.top, 
-       left = 0;
-   
-   for(var i=0, l=ch.length; i<l; i++) {
-     var chi = ch[i];
-     var w = chi._area / height;
-     chi.getPos(prop).setc(coord.left + left, top);
-     chi.setData('width', w, prop);
-     chi.setData('height', height, prop);
-     left += w;
-   }
-   var ans = {
-     'height': coord.height - height,
-     'width': coord.width,
-     'top': coord.top + height,
-     'left': coord.left
-   };
-   ans.dim = Math.min(ans.width, ans.height);
-   if(ans.dim != ans.width) this.layout.change();
-   return ans;
- }
-});
-
-Layouts.TM.Strip = new Class({
-  Implements: Layouts.TM.Area,
-
-    /*
-      Method: compute
-    
-     Called by loadJSON to calculate recursively all node positions and lay out the tree.
-    
-      Parameters:
-    
-         json - A JSON subtree. See also <Loader.loadJSON>. 
-       coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    computePositions: function(node, coord, prop) {
-     var ch = node.getSubnodes([1, 1], "ignore"), config = this.config;
-     if(ch.length > 0) {
-       this.processChildrenLayout(node, ch, coord, prop);
-       for(var i=0, l=ch.length; i<l; i++) {
-         var chi = ch[i];
-         var offst = config.offset,
-             height = chi.getData('height', prop) - offst - config.titleHeight,
-             width  = chi.getData('width', prop)  - offst;
-         var chipos = chi.getPos(prop);
-         coord = {
-           'width': width,
-           'height': height,
-           'top': chipos.y + config.titleHeight,
-           'left': chipos.x
-         };
-         this.computePositions(chi, coord, prop);
-       }
-     }
-    },
-    
-    /*
-      Method: processChildrenLayout
-    
-     Computes children real areas and other useful parameters for performing the Strip algorithm.
-    
-      Parameters:
-    
-         par - The parent node of the json subtree.  
-         ch - An Array of nodes
-         coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    processChildrenLayout: function(par, ch, coord, prop) {
-     //compute children real areas
-      var parentArea = coord.width * coord.height;
-      var i, l=ch.length, totalChArea=0, chArea = [];
-      for(i=0; i<l; i++) {
-        chArea[i] = +ch[i].getData('area', prop);
-        totalChArea += chArea[i];
-      }
-      for(i=0; i<l; i++) {
-        ch[i]._area = parentArea * chArea[i] / totalChArea;
-      }
-     var side = this.layout.horizontal()? coord.width : coord.height;
-     var initElem = [ch[0]];
-     var tail = ch.slice(1);
-     this.stripify(tail, initElem, side, coord, prop);
-    },
-    
-    /*
-      Method: stripify
-    
-     Performs an heuristic method to calculate div elements sizes in order to have 
-     a good compromise between aspect ratio and order.
-    
-      Parameters:
-    
-         tail - An array of nodes.  
-         initElem - An array of nodes.
-         w - A fixed dimension where nodes will be layed out.
-       coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    stripify: function(tail, initElem, w, coord, prop) {
-     this.computeDim(tail, initElem, w, coord, this.avgAspectRatio, prop);
-    },
-    
-    /*
-      Method: layoutRow
-    
-     Performs the layout of an array of nodes.
-    
-      Parameters:
-    
-         ch - An array of nodes.  
-         w - A fixed dimension where nodes will be laid out.
-         coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    layoutRow: function(ch, w, coord, prop) {
-     if(this.layout.horizontal()) {
-       return this.layoutH(ch, w, coord, prop);
-     } else {
-       return this.layoutV(ch, w, coord, prop);
-     }
-    },
-    
-    layoutV: function(ch, w, coord, prop) {
-     var totalArea = 0; 
-     $.each(ch, function(elem) { totalArea += elem._area; });
-     var width = totalArea / w, top =  0; 
-     for(var i=0, l=ch.length; i<l; i++) {
-       var chi = ch[i];
-       var h = chi._area / width;
-       chi.getPos(prop).setc(coord.left, 
-           coord.top + (w - h - top));
-       chi.setData('width', width, prop);
-       chi.setData('height', h, prop);
-       top += h;
-     }
-    
-     return {
-       'height': coord.height,
-       'width': coord.width - width,
-       'top': coord.top,
-       'left': coord.left + width,
-       'dim': w
-     };
-    },
-    
-    layoutH: function(ch, w, coord, prop) {
-     var totalArea = 0; 
-     $.each(ch, function(elem) { totalArea += elem._area; });
-     var height = totalArea / w,
-         top = coord.height - height, 
-         left = 0;
-     
-     for(var i=0, l=ch.length; i<l; i++) {
-       var chi = ch[i];
-       var s = chi._area / height;
-       chi.getPos(prop).setc(coord.left + left, coord.top + top);
-       chi.setData('width', s, prop);
-       chi.setData('height', height, prop);
-       left += s;
-     }
-     return {
-       'height': coord.height - height,
-       'width': coord.width,
-       'top': coord.top,
-       'left': coord.left,
-       'dim': w
-     };
-    }
- });
-
-/*
- * Class: Layouts.Icicle
- *
- * Implements the icicle tree layout.
- *
- * Implemented By:
- *
- * <Icicle>
- *
- */
-
-Layouts.Icicle = new Class({
- /*
-  * Method: compute
-  *
-  * Called by loadJSON to calculate all node positions.
-  *
-  * Parameters:
-  *
-  * posType - The nodes' position to compute. Either "start", "end" or
-  *            "current". Defaults to "current".
-  */
-  compute: function(posType) {
-    posType = posType || "current";
-
-    var root = this.graph.getNode(this.root),
-        config = this.config,
-        size = this.canvas.getSize(),
-        width = size.width,
-        height = size.height,
-        offset = config.offset,
-        levelsToShow = config.constrained ? config.levelsToShow : Number.MAX_VALUE;
-
-    this.controller.onBeforeCompute(root);
-
-    Graph.Util.computeLevels(this.graph, root.id, 0, "ignore");
-
-    var treeDepth = 0;
-
-    Graph.Util.eachLevel(root, 0, false, function (n, d) { if(d > treeDepth) treeDepth = d; });
-
-    var startNode = this.graph.getNode(this.clickedNode && this.clickedNode.id || root.id);
-    var maxDepth = Math.min(treeDepth, levelsToShow-1);
-    var initialDepth = startNode._depth;
-    if(this.layout.horizontal()) {
-      this.computeSubtree(startNode, -width/2, -height/2, width/(maxDepth+1), height, initialDepth, maxDepth, posType);
-    } else {
-      this.computeSubtree(startNode, -width/2, -height/2, width, height/(maxDepth+1), initialDepth, maxDepth, posType);
-    }
-  },
-
-  computeSubtree: function (root, x, y, width, height, initialDepth, maxDepth, posType) {
-    root.getPos(posType).setc(x, y);
-    root.setData('width', width, posType);
-    root.setData('height', height, posType);
-
-    var nodeLength, prevNodeLength = 0, totalDim = 0;
-    var children = Graph.Util.getSubnodes(root, [1, 1]); // next level from this node
-
-    if(!children.length)
-      return;
-
-    $.each(children, function(e) { totalDim += e.getData('dim'); });
-
-    for(var i=0, l=children.length; i < l; i++) {
-      if(this.layout.horizontal()) {
-        nodeLength = height * children[i].getData('dim') / totalDim;
-        this.computeSubtree(children[i], x+width, y, width, nodeLength, initialDepth, maxDepth, posType);
-        y += nodeLength;
-      } else {
-        nodeLength = width * children[i].getData('dim') / totalDim;
-        this.computeSubtree(children[i], x, y+height, nodeLength, height, initialDepth, maxDepth, posType);
-        x += nodeLength;
-      }
-    }
-  }
-});
-
-
-
-/*
- * File: Icicle.js
- *
-*/
-
-/*
-  Class: Icicle
-  
-  Icicle space filling visualization.
-  
-  Implements:
-  
-  All <Loader> methods
-  
-  Constructor Options:
-  
-  Inherits options from
-  
-  - <Options.Canvas>
-  - <Options.Controller>
-  - <Options.Node>
-  - <Options.Edge>
-  - <Options.Label>
-  - <Options.Events>
-  - <Options.Tips>
-  - <Options.NodeStyles>
-  - <Options.Navigation>
-  
-  Additionally, there are other parameters and some default values changed
-
-  orientation - (string) Default's *h*. Whether to set horizontal or vertical layouts. Possible values are 'h' and 'v'.
-  offset - (number) Default's *2*. Boxes offset.
-  constrained - (boolean) Default's *false*. Whether to show the entire tree when loaded or just the number of levels specified by _levelsToShow_.
-  levelsToShow - (number) Default's *3*. The number of levels to show for a subtree. This number is relative to the selected node.
-  animate - (boolean) Default's *false*. Whether to animate transitions.
-  Node.type - Described in <Options.Node>. Default's *rectangle*.
-  Label.type - Described in <Options.Label>. Default's *Native*.
-  duration - Described in <Options.Fx>. Default's *700*.
-  fps - Described in <Options.Fx>. Default's *45*.
-  
-  Instance Properties:
-  
-  canvas - Access a <Canvas> instance.
-  graph - Access a <Graph> instance.
-  op - Access a <Icicle.Op> instance.
-  fx - Access a <Icicle.Plot> instance.
-  labels - Access a <Icicle.Label> interface implementation.
-
-*/
-
-$jit.Icicle = new Class({
-  Implements: [ Loader, Extras, Layouts.Icicle ],
-
-  layout: {
-    orientation: "h",
-    vertical: function(){
-      return this.orientation == "v";
-    },
-    horizontal: function(){
-      return this.orientation == "h";
-    },
-    change: function(){
-      this.orientation = this.vertical()? "h" : "v";
-    }
-  },
-
-  initialize: function(controller) {
-    var config = {
-      animate: false,
-      orientation: "h",
-      offset: 2,
-      levelsToShow: Number.MAX_VALUE,
-      constrained: false,
-      Node: {
-        type: 'rectangle',
-        overridable: true
-      },
-      Edge: {
-        type: 'none'
-      },
-      Label: {
-        type: 'Native'
-      },
-      duration: 700,
-      fps: 45
-    };
-
-    var opts = Options("Canvas", "Node", "Edge", "Fx", "Tips", "NodeStyles",
-                       "Events", "Navigation", "Controller", "Label");
-    this.controller = this.config = $.merge(opts, config, controller);
-    this.layout.orientation = this.config.orientation;
-
-    var canvasConfig = this.config;
-    if (canvasConfig.useCanvas) {
-      this.canvas = canvasConfig.useCanvas;
-      this.config.labelContainer = this.canvas.id + '-label';
-    } else {
-      this.canvas = new Canvas(this, canvasConfig);
-      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
-    }
-
-    this.graphOptions = {
-      'complex': true,
-      'Node': {
-        'selected': false,
-        'exist': true,
-        'drawn': true
-      }
-    };
-
-    this.graph = new Graph(
-      this.graphOptions, this.config.Node, this.config.Edge, this.config.Label);
-
-    this.labels = new $jit.Icicle.Label[this.config.Label.type](this);
-    this.fx = new $jit.Icicle.Plot(this, $jit.Icicle);
-    this.op = new $jit.Icicle.Op(this);
-    this.group = new $jit.Icicle.Group(this);
-    this.clickedNode = null;
-
-    this.initializeExtras();
-  },
-
-  /* 
-    Method: refresh 
-    
-    Computes positions and plots the tree.
-  */
-  refresh: function(){
-    var labelType = this.config.Label.type;
-    if(labelType != 'Native') {
-      var that = this;
-      this.graph.eachNode(function(n) { that.labels.hideLabel(n, false); });
-    }
-    this.compute();
-    this.plot();
-  },
-
-  /* 
-    Method: plot 
-    
-    Plots the Icicle visualization. This is a shortcut to *fx.plot*. 
-  
-   */
-  plot: function(){
-    this.fx.plot(this.config);
-  },
-
-  /* 
-    Method: enter 
-    
-    Sets the node as root.
-    
-     Parameters:
-     
-     node - (object) A <Graph.Node>.
-  
-   */
-  enter: function (node) {
-    if (this.busy)
-      return;
-    this.busy = true;
-
-    var that = this,
-        config = this.config;
-
-    var callback = {
-      onComplete: function() {
-        //compute positions of newly inserted nodes
-        if(config.request)
-          that.compute();
-
-        if(config.animate) {
-          that.graph.nodeList.setDataset(['current', 'end'], {
-            'alpha': [1, 0] //fade nodes
-          });
-
-          Graph.Util.eachSubgraph(node, function(n) {
-            n.setData('alpha', 1, 'end');
-          }, "ignore");
-
-          that.fx.animate({
-            duration: 500,
-            modes:['node-property:alpha'],
-            onComplete: function() {
-              that.clickedNode = node;
-              that.compute('end');
-
-              that.fx.animate({
-                modes:['linear', 'node-property:width:height'],
-                duration: 1000,
-                onComplete: function() {
-                  that.busy = false;
-                  that.clickedNode = node;
-                }
-              });
-            }
-          });
-        } else {
-          that.clickedNode = node;
-          that.busy = false;
-          that.refresh();
-        }
-      }
-    };
-
-    if(config.request) {
-      this.requestNodes(clickedNode, callback);
-    } else {
-      callback.onComplete();
-    }
-  },
-
-  /* 
-    Method: out 
-    
-    Sets the parent node of the current selected node as root.
-  
-   */
-  out: function(){
-    if(this.busy)
-      return;
-
-    var that = this,
-        GUtil = Graph.Util,
-        config = this.config,
-        graph = this.graph,
-        parents = GUtil.getParents(graph.getNode(this.clickedNode && this.clickedNode.id || this.root)),
-        parent = parents[0],
-        clickedNode = parent,
-        previousClickedNode = this.clickedNode;
-
-    this.busy = true;
-    this.events.hoveredNode = false;
-
-    if(!parent) {
-      this.busy = false;
-      return;
-    }
-
-    //final plot callback
-    callback = {
-      onComplete: function() {
-        that.clickedNode = parent;
-        if(config.request) {
-          that.requestNodes(parent, {
-            onComplete: function() {
-              that.compute();
-              that.plot();
-              that.busy = false;
-            }
-          });
-        } else {
-          that.compute();
-          that.plot();
-          that.busy = false;
-        }
-      }
-    };
-
-    //animate node positions
-    if(config.animate) {
-      this.clickedNode = clickedNode;
-      this.compute('end');
-      //animate the visible subtree only
-      this.clickedNode = previousClickedNode;
-      this.fx.animate({
-        modes:['linear', 'node-property:width:height'],
-        duration: 1000,
-        onComplete: function() {
-          //animate the parent subtree
-          that.clickedNode = clickedNode;
-          //change nodes alpha
-          graph.nodeList.setDataset(['current', 'end'], {
-            'alpha': [0, 1]
-          });
-          GUtil.eachSubgraph(previousClickedNode, function(node) {
-            node.setData('alpha', 1);
-          }, "ignore");
-          that.fx.animate({
-            duration: 500,
-            modes:['node-property:alpha'],
-            onComplete: function() {
-              callback.onComplete();
-            }
-          });
-        }
-      });
-    } else {
-      callback.onComplete();
-    }
-  },
-  requestNodes: function(node, onComplete){
-    var handler = $.merge(this.controller, onComplete),
-        levelsToShow = this.config.constrained ? this.config.levelsToShow : Number.MAX_VALUE;
-
-    if (handler.request) {
-      var leaves = [], d = node._depth;
-      Graph.Util.eachLevel(node, 0, levelsToShow, function(n){
-        if (n.drawn && !Graph.Util.anySubnode(n)) {
-          leaves.push(n);
-          n._level = n._depth - d;
-          if (this.config.constrained)
-            n._level = levelsToShow - n._level;
-
-        }
-      });
-      this.group.requestNodes(leaves, handler);
-    } else {
-      handler.onComplete();
-    }
-  }
-});
-
-/*
-  Class: Icicle.Op
-  
-  Custom extension of <Graph.Op>.
-  
-  Extends:
-  
-  All <Graph.Op> methods
-  
-  See also:
-  
-  <Graph.Op>
-  
-  */
-$jit.Icicle.Op = new Class({
-
-  Implements: Graph.Op
-
-});
-
-/*
- * Performs operations on group of nodes.
- */
-$jit.Icicle.Group = new Class({
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.canvas = viz.canvas;
-    this.config = viz.config;
-  },
-
-  /*
-   * Calls the request method on the controller to request a subtree for each node.
-   */
-  requestNodes: function(nodes, controller){
-    var counter = 0, len = nodes.length, nodeSelected = {};
-    var complete = function(){
-      controller.onComplete();
-    };
-    var viz = this.viz;
-    if (len == 0)
-      complete();
-    for(var i = 0; i < len; i++) {
-      nodeSelected[nodes[i].id] = nodes[i];
-      controller.request(nodes[i].id, nodes[i]._level, {
-        onComplete: function(nodeId, data){
-          if (data && data.children) {
-            data.id = nodeId;
-            viz.op.sum(data, {
-              type: 'nothing'
-            });
-          }
-          if (++counter == len) {
-            Graph.Util.computeLevels(viz.graph, viz.root, 0);
-            complete();
-          }
-        }
-      });
-    }
-  }
-});
-
-/*
-  Class: Icicle.Plot
-  
-  Custom extension of <Graph.Plot>.
-  
-  Extends:
-  
-  All <Graph.Plot> methods
-  
-  See also:
-  
-  <Graph.Plot>
-  
-  */
-$jit.Icicle.Plot = new Class({
-  Implements: Graph.Plot,
-
-  plot: function(opt, animating){
-    opt = opt || this.viz.controller;
-    var viz = this.viz,
-        graph = viz.graph,
-        root = graph.getNode(viz.clickedNode && viz.clickedNode.id || viz.root),
-        initialDepth = root._depth;
-
-    viz.canvas.clear();
-    this.plotTree(root, $.merge(opt, {
-      'withLabels': true,
-      'hideLabels': false,
-      'plotSubtree': function(root, node) {
-        return !viz.config.constrained ||
-               (node._depth - initialDepth < viz.config.levelsToShow);
-      }
-    }), animating);
-  }
-});
-
-/*
-  Class: Icicle.Label
-  
-  Custom extension of <Graph.Label>. 
-  Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
-  
-  Extends:
-  
-  All <Graph.Label> methods and subclasses.
-  
-  See also:
-  
-  <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
-  
-  */
-$jit.Icicle.Label = {};
-
-/*
-  Icicle.Label.Native
-  
-  Custom extension of <Graph.Label.Native>.
-  
-  Extends:
-  
-  All <Graph.Label.Native> methods
-  
-  See also:
-  
-  <Graph.Label.Native>
-
-  */
-$jit.Icicle.Label.Native = new Class({
-  Implements: Graph.Label.Native,
-
-  renderLabel: function(canvas, node, controller) {
-    var ctx = canvas.getCtx(),
-        width = node.getData('width'),
-        height = node.getData('height'),
-        size = node.getLabelData('size'),
-        m = ctx.measureText(node.name);
-
-    // Guess as much as possible if the label will fit in the node
-    if(height < (size * 1.5) || width < m.width)
-      return;
-
-    var pos = node.pos.getc(true);
-    ctx.fillText(node.name,
-                 pos.x + width / 2,
-                 pos.y + height / 2);
-  }
-});
-
-/*
-  Icicle.Label.SVG
-  
-  Custom extension of <Graph.Label.SVG>.
-  
-  Extends:
-  
-  All <Graph.Label.SVG> methods
-  
-  See also:
-  
-  <Graph.Label.SVG>
-*/
-$jit.Icicle.Label.SVG = new Class( {
-  Implements: Graph.Label.SVG,
-
-  initialize: function(viz){
-    this.viz = viz;
-  },
-
-  /*
-    placeLabel
-   
-    Overrides abstract method placeLabel in <Graph.Plot>.
-   
-    Parameters:
-   
-    tag - A DOM label element.
-    node - A <Graph.Node>.
-    controller - A configuration/controller object passed to the visualization.
-   */
-  placeLabel: function(tag, node, controller){
-    var pos = node.pos.getc(true), canvas = this.viz.canvas;
-    var radius = canvas.getSize();
-    var labelPos = {
-      x: Math.round(pos.x + radius.width / 2),
-      y: Math.round(pos.y + radius.height / 2)
-    };
-    tag.setAttribute('x', labelPos.x);
-    tag.setAttribute('y', labelPos.y);
-
-    controller.onPlaceLabel(tag, node);
-  }
-});
-
-/*
-  Icicle.Label.HTML
-  
-  Custom extension of <Graph.Label.HTML>.
-  
-  Extends:
-  
-  All <Graph.Label.HTML> methods.
-  
-  See also:
-  
-  <Graph.Label.HTML>
-  
-  */
-$jit.Icicle.Label.HTML = new Class( {
-  Implements: Graph.Label.HTML,
-
-  initialize: function(viz){
-    this.viz = viz;
-  },
-
-  /*
-    placeLabel
-   
-    Overrides abstract method placeLabel in <Graph.Plot>.
-   
-    Parameters:
-   
-    tag - A DOM label element.
-    node - A <Graph.Node>.
-    controller - A configuration/controller object passed to the visualization.
-   */
-  placeLabel: function(tag, node, controller){
-    var pos = node.pos.getc(true), canvas = this.viz.canvas;
-    var radius = canvas.getSize();
-    var labelPos = {
-      x: Math.round(pos.x + radius.width / 2),
-      y: Math.round(pos.y + radius.height / 2)
-    };
-
-    var style = tag.style;
-    style.left = labelPos.x + 'px';
-    style.top = labelPos.y + 'px';
-    style.display = '';
-
-    controller.onPlaceLabel(tag, node);
-  }
-});
-
-/*
-  Class: Icicle.Plot.NodeTypes
-  
-  This class contains a list of <Graph.Node> built-in types. 
-  Node types implemented are 'none', 'rectangle'.
-  
-  You can add your custom node types, customizing your visualization to the extreme.
-  
-  Example:
-  
-  (start code js)
-    Icicle.Plot.NodeTypes.implement({
-      'mySpecialType': {
-        'render': function(node, canvas) {
-          //print your custom node to canvas
-        },
-        //optional
-        'contains': function(node, pos) {
-          //return true if pos is inside the node or false otherwise
-        }
-      }
-    });
-  (end code)
-  
-  */
-$jit.Icicle.Plot.NodeTypes = new Class( {
-  'none': {
-    'render': $.empty
-  },
-
-  'rectangle': {
-    'render': function(node, canvas, animating) {
-      var config = this.viz.config;
-      var offset = config.offset;
-      var width = node.getData('width');
-      var height = node.getData('height');
-      var border = node.getData('border');
-      var pos = node.pos.getc(true);
-      var posx = pos.x + offset / 2, posy = pos.y + offset / 2;
-      var ctx = canvas.getCtx();
-      
-      if(width - offset < 2 || height - offset < 2) return;
-      
-      if(config.cushion) {
-        var color = node.getData('color');
-        var lg = ctx.createRadialGradient(posx + (width - offset)/2, 
-                                          posy + (height - offset)/2, 1, 
-                                          posx + (width-offset)/2, posy + (height-offset)/2, 
-                                          width < height? height : width);
-        var colorGrad = $.rgbToHex($.map($.hexToRgb(color), 
-            function(r) { return r * 0.3 >> 0; }));
-        lg.addColorStop(0, color);
-        lg.addColorStop(1, colorGrad);
-        ctx.fillStyle = lg;
-      }
-
-      if (border) {
-        ctx.strokeStyle = border;
-        ctx.lineWidth = 3;
-      }
-
-      ctx.fillRect(posx, posy, Math.max(0, width - offset), Math.max(0, height - offset));
-      border && ctx.strokeRect(pos.x, pos.y, width, height);
-    },
-
-    'contains': function(node, pos) {
-      if(this.viz.clickedNode && !$jit.Graph.Util.isDescendantOf(node, this.viz.clickedNode.id)) return false;
-      var npos = node.pos.getc(true),
-          width = node.getData('width'),
-          height = node.getData('height');
-      return this.nodeHelper.rectangle.contains({x: npos.x + width/2, y: npos.y + height/2}, pos, width, height);
-    }
-  }
-});
-
-$jit.Icicle.Plot.EdgeTypes = new Class( {
-  'none': $.empty
-});
-
-
-
-/*
- * File: Layouts.ForceDirected.js
- *
-*/
-
-/*
- * Class: Layouts.ForceDirected
- * 
- * Implements a Force Directed Layout.
- * 
- * Implemented By:
- * 
- * <ForceDirected>
- * 
- * Credits:
- * 
- * Marcus Cobden <http://marcuscobden.co.uk>
- * 
- */
-Layouts.ForceDirected = new Class({
-
-  getOptions: function(random) {
-    var s = this.canvas.getSize();
-    var w = s.width, h = s.height;
-    //count nodes
-    var count = 0;
-    this.graph.eachNode(function(n) { 
-      count++;
-    });
-    var k2 = w * h / count, k = Math.sqrt(k2);
-    var l = this.config.levelDistance;
-    
-    return {
-      width: w,
-      height: h,
-      tstart: w * 0.1,
-      nodef: function(x) { return k2 / (x || 1); },
-      edgef: function(x) { return /* x * x / k; */ k * (x - l); }
-    };
-  },
-  
-  compute: function(property, incremental) {
-    var prop = $.splat(property || ['current', 'start', 'end']);
-    var opt = this.getOptions();
-    NodeDim.compute(this.graph, prop, this.config);
-    this.graph.computeLevels(this.root, 0, "ignore");
-    this.graph.eachNode(function(n) {
-      $.each(prop, function(p) {
-        var pos = n.getPos(p);
-        if(pos.equals(Complex.KER)) {
-          pos.x = opt.width/5 * (Math.random() - 0.5);
-          pos.y = opt.height/5 * (Math.random() - 0.5);
-        }
-        //initialize disp vector
-        n.disp = {};
-        $.each(prop, function(p) {
-          n.disp[p] = $C(0, 0);
-        });
-      });
-    });
-    this.computePositions(prop, opt, incremental);
-  },
-  
-  computePositions: function(property, opt, incremental) {
-    var times = this.config.iterations, i = 0, that = this;
-    if(incremental) {
-      (function iter() {
-        for(var total=incremental.iter, j=0; j<total; j++) {
-          opt.t = opt.tstart * (1 - i++/(times -1));
-          that.computePositionStep(property, opt);
-          if(i >= times) {
-            incremental.onComplete();
-            return;
-          }
-        }
-        incremental.onStep(Math.round(i / (times -1) * 100));
-        setTimeout(iter, 1);
-      })();
-    } else {
-      for(; i < times; i++) {
-        opt.t = opt.tstart * (1 - i/(times -1));
-        this.computePositionStep(property, opt);
-      }
-    }
-  },
-  
-  computePositionStep: function(property, opt) {
-    var graph = this.graph;
-    var min = Math.min, max = Math.max;
-    var dpos = $C(0, 0);
-    //calculate repulsive forces
-    graph.eachNode(function(v) {
-      //initialize disp
-      $.each(property, function(p) {
-        v.disp[p].x = 0; v.disp[p].y = 0;
-      });
-      graph.eachNode(function(u) {
-        if(u.id != v.id) {
-          $.each(property, function(p) {
-            var vp = v.getPos(p), up = u.getPos(p);
-            dpos.x = vp.x - up.x;
-            dpos.y = vp.y - up.y;
-            var norm = dpos.norm() || 1;
-            v.disp[p].$add(dpos
-                .$scale(opt.nodef(norm) / norm));
-          });
-        }
-      });
-    });
-    //calculate attractive forces
-    var T = !!graph.getNode(this.root).visited;
-    graph.eachNode(function(node) {
-      node.eachAdjacency(function(adj) {
-        var nodeTo = adj.nodeTo;
-        if(!!nodeTo.visited === T) {
-          $.each(property, function(p) {
-            var vp = node.getPos(p), up = nodeTo.getPos(p);
-            dpos.x = vp.x - up.x;
-            dpos.y = vp.y - up.y;
-            var norm = dpos.norm() || 1;
-            node.disp[p].$add(dpos.$scale(-opt.edgef(norm) / norm));
-            nodeTo.disp[p].$add(dpos.$scale(-1));
-          });
-        }
-      });
-      node.visited = !T;
-    });
-    //arrange positions to fit the canvas
-    var t = opt.t, w2 = opt.width / 2, h2 = opt.height / 2;
-    graph.eachNode(function(u) {
-      $.each(property, function(p) {
-        var disp = u.disp[p];
-        var norm = disp.norm() || 1;
-        var p = u.getPos(p);
-        p.$add($C(disp.x * min(Math.abs(disp.x), t) / norm, 
-            disp.y * min(Math.abs(disp.y), t) / norm));
-        p.x = min(w2, max(-w2, p.x));
-        p.y = min(h2, max(-h2, p.y));
-      });
-    });
-  }
-});
-
-/*
- * File: ForceDirected.js
- */
-
-/*
-   Class: ForceDirected
-      
-   A visualization that lays graphs using a Force-Directed layout algorithm.
-   
-   Inspired by:
-  
-   Force-Directed Drawing Algorithms (Stephen G. Kobourov) <http://www.cs.brown.edu/~rt/gdhandbook/chapters/force-directed.pdf>
-   
-  Implements:
-  
-  All <Loader> methods
-  
-   Constructor Options:
-   
-   Inherits options from
-   
-   - <Options.Canvas>
-   - <Options.Controller>
-   - <Options.Node>
-   - <Options.Edge>
-   - <Options.Label>
-   - <Options.Events>
-   - <Options.Tips>
-   - <Options.NodeStyles>
-   - <Options.Navigation>
-   
-   Additionally, there are two parameters
-   
-   levelDistance - (number) Default's *50*. The natural length desired for the edges.
-   iterations - (number) Default's *50*. The number of iterations for the spring layout simulation. Depending on the browser's speed you could set this to a more 'interesting' number, like *200*. 
-     
-   Instance Properties:
-
-   canvas - Access a <Canvas> instance.
-   graph - Access a <Graph> instance.
-   op - Access a <ForceDirected.Op> instance.
-   fx - Access a <ForceDirected.Plot> instance.
-   labels - Access a <ForceDirected.Label> interface implementation.
-
-*/
-
-$jit.ForceDirected = new Class( {
-
-  Implements: [ Loader, Extras, Layouts.ForceDirected ],
-
-  initialize: function(controller) {
-    var $ForceDirected = $jit.ForceDirected;
-
-    var config = {
-      iterations: 50,
-      levelDistance: 50
-    };
-
-    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
-        "Fx", "Tips", "NodeStyles", "Events", "Navigation", "Controller", "Label"), config, controller);
-
-    var canvasConfig = this.config;
-    if(canvasConfig.useCanvas) {
-      this.canvas = canvasConfig.useCanvas;
-      this.config.labelContainer = this.canvas.id + '-label';
-    } else {
-      if(canvasConfig.background) {
-        canvasConfig.background = $.merge({
-          type: 'Circles'
-        }, canvasConfig.background);
-      }
-      this.canvas = new Canvas(this, canvasConfig);
-      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
-    }
-
-    this.graphOptions = {
-      'complex': true,
-      'Node': {
-        'selected': false,
-        'exist': true,
-        'drawn': true
-      }
-    };
-    this.graph = new Graph(this.graphOptions, this.config.Node,
-        this.config.Edge);
-    this.labels = new $ForceDirected.Label[canvasConfig.Label.type](this);
-    this.fx = new $ForceDirected.Plot(this, $ForceDirected);
-    this.op = new $ForceDirected.Op(this);
-    this.json = null;
-    this.busy = false;
-    // initialize extras
-    this.initializeExtras();
-  },
-
-  /* 
-    Method: refresh 
-    
-    Computes positions and plots the tree.
-  */
-  refresh: function() {
-    this.compute();
-    this.plot();
-  },
-
-  reposition: function() {
-    this.compute('end');
-  },
-
-/*
-  Method: computeIncremental
-  
-  Performs the Force Directed algorithm incrementally.
-  
-  Description:
-  
-  ForceDirected algorithms can perform many computations and lead to JavaScript taking too much time to complete. 
-  This method splits the algorithm into smaller parts allowing the user to track the evolution of the algorithm and 
-  avoiding browser messages such as "This script is taking too long to complete".
-  
-  Parameters:
-  
-  opt - (object) The object properties are described below
-  
-  iter - (number) Default's *20*. Split the algorithm into pieces of _iter_ iterations. For example, if the _iterations_ configuration property 
-  of your <ForceDirected> class is 100, then you could set _iter_ to 20 to split the main algorithm into 5 smaller pieces.
-  
-  property - (string) Default's *end*. Whether to update starting, current or ending node positions. Possible values are 'end', 'start', 'current'. 
-  You can also set an array of these properties. If you'd like to keep the current node positions but to perform these 
-  computations for final animation positions then you can just choose 'end'.
-  
-  onStep - (function) A callback function called when each "small part" of the algorithm completed. This function gets as first formal 
-  parameter a percentage value.
-  
-  onComplete - A callback function called when the algorithm completed.
-  
-  Example:
-  
-  In this example I calculate the end positions and then animate the graph to those positions
-  
-  (start code js)
-  var fd = new $jit.ForceDirected(...);
-  fd.computeIncremental({
-    iter: 20,
-    property: 'end',
-    onStep: function(perc) {
-      Log.write("loading " + perc + "%");
-    },
-    onComplete: function() {
-      Log.write("done");
-      fd.animate();
-    }
-  });
-  (end code)
-  
-  In this example I calculate all positions and (re)plot the graph
-  
-  (start code js)
-  var fd = new ForceDirected(...);
-  fd.computeIncremental({
-    iter: 20,
-    property: ['end', 'start', 'current'],
-    onStep: function(perc) {
-      Log.write("loading " + perc + "%");
-    },
-    onComplete: function() {
-      Log.write("done");
-      fd.plot();
-    }
-  });
-  (end code)
-  
-  */
-  computeIncremental: function(opt) {
-    opt = $.merge( {
-      iter: 20,
-      property: 'end',
-      onStep: $.empty,
-      onComplete: $.empty
-    }, opt || {});
-
-    this.config.onBeforeCompute(this.graph.getNode(this.root));
-    this.compute(opt.property, opt);
-  },
-
-  /*
-    Method: plot
-   
-    Plots the ForceDirected graph. This is a shortcut to *fx.plot*.
-   */
-  plot: function() {
-    this.fx.plot();
-  },
-
-  /*
-     Method: animate
-    
-     Animates the graph from the current positions to the 'end' node positions.
-  */
-  animate: function(opt) {
-    this.fx.animate($.merge( {
-      modes: [ 'linear' ]
-    }, opt || {}));
-  }
-});
-
-$jit.ForceDirected.$extend = true;
-
-(function(ForceDirected) {
-
-  /*
-     Class: ForceDirected.Op
-     
-     Custom extension of <Graph.Op>.
-
-     Extends:
-
-     All <Graph.Op> methods
-     
-     See also:
-     
-     <Graph.Op>
-
-  */
-  ForceDirected.Op = new Class( {
-
-    Implements: Graph.Op
-
-  });
-
-  /*
-    Class: ForceDirected.Plot
-    
-    Custom extension of <Graph.Plot>.
-  
-    Extends:
-  
-    All <Graph.Plot> methods
-    
-    See also:
-    
-    <Graph.Plot>
-  
-  */
-  ForceDirected.Plot = new Class( {
-
-    Implements: Graph.Plot
-
-  });
-
-  /*
-    Class: ForceDirected.Label
-    
-    Custom extension of <Graph.Label>. 
-    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
-  
-    Extends:
-  
-    All <Graph.Label> methods and subclasses.
-  
-    See also:
-  
-    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
-  
-  */
-  ForceDirected.Label = {};
-
-  /*
-     ForceDirected.Label.Native
-     
-     Custom extension of <Graph.Label.Native>.
-
-     Extends:
-
-     All <Graph.Label.Native> methods
-
-     See also:
-
-     <Graph.Label.Native>
-
-  */
-  ForceDirected.Label.Native = new Class( {
-    Implements: Graph.Label.Native
-  });
-
-  /*
-    ForceDirected.Label.SVG
-    
-    Custom extension of <Graph.Label.SVG>.
-  
-    Extends:
-  
-    All <Graph.Label.SVG> methods
-  
-    See also:
-  
-    <Graph.Label.SVG>
-  
-  */
-  ForceDirected.Label.SVG = new Class( {
-    Implements: Graph.Label.SVG,
-
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Label>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller) {
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize();
-      var labelPos = {
-        x: Math.round(pos.x * sx + ox + radius.width / 2),
-        y: Math.round(pos.y * sy + oy + radius.height / 2)
-      };
-      tag.setAttribute('x', labelPos.x);
-      tag.setAttribute('y', labelPos.y);
-
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-     ForceDirected.Label.HTML
-     
-     Custom extension of <Graph.Label.HTML>.
-
-     Extends:
-
-     All <Graph.Label.HTML> methods.
-
-     See also:
-
-     <Graph.Label.HTML>
-
-  */
-  ForceDirected.Label.HTML = new Class( {
-    Implements: Graph.Label.HTML,
-
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Plot>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller) {
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize();
-      var labelPos = {
-        x: Math.round(pos.x * sx + ox + radius.width / 2),
-        y: Math.round(pos.y * sy + oy + radius.height / 2)
-      };
-      var style = tag.style;
-      style.left = labelPos.x + 'px';
-      style.top = labelPos.y + 'px';
-      style.display = this.fitsInCanvas(labelPos, canvas) ? '' : 'none';
-
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-    Class: ForceDirected.Plot.NodeTypes
-
-    This class contains a list of <Graph.Node> built-in types. 
-    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
-
-    You can add your custom node types, customizing your visualization to the extreme.
-
-    Example:
-
-    (start code js)
-      ForceDirected.Plot.NodeTypes.implement({
-        'mySpecialType': {
-          'render': function(node, canvas) {
-            //print your custom node to canvas
-          },
-          //optional
-          'contains': function(node, pos) {
-            //return true if pos is inside the node or false otherwise
-          }
-        }
-      });
-    (end code)
-
-  */
-  ForceDirected.Plot.NodeTypes = new Class({
-    'none': {
-      'render': $.empty,
-      'contains': $.lambda(false)
-    },
-    'circle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.circle.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.circle.contains(npos, pos, dim);
-      }
-    },
-    'ellipse': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
-        },
-      // TODO(nico): be more precise...
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        return this.nodeHelper.ellipse.contains(npos, pos, width, height);
-      }
-    },
-    'square': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.square.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.square.contains(npos, pos, dim);
-      }
-    },
-    'rectangle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        return this.nodeHelper.rectangle.contains(npos, pos, width, height);
-      }
-    },
-    'triangle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.triangle.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos) {
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.triangle.contains(npos, pos, dim);
-      }
-    },
-    'star': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true),
-            dim = node.getData('dim');
-        this.nodeHelper.star.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos) {
-        var npos = node.pos.getc(true),
-            dim = node.getData('dim');
-        return this.nodeHelper.star.contains(npos, pos, dim);
-      }
-    }
-  });
-
-  /*
-    Class: ForceDirected.Plot.EdgeTypes
-  
-    This class contains a list of <Graph.Adjacence> built-in types. 
-    Edge types implemented are 'none', 'line' and 'arrow'.
-  
-    You can add your custom edge types, customizing your visualization to the extreme.
-  
-    Example:
-  
-    (start code js)
-      ForceDirected.Plot.EdgeTypes.implement({
-        'mySpecialType': {
-          'render': function(adj, canvas) {
-            //print your custom edge to canvas
-          },
-          //optional
-          'contains': function(adj, pos) {
-            //return true if pos is inside the arc or false otherwise
-          }
-        }
-      });
-    (end code)
-  
-  */
-  ForceDirected.Plot.EdgeTypes = new Class({
-    'none': $.empty,
-    'line': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        this.edgeHelper.line.render(from, to, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.line.contains(from, to, pos, this.edge.epsilon);
-      }
-    },
-    'arrow': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            dim = adj.getData('dim'),
-            direction = adj.data.$direction,
-            inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
-        this.edgeHelper.arrow.render(from, to, dim, inv, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.arrow.contains(from, to, pos, this.edge.epsilon);
-      }
-    }
-  });
-
-})($jit.ForceDirected);
-
-
-/*
- * File: Treemap.js
- *
-*/
-
-$jit.TM = {};
-
-var TM = $jit.TM;
-
-$jit.TM.$extend = true;
-
-/*
-  Class: TM.Base
-  
-  Abstract class providing base functionality for <TM.Squarified>, <TM.Strip> and <TM.SliceAndDice> visualizations.
-  
-  Implements:
-  
-  All <Loader> methods
-  
-  Constructor Options:
-  
-  Inherits options from
-  
-  - <Options.Canvas>
-  - <Options.Controller>
-  - <Options.Node>
-  - <Options.Edge>
-  - <Options.Label>
-  - <Options.Events>
-  - <Options.Tips>
-  - <Options.NodeStyles>
-  - <Options.Navigation>
-  
-  Additionally, there are other parameters and some default values changed
-
-  orientation - (string) Default's *h*. Whether to set horizontal or vertical layouts. Possible values are 'h' and 'v'.
-  titleHeight - (number) Default's *13*. The height of the title rectangle for inner (non-leaf) nodes.
-  offset - (number) Default's *2*. Boxes offset.
-  constrained - (boolean) Default's *false*. Whether to show the entire tree when loaded or just the number of levels specified by _levelsToShow_.
-  levelsToShow - (number) Default's *3*. The number of levels to show for a subtree. This number is relative to the selected node.
-  animate - (boolean) Default's *false*. Whether to animate transitions.
-  Node.type - Described in <Options.Node>. Default's *rectangle*.
-  duration - Described in <Options.Fx>. Default's *700*.
-  fps - Described in <Options.Fx>. Default's *45*.
-  
-  Instance Properties:
-  
-  canvas - Access a <Canvas> instance.
-  graph - Access a <Graph> instance.
-  op - Access a <TM.Op> instance.
-  fx - Access a <TM.Plot> instance.
-  labels - Access a <TM.Label> interface implementation.
-
-  Inspired by:
-  
-  Squarified Treemaps (Mark Bruls, Kees Huizing, and Jarke J. van Wijk) <http://www.win.tue.nl/~vanwijk/stm.pdf>
-  
-  Tree visualization with tree-maps: 2-d space-filling approach (Ben Shneiderman) <http://hcil.cs.umd.edu/trs/91-03/91-03.html>
-  
-   Note:
-   
-   This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the visualization described in the paper.
-
-*/
-TM.Base = {
-  layout: {
-    orientation: "h",
-    vertical: function(){
-      return this.orientation == "v";
-    },
-    horizontal: function(){
-      return this.orientation == "h";
-    },
-    change: function(){
-      this.orientation = this.vertical()? "h" : "v";
-    }
-  },
-
-  initialize: function(controller){
-    var config = {
-      orientation: "h",
-      titleHeight: 13,
-      offset: 2,
-      levelsToShow: 0,
-      constrained: false,
-      animate: false,
-      Node: {
-        type: 'rectangle',
-        overridable: true,
-        //we all know why this is not zero,
-        //right, Firefox?
-        width: 3,
-        height: 3,
-        color: '#444'
-      },
-      Label: {
-        textAlign: 'center',
-        textBaseline: 'top'
-      },
-      Edge: {
-        type: 'none'
-      },
-      duration: 700,
-      fps: 45
-    };
-
-    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
-        "Fx", "Controller", "Tips", "NodeStyles", "Events", "Navigation", "Label"), config, controller);
-    this.layout.orientation = this.config.orientation;
-
-    var canvasConfig = this.config;
-    if (canvasConfig.useCanvas) {
-      this.canvas = canvasConfig.useCanvas;
-      this.config.labelContainer = this.canvas.id + '-label';
-    } else {
-      if(canvasConfig.background) {
-        canvasConfig.background = $.merge({
-          type: 'Circles'
-        }, canvasConfig.background);
-      }
-      this.canvas = new Canvas(this, canvasConfig);
-      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
-    }
-
-    this.graphOptions = {
-      'complex': true,
-      'Node': {
-        'selected': false,
-        'exist': true,
-        'drawn': true
-      }
-    };
-    this.graph = new Graph(this.graphOptions, this.config.Node,
-        this.config.Edge);
-    this.labels = new TM.Label[canvasConfig.Label.type](this);
-    this.fx = new TM.Plot(this);
-    this.op = new TM.Op(this);
-    this.group = new TM.Group(this);
-    this.geom = new TM.Geom(this);
-    this.clickedNode = null;
-    this.busy = false;
-    // initialize extras
-    this.initializeExtras();
-  },
-
-  /* 
-    Method: refresh 
-    
-    Computes positions and plots the tree.
-  */
-  refresh: function(){
-    if(this.busy) return;
-    this.busy = true;
-    var that = this;
-    if(this.config.animate) {
-      this.compute('end');
-      this.config.levelsToShow > 0 && this.geom.setRightLevelToShow(this.graph.getNode(this.clickedNode 
-          && this.clickedNode.id || this.root));
-      this.fx.animate($.merge(this.config, {
-        modes: ['linear', 'node-property:width:height'],
-        onComplete: function() {
-          that.busy = false;
-        }
-      }));
-    } else {
-      var labelType = this.config.Label.type;
-      if(labelType != 'Native') {
-        var that = this;
-        this.graph.eachNode(function(n) { that.labels.hideLabel(n, false); });
-      }
-      this.busy = false;
-      this.compute();
-      this.config.levelsToShow > 0 && this.geom.setRightLevelToShow(this.graph.getNode(this.clickedNode 
-          && this.clickedNode.id || this.root));
-      this.plot();
-    }
-  },
-
-  /* 
-    Method: plot 
-    
-    Plots the TreeMap. This is a shortcut to *fx.plot*. 
-  
-   */
-  plot: function(){
-    this.fx.plot();
-  },
-
-  /* 
-  Method: leaf 
-  
-  Returns whether the node is a leaf.
-  
-   Parameters:
-   
-   n - (object) A <Graph.Node>.
-
- */
-  leaf: function(n){
-    return n.getSubnodes([
-        1, 1
-    ], "ignore").length == 0;
-  },
-  
-  /* 
-  Method: enter 
-  
-  Sets the node as root.
-  
-   Parameters:
-   
-   n - (object) A <Graph.Node>.
-
- */
-  enter: function(n){
-    if(this.busy) return;
-    this.busy = true;
-    
-    var that = this,
-        config = this.config,
-        graph = this.graph,
-        clickedNode = n,
-        previousClickedNode = this.clickedNode;
-
-    var callback = {
-      onComplete: function() {
-        //ensure that nodes are shown for that level
-        if(config.levelsToShow > 0) {
-          that.geom.setRightLevelToShow(n);
-        }
-        //compute positions of newly inserted nodes
-        if(config.levelsToShow > 0 || config.request) that.compute();
-        if(config.animate) {
-          //fade nodes
-          graph.nodeList.setData('alpha', 0, 'end');
-          n.eachSubgraph(function(n) {
-            n.setData('alpha', 1, 'end');
-          }, "ignore");
-          that.fx.animate({
-            duration: 500,
-            modes:['node-property:alpha'],
-            onComplete: function() {
-              //compute end positions
-              that.clickedNode = clickedNode;
-              that.compute('end');
-              //animate positions
-              //TODO(nico) commenting this line didn't seem to throw errors...
-              that.clickedNode = previousClickedNode;
-              that.fx.animate({
-                modes:['linear', 'node-property:width:height'],
-                duration: 1000,
-                onComplete: function() { 
-                  that.busy = false;
-                  //TODO(nico) check comment above
-                  that.clickedNode = clickedNode;
-                }
-              });
-            }
-          });
-        } else {
-          that.busy = false;
-          that.clickedNode = n;
-          that.refresh();
-        }
-      }
-    };
-    if(config.request) {
-      this.requestNodes(clickedNode, callback);
-    } else {
-      callback.onComplete();
-    }
-  },
-
-  /* 
-  Method: out 
-  
-  Sets the parent node of the current selected node as root.
-
- */
-  out: function(){
-    if(this.busy) return;
-    this.busy = true;
-    this.events.hoveredNode = false;
-    var that = this,
-        config = this.config,
-        graph = this.graph,
-        parents = graph.getNode(this.clickedNode 
-            && this.clickedNode.id || this.root).getParents(),
-        parent = parents[0],
-        clickedNode = parent,
-        previousClickedNode = this.clickedNode;
-    
-    //if no parents return
-    if(!parent) {
-      this.busy = false;
-      return;
-    }
-    //final plot callback
-    callback = {
-      onComplete: function() {
-        that.clickedNode = parent;
-        if(config.request) {
-          that.requestNodes(parent, {
-            onComplete: function() {
-              that.compute();
-              that.plot();
-              that.busy = false;
-            }
-          });
-        } else {
-          that.compute();
-          that.plot();
-          that.busy = false;
-        }
-      }
-    };
-    //prune tree
-    if (config.levelsToShow > 0)
-      this.geom.setRightLevelToShow(parent);
-    //animate node positions
-    if(config.animate) {
-      this.clickedNode = clickedNode;
-      this.compute('end');
-      //animate the visible subtree only
-      this.clickedNode = previousClickedNode;
-      this.fx.animate({
-        modes:['linear', 'node-property:width:height'],
-        duration: 1000,
-        onComplete: function() {
-          //animate the parent subtree
-          that.clickedNode = clickedNode;
-          //change nodes alpha
-          graph.eachNode(function(n) {
-            n.setDataset(['current', 'end'], {
-              'alpha': [0, 1]
-            });
-          }, "ignore");
-          previousClickedNode.eachSubgraph(function(node) {
-            node.setData('alpha', 1);
-          }, "ignore");
-          that.fx.animate({
-            duration: 500,
-            modes:['node-property:alpha'],
-            onComplete: function() {
-              callback.onComplete();
-            }
-          });
-        }
-      });
-    } else {
-      callback.onComplete();
-    }
-  },
-
-  requestNodes: function(node, onComplete){
-    var handler = $.merge(this.controller, onComplete), 
-        lev = this.config.levelsToShow;
-    if (handler.request) {
-      var leaves = [], d = node._depth;
-      node.eachLevel(0, lev, function(n){
-        var nodeLevel = lev - (n._depth - d);
-        if (n.drawn && !n.anySubnode() && nodeLevel > 0) {
-          leaves.push(n);
-          n._level = nodeLevel;
-        }
-      });
-      this.group.requestNodes(leaves, handler);
-    } else {
-      handler.onComplete();
-    }
-  }
-};
-
-/*
-  Class: TM.Op
-  
-  Custom extension of <Graph.Op>.
-  
-  Extends:
-  
-  All <Graph.Op> methods
-  
-  See also:
-  
-  <Graph.Op>
-  
-  */
-TM.Op = new Class({
-  Implements: Graph.Op,
-
-  initialize: function(viz){
-    this.viz = viz;
-  }
-});
-
-//extend level methods of Graph.Geom
-TM.Geom = new Class({
-  Implements: Graph.Geom,
-  
-  getRightLevelToShow: function() {
-    return this.viz.config.levelsToShow;
-  },
-  
-  setRightLevelToShow: function(node) {
-    var level = this.getRightLevelToShow(), 
-        fx = this.viz.labels;
-    node.eachLevel(0, level+1, function(n) {
-      var d = n._depth - node._depth;
-      if(d > level) {
-        n.drawn = false; 
-        n.exist = false;
-        n.ignore = true;
-        fx.hideLabel(n, false);
-      } else {
-        n.drawn = true;
-        n.exist = true;
-        delete n.ignore;
-      }
-    });
-    node.drawn = true;
-    delete node.ignore;
-  }
-});
-
-/*
-
-Performs operations on group of nodes.
-
-*/
-TM.Group = new Class( {
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.canvas = viz.canvas;
-    this.config = viz.config;
-  },
-
-  /*
-  
-    Calls the request method on the controller to request a subtree for each node. 
-  */
-  requestNodes: function(nodes, controller){
-    var counter = 0, len = nodes.length, nodeSelected = {};
-    var complete = function(){
-      controller.onComplete();
-    };
-    var viz = this.viz;
-    if (len == 0)
-      complete();
-    for ( var i = 0; i < len; i++) {
-      nodeSelected[nodes[i].id] = nodes[i];
-      controller.request(nodes[i].id, nodes[i]._level, {
-        onComplete: function(nodeId, data){
-          if (data && data.children) {
-            data.id = nodeId;
-            viz.op.sum(data, {
-              type: 'nothing'
-            });
-          }
-          if (++counter == len) {
-            viz.graph.computeLevels(viz.root, 0);
-            complete();
-          }
-        }
-      });
-    }
-  }
-});
-
-/*
-  Class: TM.Plot
-  
-  Custom extension of <Graph.Plot>.
-  
-  Extends:
-  
-  All <Graph.Plot> methods
-  
-  See also:
-  
-  <Graph.Plot>
-  
-  */
-TM.Plot = new Class({
-
-  Implements: Graph.Plot,
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.config = viz.config;
-    this.node = this.config.Node;
-    this.edge = this.config.Edge;
-    this.animation = new Animation;
-    this.nodeTypes = new TM.Plot.NodeTypes;
-    this.edgeTypes = new TM.Plot.EdgeTypes;
-    this.labels = viz.labels;
-  },
-
-  plot: function(opt, animating){
-    var viz = this.viz, 
-        graph = viz.graph;
-    viz.canvas.clear();
-    this.plotTree(graph.getNode(viz.clickedNode && viz.clickedNode.id || viz.root), $.merge(viz.config, opt || {}, {
-      'withLabels': true,
-      'hideLabels': false,
-      'plotSubtree': function(n, ch){
-        return n.anySubnode("exist");
-      }
-    }), animating);
-  }
-});
-
-/*
-  Class: TM.Label
-  
-  Custom extension of <Graph.Label>. 
-  Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
-
-  Extends:
-
-  All <Graph.Label> methods and subclasses.
-
-  See also:
-
-  <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
-  
-*/
-TM.Label = {};
-
-/*
- TM.Label.Native
-
- Custom extension of <Graph.Label.Native>.
-
- Extends:
-
- All <Graph.Label.Native> methods
-
- See also:
-
- <Graph.Label.Native>
-*/
-TM.Label.Native = new Class({
-  Implements: Graph.Label.Native,
-
-  initialize: function(viz) {
-    this.config = viz.config;
-    this.leaf = viz.leaf;
-  },
-  
-  renderLabel: function(canvas, node, controller){
-    if(!this.leaf(node) && !this.config.titleHeight) return;
-    var pos = node.pos.getc(true), 
-        ctx = canvas.getCtx(),
-        width = node.getData('width'),
-        height = node.getData('height'),
-        x = pos.x + width/2,
-        y = pos.y;
-        
-    ctx.fillText(node.name, x, y, width);
-  }
-});
-
-/*
- TM.Label.SVG
-
-  Custom extension of <Graph.Label.SVG>.
-
-  Extends:
-
-  All <Graph.Label.SVG> methods
-
-  See also:
-
-  <Graph.Label.SVG>
-*/
-TM.Label.SVG = new Class( {
-  Implements: Graph.Label.SVG,
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.leaf = viz.leaf;
-    this.config = viz.config;
-  },
-
-  /* 
-  placeLabel
-
-  Overrides abstract method placeLabel in <Graph.Plot>.
-
-  Parameters:
-
-  tag - A DOM label element.
-  node - A <Graph.Node>.
-  controller - A configuration/controller object passed to the visualization.
-  
-  */
-  placeLabel: function(tag, node, controller){
-    var pos = node.pos.getc(true), 
-        canvas = this.viz.canvas,
-        ox = canvas.translateOffsetX,
-        oy = canvas.translateOffsetY,
-        sx = canvas.scaleOffsetX,
-        sy = canvas.scaleOffsetY,
-        radius = canvas.getSize();
-    var labelPos = {
-      x: Math.round(pos.x * sx + ox + radius.width / 2),
-      y: Math.round(pos.y * sy + oy + radius.height / 2)
-    };
-    tag.setAttribute('x', labelPos.x);
-    tag.setAttribute('y', labelPos.y);
-
-    if(!this.leaf(node) && !this.config.titleHeight) {
-      tag.style.display = 'none';
-    }
-    controller.onPlaceLabel(tag, node);
-  }
-});
-
-/*
- TM.Label.HTML
-
- Custom extension of <Graph.Label.HTML>.
-
- Extends:
-
- All <Graph.Label.HTML> methods.
-
- See also:
-
- <Graph.Label.HTML>
-
-*/
-TM.Label.HTML = new Class( {
-  Implements: Graph.Label.HTML,
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.leaf = viz.leaf;
-    this.config = viz.config;
-  },
-
-  /* 
-    placeLabel
-  
-    Overrides abstract method placeLabel in <Graph.Plot>.
-  
-    Parameters:
-  
-    tag - A DOM label element.
-    node - A <Graph.Node>.
-    controller - A configuration/controller object passed to the visualization.
-  
-  */
-  placeLabel: function(tag, node, controller){
-    var pos = node.pos.getc(true), 
-        canvas = this.viz.canvas,
-        ox = canvas.translateOffsetX,
-        oy = canvas.translateOffsetY,
-        sx = canvas.scaleOffsetX,
-        sy = canvas.scaleOffsetY,
-        radius = canvas.getSize();
-    var labelPos = {
-      x: Math.round(pos.x * sx + ox + radius.width / 2),
-      y: Math.round(pos.y * sy + oy + radius.height / 2)
-    };
-
-    var style = tag.style;
-    style.left = labelPos.x + 'px';
-    style.top = labelPos.y + 'px';
-    style.width = node.getData('width') * sx + 'px';
-    style.height = node.getData('height') * sy + 'px';
-    style.zIndex = node._depth * 100;
-    style.display = '';
-
-    if(!this.leaf(node) && !this.config.titleHeight) {
-      tag.style.display = 'none';
-    }
-    controller.onPlaceLabel(tag, node);
-  }
-});
-
-/*
-  Class: TM.Plot.NodeTypes
-
-  This class contains a list of <Graph.Node> built-in types. 
-  Node types implemented are 'none', 'rectangle'.
-
-  You can add your custom node types, customizing your visualization to the extreme.
-
-  Example:
-
-  (start code js)
-    TM.Plot.NodeTypes.implement({
-      'mySpecialType': {
-        'render': function(node, canvas) {
-          //print your custom node to canvas
-        },
-        //optional
-        'contains': function(node, pos) {
-          //return true if pos is inside the node or false otherwise
-        }
-      }
-    });
-  (end code)
-
-*/
-TM.Plot.NodeTypes = new Class( {
-  'none': {
-    'render': $.empty
-  },
-
-  'rectangle': {
-    'render': function(node, canvas, animating){
-      var leaf = this.viz.leaf(node),
-          config = this.config,
-          offst = config.offset,
-          titleHeight = config.titleHeight,
-          pos = node.pos.getc(true),
-          width = node.getData('width'),
-          height = node.getData('height'),
-          border = node.getData('border'),
-          ctx = canvas.getCtx(),
-          posx = pos.x + offst / 2, 
-          posy = pos.y + offst / 2;
-      if(width <= offst || height <= offst) return;
-      if (leaf) {
-        if(config.cushion) {
-          var lg = ctx.createRadialGradient(posx + (width-offst)/2, posy + (height-offst)/2, 1, 
-              posx + (width-offst)/2, posy + (height-offst)/2, width < height? height : width);
-          var color = node.getData('color');
-          var colorGrad = $.rgbToHex($.map($.hexToRgb(color), 
-              function(r) { return r * 0.2 >> 0; }));
-          lg.addColorStop(0, color);
-          lg.addColorStop(1, colorGrad);
-          ctx.fillStyle = lg;
-        }
-        ctx.fillRect(posx, posy, width - offst, height - offst);
-        if(border) {
-          ctx.save();
-          ctx.strokeStyle = border;
-          ctx.strokeRect(posx, posy, width - offst, height - offst);
-          ctx.restore();
-        }
-      } else if(titleHeight > 0){
-        ctx.fillRect(pos.x + offst / 2, pos.y + offst / 2, width - offst,
-            titleHeight - offst);
-        if(border) {
-          ctx.save();
-          ctx.strokeStyle = border;
-          ctx.strokeRect(pos.x + offst / 2, pos.y + offst / 2, width - offst,
-              height - offst);
-          ctx.restore();
-        }
-      }
-    },
-    'contains': function(node, pos) {
-      if(this.viz.clickedNode && !node.isDescendantOf(this.viz.clickedNode.id) || node.ignore) return false;
-      var npos = node.pos.getc(true),
-          width = node.getData('width'), 
-          leaf = this.viz.leaf(node),
-          height = leaf? node.getData('height') : this.config.titleHeight;
-      return this.nodeHelper.rectangle.contains({x: npos.x + width/2, y: npos.y + height/2}, pos, width, height);
-    }
-  }
-});
-
-TM.Plot.EdgeTypes = new Class( {
-  'none': $.empty
-});
-
-/*
-  Class: TM.SliceAndDice
-  
-  A slice and dice TreeMap visualization.
-  
-  Implements:
-  
-  All <TM.Base> methods and properties.
-*/
-TM.SliceAndDice = new Class( {
-  Implements: [
-      Loader, Extras, TM.Base, Layouts.TM.SliceAndDice
-  ]
-});
-
-/*
-  Class: TM.Squarified
-  
-  A squarified TreeMap visualization.
-
-  Implements:
-  
-  All <TM.Base> methods and properties.
-*/
-TM.Squarified = new Class( {
-  Implements: [
-      Loader, Extras, TM.Base, Layouts.TM.Squarified
-  ]
-});
-
-/*
-  Class: TM.Strip
-  
-  A strip TreeMap visualization.
-
-  Implements:
-  
-  All <TM.Base> methods and properties.
-*/
-TM.Strip = new Class( {
-  Implements: [
-      Loader, Extras, TM.Base, Layouts.TM.Strip
-  ]
-});
-
-
-/*
- * File: RGraph.js
- *
- */
-
-/*
-   Class: RGraph
-   
-   A radial graph visualization with advanced animations.
-   
-   Inspired by:
- 
-   Animated Exploration of Dynamic Graphs with Radial Layout (Ka-Ping Yee, Danyel Fisher, Rachna Dhamija, Marti Hearst) <http://bailando.sims.berkeley.edu/papers/infovis01.htm>
-   
-   Note:
-   
-   This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the visualization described in the paper.
-   
-  Implements:
-  
-  All <Loader> methods
-  
-   Constructor Options:
-   
-   Inherits options from
-   
-   - <Options.Canvas>
-   - <Options.Controller>
-   - <Options.Node>
-   - <Options.Edge>
-   - <Options.Label>
-   - <Options.Events>
-   - <Options.Tips>
-   - <Options.NodeStyles>
-   - <Options.Navigation>
-   
-   Additionally, there are other parameters and some default values changed
-   
-   interpolation - (string) Default's *linear*. Describes the way nodes are interpolated. Possible values are 'linear' and 'polar'.
-   levelDistance - (number) Default's *100*. The distance between levels of the tree. 
-     
-   Instance Properties:
-
-   canvas - Access a <Canvas> instance.
-   graph - Access a <Graph> instance.
-   op - Access a <RGraph.Op> instance.
-   fx - Access a <RGraph.Plot> instance.
-   labels - Access a <RGraph.Label> interface implementation.   
-*/
-
-$jit.RGraph = new Class( {
-
-  Implements: [
-      Loader, Extras, Layouts.Radial
-  ],
-
-  initialize: function(controller){
-    var $RGraph = $jit.RGraph;
-
-    var config = {
-      interpolation: 'linear',
-      levelDistance: 100
-    };
-
-    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
-        "Fx", "Controller", "Tips", "NodeStyles", "Events", "Navigation", "Label"), config, controller);
-
-    var canvasConfig = this.config;
-    if(canvasConfig.useCanvas) {
-      this.canvas = canvasConfig.useCanvas;
-      this.config.labelContainer = this.canvas.id + '-label';
-    } else {
-      if(canvasConfig.background) {
-        canvasConfig.background = $.merge({
-          type: 'Circles'
-        }, canvasConfig.background);
-      }
-      this.canvas = new Canvas(this, canvasConfig);
-      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
-    }
-
-    this.graphOptions = {
-      'complex': false,
-      'Node': {
-        'selected': false,
-        'exist': true,
-        'drawn': true
-      }
-    };
-    this.graph = new Graph(this.graphOptions, this.config.Node,
-        this.config.Edge);
-    this.labels = new $RGraph.Label[canvasConfig.Label.type](this);
-    this.fx = new $RGraph.Plot(this, $RGraph);
-    this.op = new $RGraph.Op(this);
-    this.json = null;
-    this.root = null;
-    this.busy = false;
-    this.parent = false;
-    // initialize extras
-    this.initializeExtras();
-  },
-
-  /* 
-  
-    createLevelDistanceFunc 
-  
-    Returns the levelDistance function used for calculating a node distance 
-    to its origin. This function returns a function that is computed 
-    per level and not per node, such that all nodes with the same depth will have the 
-    same distance to the origin. The resulting function gets the 
-    parent node as parameter and returns a float.
-
-   */
-  createLevelDistanceFunc: function(){
-    var ld = this.config.levelDistance;
-    return function(elem){
-      return (elem._depth + 1) * ld;
-    };
-  },
-
-  /* 
-     Method: refresh 
-     
-     Computes positions and plots the tree.
-
-   */
-  refresh: function(){
-    this.compute();
-    this.plot();
-  },
-
-  reposition: function(){
-    this.compute('end');
-  },
-
-  /*
-   Method: plot
-  
-   Plots the RGraph. This is a shortcut to *fx.plot*.
-  */
-  plot: function(){
-    this.fx.plot();
-  },
-  /*
-   getNodeAndParentAngle
-  
-   Returns the _parent_ of the given node, also calculating its angle span.
-  */
-  getNodeAndParentAngle: function(id){
-    var theta = false;
-    var n = this.graph.getNode(id);
-    var ps = n.getParents();
-    var p = (ps.length > 0)? ps[0] : false;
-    if (p) {
-      var posParent = p.pos.getc(), posChild = n.pos.getc();
-      var newPos = posParent.add(posChild.scale(-1));
-      theta = Math.atan2(newPos.y, newPos.x);
-      if (theta < 0)
-        theta += 2 * Math.PI;
-    }
-    return {
-      parent: p,
-      theta: theta
-    };
-  },
-  /*
-   tagChildren
-  
-   Enumerates the children in order to maintain child ordering (second constraint of the paper).
-  */
-  tagChildren: function(par, id){
-    if (par.angleSpan) {
-      var adjs = [];
-      par.eachAdjacency(function(elem){
-        adjs.push(elem.nodeTo);
-      }, "ignore");
-      var len = adjs.length;
-      for ( var i = 0; i < len && id != adjs[i].id; i++)
-        ;
-      for ( var j = (i + 1) % len, k = 0; id != adjs[j].id; j = (j + 1) % len) {
-        adjs[j].dist = k++;
-      }
-    }
-  },
-  /* 
-  Method: onClick 
-  
-  Animates the <RGraph> to center the node specified by *id*.
-
-   Parameters:
-
-   id - A <Graph.Node> id.
-   opt - (optional|object) An object containing some extra properties described below
-   hideLabels - (boolean) Default's *true*. Hide labels when performing the animation.
-
-   Example:
-
-   (start code js)
-     rgraph.onClick('someid');
-     //or also...
-     rgraph.onClick('someid', {
-      hideLabels: false
-     });
-    (end code)
-    
-  */
-  onClick: function(id, opt){
-    if (this.root != id && !this.busy) {
-      this.busy = true;
-      this.root = id;
-      that = this;
-      this.controller.onBeforeCompute(this.graph.getNode(id));
-      var obj = this.getNodeAndParentAngle(id);
-
-      // second constraint
-      this.tagChildren(obj.parent, id);
-      this.parent = obj.parent;
-      this.compute('end');
-
-      // first constraint
-      var thetaDiff = obj.theta - obj.parent.endPos.theta;
-      this.graph.eachNode(function(elem){
-        elem.endPos.set(elem.endPos.getp().add($P(thetaDiff, 0)));
-      });
-
-      var mode = this.config.interpolation;
-      opt = $.merge( {
-        onComplete: $.empty
-      }, opt || {});
-
-      this.fx.animate($.merge( {
-        hideLabels: true,
-        modes: [
-          mode
-        ]
-      }, opt, {
-        onComplete: function(){
-          that.busy = false;
-          opt.onComplete();
-        }
-      }));
-    }
-  }
-});
-
-$jit.RGraph.$extend = true;
-
-(function(RGraph){
-
-  /*
-     Class: RGraph.Op
-     
-     Custom extension of <Graph.Op>.
-
-     Extends:
-
-     All <Graph.Op> methods
-     
-     See also:
-     
-     <Graph.Op>
-
-  */
-  RGraph.Op = new Class( {
-
-    Implements: Graph.Op
-
-  });
-
-  /*
-     Class: RGraph.Plot
-    
-    Custom extension of <Graph.Plot>.
-  
-    Extends:
-  
-    All <Graph.Plot> methods
-    
-    See also:
-    
-    <Graph.Plot>
-  
-  */
-  RGraph.Plot = new Class( {
-
-    Implements: Graph.Plot
-
-  });
-
-  /*
-    Object: RGraph.Label
-
-    Custom extension of <Graph.Label>. 
-    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
-  
-    Extends:
-  
-    All <Graph.Label> methods and subclasses.
-  
-    See also:
-  
-    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
-  
-   */
-  RGraph.Label = {};
-
-  /*
-     RGraph.Label.Native
-
-     Custom extension of <Graph.Label.Native>.
-
-     Extends:
-
-     All <Graph.Label.Native> methods
-
-     See also:
-
-     <Graph.Label.Native>
-
-  */
-  RGraph.Label.Native = new Class( {
-    Implements: Graph.Label.Native
-  });
-
-  /*
-     RGraph.Label.SVG
-    
-    Custom extension of <Graph.Label.SVG>.
-  
-    Extends:
-  
-    All <Graph.Label.SVG> methods
-  
-    See also:
-  
-    <Graph.Label.SVG>
-  
-  */
-  RGraph.Label.SVG = new Class( {
-    Implements: Graph.Label.SVG,
-
-    initialize: function(viz){
-      this.viz = viz;
-    },
-
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Plot>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller){
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize();
-      var labelPos = {
-        x: Math.round(pos.x * sx + ox + radius.width / 2),
-        y: Math.round(pos.y * sy + oy + radius.height / 2)
-      };
-      tag.setAttribute('x', labelPos.x);
-      tag.setAttribute('y', labelPos.y);
-
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-     RGraph.Label.HTML
-
-     Custom extension of <Graph.Label.HTML>.
-
-     Extends:
-
-     All <Graph.Label.HTML> methods.
-
-     See also:
-
-     <Graph.Label.HTML>
-
-  */
-  RGraph.Label.HTML = new Class( {
-    Implements: Graph.Label.HTML,
-
-    initialize: function(viz){
-      this.viz = viz;
-    },
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Plot>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller){
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize();
-      var labelPos = {
-        x: Math.round(pos.x * sx + ox + radius.width / 2),
-        y: Math.round(pos.y * sy + oy + radius.height / 2)
-      };
-
-      var style = tag.style;
-      style.left = labelPos.x + 'px';
-      style.top = labelPos.y + 'px';
-      style.display = this.fitsInCanvas(labelPos, canvas)? '' : 'none';
-
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-    Class: RGraph.Plot.NodeTypes
-
-    This class contains a list of <Graph.Node> built-in types. 
-    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
-
-    You can add your custom node types, customizing your visualization to the extreme.
-
-    Example:
-
-    (start code js)
-      RGraph.Plot.NodeTypes.implement({
-        'mySpecialType': {
-          'render': function(node, canvas) {
-            //print your custom node to canvas
-          },
-          //optional
-          'contains': function(node, pos) {
-            //return true if pos is inside the node or false otherwise
-          }
-        }
-      });
-    (end code)
-
-  */
-  RGraph.Plot.NodeTypes = new Class({
-    'none': {
-      'render': $.empty,
-      'contains': $.lambda(false)
-    },
-    'circle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.circle.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.circle.contains(npos, pos, dim);
-      }
-    },
-    'ellipse': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
-        },
-      // TODO(nico): be more precise...
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        return this.nodeHelper.ellipse.contains(npos, pos, width, height);
-      }
-    },
-    'square': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.square.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.square.contains(npos, pos, dim);
-      }
-    },
-    'rectangle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
-      },
-      'contains': function(node, pos){
-        var npos = node.pos.getc(true), 
-            width = node.getData('width'), 
-            height = node.getData('height');
-        return this.nodeHelper.rectangle.contains(npos, pos, width, height);
-      }
-    },
-    'triangle': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        this.nodeHelper.triangle.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos) {
-        var npos = node.pos.getc(true), 
-            dim = node.getData('dim');
-        return this.nodeHelper.triangle.contains(npos, pos, dim);
-      }
-    },
-    'star': {
-      'render': function(node, canvas){
-        var pos = node.pos.getc(true),
-            dim = node.getData('dim');
-        this.nodeHelper.star.render('fill', pos, dim, canvas);
-      },
-      'contains': function(node, pos) {
-        var npos = node.pos.getc(true),
-            dim = node.getData('dim');
-        return this.nodeHelper.star.contains(npos, pos, dim);
-      }
-    }
-  });
-
-  /*
-    Class: RGraph.Plot.EdgeTypes
-
-    This class contains a list of <Graph.Adjacence> built-in types. 
-    Edge types implemented are 'none', 'line' and 'arrow'.
-  
-    You can add your custom edge types, customizing your visualization to the extreme.
-  
-    Example:
-  
-    (start code js)
-      RGraph.Plot.EdgeTypes.implement({
-        'mySpecialType': {
-          'render': function(adj, canvas) {
-            //print your custom edge to canvas
-          },
-          //optional
-          'contains': function(adj, pos) {
-            //return true if pos is inside the arc or false otherwise
-          }
-        }
-      });
-    (end code)
-  
-  */
-  RGraph.Plot.EdgeTypes = new Class({
-    'none': $.empty,
-    'line': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        this.edgeHelper.line.render(from, to, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.line.contains(from, to, pos, this.edge.epsilon);
-      }
-    },
-    'arrow': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            dim = adj.getData('dim'),
-            direction = adj.data.$direction,
-            inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
-        this.edgeHelper.arrow.render(from, to, dim, inv, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true);
-        return this.edgeHelper.arrow.contains(from, to, pos, this.edge.epsilon);
-      }
-    }
-  });
-
-})($jit.RGraph);
-
-
-/*
- * File: Hypertree.js
- * 
-*/
-
-/* 
-     Complex 
-     
-     A multi-purpose Complex Class with common methods. Extended for the Hypertree. 
- 
-*/
-/* 
-   moebiusTransformation 
- 
-   Calculates a moebius transformation for this point / complex. 
-    For more information go to: 
-        http://en.wikipedia.org/wiki/Moebius_transformation. 
- 
-   Parameters: 
- 
-      c - An initialized Complex instance representing a translation Vector. 
-*/
-
-Complex.prototype.moebiusTransformation = function(c) {
-  var num = this.add(c);
-  var den = c.$conjugate().$prod(this);
-  den.x++;
-  return num.$div(den);
-};
-
-/* 
-    moebiusTransformation 
-     
-    Calculates a moebius transformation for the hyperbolic tree. 
-     
-    <http://en.wikipedia.org/wiki/Moebius_transformation> 
-      
-     Parameters: 
-     
-        graph - A <Graph> instance.
-        pos - A <Complex>.
-        prop - A property array.
-        theta - Rotation angle. 
-        startPos - _optional_ start position. 
-*/
-Graph.Util.moebiusTransformation = function(graph, pos, prop, startPos, flags) {
-  this.eachNode(graph, function(elem) {
-    for ( var i = 0; i < prop.length; i++) {
-      var p = pos[i].scale(-1), property = startPos ? startPos : prop[i];
-      elem.getPos(prop[i]).set(elem.getPos(property).getc().moebiusTransformation(p));
-    }
-  }, flags);
-};
-
-/* 
-   Class: Hypertree 
-   
-   A Hyperbolic Tree/Graph visualization.
-   
-   Inspired by:
- 
-   A Focus+Context Technique Based on Hyperbolic Geometry for Visualizing Large Hierarchies (John Lamping, Ramana Rao, and Peter Pirolli). 
-   <http://www.cs.tau.ac.il/~asharf/shrek/Projects/HypBrowser/startree-chi95.pdf>
- 
-  Note:
- 
-  This visualization was built and engineered from scratch, taking only the paper as inspiration, and only shares some features with the Hypertree described in the paper.
-
-  Implements:
-  
-  All <Loader> methods
-  
-  Constructor Options:
-  
-  Inherits options from
-  
-  - <Options.Canvas>
-  - <Options.Controller>
-  - <Options.Node>
-  - <Options.Edge>
-  - <Options.Label>
-  - <Options.Events>
-  - <Options.Tips>
-  - <Options.NodeStyles>
-  - <Options.Navigation>
-  
-  Additionally, there are other parameters and some default values changed
-  
-  radius - (string|number) Default's *auto*. The radius of the disc to plot the <Hypertree> in. 'auto' will take the smaller value from the width and height canvas dimensions. You can also set this to a custom value, for example *250*.
-  offset - (number) Default's *0*. A number in the range [0, 1) that will be substracted to each node position to make a more compact <Hypertree>. This will avoid placing nodes too far from each other when a there's a selected node.
-  fps - Described in <Options.Fx>. It's default value has been changed to *35*.
-  duration - Described in <Options.Fx>. It's default value has been changed to *1500*.
-  Edge.type - Described in <Options.Edge>. It's default value has been changed to *hyperline*. 
-  
-  Instance Properties:
-  
-  canvas - Access a <Canvas> instance.
-  graph - Access a <Graph> instance.
-  op - Access a <Hypertree.Op> instance.
-  fx - Access a <Hypertree.Plot> instance.
-  labels - Access a <Hypertree.Label> interface implementation.
-
-*/
-
-$jit.Hypertree = new Class( {
-
-  Implements: [ Loader, Extras, Layouts.Radial ],
-
-  initialize: function(controller) {
-    var $Hypertree = $jit.Hypertree;
-
-    var config = {
-      radius: "auto",
-      offset: 0,
-      Edge: {
-        type: 'hyperline'
-      },
-      duration: 1500,
-      fps: 35
-    };
-    this.controller = this.config = $.merge(Options("Canvas", "Node", "Edge",
-        "Fx", "Tips", "NodeStyles", "Events", "Navigation", "Controller", "Label"), config, controller);
-
-    var canvasConfig = this.config;
-    if(canvasConfig.useCanvas) {
-      this.canvas = canvasConfig.useCanvas;
-      this.config.labelContainer = this.canvas.id + '-label';
-    } else {
-      if(canvasConfig.background) {
-        canvasConfig.background = $.merge({
-          type: 'Circles'
-        }, canvasConfig.background);
-      }
-      this.canvas = new Canvas(this, canvasConfig);
-      this.config.labelContainer = (typeof canvasConfig.injectInto == 'string'? canvasConfig.injectInto : canvasConfig.injectInto.id) + '-label';
-    }
-
-    this.graphOptions = {
-      'complex': false,
-      'Node': {
-        'selected': false,
-        'exist': true,
-        'drawn': true
-      }
-    };
-    this.graph = new Graph(this.graphOptions, this.config.Node,
-        this.config.Edge);
-    this.labels = new $Hypertree.Label[canvasConfig.Label.type](this);
-    this.fx = new $Hypertree.Plot(this, $Hypertree);
-    this.op = new $Hypertree.Op(this);
-    this.json = null;
-    this.root = null;
-    this.busy = false;
-    // initialize extras
-    this.initializeExtras();
-  },
-
-  /* 
-  
-  createLevelDistanceFunc 
-
-  Returns the levelDistance function used for calculating a node distance 
-  to its origin. This function returns a function that is computed 
-  per level and not per node, such that all nodes with the same depth will have the 
-  same distance to the origin. The resulting function gets the 
-  parent node as parameter and returns a float.
-
-  */
-  createLevelDistanceFunc: function() {
-    // get max viz. length.
-    var r = this.getRadius();
-    // get max depth.
-    var depth = 0, max = Math.max, config = this.config;
-    this.graph.eachNode(function(node) {
-      depth = max(node._depth, depth);
-    }, "ignore");
-    depth++;
-    // node distance generator
-    var genDistFunc = function(a) {
-      return function(node) {
-        node.scale = r;
-        var d = node._depth + 1;
-        var acum = 0, pow = Math.pow;
-        while (d) {
-          acum += pow(a, d--);
-        }
-        return acum - config.offset;
-      };
-    };
-    // estimate better edge length.
-    for ( var i = 0.51; i <= 1; i += 0.01) {
-      var valSeries = (1 - Math.pow(i, depth)) / (1 - i);
-      if (valSeries >= 2) { return genDistFunc(i - 0.01); }
-    }
-    return genDistFunc(0.75);
-  },
-
-  /* 
-    Method: getRadius 
-    
-    Returns the current radius of the visualization. If *config.radius* is *auto* then it 
-    calculates the radius by taking the smaller size of the <Canvas> widget.
-    
-    See also:
-    
-    <Canvas.getSize>
-   
-  */
-  getRadius: function() {
-    var rad = this.config.radius;
-    if (rad !== "auto") { return rad; }
-    var s = this.canvas.getSize();
-    return Math.min(s.width, s.height) / 2;
-  },
-
-  /* 
-    Method: refresh 
-    
-    Computes positions and plots the tree.
-
-    Parameters:
-
-    reposition - (optional|boolean) Set this to *true* to force all positions (current, start, end) to match.
-
-   */
-  refresh: function(reposition) {
-    if (reposition) {
-      this.reposition();
-      this.graph.eachNode(function(node) {
-        node.startPos.rho = node.pos.rho = node.endPos.rho;
-        node.startPos.theta = node.pos.theta = node.endPos.theta;
-      });
-    } else {
-      this.compute();
-    }
-    this.plot();
-  },
-
-  /* 
-   reposition 
-   
-   Computes nodes' positions and restores the tree to its previous position.
-
-   For calculating nodes' positions the root must be placed on its origin. This method does this 
-     and then attemps to restore the hypertree to its previous position.
-    
-  */
-  reposition: function() {
-    this.compute('end');
-    var vector = this.graph.getNode(this.root).pos.getc().scale(-1);
-    Graph.Util.moebiusTransformation(this.graph, [ vector ], [ 'end' ],
-        'end', "ignore");
-    this.graph.eachNode(function(node) {
-      if (node.ignore) {
-        node.endPos.rho = node.pos.rho;
-        node.endPos.theta = node.pos.theta;
-      }
-    });
-  },
-
-  /* 
-   Method: plot 
-   
-   Plots the <Hypertree>. This is a shortcut to *fx.plot*. 
-
-  */
-  plot: function() {
-    this.fx.plot();
-  },
-
-  /* 
-   Method: onClick 
-   
-   Animates the <Hypertree> to center the node specified by *id*.
-
-   Parameters:
-
-   id - A <Graph.Node> id.
-   opt - (optional|object) An object containing some extra properties described below
-   hideLabels - (boolean) Default's *true*. Hide labels when performing the animation.
-
-   Example:
-
-   (start code js)
-     ht.onClick('someid');
-     //or also...
-     ht.onClick('someid', {
-      hideLabels: false
-     });
-    (end code)
-    
-  */
-  onClick: function(id, opt) {
-    var pos = this.graph.getNode(id).pos.getc(true);
-    this.move(pos, opt);
-  },
-
-  /* 
-   Method: move 
-
-   Translates the tree to the given position. 
-
-   Parameters:
-
-   pos - (object) A *x, y* coordinate object where x, y in [0, 1), to move the tree to.
-   opt - This object has been defined in <Hypertree.onClick>
-   
-   Example:
-   
-   (start code js)
-     ht.move({ x: 0, y: 0.7 }, {
-       hideLabels: false
-     });
-   (end code)
-
-  */
-  move: function(pos, opt) {
-    var versor = $C(pos.x, pos.y);
-    if (this.busy === false && versor.norm() < 1) {
-      this.busy = true;
-      var root = this.graph.getClosestNodeToPos(versor), that = this;
-      this.graph.computeLevels(root.id, 0);
-      this.controller.onBeforeCompute(root);
-      opt = $.merge( {
-        onComplete: $.empty
-      }, opt || {});
-      this.fx.animate($.merge( {
-        modes: [ 'moebius' ],
-        hideLabels: true
-      }, opt, {
-        onComplete: function() {
-          that.busy = false;
-          opt.onComplete();
-        }
-      }), versor);
-    }
-  }
-});
-
-$jit.Hypertree.$extend = true;
-
-(function(Hypertree) {
-
-  /* 
-     Class: Hypertree.Op 
-   
-     Custom extension of <Graph.Op>.
-
-     Extends:
-
-     All <Graph.Op> methods
-     
-     See also:
-     
-     <Graph.Op>
-
-  */
-  Hypertree.Op = new Class( {
-
-    Implements: Graph.Op
-
-  });
-
-  /* 
-     Class: Hypertree.Plot 
-   
-    Custom extension of <Graph.Plot>.
-  
-    Extends:
-  
-    All <Graph.Plot> methods
-    
-    See also:
-    
-    <Graph.Plot>
-  
-  */
-  Hypertree.Plot = new Class( {
-
-    Implements: Graph.Plot
-
-  });
-
-  /*
-    Object: Hypertree.Label
-
-    Custom extension of <Graph.Label>. 
-    Contains custom <Graph.Label.SVG>, <Graph.Label.HTML> and <Graph.Label.Native> extensions.
-  
-    Extends:
-  
-    All <Graph.Label> methods and subclasses.
-  
-    See also:
-  
-    <Graph.Label>, <Graph.Label.Native>, <Graph.Label.HTML>, <Graph.Label.SVG>.
-
-   */
-  Hypertree.Label = {};
-
-  /*
-     Hypertree.Label.Native
-
-     Custom extension of <Graph.Label.Native>.
-
-     Extends:
-
-     All <Graph.Label.Native> methods
-
-     See also:
-
-     <Graph.Label.Native>
-
-  */
-  Hypertree.Label.Native = new Class( {
-    Implements: Graph.Label.Native,
-
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-
-    renderLabel: function(canvas, node, controller) {
-      var ctx = canvas.getCtx();
-      var coord = node.pos.getc(true);
-      var s = this.viz.getRadius();
-      ctx.fillText(node.name, coord.x * s, coord.y * s);
-    }
-  });
-
-  /*
-     Hypertree.Label.SVG
-
-    Custom extension of <Graph.Label.SVG>.
-  
-    Extends:
-  
-    All <Graph.Label.SVG> methods
-  
-    See also:
-  
-    <Graph.Label.SVG>
-  
-  */
-  Hypertree.Label.SVG = new Class( {
-    Implements: Graph.Label.SVG,
-
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Plot>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller) {
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize(),
-          r = this.viz.getRadius();
-      var labelPos = {
-        x: Math.round((pos.x * sx) * r + ox + radius.width / 2),
-        y: Math.round((pos.y * sy) * r + oy + radius.height / 2)
-      };
-      tag.setAttribute('x', labelPos.x);
-      tag.setAttribute('y', labelPos.y);
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-     Hypertree.Label.HTML
-
-     Custom extension of <Graph.Label.HTML>.
-
-     Extends:
-
-     All <Graph.Label.HTML> methods.
-
-     See also:
-
-     <Graph.Label.HTML>
-
-  */
-  Hypertree.Label.HTML = new Class( {
-    Implements: Graph.Label.HTML,
-
-    initialize: function(viz) {
-      this.viz = viz;
-    },
-    /* 
-       placeLabel
-
-       Overrides abstract method placeLabel in <Graph.Plot>.
-
-       Parameters:
-
-       tag - A DOM label element.
-       node - A <Graph.Node>.
-       controller - A configuration/controller object passed to the visualization.
-      
-     */
-    placeLabel: function(tag, node, controller) {
-      var pos = node.pos.getc(true), 
-          canvas = this.viz.canvas,
-          ox = canvas.translateOffsetX,
-          oy = canvas.translateOffsetY,
-          sx = canvas.scaleOffsetX,
-          sy = canvas.scaleOffsetY,
-          radius = canvas.getSize(),
-          r = this.viz.getRadius();
-      var labelPos = {
-        x: Math.round((pos.x * sx) * r + ox + radius.width / 2),
-        y: Math.round((pos.y * sy) * r + oy + radius.height / 2)
-      };
-      var style = tag.style;
-      style.left = labelPos.x + 'px';
-      style.top = labelPos.y + 'px';
-      style.display = this.fitsInCanvas(labelPos, canvas) ? '' : 'none';
-
-      controller.onPlaceLabel(tag, node);
-    }
-  });
-
-  /*
-    Class: Hypertree.Plot.NodeTypes
-
-    This class contains a list of <Graph.Node> built-in types. 
-    Node types implemented are 'none', 'circle', 'triangle', 'rectangle', 'star', 'ellipse' and 'square'.
-
-    You can add your custom node types, customizing your visualization to the extreme.
-
-    Example:
-
-    (start code js)
-      Hypertree.Plot.NodeTypes.implement({
-        'mySpecialType': {
-          'render': function(node, canvas) {
-            //print your custom node to canvas
-          },
-          //optional
-          'contains': function(node, pos) {
-            //return true if pos is inside the node or false otherwise
-          }
-        }
-      });
-    (end code)
-
-  */
-  Hypertree.Plot.NodeTypes = new Class({
-    'none': {
-      'render': $.empty,
-      'contains': $.lambda(false)
-    },
-    'circle': {
-      'render': function(node, canvas) {
-        var nconfig = this.node,
-            dim = node.getData('dim'),
-            p = node.pos.getc();
-        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
-        p.$scale(node.scale);
-        if (dim > 0.2) {
-          this.nodeHelper.circle.render('fill', p, dim, canvas);
-        }
-      },
-      'contains': function(node, pos) {
-        var dim = node.getData('dim'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.circle.contains(npos, pos, dim);
-      }
-    },
-    'ellipse': {
-      'render': function(node, canvas) {
-        var pos = node.pos.getc().$scale(node.scale),
-            width = node.getData('width'),
-            height = node.getData('height');
-        this.nodeHelper.ellipse.render('fill', pos, width, height, canvas);
-      },
-      'contains': function(node, pos) {
-        var width = node.getData('width'),
-            height = node.getData('height'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.circle.contains(npos, pos, width, height);
-      }
-    },
-    'square': {
-      'render': function(node, canvas) {
-        var nconfig = this.node,
-            dim = node.getData('dim'),
-            p = node.pos.getc();
-        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
-        p.$scale(node.scale);
-        if (dim > 0.2) {
-          this.nodeHelper.square.render('fill', p, dim, canvas);
-        }
-      },
-      'contains': function(node, pos) {
-        var dim = node.getData('dim'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.square.contains(npos, pos, dim);
-      }
-    },
-    'rectangle': {
-      'render': function(node, canvas) {
-        var nconfig = this.node,
-            width = node.getData('width'),
-            height = node.getData('height'),
-            pos = node.pos.getc();
-        width = nconfig.transform? width * (1 - pos.squaredNorm()) : width;
-        height = nconfig.transform? height * (1 - pos.squaredNorm()) : height;
-        pos.$scale(node.scale);
-        if (width > 0.2 && height > 0.2) {
-          this.nodeHelper.rectangle.render('fill', pos, width, height, canvas);
-        }
-      },
-      'contains': function(node, pos) {
-        var width = node.getData('width'),
-            height = node.getData('height'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.square.contains(npos, pos, width, height);
-      }
-    },
-    'triangle': {
-      'render': function(node, canvas) {
-        var nconfig = this.node,
-            dim = node.getData('dim'),
-            p = node.pos.getc();
-        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
-        p.$scale(node.scale);
-        if (dim > 0.2) {
-          this.nodeHelper.triangle.render('fill', p, dim, canvas);
-        }
-      },
-      'contains': function(node, pos) {
-        var dim = node.getData('dim'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.triangle.contains(npos, pos, dim);
-      }
-    },
-    'star': {
-      'render': function(node, canvas) {
-        var nconfig = this.node,
-            dim = node.getData('dim'),
-            p = node.pos.getc();
-        dim = nconfig.transform? dim * (1 - p.squaredNorm()) : dim;
-        p.$scale(node.scale);
-        if (dim > 0.2) {
-          this.nodeHelper.star.render('fill', p, dim, canvas);
-        }
-      },
-      'contains': function(node, pos) {
-        var dim = node.getData('dim'),
-            npos = node.pos.getc().$scale(node.scale);
-        return this.nodeHelper.star.contains(npos, pos, dim);
-      }
-    }
-  });
-
-  /*
-   Class: Hypertree.Plot.EdgeTypes
-
-    This class contains a list of <Graph.Adjacence> built-in types. 
-    Edge types implemented are 'none', 'line', 'arrow' and 'hyperline'.
-  
-    You can add your custom edge types, customizing your visualization to the extreme.
-  
-    Example:
-  
-    (start code js)
-      Hypertree.Plot.EdgeTypes.implement({
-        'mySpecialType': {
-          'render': function(adj, canvas) {
-            //print your custom edge to canvas
-          },
-          //optional
-          'contains': function(adj, pos) {
-            //return true if pos is inside the arc or false otherwise
-          }
-        }
-      });
-    (end code)
-  
-  */
-  Hypertree.Plot.EdgeTypes = new Class({
-    'none': $.empty,
-    'line': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-          to = adj.nodeTo.pos.getc(true),
-          r = adj.nodeFrom.scale;
-          this.edgeHelper.line.render({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            r = adj.nodeFrom.scale;
-            this.edgeHelper.line.contains({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, pos, this.edge.epsilon);
-      }
-    },
-    'arrow': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            r = adj.nodeFrom.scale,
-            dim = adj.getData('dim'),
-            direction = adj.data.$direction,
-            inv = (direction && direction.length>1 && direction[0] != adj.nodeFrom.id);
-        this.edgeHelper.arrow.render({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, dim, inv, canvas);
-      },
-      'contains': function(adj, pos) {
-        var from = adj.nodeFrom.pos.getc(true),
-            to = adj.nodeTo.pos.getc(true),
-            r = adj.nodeFrom.scale;
-        this.edgeHelper.arrow.contains({x:from.x*r, y:from.y*r}, {x:to.x*r, y:to.y*r}, pos, this.edge.epsilon);
-      }
-    },
-    'hyperline': {
-      'render': function(adj, canvas) {
-        var from = adj.nodeFrom.pos.getc(),
-            to = adj.nodeTo.pos.getc(),
-            dim = this.viz.getRadius();
-        this.edgeHelper.hyperline.render(from, to, dim, canvas);
-      },
-      'contains': $.lambda(false)
-    }
-  });
-
-})($jit.Hypertree);
-
 
 
 

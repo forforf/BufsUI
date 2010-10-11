@@ -332,14 +332,14 @@ function update_node(){
 
 function delete_node(){
   var node_id = $('node_id_edit_label').innerHTML;
-  alert('Delete Node ID: ' + node_id + '?');
+  //alert('Delete Node ID: ' + node_id + '?');
   var node_data = { 'node_cat': node_id, uniqIterator : uniqIteration+'' }
   new Ajax.Request('/bufs_info_doc/destroy_node', { method:'get',
     parameters: node_data,
     onSuccess: function(transport, json){
         var json = transport.responseJSON;
         uniqIteration += 1;
-/*
+
         var parent_node;
         //alert(myGraph.toJSON().children.length);
         //alert('deleting node');
@@ -357,22 +357,30 @@ function delete_node(){
          });
         //alert('click on: ' + parent_node);
         //alert(inspect(myGraph));
-        myGraph.onClick(parent_node);
-*/
-      //  myGraph.op.removeNode(node_id, {
-      //    type: 'fade:seq',
-      //    duration: 1500});
-        myGraph.op.morph(json, {
-          type: 'fade:seq',
-          duration: 1500});
-        alert('node removed');
+      //  myGraph.onClick(parent_node);
+
+        //myGraph.op.removeNode(node_id, {
+        //  type: 'fade:seq',
+        //  duration: 1500});
+          
+        //alert('remove node completed');  
+        
+        //myGraph.op.morph(json, {
+        //  type: 'fade:seq',
+        //  duration: 1500});
+        //alert('node removed');
         //guessing below
         //$jit.Graph.Util.computeLevels(myGraph.graph, parent_node);
         //newJson = myGraph.toJSON();
-        //myGraph.loadJSON(newJson);
+        
+        
+        myGraph.loadJSON(json);
         //myGraph.compute();
-        //myGraph.refresh();
-        alert('refreshed');
+        myGraph.refresh();
+        
+        //alert('refreshed');
+        //alert('click on: ' + parent_node);
+        myGraph.onClick(parent_node);
         //node is undefined at this point
         //myGraph.onclick(this.root);
         //alert(myGraph.toJSON().children.length);
@@ -498,7 +506,7 @@ function create_node_data(){
         traverseObj(json, clog);
         //The below should move to the local section
         //using locally provided json manipulation
-        myGraph.op.sum(json, {
+        myGraph.op.morph(json, {
           type: 'fade:con',
           duration: 1500});
         myGraph.empty();
@@ -507,8 +515,6 @@ function create_node_data(){
         //alert('new node graphed');
       }
   });
-
-//  new Ajax.Updater(divToUpdate, dataUrl, { method: 'get' });
 };
 
 
