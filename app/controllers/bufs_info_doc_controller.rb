@@ -30,26 +30,33 @@ class BufsInfoDocController < ApplicationController
     render :json => json_obj##, :content_type => 'text/plain'
   end
 
-  def get_current_nodes(depth=4)
+  def get_current_nodes(depth=4) 
+    #TODO: This is very close to the index nodes method, dry it up
     @user_class = current_user_db
     puts "GCN: #{@user_class.inspect}"
     nodes = @user_class.all
-    jvis = BufsJsvisData.new(@user_class.name, nodes)
+    puts "Nodes before graphing: #{nodes.map{|n| [n.my_category, n.parent_categories]}.inspect}"
+    
+    #simplifies user name
+    full_id = session[:user_id] 
+    user_name = full_id.to_s.gsub(@user_class.name.to_s, "") #top category
+
+    jvis = BufsJsvisData.new(user_name, nodes)
     top_cat= session[:user_id]  #top category
     #depth = 4
-    return jvis.json_vis_tree(top_cat, depth)
+    json_tree =jvis.json_vis_tree(top_cat, depth)
+    puts "JSON VIZ DATA: #{json_tree.inspect}"    
+    return json_tree
   end
 
   def create_node
-    #test_hash = {'test_key' => 'test_value'}
-    #test = params
     @user_class = current_user_db
-    #puts "User DB Doc Class#{@user_class.inspect}"
     my_cat = params[:node_cat]
     parent_cats_munged = params[:related_tags]
     if parent_cats_munged.empty?||parent_cats_munged.nil?
       parent_cats_munged= @user_class.myGlueEnv.user_id
     end
+    puts "Parent Cats: #{parent_cats_munged}"
     parent_cats = parent_cats_munged.split(/, */)
     new_node = {:my_category => my_cat, :parent_categories => parent_cats}
     #puts "New Node Params: #{new_node.inspect}"
@@ -57,8 +64,6 @@ class BufsInfoDocController < ApplicationController
     #puts "New Doc: #{new_doc.inspect}"
     #puts "New Doc Class: #{new_doc.class.inspect}"
     new_doc.__save
-    #jvis_data = get_current_nodes #jvis.json_vis(top_cat, depth)
-    #puts "JVIS: #{jvis_data.inspect}"
     render :json => get_current_nodes
     #render :text => jvis_data
     #render :text => "#{params} \n #{@user_doc.inspect}"

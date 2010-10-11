@@ -7,8 +7,40 @@ document.observe("dom:loaded", initialize_page );
 var myGraph = "not set yet";
 var uniqIteration = 0;
 
+//Based off of an answery by Hippo on StackOverflow
+//an object is traversed, and every sub-object of that object is traversed as well
+//if the sub-object is not a function than the function passed in to traverse
+// will be applied to that sub-object
+// An external object can also be carried through and refrenced in the paramterized function
+function clog(key,value) {
+    var cValue = value || "value is null"
+    if(key=="id"){
+      console.log(key + " : " + cValue);
+      }
+    else{
+      console.log("# ->" + key + " : " + cValue);
+    };
+}
+
+function traverseObj(obj,func) {
+    //alert('obj size: ' + obj.length);
+    for (item in obj) {
+        if(typeof(obj[item])!="function" )func.apply(this,[ item, obj[item] ]);      
+        if (typeof(obj[item])=="object") {
+                //going on step down in the object tree!!
+                traverseObj(obj[item],func);
+        }
+    }
+    //);//close each
+}
+//End Hippo Stuff
+
 function initialize_page(){
-  myGraph = index_nodes();
+  //alert('going to init graph');
+  blankGraph = rgraph_init(); //insert canvas into here if you can figure it out
+  nodeSource = '/bufs_info_doc/index_nodes'
+  //the below assigns the graph to myGraph (via Ajax)
+  insertNodesIntoGraph(blankGraph, nodeSource);
   $('node_id_input_edit').value = " ";
   //$('files_uploaded_iframe_id').onload = alert("Uploaded file");
   setAuthToken('authtok_attach_form');  
@@ -120,7 +152,6 @@ function routeClickedNodeDataToElements(node) {
   var nodeIdBoxLabel = $('node_id_edit_label');
   var attachmentListBox = $('attachment_list');
   var linksListBox = $('links_list');
-  //alert(node.data.attached_files);
   //distribute node data
   parentCatEditBox.value = node.data.parent_categories;
   nodeIdBox.value = node.name;
@@ -464,6 +495,7 @@ function create_node_data(){
     onSuccess: function(transport, json){
         uniqIteration += 1; 
         json = transport.responseJSON;
+        traverseObj(json, clog);
         //The below should move to the local section
         //using locally provided json manipulation
         myGraph.op.sum(json, {
@@ -479,33 +511,28 @@ function create_node_data(){
 //  new Ajax.Updater(divToUpdate, dataUrl, { method: 'get' });
 };
 
-//When is this used?????
-function destroy_node_data(){
- alert('entered destroy node');
- //var node_cat = $('node_cat_destroy');
- var node_id = $('node_id_edit_label').innerHTML;
- var node_data = { 'node_cat': node_id }
- new Ajax.Request('/bufs_info_doc/destroy_node', { method:'get',
-    parameters: node_data,
-    onSuccess: function(transport, json){
-        alert('getting json');
+
+function insertNodesIntoGraph(aGraph, nodeLoc){
+  //alert('requesting nodes');
+  new Ajax.Request(nodeLoc,
+    {
+      method:'get',
+      parameters: {uniqIterator : uniqIteration+''},
+      onSuccess: function(transport){
+        uniqIteration += 1;
         json = transport.responseJSON;
-        alert('deleting node');
-        myGraph.op.removeNode(node_id, {
-          type: 'fade',
-          duration: 1500});
-        alert('node deleted');
-      }
-    //onSuccess: function(transport){
-    //  alert(transport.responseText);
-    //}
-  });
+        //traverseObj(json, clog);
+        aGraph.loadJSON(json);
+        aGraph.refresh();
+        myGraph = aGraph; //remember this is Asynchonous.  This won't be set right away.
+      },
+      onFailure: function(){ alert('Something went wrong getting nodes for visualization...') }
+    });
+}
 
-//  new Ajax.Updater(divToUpdate, dataUrl, { method: 'get' });
-};
-
-
-function index_nodes(){
+//not used anymore
+/*
+function index_nodes(graph){
   var data_url = '/bufs_info_doc/index_nodes';
   new Ajax.Request(data_url,
     {
@@ -521,54 +548,18 @@ function index_nodes(){
         //traverse(json,rekey, uniq_id);
         //console.log("============= REKEYED ==============");
         //traverse(json,log, 0);
-        var rgraph = rgraph_init(json);
+        //var rgraph = rgraph_init(json);
+        graph.loadJSON(json);
+        graph.refresh();
       },
       onFailure: function(){ alert('Something went wrong indexing nodes...') }
     });
-  return rgraph
 };
+*/
 
-//Based off of an answery by Hippo on StackOverflow
-//an object is traversed, and every sub-object of that object is traversed as well
-//if the sub-object is not a function than the function passed in to traverse
-// will be applied to that sub-object
-// An external object can also be carried through and refrenced in the paramterized function
-function log(obj, key,value,newValue, extObj) {
-    if(key=="id"){
-      console.log(key + " ::: "+value);}
-    else{
-      console.log(key + " : " + value);
-    }
-}
+  
+function rgraph_init(){
 
-function rekey(obj, key,value, extObj) {
-    if(key=="id"){
-      //key = key + "test"}
-      obj[key] = value + extObj;
-    //else{
-    //  console.log(key + " : " + value);
-    }
-}
-function traverse(obj,func,extObj) {
-    for (o in obj) {
-    //obj.each(function(o){
-        //console.log('Type: ' + typeof(obj[o]));
-        if(typeof(obj[o])!="function" )func.apply(this,[obj,o,obj[o],extObj]);      
-        if (typeof(obj[o])=="object") {
-                //going on step down in the object tree!!
-                traverse(obj[o],func, extObj);
-        }
-    }
-    //);//close each
-}
-//End Hippo Stuff
-
-function rgraph_init(json){
-    alert(myGraph);
-
-//    $("mycanvas-label").empty();
-    
-     //init RGraph new
     var rgraph = new $jit.RGraph({
         //Where to append the visualization
         injectInto: 'infovis',
@@ -579,7 +570,9 @@ function rgraph_init(json){
             strokeStyle: '#555'
           }
         },
-      //canvas,{
+
+
+    //var rgraph = new $jit.RGraph(myCanvas,{
         //Add navigation capabilities:
         //zooming by scrolling and panning.
         Navigation: {
@@ -621,12 +614,7 @@ function rgraph_init(json){
         //Add the name of the node in the correponding label
         //and a click handler to move the graph.
         //This method is called once, on label creation.
-        //onCreateLabel: function(domElement, node){
-        //    domElement.innerHTML = node.name;
-        //    domElement.onclick = function(){
-        //        rgraph.onClick(node.id);
-        //    };
-        //},
+
         onCreateLabel: function(domElement, node){
             domElement.innerHTML = node.name;
             domElement.onclick = function() {
@@ -658,12 +646,5 @@ function rgraph_init(json){
             style.left = (left - w / 2) + 'px';
         }
     });
-    //load JSON data
-    alert("RGraph Configured");
-    //myGraph = rgraph;
-    rgraph.loadJSON(json);
-    //compute positions and make the first plot
-    rgraph.refresh();
-    alert("RGraph Setup");
     return rgraph;
 }
