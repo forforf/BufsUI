@@ -224,7 +224,7 @@ function show_edit_node_form(node_id){
   //update_node_form_links(node_id);
 };
 
-/*
+
 function update_node_form_links(node_id){
   var el_name = 'links_list'
   new Ajax.Request('/bufs_info_doc/list_links',
@@ -240,14 +240,15 @@ function update_node_form_links(node_id){
           onFailure: function(){ alert('Something went wrong updating links...\n Response:' + transport.headerJSON)}
         });
 };
-*/
 
-/*
+
+
 function update_node_form_attachments(node_id){
+  //alert('adding attach to: ' + node_id);
   var el_name = 'attachment_list'
   new Ajax.Request('/bufs_info_doc/list_attachments',
         { method:'post',
-          parameters: { 'node_cat':node_id },
+          parameters: { 'node_cat': node_id },
           onSuccess: function(transport){
             json = transport.responseJSON;
             $('node_id_input_edit').value = node_id;
@@ -257,7 +258,7 @@ function update_node_form_attachments(node_id){
           onFailure: function(){ alert('Something went wrong updating attachments... \n Response:' + transport.headerJSON)}
         });
 };
-*/
+
 
 
 
@@ -322,9 +323,13 @@ function update_node(){
     parameters: node_data,
     onSuccess: function(transport, json){
         json = transport.responseJSON;
-        rgraph.op.morph(json, {
-          type: 'fade',
-          duration: 1500});
+        myGraph.loadJSON(json);
+        myGraph.root = node_id;
+        myGraph.refresh();
+        //myGraph.onClick(node_id, {duration: 100});
+        //rgraph.op.morph(json, {
+        //  type: 'fade',
+        //  duration: 1500});
       }
   });
 };
@@ -437,12 +442,14 @@ function delete_attachment(el){
 function delete_link(el){
   //var index = el.name.replace(/checkbox_/g,''));
   var link_name = el.previousSibling.innerHTML;
+  var link_dest = el.previousSibling.href;
   //alert(link_name);
   var node_id = $('node_id_edit_label').innerHTML;
-  //alert(attach_name);
+  //alert(inspect(link_dest));
+  //alert(link_dest);
   //alert(node_id);
   new Ajax.Updater('', '/bufs_info_doc/remove_link',{
-    parameters: {'node_cat': node_id, 'link_name':link_name }
+    parameters: {'node_cat': node_id, 'link_name':link_name, 'link_dest':link_dest }
   });
   update_node_form_links(node_id);
 
@@ -464,7 +471,13 @@ $('add_attach_form').submit();
 };
 
 function adda_attachment(){
+  //Sets the label appropriately
+  update_node_form_attachments($('node_id_edit_label').innerHTML);
+  //alert('node_id_edit_label: ' + $('node_id_edit_label').innerHTML);
+  //alert('redirecting submit');
   redirect_submit();
+  //Refreshes the list
+  //TODO: Separate setting the label and refreshing the list to eliminate the duplicate call
   update_node_form_attachments($('node_id_edit_label').innerHTML);
 };
 

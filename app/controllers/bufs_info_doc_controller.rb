@@ -30,7 +30,7 @@ class BufsInfoDocController < ApplicationController
     render :json => json_obj##, :content_type => 'text/plain'
   end
 
-  def get_current_nodes(depth=4) 
+  def get_current_nodes(depth=4, top_cat = nil) 
     #TODO: This is very close to the index nodes method, dry it up
     @user_class = current_user_db
     puts "GCN: #{@user_class.inspect}"
@@ -42,7 +42,7 @@ class BufsInfoDocController < ApplicationController
     user_name = full_id.to_s.gsub(@user_class.name.to_s, "") #top category
 
     jvis = BufsJsvisData.new(user_name, nodes)
-    top_cat= session[:user_id]  #top category
+    top_cat= top_cat || session[:user_id]  #top category
     #depth = 4
     json_tree =jvis.json_vis_tree(top_cat, depth)
     puts "JSON VIZ DATA: #{json_tree.inspect}"    
@@ -91,12 +91,11 @@ class BufsInfoDocController < ApplicationController
     node_docs = @user_class.call_view(:my_category, node_cat)
     raise "Duplicate keys for node doc" if node_docs.size > 1
     node_doc = node_docs.first if node_docs
-    node_doc.parent_categories_add(parent_cats)
-    #Hack need to fix model
-    #add_parents = parent_cats - node_doc.parent_categories
-    #rmv_parents = node_doc.parent_categories - parent_cats
-    #node_doc.add_parent_categories(add_parents)
-    #node_doc.remove_parent_categories(rmv_parents)
+    #TODO: need to fix model so nodes can update without this hack
+    add_parents = parent_cats - node_doc.parent_categories
+    rmv_parents = node_doc.parent_categories - parent_cats
+    node_doc.parent_categories_add(add_parents)
+    node_doc.parent_categories_subtract(rmv_parents)
     render :json => get_current_nodes
   end
 
@@ -133,7 +132,7 @@ class BufsInfoDocController < ApplicationController
     #}
         #render error if result. ...
     #render :text => res.body
-    send_data( node_doc.attachment_data(attachment_name), 
+    send_data( node_doc.get_file_data(attachment_name), 
                { :filename => attachment_name }
              )
   end
@@ -152,6 +151,12 @@ class BufsInfoDocController < ApplicationController
     node_doc = node_docs.first
     @node_cat = node_cat
     #FIXME: GET LINKS IS BROKEN
+    link_datas = node_doc.links if node_doc
+    puts "Dry List of Links: #{link_datas.inspect}"
+    
+    #@link_names = link_datas.map do |link_data|   #I know datum is singular and data is plural
+    #  {link_data[:link_src] => link_data[:link_label]}
+    #end
     @link_names = node_doc.links if node_doc
   end
 
@@ -185,9 +190,12 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     node_cat = params[:node_cat]
     link_name = params[:link_name]
+    link_dest = params[:link_dest]
+    link_dest.gsub!(/\/*$/,"")
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
-    node_doc.links_subtract(link_name)
+    link_data = {link_dest => [link_name]}
+    node_doc.links_subtract(link_data)
     render :text => "Link Removed"
   end
 
@@ -201,16 +209,19 @@ class BufsInfoDocController < ApplicationController
     node_doc = node_docs.first
     link_data_to_add = {link_uri_to_add => link_label_to_add}
     node_doc.links_add(link_data_to_add)
-    
     @link_names = dry_list_links(node_cat)
     render :text => node_doc.inspect #@link_names.inspect
   end
-
+  
+  #Adds attachment
+  #TODO Change the name to something more illustrative
   def att_test
     @user_class = current_user_db
+    puts "Parameters passed to att_test: #{params.inspect}"
     node_cat = params[:node_cat]
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
+    raise "Couldn't Find Node Key: #{node_cat} to add attachment to" unless node_doc
     
     #render :text => node_doc.my_category
     #render :text => params[:add_attachment].inspect.gsub("<","[-").gsub(">","-]")

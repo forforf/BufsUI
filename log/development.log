@@ -454,3 +454,2674 @@ Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/in
 Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 15:56:27) [GET]
 Rendering bufs_info_doc/a_t
 Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:01:11) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:01:11) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:01:30) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 427ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:01:31) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 31ms (View: 30 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:01:40) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+
+NoMethodError (undefined method `remove_parent_categories_subtract' for #<BufsNodeFactory::BufsUISampleWebUI001:0xb556518>):
+  app/controllers/bufs_info_doc_controller.rb:98:in `update_node'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (136.4ms)
+Rendered rescues/_request_and_response (21.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:02:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:02:10) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:02:18) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 178ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:02:27) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:02:27) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-11 16:02:34) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b", "uniqIterator"=>"1"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=abab&related_tags=a%2C%20b&uniqIterator=1]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-11 16:02:46) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a", "uniqIterator"=>"2"}
+Completed in 135ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=abab&related_tags=a&uniqIterator=2]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:02:54) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 102ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:02:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:05:43) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 152ms (View: 16 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:05:54) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:05:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:06:04) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:06:13) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 160ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:06:21) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b, aa"}
+Completed in 134ms (View: 22 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b%2C%20aa]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:06:37) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 136ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:18:15) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 132ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:18:23) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 131ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:22:40) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 197ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:23:12) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 29ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:23:12) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:23:20) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:23:28) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 139ms (View: 22 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:24:42) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 30ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:24:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:24:49) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 150ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:24:53) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 146ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:24:59) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:25:03) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 134ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:25:42) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 107ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:25:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:25:53) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:25:58) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 117ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:31:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 358ms (View: 14 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:31:11) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 27ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-11 16:31:28) [GET]
+  Parameters: {"node_cat"=>"c", "related_tags"=>"bogus", "uniqIterator"=>"1"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=c&related_tags=bogus&uniqIterator=1]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:31:44) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 33ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:31:44) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-11 16:31:53) [GET]
+  Parameters: {"node_cat"=>"c", "related_tags"=>"", "uniqIterator"=>"1"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=c&related_tags=&uniqIterator=1]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:42:14) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a,b, aa"}
+Completed in 129ms (View: 22 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2Cb%2C%20aa]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:44:15) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 405ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:44:15) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 14ms (View: 13 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:44:24) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a,b"}
+Completed in 138ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2Cb]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:45:02) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:45:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:45:12) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a"}
+Completed in 112ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:45:18) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 188ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:45:19) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:45:41) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 29ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:45:41) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:45:52) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 138ms (View: 61 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:46:00) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b, aa"}
+Completed in 130ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b%2C%20aa]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-10-11 16:46:11) [GET]
+  Parameters: {"node_cat"=>"abab", "related_tags"=>"a, b"}
+Completed in 124ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=abab&related_tags=a%2C%20b]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 16:57:00) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-22017-1km0jx9-0>, "add_link"=>"", "add_link_name"=>""}
+
+NoMethodError (undefined method `files_add' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:228:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (110.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 16:59:30) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 449ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 16:59:30) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 28ms (View: 27 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 16:59:31) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-23961-1k1x4iw-0>, "add_link"=>"", "add_link_name"=>""}
+
+NoMethodError (undefined method `files_add' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:228:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (95.0ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 16:59:40) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 110ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 16:59:42) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-23961-1jlieag-0>, "add_link"=>"", "add_link_name"=>""}
+
+NoMethodError (undefined method `files_add' for nil:NilClass):
+  app/controllers/bufs_info_doc_controller.rb:228:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (222.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:03:43) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 414ms (View: 24 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:03:44) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 8ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:03:44) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-24531-1cctor9-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:215:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (103.3ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:03:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 189ms (View: 29 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:03:58) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:04:10) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 62ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:04:12) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-24531-19w9k5k-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:215:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (113.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:05:44) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:05:45) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:05:53) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-24531-th7z3o-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:215:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (164.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:05:55) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 107ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:07:24) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 420ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:07:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 19ms (View: 18 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:07:32) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-5vn6es-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:216:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (73.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:07:50) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:44:31) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 25ms (View: 24 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:44:31) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:44:36) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:44:38) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-1q90xcb-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:216:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (186.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:46:09) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 78ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:46:09) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:46:15) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:46:17) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-9kq0hb-0>, "add_link"=>"", "add_link_name"=>""}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:216:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (80.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:51:32) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 155ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:51:32) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 20ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:51:37) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:51:49) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>"a", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-3vrx5h-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 217ms (View: 29 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:52:17) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 108ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:52:17) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:52:34) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:52:38) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>"a", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-14c7tsb-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 160ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:52:46) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:52:46) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-11 17:53:04) [GET]
+  Parameters: {"node_cat"=>"a", "att_name"=>"test_modified_time_stale.txt"}
+
+NoMethodError (undefined method `attachment_data' for #<BufsNodeFactory::BufsUISampleWebUI001:0xa8125ac>):
+  app/controllers/bufs_info_doc_controller.rb:135:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-10-11 17:53:34) [POST]
+  Parameters: {"node_cat"=>"a", "att_name"=>"test_modified_time_stale.txt"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:53:34) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 193ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:53:40) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 86ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:53:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:54:48) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:54:51) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>"a", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-fcsvob-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 221ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 17:58:42) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 17:58:42) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 17:59:12) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 113ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 17:59:31) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>"a", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-hul21h-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 261ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 18:03:20) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 115ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 18:03:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-10-11 18:03:26) [POST]
+  Parameters: {"node_cat"=>"a", "att_name"=>"description.txt"}
+Completed in 120ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 18:03:26) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-10-11 18:03:27) [POST]
+  Parameters: {"node_cat"=>"a", "att_name"=>"test_modified_time_stale.txt"}
+Completed in 137ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 18:03:27) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 18:03:36) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-11 18:03:37) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>"a", "add_attachment"=>#<File:/tmp/RackMultipart20101011-25055-1kswg32-0>, "add_link"=>"", "add_link_name"=>""}
+Rendering bufs_info_doc/att_test
+Completed in 148ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-11 18:03:37) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 64ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 18:10:34) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 77ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 18:10:34) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-11 18:10:40) [GET]
+  Parameters: {"node_cat"=>"a", "att_name"=>"description.txt"}
+
+NoMethodError (undefined method `get_file_data' for #<FilesMgr:0xaae1eb4>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:436:in `get_file_data'
+  app/controllers/bufs_info_doc_controller.rb:135:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (103.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 18:14:31) [POST]
+  Parameters: {"node_cat"=>"a", "link_uri"=>"blah", "link_label"=>"blah.com"}
+Completed in 140ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:14:31) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 18:14:34) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+NoMethodError (undefined method `each' for "blah.com":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (106.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:14:34) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 93ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 18:14:45) [POST]
+  Parameters: {"node_cat"=>"a", "link_uri"=>"blah.com", "link_label"=>"blah"}
+Completed in 269ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:14:45) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 84ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 18:17:33) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 108ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 18:17:33) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 18:18:03) [POST]
+  Parameters: {"node_cat"=>"a", "link_uri"=>"dest", "link_label"=>"src"}
+Completed in 227ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:18:04) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 112ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 18:18:32) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 18:18:32) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 18:18:51) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"dest", "link_label"=>"src"}
+Completed in 191ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:18:51) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 125ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 18:19:18) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"src2", "link_label"=>"dest2"}
+Completed in 168ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 18:19:19) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 18:19:46) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 161ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 18:19:46) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-10-11 18:20:19) [GET]
+  Parameters: {"node_cat"=>"c", "uniqIterator"=>"1"}
+Completed in 132ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=c&uniqIterator=1]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:32:03) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 23ms (View: 22 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:32:03) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 72ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:32:13) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+NoMethodError (undefined method `each' for "blah.com":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (112.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:32:14) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 173ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:36:02) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 422ms (View: 24 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:36:03) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:36:11) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+TypeError (can't convert Array into String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `[]='
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (157.2ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:36:11) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:41:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 456ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:41:11) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 18ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:41:17) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+RuntimeError (Other[src]: "blah.com"):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (160.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:41:17) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 108ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:43:33) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 419ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:43:33) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 22ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:43:42) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+TypeError (can't convert Array into String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:52:in `[]='
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:52:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (159.3ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:43:42) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 94ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:46:44) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 405ms (View: 27 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:46:45) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 29ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:46:50) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+TypeError (can't convert nil into String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:52:in `[]='
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:52:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:49:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (190.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:46:50) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:55:13) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 414ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:55:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:55:20) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:55:20) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:55:24) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+NameError (undefined local variable or method `s' for NodeElementOperations:Module):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:48:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (65.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:55:24) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:58:05) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 421ms (View: 24 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:58:06) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 8ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 19:58:15) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"blah.com"}
+
+NoMethodError (undefined method `each' for "blah.com":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (185.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:58:16) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 108ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 19:58:42) [POST]
+  Parameters: {"node_cat"=>"a", "link_uri"=>"src2", "link_label"=>"dest2"}
+Completed in 136ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:58:42) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 112ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 19:58:55) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 135ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 19:58:55) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 12ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-10-11 19:59:22) [GET]
+  Parameters: {"node_cat"=>"aa", "uniqIterator"=>"1"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=aa&uniqIterator=1]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-10-11 19:59:28) [GET]
+  Parameters: {"node_cat"=>"abab", "uniqIterator"=>"2"}
+Completed in 136ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=abab&uniqIterator=2]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-10-11 19:59:38) [GET]
+  Parameters: {"node_cat"=>"a", "uniqIterator"=>"3"}
+Completed in 132ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=a&uniqIterator=3]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-11 19:59:46) [GET]
+  Parameters: {"node_cat"=>"a", "related_tags"=>"", "uniqIterator"=>"4"}
+Completed in 153ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=a&related_tags=&uniqIterator=4]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-11 19:59:54) [POST]
+  Parameters: {"node_cat"=>"a", "link_uri"=>"src2", "link_label"=>"dest2"}
+Completed in 215ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 19:59:54) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 97ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-11 20:00:03) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 31ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-11 20:00:03) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-11 20:00:19) [POST]
+  Parameters: {"node_cat"=>"a", "link_name"=>"dest2"}
+
+NoMethodError (undefined method `each' for "dest2":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:278:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:189:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (115.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-11 20:00:19) [POST]
+  Parameters: {"node_cat"=>"a"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 17:41:56) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 408ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 17:41:57) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 24ms (View: 23 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-12 17:42:03) [GET]
+  Parameters: {"node_cat"=>"c", "related_tags"=>"", "uniqIterator"=>"1"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=c&related_tags=&uniqIterator=1]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:42:27) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"google", "link_label"=>"http://www.google.com"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:156:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:156:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:155:in `each'
+  app/controllers/bufs_info_doc_controller.rb:155:in `map'
+  app/controllers/bufs_info_doc_controller.rb:155:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:208:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (116.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:42:28) [POST]
+  Parameters: {"node_cat"=>"c"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:156:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:156:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:155:in `each'
+  app/controllers/bufs_info_doc_controller.rb:155:in `map'
+  app/controllers/bufs_info_doc_controller.rb:155:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:171:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (85.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:43:05) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.google.com", "link_label"=>"google"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:156:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:156:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:155:in `each'
+  app/controllers/bufs_info_doc_controller.rb:155:in `map'
+  app/controllers/bufs_info_doc_controller.rb:155:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:208:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (187.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:43:05) [POST]
+  Parameters: {"node_cat"=>"c"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:156:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:156:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:155:in `each'
+  app/controllers/bufs_info_doc_controller.rb:155:in `map'
+  app/controllers/bufs_info_doc_controller.rb:155:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:171:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (83.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 17:44:32) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 359ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 17:44:33) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-10-12 17:44:35) [GET]
+  Parameters: {"node_cat"=>"c", "related_tags"=>"", "uniqIterator"=>"1"}
+Completed in 86ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=c&related_tags=&uniqIterator=1]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:44:42) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.google.com", "link_label"=>"google"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:157:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:157:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:156:in `each'
+  app/controllers/bufs_info_doc_controller.rb:156:in `map'
+  app/controllers/bufs_info_doc_controller.rb:156:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:209:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (110.7ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:44:42) [POST]
+  Parameters: {"node_cat"=>"c"}
+
+TypeError (can't convert Symbol into Integer):
+  app/controllers/bufs_info_doc_controller.rb:157:in `[]'
+  app/controllers/bufs_info_doc_controller.rb:157:in `block in dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:156:in `each'
+  app/controllers/bufs_info_doc_controller.rb:156:in `map'
+  app/controllers/bufs_info_doc_controller.rb:156:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:172:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (107.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 17:46:34) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 397ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 17:46:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:46:52) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 109ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:46:53) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 113ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 17:47:08) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 102ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 17:47:08) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 12ms (View: 11 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:50:15) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:50:21) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 17:56:39) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 442ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 17:56:39) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 29ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 17:56:45) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 156ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 17:56:45) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:00:00) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+
+SyntaxError (/home/bufs/bufs/lib/midas/bufs_data_structure.rb:50: syntax error, unexpected tCONSTANT, expecting '}'
+...                    puts "Other: #{other.inspect}"
+...                               ^):
+  /home/bufs/bufs/lib/glue_envs/bufs_couchrest_glue_env.rb:1:in `<top (required)>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_node_factory.rb:10:in `block in make'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_node_factory.rb:10:in `each'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_node_factory.rb:10:in `make'
+  app/controllers/application_controller.rb:15:in `current_user_db'
+  app/controllers/bufs_info_doc_controller.rb:12:in `index_nodes'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (104.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:00:00) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 20ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:00:48) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 413ms (View: 17 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:00:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:00:54) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 137ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:00:54) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 112ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:09:02) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 442ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:09:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 44ms (View: 43 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 18:09:08) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 18:09:08) [POST]
+  Parameters: {"authenticity_token"=>"nepQa2kaWtVPeWd5+B0PyQ4D6fv3NL+mcFaB9hfFsQY=", "node_cat"=>" ", "add_attachment"=>#<File:/tmp/RackMultipart20101012-13145-1ryxk5a-0>, "add_link"=>"http://www.yahoo.com", "add_link_name"=>"yahoo"}
+
+RuntimeError (Couldn't Find Node Key:   to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:222:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (84.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 18:09:08) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:09:33) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+
+NameError (undefined local variable or method `return_value' for #<BufsNodeFactory::BufsUISampleWebUI001:0xa3e6134>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:287:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:208:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (158.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:09:33) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:10:08) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:10:08) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:10:35) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 392ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:10:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 53ms (View: 52 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:10:43) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 144ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:10:43) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:14:00) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 435ms (View: 13 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:14:01) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 30ms (View: 29 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:14:09) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 183ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:14:09) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 104ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:17:50) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 372ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:17:51) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:17:58) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 124ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:17:58) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 128ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:20:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 385ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:20:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:21:05) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 142ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:21:05) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:22:01) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 445ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:22:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:22:06) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 148ms (View: 26 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:22:06) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 94ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:23:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 420ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:23:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:24:04) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 156ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:24:05) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 80ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:26:15) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 403ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:26:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 32ms (View: 31 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:26:21) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 164ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:26:21) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 174ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:27:18) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 419ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:27:19) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 34ms (View: 34 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:27:23) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 131ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:27:23) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:28:16) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 399ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:28:17) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 36ms (View: 35 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:28:26) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 183ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:28:26) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:29:29) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 452ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:29:29) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 29ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 18:29:33) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo"}
+Completed in 188ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:29:33) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 98ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:37:08) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 377ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:37:08) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 42ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 18:37:13) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (163.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:37:13) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 18:42:01) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 420ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 18:42:02) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 54ms (View: 53 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 18:42:07) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (158.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 18:42:08) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 110ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:11:34) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 69ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:11:35) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (183.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:11:48) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 77ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:11:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:12:37) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (138.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:12:37) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 131ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 19:23:30) [GET]
+
+RuntimeError (Couldn't Find Node Key:  to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:221:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (143.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:23:31) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:23:31) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:25:26) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (92.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:25:26) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 193ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 19:29:59) [GET]
+
+RuntimeError (Couldn't Find Node Key:  to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:221:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (75.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 19:30:07) [GET]
+
+RuntimeError (Couldn't Find Node Key:  to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:221:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (80.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 19:30:21) [GET]
+
+RuntimeError (Couldn't Find Node Key:  to add attachment to):
+  app/controllers/bufs_info_doc_controller.rb:221:in `att_test'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (122.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-10-12 19:30:27) [GET]
+Redirected to http://bufs.younghawk.org:3000/index
+Completed in 1ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-12 19:30:27) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 132ms (View: 132 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-12 19:30:36) [POST]
+  Parameters: {"authenticity_token"=>"oof/c6R1hWjmGmjgyiv8Aus3QbjBhg2JRGRvu32LkpM=", "db_name"=>"sample_data", "user_id"=>"SampleWebUI001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org:3000/bufs_vis/bufs_graph.html
+Completed in 86ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:31:31) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 419ms (View: 13 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:31:32) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 26ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:31:43) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (83.1ms)
+Rendered rescues/_request_and_response (21.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:31:43) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 123ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:32:24) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 497ms (View: 27 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:32:24) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:32:30) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (134.8ms)
+Rendered rescues/_request_and_response (24.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:32:31) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 94ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:38:19) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 71ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:38:19) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:38:34) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+NoMethodError (undefined method `each' for "yahoo":String):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:51:in `block (2 levels) in <module:NodeElementOperations>'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `each'
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:195:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (87.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:38:34) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:54:56) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 404ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:54:57) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:55:02) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 116ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:55:02) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 119ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:55:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 15ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:55:14) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 99ms (View: 18 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:55:29) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:55:29) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 98ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:57:45) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 33ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:57:45) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:57:51) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+
+RuntimeError (nil):
+  app/controllers/bufs_info_doc_controller.rb:194:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (164.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:57:51) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 19:59:30) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 67ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 19:59:30) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 19:59:38) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 159ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 19:59:38) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 110ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:00:18) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:00:18) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 109ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:01:58) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:01:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 55ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:02:05) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"blah"}
+Completed in 145ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:02:05) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 112ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:02:29) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:02:29) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:02:35) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 116ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:02:35) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 98ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:06:21) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:06:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:06:35) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 40ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:06:35) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 129ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:06:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 72ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:06:58) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:07:19) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 158ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:07:19) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:07:43) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 54ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:07:43) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:07:51) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 86ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:07:51) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:08:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 100ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:08:10) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:08:16) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 140ms (View: 48 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:08:16) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 88ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:08:39) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 81ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:08:39) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:08:47) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 100ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:08:47) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 118ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:08:56) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 152ms (View: 45 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:08:56) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:09:04) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:09:04) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:09:15) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 130ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:09:15) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 12ms (View: 11 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:09:23) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 100ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:09:23) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:09:35) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:09:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:12:22) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 85ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:12:22) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:12:29) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 163ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:12:29) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 100ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:12:38) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 96ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:12:38) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 108ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:13:12) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:13:12) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 20ms (View: 19 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:13:51) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 129ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:13:51) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 97ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:13:55) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 87ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:13:55) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:14:51) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 70ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:14:51) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:15:41) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 82ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:15:41) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:15:47) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 110ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:15:47) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:15:58) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 79ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:15:59) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:16:09) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 107ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:16:09) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 108ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:16:26) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 140ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:16:27) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 97ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:16:34) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 76ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:16:34) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:16:41) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo"}
+Completed in 114ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:16:41) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 164ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:17:10) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 16ms (View: 15 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:17:10) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 103ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:17:15) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 98ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:17:15) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 187ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:21:49) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 108ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:21:50) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:21:55) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 92ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:21:55) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 146ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:23:31) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 401ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:23:32) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 7ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:23:39) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 102ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:23:39) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 90ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:25:41) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 406ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:25:41) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 8ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:25:46) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:25:46) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:28:53) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 438ms (View: 21 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:28:54) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 29ms (View: 28 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:28:58) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+
+NoMethodError (undefined method `keys' for [{"http://www.yahoo.com"=>["yahoo"]}]:Array):
+  /home/bufs/bufs/lib/midas/bufs_data_structure.rb:50:in `block in <module:NodeElementOperations>'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `call'
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:284:in `block in __method_wrapper'
+  app/controllers/bufs_info_doc_controller.rb:198:in `remove_link'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (167.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:28:59) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 120ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:30:40) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 426ms (View: 14 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:30:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 32ms (View: 7 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:30:46) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 109ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:30:46) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:32:11) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 367ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:32:11) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 31ms (View: 30 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:32:15) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 152ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:32:15) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 20:32:29) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.yahoo.com", "link_label"=>"yahoo2"}
+Completed in 168ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:32:29) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 142ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-10-12 20:32:32) [POST]
+  Parameters: {"node_cat"=>"c", "link_name"=>"yahoo2", "link_dest"=>"http://www.yahoo.com/"}
+Completed in 141ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 20:32:32) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 106ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:34:03) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 110ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 20:34:03) [POST]
+  Parameters: {"authenticity_token"=>"oof/c6R1hWjmGmjgyiv8Aus3QbjBhg2JRGRvu32LkpM=", "node_cat"=>"c", "add_attachment"=>#<File:/tmp/RackMultipart20101012-1164-8iwbkp-0>, "add_link"=>"http://www.yahoo.com", "add_link_name"=>"yahoo2"}
+Rendering bufs_info_doc/att_test
+Completed in 251ms (View: 6 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:34:03) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 75ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#remove_attachment (for 66.92.144.112 at 2010-10-12 20:34:06) [POST]
+  Parameters: {"node_cat"=>"c", "att_name"=>"simple_text_file1.txt"}
+Completed in 165ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_attachment]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:34:06) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 102ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
