@@ -1,0 +1,55 @@
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 21:17:12) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 21:17:11) [GET]
+Completed in 314ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 21:17:18) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 21:17:18) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 89ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-10-12 21:17:44) [POST]
+  Parameters: {"node_cat"=>"c", "link_uri"=>"http://www.bing.com", "link_label"=>"bing"}
+Completed in 399ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-10-12 21:17:44) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 485ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-12 21:17:54) [GET]
+  Parameters: {"node_cat"=>"c", "att_name"=>"simple_text_file1.txt"}
+Sending data simple_text_file1.txt
+Completed in 111ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=c&att_name=simple_text_file1.txt]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 21:18:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 21:18:14) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 162ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 21:18:21) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 21:18:21) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 56ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]

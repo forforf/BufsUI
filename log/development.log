@@ -3125,3 +3125,57 @@ Completed in 165ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/re
 Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:34:06) [POST]
   Parameters: {"node_cat"=>"c"}
 Completed in 102ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:41:03) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 142ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#att_test (for 66.92.144.112 at 2010-10-12 20:41:04) [POST]
+  Parameters: {"authenticity_token"=>"oof/c6R1hWjmGmjgyiv8Aus3QbjBhg2JRGRvu32LkpM=", "node_cat"=>"c", "add_attachment"=>#<File:/tmp/RackMultipart20101012-1164-11pv1ez-0>, "add_link"=>"http://www.yahoo.com", "add_link_name"=>"yahoo2"}
+Rendering bufs_info_doc/att_test
+Completed in 223ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/att_test]
+
+
+Processing BufsInfoDocController#list_attachments (for 66.92.144.112 at 2010-10-12 20:41:04) [POST]
+  Parameters: {"node_cat"=>"c"}
+Completed in 123ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_attachments]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-12 20:41:09) [GET]
+  Parameters: {"node_cat"=>"c", "att_name"=>"simple_text_file1.txt"}
+
+NoMethodError (undefined method `get_file_data' for #<FilesMgr:0xa1f6a94>):
+  /media-ec2/ec2a/projects/bufs/lib/bufs_base_node.rb:442:in `get_file_data'
+  app/controllers/bufs_info_doc_controller.rb:135:in `get_attachment'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (67.3ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-12 20:46:02) [GET]
+  Parameters: {"node_cat"=>"c", "att_name"=>"simple_text_file1.txt"}
+Sending data simple_text_file1.txt
+Completed in 405ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=c&att_name=simple_text_file1.txt]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-12 20:46:20) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 95ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-12 20:46:20) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 17ms (View: 16 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-10-12 20:46:23) [GET]
+  Parameters: {"node_cat"=>"c", "att_name"=>"simple_text_file1.txt"}
+Sending data simple_text_file1.txt
+Completed in 138ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=c&att_name=simple_text_file1.txt]

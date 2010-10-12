@@ -123,7 +123,7 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
-    #The proxy approach is better than the file approach, but need to t/s
+    #The proxy approach is better than the file approach, but need to troubleshoot
     #attachment_url_text = node_doc.attachment_url(attachment_name)
     #att_url = URI.parse(attachment_url_text)
     #req = Net::HTTP::Get.new(att_url.path)
@@ -132,7 +132,7 @@ class BufsInfoDocController < ApplicationController
     #}
         #render error if result. ...
     #render :text => res.body
-    send_data( node_doc.get_file_data(attachment_name), 
+    send_data( node_doc.get_raw_data(attachment_name), 
                { :filename => attachment_name }
              )
   end
