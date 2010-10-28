@@ -12,6 +12,8 @@ require '../lib/bufs_jsvis_data'
 require '../lib/bufs_node_factory'
 #require '../lib/sync_node'
 require '../lib/bind_user_file_system'
+require '../lib/bufs_file_view_maker'
+require '../lib/start_dropbox'
 #require '../lib/helpers/more_open_struct'
 
 Rails::Initializer.run do |config|

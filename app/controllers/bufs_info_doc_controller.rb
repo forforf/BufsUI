@@ -7,10 +7,10 @@ class BufsInfoDocController < ApplicationController
   def index_nodes
     #user = params[:user]
     #user_db = UserDB.new(CouchDB, user)
-    uniq_id_postfix = params[:uniqIterator]
-    puts "Uniq Iterator: #{uniq_id_postfix}"
+    #uniq_id_postfix = params[:uniqIterator]
+    #puts "Uniq Iterator: #{uniq_id_postfix}"
     @user_class = current_user_db
-    puts "Index Nodes: #{@user_class.inspect}"
+    #puts "Index Nodes: #{@user_class.inspect}"
     nodes = @user_class.all :add => {:links => nil}
     
     full_id = session[:user_id] 
@@ -26,16 +26,16 @@ class BufsInfoDocController < ApplicationController
     #puts "Jvis_Data: #{jvis_data.inspect}"
 
     json_obj = jvis_data
-    puts "Rendering json: #{json_obj.inspect}"
+    #puts "Rendering json: #{json_obj.inspect}"
     render :json => json_obj##, :content_type => 'text/plain'
   end
 
   def get_current_nodes(depth=4, top_cat = nil) 
     #TODO: This is very close to the index nodes method, dry it up
     @user_class = current_user_db
-    puts "GCN: #{@user_class.inspect}"
+    #puts "GCN: #{@user_class.inspect}"
     nodes = @user_class.all
-    puts "Nodes before graphing: #{nodes.map{|n| [n.my_category, n.parent_categories]}.inspect}"
+    #puts "Nodes before graphing: #{nodes.map{|n| [n.my_category, n.parent_categories]}.inspect}"
     
     #simplifies user name
     full_id = session[:user_id] 
@@ -45,7 +45,7 @@ class BufsInfoDocController < ApplicationController
     top_cat= top_cat || session[:user_id]  #top category
     #depth = 4
     json_tree =jvis.json_vis_tree(top_cat, depth)
-    puts "JSON VIZ DATA: #{json_tree.inspect}"    
+    #puts "JSON VIZ DATA: #{json_tree.inspect}"    
     return json_tree
   end
 
@@ -56,7 +56,7 @@ class BufsInfoDocController < ApplicationController
     if parent_cats_munged.empty?||parent_cats_munged.nil?
       parent_cats_munged= @user_class.myGlueEnv.user_id
     end
-    puts "Parent Cats: #{parent_cats_munged}"
+    #puts "Parent Cats: #{parent_cats_munged}"
     parent_cats = parent_cats_munged.split(/, */)
     new_node = {:my_category => my_cat, :parent_categories => parent_cats}
     #puts "New Node Params: #{new_node.inspect}"
@@ -217,7 +217,7 @@ class BufsInfoDocController < ApplicationController
   #TODO Change the name to something more illustrative
   def att_test
     @user_class = current_user_db
-    puts "Parameters passed to att_test: #{params.inspect}"
+    #puts "Parameters passed to att_test: #{params.inspect}"
     node_cat = params[:node_cat]
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
@@ -247,7 +247,7 @@ class BufsInfoDocController < ApplicationController
 
   def parent_cats
     @user_class = current_user_db
-    puts "PC: #{@user_class.inspect}"
+    #puts "PC: #{@user_class.inspect}"
     node_cat = params[:node_cat]
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
@@ -309,40 +309,57 @@ class BufsInfoDocController < ApplicationController
   end
 
   def export_to_file
-    raise "refactor from new arch"
+    #raise "Not implemented for new arch yet"
     @user_class = current_user_db
     user_id = session[:user_id]
     #TODO Add passwords to sessions
     user_pw = session[:pw]||"1234"
     #retrieve user specific file node class
-    #FIXME: export to file probably broken
-    file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
+    file_nodeClass = ::BindUserFileSystem.get_user_node_class(user_id, user_pw)
     file_nodes = []
     node_docs = @user_class.all
-    amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
+    amodel_dir = file_nodeClass.myGlueEnv.user_datastore_selector
     FileUtils.rm_rf(amodel_dir)
+    puts "Cleaned fs in #{amodel_dir.inspect}"
     node_docs.each do |node_doc|
-      file_nodes << file_nodeClass.create_from_doc_node(node_doc)
+      puts "Making fs node for #{node_doc.my_category}"
+      file_nodes << file_nodeClass.__create_from_other_node(node_doc)
     end
     #create view
     #TODO: Unhack build viewer
     #TODO: fix BufsViewBuilder to allow home as parent
-    home_dir = ::BindUserFileSystem.get_home_dir(user_id) 
+    view_dir = file_nodeClass.myGlueEnv.namespace
 
     #TODO: Fix so model dir is set right in the correct spot (wherever that may be
     #amodel_dir = ::BindUserFileSystem.get_home_dir(user_id) + ::UserFileNode.model_dir + '/'
-    view_builder = ::BufsViewBuilder.new
-    top_level_nodes = file_nodeClass.by_parent_categories(user_id)
-    view_builder.build_view(home_dir, top_level_nodes, file_nodes, amodel_dir) unless top_level_nodes.empty?
+    view_builder = ::BufsFileViewMaker.new(user_id, file_nodes, view_dir)
+    ##top_level_nodes = file_nodeClass.by_parent_categories(user_id)
+    view_builder.make_file_view
+    ##view_builder.build_view(home_dir, top_level_nodes, file_nodes, amodel_dir) unless top_level_nodes.empty?
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
     redirect_to user_dir_frontend
   end
 
+  def install_dropbox
+   #TODO: Test for file existence and othere error conditions
+   #TODO: move this out of Rails
+   user_id = session[:user_id]
+   `sudo /home/bufs/bufs/bufs_scripts/user_script_install_dropbox #{user_id}`
+    render :text => "dropbox ready to be linked (hopefully)"
+  end
+
+  def link_to_dropbox
+    user_id = session[:user_id]
+    dropbox_link = DropboxScript.start(user_id)
+    render :text => dropbox_link
+  end
+
   def import_from_file
+    raise "Not implemented for new arch yet"
     @user_class = current_user_db
     user_id = session[:user_id]
     user_pw = session[:pw]||"1234"
-    file_nodeClass = ::BindUserFileSystem.get_user_node(user_id, user_pw)
+    file_nodeClass = ::BindUserFileSystem.get_user_node_class(user_id, user_pw)
     doc_nodes = @user_class.all
     file_nodes = file_nodeClass.all
     doc_nodes.each do |doc_node|

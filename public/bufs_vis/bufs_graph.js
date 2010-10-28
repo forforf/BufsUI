@@ -214,7 +214,7 @@ function make_links_list(links, el_name){
 
 function show_edit_node_form(node_id){
   //alert("Edit: " + node_id);
-  //$('node_id_edit').value = node_id;
+  $('node_id_input_edit').value = node_id;
   //$('node_id_edit_label').innerHTML =  node_id;
   $('create-node-form').hide();
   $('edit-node-form').show();
@@ -509,14 +509,14 @@ function create_node_data(){
  var related_tags = $('related_tags_create');
  //TODO Create Node using local information
  // then use ajax to update it to the final authoritative view
-   
- var node_data = { node_cat: node_cat.value, related_tags: related_tags.value, uniqIterator : uniqIteration+'' }
+
+ var node_data = { node_cat: node_cat.value, related_tags: related_tags.value, uniqIterator : uniqIteration}
  new Ajax.Request('/bufs_info_doc/create_node', { method:'get',
     parameters: node_data,
     onSuccess: function(transport, json){
         uniqIteration += 1; 
         json = transport.responseJSON;
-        traverseObj(json, clog);
+        //traverseObj(json, clog);
         //The below should move to the local section
         //using locally provided json manipulation
         myGraph.op.morph(json, {
