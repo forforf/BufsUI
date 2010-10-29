@@ -845,3 +845,116 @@ Completed in 1782ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/l
 
 Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-28 20:59:36) [GET]
 Completed in 889ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-29 12:36:38) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 106ms (View: 105 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-29 12:36:47) [POST]
+  Parameters: {"authenticity_token"=>"pB4ZyIRJIXlt9Yk0nQlDKeBJ0qRUvm3dAXbFEgh5WYo=", "db_name"=>"sample_data", "user_id"=>"SampleWebUI001", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 326ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-29 12:36:48) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 196ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-29 12:36:49) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 12:36:53) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 499ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 12:37:03) [GET]
+Completed in 1152ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 12:38:04) [GET]
+Completed in 2940ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 12:44:28) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 477ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 12:44:32) [GET]
+Completed in 1065ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 12:44:43) [GET]
+Completed in 2771ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 12:49:52) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 264ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 12:49:55) [GET]
+Completed in 1055ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 12:50:01) [GET]
+Completed in 2891ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 13:01:51) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 445ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 13:02:03) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 987ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 13:04:19) [GET]
+Completed in 5778ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 13:04:45) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 5ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 13:05:54) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 5ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-29 13:55:16) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-29 13:55:16) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 350ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 13:55:18) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 217ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 13:55:23) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 968ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 13:55:27) [GET]
+Completed in 2803ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 13:55:51) [GET]
+Redirected to http://bufsuser.younghawk.org/SampleWebUI001
+Completed in 5ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
