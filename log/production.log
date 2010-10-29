@@ -958,3 +958,240 @@ Completed in 2803ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/l
 Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 13:55:51) [GET]
 Redirected to http://bufsuser.younghawk.org/SampleWebUI001
 Completed in 5ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-29 14:25:17) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 80ms (View: 79 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-29 14:27:13) [POST]
+  Parameters: {"authenticity_token"=>"pB4ZyIRJIXlt9Yk0nQlDKeBJ0qRUvm3dAXbFEgh5WYo=", "db_name"=>"live_data", "user_id"=>"patentmgr", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 257ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-29 14:27:14) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 109ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-29 14:27:14) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 14:27:18) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 774ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 14:27:23) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 987ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 14:27:31) [GET]
+Completed in 2921ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:27:55) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 34ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:31:23) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 73ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:39:42) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 4ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:43:37) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 4ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:44:23) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 211ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:49:11) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 197ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:52:18) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 197ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 14:52:29) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 194ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:01:51) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 268ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:07:36) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 199ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:12:33) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 195ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:16:48) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 191ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:24:06) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 1080ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:25:20) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 2648ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 15:30:29) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 14ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 15:30:39) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 939ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 15:30:44) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 962ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 15:30:48) [GET]
+Completed in 2860ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:31:31) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 203ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:35:34) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 260ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:39:56) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 35ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:40:26) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 1183ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:42:03) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 192ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:44:03) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 165ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:44:33) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 1087ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 15:47:50) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 2334ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-10-29 17:38:38) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 80ms (View: 79 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-10-29 17:38:52) [POST]
+  Parameters: {"authenticity_token"=>"pB4ZyIRJIXlt9Yk0nQlDKeBJ0qRUvm3dAXbFEgh5WYo=", "db_name"=>"live_data", "user_id"=>"patentmgr", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 276ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-10-29 17:38:53) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 151ms (View: 43 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-10-29 17:38:53) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 2ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 17:38:57) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 774ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 17:39:14) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 995ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 17:39:57) [GET]
+Completed in 2866ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 17:41:30) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 237ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 17:47:24) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 568ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 17:47:28) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 968ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 17:47:43) [GET]
+Completed in 2841ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#export_to_file (for 66.92.144.112 at 2010-10-29 17:51:01) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 644ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/export_to_file]
+
+
+Processing BufsInfoDocController#install_dropbox (for 66.92.144.112 at 2010-10-29 17:51:06) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 879ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/install_dropbox]
+
+
+Processing BufsInfoDocController#link_to_dropbox (for 66.92.144.112 at 2010-10-29 17:51:35) [GET]
+Completed in 2827ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/link_to_dropbox]
+
+
+Processing BufsInfoDocController#move_files_to_dropbox (for 66.92.144.112 at 2010-10-29 17:52:30) [GET]
+Redirected to http://bufsuser.younghawk.org/patentmgr
+Completed in 1274ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/move_files_to_dropbox]

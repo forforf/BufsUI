@@ -358,7 +358,7 @@ class BufsInfoDocController < ApplicationController
 
   def move_files_to_dropbox
     user_id = session[:user_id]
-    `usr/bin/sudo /home/bufs/bufs/bufs_scripts/user_script_move_files_to_dropbox`
+    `/usr/bin/sudo /home/bufs/bufs/bufs_scripts/user_script_move_files_to_dropbox #{user_id}`
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
     redirect_to user_dir_frontend
   end
