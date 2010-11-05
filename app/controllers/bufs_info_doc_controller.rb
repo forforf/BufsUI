@@ -140,14 +140,21 @@ class BufsInfoDocController < ApplicationController
   def dry_list_attachments(node_cat)
     @user_class = current_user_db
     node_docs = @user_class.call_view(:my_category, node_cat)
+    raise "Should only be one node" unless node_docs.size == 1
     node_doc = node_docs.first
     @node_cat = node_cat
+    puts "Controller says node: #{node_cat}"
+    puts "has these attachments: #{node_doc.attached_files.inspect if node_doc}"
+    #FIXME: GET ATTACHMENTS IS BROKEN
+    #Database is updated correctly, but the node data is incorrect
+    #Maybe a timing issue (database hasn't finished updating, or http timing) or cache issue?
     @attachment_names = node_doc.attached_files if node_doc
   end
 
   def dry_list_links(node_cat)
     @user_class = current_user_db
     node_docs = @user_class.call_view(:my_category, node_cat)
+    raise "Should only be one node" unless node_docs.size == 1
     node_doc = node_docs.first
     @node_cat = node_cat
     #FIXME: GET LINKS IS BROKEN
@@ -237,6 +244,7 @@ class BufsInfoDocController < ApplicationController
     end
     #TODO test for success before deleting Rack tmp file
     FileUtils.rm(@att_file.path)
+    puts "Controller is adding file"
     node_doc.files_add(:src_filename => new_file_loc)
     FileUtils.rm(new_file_loc)
     FileUtils.rmdir(new_file_dir)
