@@ -225,8 +225,15 @@ function show_edit_node_form(node_id){
 };
 
 
-function update_node_form_links(node_id){
+function update_node_form_links(node_id, retry_count){
   var el_name = 'links_list'
+  if(retry_count == null) {
+      retry_count = 1;
+  }
+  if(retry_count > 0) {
+    retry_count -= 1;
+    setTimeout(function() {update_node_form_links(node_id, retry_count)}, 1000);
+  }
   new Ajax.Request('/bufs_info_doc/list_links',
         { method:'post',
           parameters: { 'node_cat':node_id },
@@ -243,8 +250,16 @@ function update_node_form_links(node_id){
 
 
 
-function update_node_form_attachments(node_id){
+function update_node_form_attachments(node_id, retry_count){
   //alert('adding attach to: ' + node_id);
+  if(retry_count == null) {
+      retry_count = 1;
+  }
+  //ugly hack to make sure slow updates at the server are accounted for
+  if(retry_count > 0) {
+    retry_count -= 1;
+    setTimeout(function() {update_node_form_attachments(node_id, retry_count)}, 1000);
+  }
   var el_name = 'attachment_list'
   new Ajax.Request('/bufs_info_doc/list_attachments',
         { method:'post',

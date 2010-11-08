@@ -139,12 +139,13 @@ class BufsInfoDocController < ApplicationController
 
   def dry_list_attachments(node_cat)
     @user_class = current_user_db
+    #sleep 1 #temp check
     node_docs = @user_class.call_view(:my_category, node_cat)
     raise "Should only be one node" unless node_docs.size == 1
     node_doc = node_docs.first
     @node_cat = node_cat
     puts "Controller says node: #{node_cat}"
-    puts "has these attachments: #{node_doc.attached_files.inspect if node_doc}"
+    puts "  has these attachments: #{node_doc.attached_files.inspect if node_doc}"
     #FIXME: GET ATTACHMENTS IS BROKEN
     #Database is updated correctly, but the node data is incorrect
     #Maybe a timing issue (database hasn't finished updating, or http timing) or cache issue?
@@ -171,6 +172,7 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db
     node_cat = params[:node_cat]
     @attachment_names = dry_list_attachments(node_cat)
+    puts "controller: list rails attachment: #{@attachment_names}"
     render :json => @attachment_names.to_json
   end
 
@@ -189,8 +191,12 @@ class BufsInfoDocController < ApplicationController
     att_name = params[:att_name]
     node_docs = @user_class.call_view(:my_category, node_cat)
     node_doc = node_docs.first
+    puts "controller (remove): attachment not removed yet"
     node_doc.files_subtract(att_name)
+    puts "controller: (remove) attachment is removed?: #{node_doc.attached_files.inspect}"
+    #t = Thread.new {puts "controller thread checker: #{node_doc.attached_files.inspect}"; $stdout.flush}
     render :text => "Attachment Removed"
+    #t.join
   end
 
   def remove_link
