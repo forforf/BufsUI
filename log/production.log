@@ -3842,3 +3842,597 @@ Completed in 406ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/re
 Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 17:06:37) [POST]
   Parameters: {"node_cat"=>"a"}
 Completed in 313ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 17:14:00) [GET]
+  Parameters: {"node_cat"=>"ab", "related_tags"=>"a", "uniqIterator"=>"1"}
+Completed in 157ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=ab&related_tags=a&uniqIterator=1]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-11-08 17:14:13) [GET]
+  Parameters: {"node_cat"=>"ab", "uniqIterator"=>"2"}
+Completed in 209ms (View: 58 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=ab&uniqIterator=2]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-11-08 18:38:55) [GET]
+Redirected to http://bufs.younghawk.org/index
+Completed in 2ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-11-08 18:38:56) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 59ms (View: 59 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-11-08 18:39:07) [POST]
+  Parameters: {"authenticity_token"=>"ibF27tRUw+lOigW2YMnG4pIq4leIq7JHPVX2jBLpXyo=", "db_name"=>"live_data", "user_id"=>"patentmgr", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 467ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 18:39:09) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 18:39:08) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 503ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-11-08 19:49:13) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 101ms (View: 100 | 200 OK [http://bufs.younghawk.org/]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-11-08 19:49:34) [POST]
+  Parameters: {"authenticity_token"=>"ibF27tRUw+lOigW2YMnG4pIq4leIq7JHPVX2jBLpXyo=", "db_name"=>"live_data", "user_id"=>"patentmgr", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 349ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 19:49:35) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 301ms (View: 129 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 19:49:35) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#get_attachment (for 66.92.144.112 at 2010-11-08 21:23:52) [GET]
+  Parameters: {"node_cat"=>"AsFiled_12749", "att_name"=>"12749_Application_as_Filed.pdf"}
+Sending data 12749_Application_as_Filed.pdf
+Completed in 572ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/get_attachment?node_cat=AsFiled_12749&att_name=12749_Application_as_Filed.pdf]
+
+
+Processing BufsInfoDocController#log_out (for 66.92.144.112 at 2010-11-08 22:20:41) [GET]
+Redirected to http://bufs.younghawk.org/index
+Completed in 2ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_out]
+
+
+Processing BufsInfoDocController#log_in_form (for 66.92.144.112 at 2010-11-08 22:20:41) [GET]
+Rendering bufs_info_doc/log_in_form
+Completed in 18ms (View: 18 | 200 OK [http://bufs.younghawk.org/index]
+
+
+Processing BufsInfoDocController#log_in (for 66.92.144.112 at 2010-11-08 22:21:08) [POST]
+  Parameters: {"authenticity_token"=>"Nj6dfuqyZ0wq+ByRMollGJT5LSlPI4lX8U6vytCmGOU=", "db_name"=>"live_data", "user_id"=>"example", "commit"=>"Submit"}
+Redirected to http://bufs.younghawk.org/bufs_vis/bufs_graph.html
+Completed in 330ms | 302 Found [http://bufs.younghawk.org/bufs_info_doc/log_in]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 22:21:10) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 22:21:09) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 513ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:21:18) [GET]
+  Parameters: {"node_cat"=>"music", "related_tags"=>"example", "uniqIterator"=>"1"}
+Completed in 91ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=music&related_tags=example&uniqIterator=1]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:23:36) [GET]
+  Parameters: {"node_cat"=>"80s", "related_tags"=>"music", "uniqIterator"=>"2"}
+Completed in 41ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=80s&related_tags=music&uniqIterator=2]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:24:55) [GET]
+  Parameters: {"node_cat"=>"Boston", "related_tags"=>"music", "uniqIterator"=>"3"}
+Completed in 122ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Boston&related_tags=music&uniqIterator=3]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:25:24) [GET]
+  Parameters: {"node_cat"=>"Korean", "related_tags"=>"example", "uniqIterator"=>"4"}
+Completed in 101ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Korean&related_tags=example&uniqIterator=4]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:27:41) [GET]
+  Parameters: {"node_cat"=>"More Than a Feeling", "related_tags"=>"Boston, 80s", "uniqIterator"=>"5"}
+Completed in 115ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=More%20Than%20a%20Feeling&related_tags=Boston%2C%2080s&uniqIterator=5]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:27:58) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling", "link_uri"=>"\t  http://www.youtube.com/watch?v=IcsVPis1iNs", "link_label"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links_add' for #<BufsNodeFactory::BufsUIexample:0x9a85a9c>):
+  app/controllers/bufs_info_doc_controller.rb:224:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:27:58) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUIexample:0x9392a18>):
+  app/controllers/bufs_info_doc_controller.rb:162:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:27:59) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUIexample:0x9c3c924>):
+  app/controllers/bufs_info_doc_controller.rb:162:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-11-08 22:28:20) [GET]
+  Parameters: {"node_cat"=>"More Than a Feeling", "related_tags"=>"Boston,80s"}
+Completed in 70ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=More%20Than%20a%20Feeling&related_tags=Boston%2C80s]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:28:38) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling", "link_uri"=>"http://www.youtube.com/watch?v=IcsVPis1iNs", "link_label"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links_add' for #<BufsNodeFactory::BufsUIexample:0x95b5658>):
+  app/controllers/bufs_info_doc_controller.rb:224:in `add_link'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:28:38) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUIexample:0x9c99000>):
+  app/controllers/bufs_info_doc_controller.rb:162:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:28:39) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+
+NoMethodError (undefined method `links' for #<BufsNodeFactory::BufsUIexample:0x8c7de94>):
+  app/controllers/bufs_info_doc_controller.rb:162:in `dry_list_links'
+  app/controllers/bufs_info_doc_controller.rb:182:in `list_links'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/500.html (500 Internal Server Error)
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 22:31:40) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 3ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 22:31:40) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 372ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:31:53) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling", "link_uri"=>"http://www.youtube.com/watch?v=IcsVPis1iNs", "link_label"=>"More Than a Feeling"}
+Completed in 298ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:31:53) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+Completed in 550ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:31:54) [POST]
+  Parameters: {"node_cat"=>"More Than a Feeling"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:33:48) [GET]
+  Parameters: {"node_cat"=>"Korean Music", "related_tags"=>"Music", "uniqIterator"=>"1"}
+Completed in 37ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Korean%20Music&related_tags=Music&uniqIterator=1]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:34:58) [GET]
+  Parameters: {"node_cat"=>"Korean Music", "related_tags"=>"music", "uniqIterator"=>"2"}
+Completed in 99ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Korean%20Music&related_tags=music&uniqIterator=2]
+
+
+Processing BufsInfoDocController#update_node (for 66.92.144.112 at 2010-11-08 22:35:53) [GET]
+  Parameters: {"node_cat"=>"Korean Music", "related_tags"=>"music, Korean"}
+Completed in 120ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/update_node?node_cat=Korean%20Music&related_tags=music%2C%20Korean]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:36:07) [GET]
+  Parameters: {"node_cat"=>"Korean Language", "related_tags"=>"Korean", "uniqIterator"=>"3"}
+Completed in 121ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Korean%20Language&related_tags=Korean&uniqIterator=3]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:36:53) [GET]
+  Parameters: {"node_cat"=>"Youtube", "related_tags"=>"", "uniqIterator"=>"4"}
+Completed in 98ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Youtube&related_tags=&uniqIterator=4]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:37:50) [GET]
+  Parameters: {"node_cat"=>"Korean Drum", "related_tags"=>"Korean Music", "uniqIterator"=>"5"}
+Completed in 39ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Korean%20Drum&related_tags=Korean%20Music&uniqIterator=5]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:38:45) [GET]
+  Parameters: {"node_cat"=>"Fash Changu Beat", "related_tags"=>"Korean Drub", "uniqIterator"=>"6"}
+Completed in 107ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Fash%20Changu%20Beat&related_tags=Korean%20Drub&uniqIterator=6]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:38:50) [GET]
+  Parameters: {"node_cat"=>"Fash Changu Beat", "related_tags"=>"Korean Drum", "uniqIterator"=>"7"}
+Completed in 44ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Fash%20Changu%20Beat&related_tags=Korean%20Drum&uniqIterator=7]
+
+
+Processing BufsInfoDocController#destroy_node (for 66.92.144.112 at 2010-11-08 22:39:14) [GET]
+  Parameters: {"node_cat"=>"Fash Changu Beat", "uniqIterator"=>"8"}
+Completed in 51ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/destroy_node?node_cat=Fash%20Changu%20Beat&uniqIterator=8]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:39:23) [GET]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "related_tags"=>"Korean Drum", "uniqIterator"=>"9"}
+Completed in 110ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Fast%20Changu%20Beat&related_tags=Korean%20Drum&uniqIterator=9]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:39:55) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_uri"=>"www.youtube.com/watch?v=FDb5I-w4YUo", "link_label"=>"Fast Drum Solo"}
+Completed in 131ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:39:56) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 417ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:39:56) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 107ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing ApplicationController#index (for 66.92.144.112 at 2010-11-08 22:39:59) [GET]
+  Parameters: {"v"=>"FDb5I-w4YUo"}
+
+ActionController::RoutingError (No route matches "/bufs_vis/www.youtube.com/watch" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.11) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:418:in `start_request_handler'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:358:in `block in handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:354:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.11) lib/phusion_passenger/railz/application_spawner.rb:213:in `start'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:262:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:256:in `block in spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:8:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.11) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /media-ec2/ec2a/projects/bufs/bufs_rails/public/404.html (404 Not Found)
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:40:32) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_uri"=>"http://www.youtube.com/watch?v=FDb5I-w4YUo", "link_label"=>"Fast Drum Solo"}
+Completed in 174ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:32) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 182ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:33) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 156ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-11-08 22:40:35) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_name"=>"Fast Drum Solo", "link_dest"=>"http://bufs.younghawk.org/bufs_vis/www.youtube.com/watch?v=FDb5I-w4YUo"}
+Completed in 109ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:35) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 103ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:36) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 69ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:53) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 115ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:40:53) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_uri"=>"http://www.youtube.com/watch?v=FDb5I-w4YUo", "link_label"=>"Fast Drum Solo"}
+Completed in 140ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:54) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 104ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-11-08 22:40:56) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_name"=>"Fast Drum Solo", "link_dest"=>"http://www.youtube.com/watch?v=FDb5I-w4YUo"}
+Completed in 159ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:56) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 142ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:57) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 50ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-11-08 22:40:59) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_name"=>"Fast Drum Solo", "link_dest"=>"http://bufs.younghawk.org/bufs_vis/www.youtube.com/watch?v=FDb5I-w4YUo"}
+Completed in 114ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:40:59) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 111ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:41:00) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 46ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#remove_link (for 66.92.144.112 at 2010-11-08 22:41:03) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_name"=>"Fast Drum Solo", "link_dest"=>"http://bufs.younghawk.org/bufs_vis/www.youtube.com/watch?v=FDb5I-w4YUo"}
+Completed in 154ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/remove_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:41:03) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 191ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:41:04) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 39ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:41:57) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_uri"=>"http://www.youtube.com/watch?v=FDb5I-w4YUo", "link_label"=>"Fast Drum Solo"}
+Completed in 123ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:41:57) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 280ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:41:58) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 108ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 22:42:03) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 22:42:03) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 118ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#a_t (for 66.92.144.112 at 2010-11-08 22:42:48) [GET]
+Rendering bufs_info_doc/a_t
+Completed in 1ms (View: 1 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/a_t]
+
+
+Processing BufsInfoDocController#index_nodes (for 66.92.144.112 at 2010-11-08 22:42:48) [GET]
+  Parameters: {"uniqIterator"=>"0"}
+Completed in 42ms (View: 2 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/index_nodes?uniqIterator=0]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:43:02) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat", "link_uri"=>"http://www.youtube.com/watch?v=FDb5I-w4YUo", "link_label"=>"Fast Drum Solo"}
+Completed in 128ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:43:02) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 219ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:43:03) [POST]
+  Parameters: {"node_cat"=>"Fast Changu Beat"}
+Completed in 190ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:45:01) [GET]
+  Parameters: {"node_cat"=>"Freshman Waltz", "related_tags"=>"Korean Drum, Korean Music", "uniqIterator"=>"1"}
+Completed in 43ms (View: 3 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Freshman%20Waltz&related_tags=Korean%20Drum%2C%20Korean%20Music&uniqIterator=1]
+
+
+Processing BufsInfoDocController#create_node (for 66.92.144.112 at 2010-11-08 22:52:02) [GET]
+  Parameters: {"node_cat"=>"Sebastian Wang", "related_tags"=>"Korean Drum", "uniqIterator"=>"2"}
+Completed in 98ms (View: 59 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/create_node?node_cat=Sebastian%20Wang&related_tags=Korean%20Drum&uniqIterator=2]
+
+
+Processing BufsInfoDocController#add_link (for 66.92.144.112 at 2010-11-08 22:52:39) [POST]
+  Parameters: {"node_cat"=>"Sebastian Wang", "link_uri"=>"http://www.youtube.com/watch?v=o8wHBwyofLw", "link_label"=>"Sebastian Wang Solo"}
+Completed in 162ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/add_link]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:52:44) [POST]
+  Parameters: {"node_cat"=>"Sebastian Wang"}
+Completed in 267ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]
+
+
+Processing BufsInfoDocController#list_links (for 66.92.144.112 at 2010-11-08 22:52:44) [POST]
+  Parameters: {"node_cat"=>"Sebastian Wang"}
+Completed in 427ms (View: 0 | 200 OK [http://bufs.younghawk.org/bufs_info_doc/list_links]

@@ -159,7 +159,11 @@ class BufsInfoDocController < ApplicationController
     node_doc = node_docs.first
     @node_cat = node_cat
     #FIXME: GET LINKS IS BROKEN
-    link_datas = node_doc.links if node_doc
+    if (node_doc && node_doc.respond_to?(:links))
+      link_datas = node_doc.links
+    else
+      link_datas = nil
+    end
     puts "Dry List of Links: #{link_datas.inspect}"
     
     #@link_names = link_datas.map do |link_data| #I know datum is singular and data is plural
