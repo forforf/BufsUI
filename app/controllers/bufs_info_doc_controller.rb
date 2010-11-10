@@ -227,7 +227,7 @@ class BufsInfoDocController < ApplicationController
     link_data_to_add = {link_uri_to_add => link_label_to_add}
     node_doc.links_add(link_data_to_add)
     @link_names = dry_list_links(node_cat)
-    render :text => node_doc.inspect #@link_names.inspect
+    render :text => node_doc.inspect 
   end
   
   #Adds attachment
