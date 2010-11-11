@@ -1,0 +1,2 @@
+This app uses an external library for much of its model.
+See config/environments.rb for the external libraries used.

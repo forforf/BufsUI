@@ -1,14 +1,14 @@
 class BufsInfoDocController < ApplicationController
-  #CouchDB = CouchRest.database!('http://127.0.0.1:5984/bufs_integration_test_spec')
-  CouchDBLocation = 'http://127.0.0.1:5984/'
 
   protect_from_forgery :except => :att_test
+  
+  before_filter :regular_login, :only => "log_in_form"
+  
+  def current_user_db
+    @current_user_db_class ||= BufsNodeFactory.make(session[:bufs_couch_env])
+  end
 
   def index_nodes
-    #user = params[:user]
-    #user_db = UserDB.new(CouchDB, user)
-    #uniq_id_postfix = params[:uniqIterator]
-    #puts "Uniq Iterator: #{uniq_id_postfix}"
     @user_class = current_user_db
     #puts "Index Nodes: #{@user_class.inspect}"
     nodes = @user_class.all :add => {:links => nil}
@@ -285,8 +285,8 @@ class BufsInfoDocController < ApplicationController
 
   def log_in_form
     @couch_db_location = CouchDBLocation
-    @db_default = "bufs_integration_test_spec"
-    @user_id_default = "test_user002"
+    @db_default = "live_data"
+    @user_id_default = "example"
   end
 
   def log_in
@@ -314,6 +314,12 @@ class BufsInfoDocController < ApplicationController
     @user_class = current_user_db #method in application_controller.rb
     #render :text => "Log In User Class: #{@user_class.inspect}"
     redirect_to '/bufs_vis/bufs_graph.html'
+  end
+  
+  def user_log_in_form
+    @couch_db_location = CouchDBLocation
+    @db_default = "live_data"
+    @user_id_default = "try_joha"
   end
 
   def log_out
@@ -401,6 +407,13 @@ class BufsInfoDocController < ApplicationController
     #TODO: undo for imports and exports
     #render :text => "soon ..."
     redirect_to '/jit/bufs_graph.html'
+  end
+
+  private
+  def regular_login
+    if request.domain =~ /joha/ 
+      redirect_to :action => 'user_log_in_form'
+    end
   end
 
 end
