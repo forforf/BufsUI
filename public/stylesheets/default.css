@@ -5,6 +5,11 @@
 .log_in_form
 {
   text-align: left;
+  width: 50%
+}
+.user_input
+{
+  margin: 8px 8px 8px 8px;
 }
 body 
 {

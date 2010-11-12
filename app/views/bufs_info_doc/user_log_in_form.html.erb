@@ -4,24 +4,26 @@
 
         <% form_tag( '/bufs_info_doc/log_in', :multipart => true )  do %>
           <%= hidden_field_tag :db_name, @db_default %>
-          </p>
-              <b>Please enter your unique joha name to get started</b><br/>
-              <small>No special characters (e.g., "@")</small><br/>
-              <small>so if you want to use your email address,</small><br/>
-              <small>leave out the @ or replace it with a space.</small><br/><br/>
+            <span class='welcome-summary'>Please enter a unique joha name to get started</span>
+            <p class='welcome-text'>
+              It shouldn't contain any special characters (e.g., "@") so if you were thinking of using an email address be sure to
+              leave out the @ or replace it with a space or underscore.
+            </p>
               
-              <%= text_field_tag :user_id, @user_id_default %>
+              <%= text_field_tag :user_id, @user_id_default, :class=>'user_input'%><br/>
               
-              <br/> Or if you'd like use the example name '<%= @user_id_default %>' to play around first <br/>
-              <small>Note: The example data is periodically overwritten</small><br/>
-          </p>
+              <span class='welcome-summary'>Or if you'd rather not start from scratch feel free to use the name
+              '<%= @user_id_default %>' to play around with things.</span>
+              <p class='welcome-text'>
+                Note: The example data is periodically overwritten
   
-          <b>  Keep in mind the site is NOT!! production ready yet. The basic functionality is there, but </b> <br/>
-          <b>  some aspects of the User Interface are severely lacking at the moment. </b> <br/>
-
-          <p>
-              <%= submit_tag "Submit" %>
+          <p class='warning-text'>
+            Keep in mind the site is NOT!! production ready yet. The basic functionality is there, but
+            some aspects of the User Interface are severely lacking at the moment.
           </p>
+
+              <%= submit_tag "Submit" %>
+
         <% end %>
       </div>
     </div>
