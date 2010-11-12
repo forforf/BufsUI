@@ -1,17 +1,21 @@
-<h1>Log In</h1>
-<% form_tag( '/bufs_info_doc/log_in', :multipart => true )  do %>
+    <div id='admin_log_in' class='log_in'>  
+      <div id='admin_log_in_form' class='log_in_form'>
+        <h1>Log In</h1>
+        <% form_tag( '/bufs_info_doc/log_in', :multipart => true )  do %>
 
-  <p>
-      <b>DB Name to use</b><br/>
-      <%= text_field_tag :db_name, @db_default, :size => 40 %><br/>
-      DB Location: <%= @couch_db_location %> <br/>
-  <p>
-  </p>
-      <b>User ID</b><br/>
-      <%= text_field_tag :user_id, @user_id_default %>
-  </p>
+          <p>
+              <b>DB Name to use</b><br/>
+              <%= text_field_tag :db_name, @db_default, :size => 40 %><br/>
+              DB Location: <%= @couch_db_location %> <br/>
+          <p>
+          </p>
+              <b>User ID</b><br/>
+              <%= text_field_tag :user_id, @user_id_default %>
+          </p>
 
-  <p>
-      <%= submit_tag "Submit" %>
-  </p>
-<% end %>
+          <p>
+              <%= submit_tag "Submit" %>
+          </p>
+        <% end %>
+      </div>
+    </div>

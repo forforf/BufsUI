@@ -1,0 +1,41 @@
+.log_in
+{
+  padding: 8px 8px 8px 360px;
+}
+.log_in_form
+{
+  text-align: left;
+}
+body 
+{
+  font: normal small "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+	background: #fffdda;;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#header 
+{
+	background: url("/images/share.png")
+				gray no-repeat 16px 16px;  
+	height: 74px;
+	color: White;
+	font-size: 24pt;
+	font-weight: 200;
+	padding: 16px 16px 16px 325px;
+  text-align: left;
+}
+#header-text-wrapper
+{
+  position: relative;
+  top: 18px;
+  vertical-align: middle;
+}
+#content 
+{
+	background: white;
+  color: Gray;
+	padding: 1em;
+}
