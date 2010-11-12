@@ -38,6 +38,24 @@ body
   top: 18px;
   vertical-align: middle;
 }
+#main-header 
+{
+	background: url("/images/share-small.png")
+				gray no-repeat 0px 0px;  
+	height: 24px;
+	color: White;
+	font-size: 12pt;
+	font-weight: 200;
+	padding: 8px 8px 8px 150px;
+  text-align: left;
+}
+#main-header-wrapper
+{
+  position: relative;
+  top: 4px;
+  vertical-align: middle;
+}
+
 #content 
 {
 	background: white;
