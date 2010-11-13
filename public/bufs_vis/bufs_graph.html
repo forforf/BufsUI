@@ -7,7 +7,7 @@
 <!-- CSS Files -->
 <link type="text/css" href="../stylesheets/default.css" rel="stylesheet" />
 <link type="text/css" href="../stylesheets/jit2/base.css" rel="stylesheet" />
-<link type="text/css" href="../stylesheets/jit/bufs_info_doc.css" rel="stylesheet" />
+<link type="text/css" href="../stylesheets/bufs_info_doc.css" rel="stylesheet" />
 
 <!--[if IE]><script language="javascript" type="text/javascript" src="../javascripts/jit/Extras/excanvas.js"></script><![endif]-->
 
@@ -15,11 +15,15 @@
 <script language="javascript" type="text/javascript" src="../javascripts/jit2/jit.js"></script>
 <script language="javascript" type="text/javascript" src="../javascripts/prototype.js"></script>
 
-<!-- Example File -->
+
+
+<!-- Main script file -->
 <script language="javascript" type="text/javascript" src="bufs_graph.js"></script>
+<script language="javascript" type="text/javascript" src="accordian-src.js"></script>
+
 </head>
 
-<body>
+<body onload="new Accordian('basic-accordian',5,'header_highlight');">>
   <div id="main-header">
     <div id="main-header-wrapper">
       <div id="main-header-text">Joha  -  Find, Connect, Organize</div>
@@ -27,28 +31,52 @@
   </div>
   <div id="container">
     <div id="left-container">
-      <div class="text">
-        <h4>
-        Relationships as a Tree   
-        </h4> 
-
-              User data is provided in a tree structure with the root node being the User's Id.   Updates to the data structure are reflected in the animation after successful update to the server.<br /><br />
-              Clicking on the background canvas allows a new node to be created.<br /><br />
-              Clicking on an existing node should move the tree and center on that node.<br /><br />
-              The centered node's information is displayed in the right column and can be edited.<br /><br />
-        <div class="footnote">
-              The current data visualization scheme is heavily based on <a href="http://blog.thejit.org/">Nicolas Garcia Belmonte's</a><a href="http://thejit.org"> JavaScript InfoVis Toolkit.</a>.  <br /><br />
-
-               I will be redoing the UI to make the visualiztion prettier, the operations more intuitive, and the relationships clearer. Lucky for me a new version of the JavaScript InfoVis Toolkit is out that should be able to support the UI concepts I want to implement.
+      <div id="basic-accordian" ><!--Parent of the Accordion-->
+        <!--Start of each accordion item-->
+        <div id="test-header" class="accordion_headings header_highlight" >Menu</div><!--Heading of the accordion ( clicked to show n hide ) -->
+        <div id="test-content"><!--DIV which show/hide on click of header-->
+          <!--This DIV is for inline styling like padding...-->
+          <div class="accordion_child">
+            <div style="text-align:left;"><a href="/bufs_info_doc/log_out">Sign Out</a></div>
+            <div style="text-align:left;"> <a href="/bufs_info_doc/export_to_file">Export to File System</a> </div>
+          </div>
         </div>
-      </div>
+        <!--End of each accordion item--> 
 
-      <div id="testarea"></div>
-      <b>New Feature Test Area <br /><br />
-      <div style="text-align:center;"><a href="/bufs_info_doc/log_out">Sign Out</a></div>
-      <div style="text-align:center;"><a href="/bufs_info_doc/import_from_file">Import from File System</a></div>
-      <div style="text-align:center;"><a href="/bufs_info_doc/export_to_file")">Export to File System</a></div>
+        <!--Start of each accordion item-->
+        <div id="background-header" class="accordion_headings" >Background</div><!--Heading of the accordion ( clicked to show n hide ) -->
+        <div id="background-content"><!--DIV which show/hide on click of header-->
+          <!--This DIV is for inline styling like padding...-->
+          <div class="accordion_child">
+              <h4>
+              Relationships as a Tree   
+              </h4> 
+                    User data is provided in a tree structure with the root node being the User's Id.  Updates to the data
+                    structure are reflected in the animation after successful update to the server.<br/><br/>
+                    Clicking on the background canvas allows a new node to be created.<br/><br/>
+                    Clicking on an existing node should move the tree and center on that node.<br/><br/>
+                    The centered node's information is displayed in the right column and can be edited.<br/><br/>
+              <div class="footnote">
+                    The current data visualization scheme is heavily based on <a href="http://blog.thejit.org/">Nicolas Garcia Belmonte's</a>
+                    <a href="http://thejit.org"> JavaScript InfoVis Toolkit.</a>.  <br /><br />
+              </div>
+          </div>
+        </div>
+        <!--End of each accordion item--> 
+
+        <!--Start of each accordion item-->
+        <div id="test2-header" class="accordion_headings" >New Feature Test Area</div><!--Heading of the accordion ( clicked to show n hide ) -->
+        <div id="test2-content"><!--DIV which show/hide on click of header-->
+          <!--This DIV is for inline styling like padding...-->
+          <div class="accordion_child">
+            <a href="/bufs_info_doc/import_from_file">Import from File System</a>
+          </div>
+        </div>
+        <!--End of each accordion item--> 
+   
+       </div><!--End of accordion parent-->
     </div>
+
 
     <div id="center-container">
       <div id="infovis"></div>    

@@ -374,6 +374,8 @@ function rgraph_init(){
     var rgraph = new $jit.RGraph({
         //Where to append the visualization
         injectInto: 'infovis',
+        width: 700,
+        height: 700,
         //Optional: create a background canvas that plots
         //concentric circles.
         background: {

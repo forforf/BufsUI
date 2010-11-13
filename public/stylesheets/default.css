@@ -1,16 +1,5 @@
-.log_in
-{
-  padding: 8px 8px 8px 360px;
-}
-.log_in_form
-{
-  text-align: left;
-  width: 50%
-}
-.user_input
-{
-  margin: 8px 8px 8px 8px;
-}
+
+
 body 
 {
   font: normal small "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
@@ -19,6 +8,39 @@ body
 	margin: 0;
 	padding: 0;
 	text-align: center;
+}
+.log_in{
+  padding: 8px 8px 8px 360px;
+}
+.log_in_form{
+  text-align: left;
+  width: 50%
+}
+.user_input
+{
+  margin: 8px 8px 8px 8px;
+}
+.accordion_headings{
+	padding:5px;
+	background:#666677;
+	color:#FFFFFF;
+	border:1px solid #FFF;
+	cursor:pointer;
+	font-weight:normal;
+  margin: 2px;
+}
+
+.accordion_headings:hover{
+	background:#888899;
+}
+
+.accordion_child{
+	padding:15px;
+	background:#EEE;
+}
+
+.header_highlight{
+	background:#AAAABB;
 }
 
 #header 
