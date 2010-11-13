@@ -379,6 +379,8 @@ function rgraph_init(){
         //Optional: create a background canvas that plots
         //concentric circles.
         background: {
+            //numberOfCircles: 10,  //default - doesn't change node placement
+            //levelDistance: 100,  //default - doesn't change node placement
           CanvasStyles: {
             strokeStyle: '#555'
           }
