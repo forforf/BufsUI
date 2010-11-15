@@ -126,7 +126,7 @@
                 <div id="attachment_list" class="attachment-list">No Node Selected
                 </div>
                 <div id="add_attach" class="element-list">
-                  <a id ="displayText" href="javascript:show('add_attach_form');">Add new attachment</a>
+                  <a class="toggler" href="javascript:show('add_attach_form');">Add new attachment</a>
                 </div>
              
                 <form id="add_attach_form" action="/bufs_info_doc/att_test"  method="post" enctype="multipart/form-data" style="display:none">
@@ -135,7 +135,7 @@
                   <input id="node_id_input_edit" name="node_cat" type="hidden" />
 
                   <div id="att_button_area">
-                    <b>Add Attachments  </b><a href="javascript:hide('add_attach_form');">hide this again</a> <br />
+                    <b>Add Attachments  </b><a class="toggler" href="javascript:hide('add_attach_form');">hide this again</a> <br />
                     <input id="add_attach_edit" name="add_attachment" type="file" />
                     <input name="action" value="Upload New Attachment" type="button" onclick="javascript:adda_attachment()" />
                   </div>
@@ -151,10 +151,10 @@
                   <div id="links_list" class="links-list">No Node Selected
                   </div>
                 <div id="add_link" class="element-list">
-                  <a id ="displayText" href="javascript:show('link_button_area');">Add new link</a>
+                  <a class="toggler" href="javascript:show('link_button_area');">Add new link</a>
                 </div>                  
                   <div id="link_button_area" style="display:none">
-                    <b>Add Links </b><a href="javascript:hide('link_button_area');">hide this again</a> <br/>
+                    <b>Add Links </b><a class="toggler" href="javascript:hide('link_button_area');">hide this again</a> <br/>
                     Link Source<input id="add_link_edit" name="add_link" value="http://" /><br />
                     Link Label <input id="add_link_name_edit" name="add_link_name" /> <br/>
                     <input name="action" value="Add New Link" type="button" onclick="javascript:adda_link()" />
@@ -181,6 +181,23 @@
 
 
       <div id="inner-details"></div>
+      <div id="descendant-info">
+        <div id="descendant-header">
+          Descendant Info
+          <a class="desc-toggler" href="javascript:toggle('desc-nodes');">Nodes</a>
+          <a class="desc-toggler" href="javascript:toggle('desc-files');">Files</a>
+          <a class="desc-toggler" href="javascript:toggle('desc-links');">Links</a>
+        </div>
+        <div class="desc-stuff" id="desc-nodes" style="display:none">
+          Descendant Nodes Stuff
+        </div>
+        <div class="desc-stuff" id="desc-files" style="display:none">
+          Descendant Files Stuff
+        </div>
+        <div class="desc-stuff" id="desc-links" style="display:none">
+          Descendant Links Stuff
+        </div>
+      </div>
 
     </div>
 

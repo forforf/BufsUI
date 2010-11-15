@@ -53,6 +53,17 @@ function hide(divId) {
   	}
 }
 
+function toggle(divId) {
+	var ele = $(divId);
+	//var text = document.getElementById("displayText");
+	if(ele.style.display != "none") {
+    		ele.style.display = "none";
+  	}
+  else { ele.style.display = "block";
+  }
+}
+
+
 function initialize_page(){
   //alert('going to init graph');
   blankGraph = rgraph_init(); //insert canvas into here if you can figure it out
@@ -435,7 +446,7 @@ function rgraph_init(){
             //Add the relation list in the right column.
             //This list is taken from the data property of each JSON node.
             //I don't remember what a relation list was.  My coop into the borged files and links
-            $jit.id('inner-details').innerHTML = "Node Info: " + node.data.description;
+            //$jit.id('inner-details').innerHTML = "Node Info: " + node.data.description;
         },
         
         onAfterCompute: function(){

@@ -112,23 +112,34 @@ textarea#related_tags_edit {
 
 #attachment-form {
     background-color:#DDDDFF;
+    padding: 2px 2px 4px 2px;
     font-weight:bold;
     border-top-style:solid;
-    border-bottom-style:solid;
-    border-width:1px;
+    border-bottom-style:dashed;
+    border-top-width:2px;
+    border-bottom-width:1px
 }
 
 .element-list {
     margin:2px 2px 2px 10px;
     font-weight:normal;
 }
+.toggler {
+    font-size:80%;
+    margin:0px 0px 0px 15px;
+}
+
+.desc-stuff {
+}
 
 #link-form {
-    background-color:#AAAACC;
+    background-color:#BBBBDD;
+    padding: 2px 2px 4px 2px;    
     font-weight:bold;
-    border-top-style:solid;
+    border-top-style:dashed;
     border-bottom-style:solid;
-    border-width:1px;
+    border-top-width:1px;
+    border-bottom-width:2px;
 }
 
 /* Dynamically Appearing Elements */
