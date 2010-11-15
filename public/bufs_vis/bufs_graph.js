@@ -37,6 +37,22 @@ function traverseObj(obj,func) {
 }
 //End Hippo Stuff
 
+function show(divId) {
+	var ele = $(divId);
+	//var text = document.getElementById("displayText");
+	if(ele.style.display == "none") {
+    		ele.style.display = "block";
+  	}
+}
+
+function hide(divId) {
+	var ele = $(divId);
+	//var text = document.getElementById("displayText");
+	if(ele.style.display != "none") {
+    		ele.style.display = "none";
+  	}
+}
+
 function initialize_page(){
   //alert('going to init graph');
   blankGraph = rgraph_init(); //insert canvas into here if you can figure it out
@@ -118,12 +134,12 @@ function routeClickedNodeDataToElements(nodeStale) {
 function make_attachment_list(attachments, el_name){
    if(!attachments) attachments = [];
    var node_id = $('node_id_edit_label').innerHTML;
-   newHTML = "<span id='dynamic_attachment_label'>Attachments</span><br />";
+   newHTML = "" //"<span id='dynamic_attachment_label'>Attachments</span><br />";
    for (var index = 0, len = attachments.length; index < len; ++ index) {
      var attachment = attachments[index];
      var att_url = "/bufs_info_doc/get_attachment?node_cat=" + node_id + "&att_name=" + attachment;
      //alert(attachment);
-     newHTML += "<div class='attachment_item'><a href='" + att_url + "'>" + attachment + "</a>";
+     newHTML += "<div class='element-list'><a href='" + att_url + "'>" + attachment + "</a>";
      newHTML += "<input type='checkbox' onclick='javascript:delete_attachment(this)' name='checkbox_" + index + "'> Delete?</div>";
    };
    $(el_name).innerHTML = newHTML;
@@ -133,12 +149,12 @@ function make_links_list(links, el_name){
    if(!links) links = {0:null};
    var node_id = $('node_id_edit_label').innerHTML;
    
-   newHTML = "<span id='dynamic_links_label'>Links</span><br />";
+   newHTML = "" //"<span id='dynamic_links_label'>Links</span><br />";
    var index = 0
    for (var src in links) {
      var linkName = links[src];
        if(linkName){
-         newHTML += "<div class='link_item'><a href='" + src + "' target='_blank'>" + linkName + "</a>";
+         newHTML += "<div class='element-list'><a href='" + src + "' target='_blank'>" + linkName + "</a>";
          newHTML += "<input type='checkbox' onclick='javascript:delete_link(this)' name='checkbox_" + index + "'> Delete?</div>";
          }
      index += 1;
@@ -418,7 +434,8 @@ function rgraph_init(){
             Log.write("centering " + node.name + "...");
             //Add the relation list in the right column.
             //This list is taken from the data property of each JSON node.
-            $jit.id('inner-details').innerHTML = node.data.relation;
+            //I don't remember what a relation list was.  My coop into the borged files and links
+            $jit.id('inner-details').innerHTML = "Node Info: " + node.data.description;
         },
         
         onAfterCompute: function(){

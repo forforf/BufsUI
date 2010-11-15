@@ -4,7 +4,7 @@ fieldset {
 }
 
 input {
-    
+  margin:2px;    
 }
 
 button {
@@ -59,7 +59,7 @@ textarea#related_tags_edit {
 #right-container {
     width:400px;
     right:0;
-    background-image:url('col1.png');
+    /*background-image:url('col1.png');*/
     background-position:center left;
     border-right:1px solid #ddd;
 }
@@ -87,7 +87,8 @@ textarea#related_tags_edit {
 #edit-node-form, #create-node-form {
     margin:5px;
     padding:5px;
-    border-style:solid;
+    border-top-style:solid;
+    background-color:#F5F5F5;
     /*display:none;*/
 }
 
@@ -100,14 +101,35 @@ textarea#related_tags_edit {
 }
 
 #node_id_edit_label {
-    background-color:yellow;
+    background-color:#CFCFFF;
+    padding:2px;
+    font-weight:bold;
+    border-width:1px;
+    border-bottom-style:solid;
+    border-right-style:solid;
+    
 }
 
-#attachment_list {
-    margin:5px;
-    background-color:#DDDDDD;
+#attachment-form {
+    background-color:#DDDDFF;
+    font-weight:bold;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-width:1px;
+}
+
+.element-list {
+    margin:2px 2px 2px 10px;
+    font-weight:normal;
+}
+
+#link-form {
+    background-color:#AAAACC;
+    font-weight:bold;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-width:1px;
 }
 
 /* Dynamically Appearing Elements */
-.attachment_item {
-}
+/* .element-list */
