@@ -119,6 +119,11 @@ function setAuthToken(el_id){
     });
 };
 
+function actLikeNodeClicked(node_id) {
+  var visnode = myGraph.graph.getNode(node_id);
+  myGraph.onClick(visnode.id);
+  routeClickedNodeDataToElements(visnode);
+}
 
 function routeClickedNodeDataToElements(nodeStale) {
   //not sure why, but the node passed into the function
@@ -126,6 +131,7 @@ function routeClickedNodeDataToElements(nodeStale) {
   //the below is to update the passed in node with updated
   //information
   node = $jit.json.getSubtree(myGraph.json, nodeStale.id);
+  console.log("route ... : " + node);
   //elements to receive node data
   var parentCatEditBox = $('related_tags_edit');
   var nodeIdBox = $('node_id_edit');
@@ -138,6 +144,9 @@ function routeClickedNodeDataToElements(nodeStale) {
   nodeIdBoxLabel.innerHTML = node.name;
   //functions to distribute data to 
   show_edit_node_form(node.name);
+  add_descendant_data($('desc-nodes'), 'nodes');
+  add_descendant_data($('desc-files'), 'files');
+  add_descendant_data($('desc-links'), 'links');
   make_attachment_list(node.data.attached_files, attachmentListBox);
   make_links_list(node.data.links, linksListBox);
 }
@@ -378,6 +387,29 @@ function create_node_data(){
   });
 };
 
+function add_descendant_data(el, node_data_type){
+  var attach_name = el.previousSibling.innerHTML;
+  var node_id = $('node_id_edit_label').innerHTML;
+  new Ajax.Updater(el, '/bufs_info_doc/get_borged_data',{
+    parameters: {'node_id': node_id, 'node_data_type':node_data_type }
+ });
+}
+
+/* see also make attachments for converting json to html client side vs server
+function add_descendant_data(el, node_data_type){
+  var node_id = $('node_id_edit_label').innerHTML
+  new Ajax.Request('/bufs_info_doc/get_borged_data',
+    {
+      method:'get',
+      parameters: {'node_id': node_id, 'node_data_type': node_data_type },
+      onSuccess: function(transport){
+        json = transport.responseJSON;
+        //remember this is Asynchonous.  This won't be set right away.
+      },
+      onFailure: function(){ alert('Something went wrong getting descendant data...') }
+    });
+}
+*/
 
 function insertNodesIntoGraph(aGraph, nodeLoc){
   new Ajax.Request(nodeLoc,
