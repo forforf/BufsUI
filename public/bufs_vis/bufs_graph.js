@@ -130,9 +130,7 @@ function routeClickedNodeDataToElements(nodeStale) {
   //is stale, and new tree data isn't part of it
   //the below is to update the passed in node with updated
   //information
-  node = $jit.json.getSubtree(myGraph.json, nodeStale.id);
-  console.log("route ... : " + node);
-  //elements to receive node data
+  node = $jit.json.getSubtree(myGraph.json, nodeStale.id);  //elements to receive node data
   var parentCatEditBox = $('related_tags_edit');
   var nodeIdBox = $('node_id_edit');
   var nodeIdBoxLabel = $('node_id_edit_label');

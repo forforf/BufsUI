@@ -1,0 +1,5 @@
+<% @link_borg_data.each do |link_data| %>
+  <% link_data.each do |url, label| %>
+    <a target="_blank" href='<%= url %>')"><%= label %></a>
+  <% end %>
+<% end %>

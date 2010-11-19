@@ -132,6 +132,17 @@ textarea#related_tags_edit {
 .desc-stuff {
 }
 
+#desc-nodes {
+    background-color:#DDDDFF;
+}
+
+#desc-files {
+    background-color:#CDCDEF;
+}
+
+#desc-links {
+    background-color:#BDBDCF;
+}
 #link-form {
     background-color:#BBBBDD;
     padding: 2px 2px 4px 2px;    

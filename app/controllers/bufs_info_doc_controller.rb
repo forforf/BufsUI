@@ -410,6 +410,7 @@ class BufsInfoDocController < ApplicationController
   end
 
   def get_borged_data
+    use_layout = nil
     element_type = params[:node_data_type]
     current_node_id = params[:node_id]
     @user_class = current_user_db
@@ -418,17 +419,24 @@ class BufsInfoDocController < ApplicationController
     keys = {:node_id_key => :my_category,
               :parent_key => :parent_categories}
     borg = Borg.new(all_nodes, keys)
-    @borg_html = ""
+    @borg_data = {}
+    #@borg_html = ""
     case element_type
       when 'nodes'
+        @node_borg_data = []
         borg_list = borg.ify(current_node, :my_category)
         borg_data = borg_list.map{|b| b.rekey{|k| k.node_name}} if borg_list
         borg_data.each do |node_data|
           node_data.each do |_dummy, node_id|
-            @borg_html << %Q{<a href="javascript:actLikeNodeClicked('#{node_id}')">#{node_id}</a>\n}
+            @node_borg_data << node_id
+            #@borg_html << %Q{<a href="javascript:actLikeNodeClicked('#{node_id}')">#{node_id}</a>\n}
           end
         end
+        #@borg_data[:nodes] = node_borg_data
+        use_layout = 'borged_nodes'
+        #render :text => @borg_html
       when 'files'
+        @file_borg_data = []
         borg_list = borg.ify(current_node, :attached_files)
         borg_data = borg_list.map{|b| b.rekey{|k| k.node_name} }
         borg_data.each do |node_data|
@@ -436,11 +444,15 @@ class BufsInfoDocController < ApplicationController
           node_data.each do |node_id, attached_files|
             next unless attached_files
             attached_files.each do |f|
-              @borg_html << %Q{<a href="/bufs_info_doc/get_attachment?node_cat=#{CGI.escape(node_id)}&att_name=#{CGI.escape(f)}>#{f}</a>\n}
+              @file_borg_data << {CGI.escape(node_id) => CGI.escape(f)}
+              #@borg_html << %Q{<a href="/bufs_info_doc/get_attachment?node_cat=#{CGI.escape(node_id)}&att_name=#{CGI.escape(f)}>#{f}</a>\n}
             end
           end
         end
+        #@borg_data[:files] = file_borg_data
+        use_layout = 'borged_files'
       when 'links'
+        @link_borg_data = []
         borg_list = borg.ify(current_node, :links)
         borg_data = borg_list.map{|b| b.rekey{|k| k.node_name} }
         require 'pp'
@@ -450,15 +462,21 @@ class BufsInfoDocController < ApplicationController
             next unless links
             links.each do |url, label|
               label = [label].flatten.first
-              @borg_html << %Q{<a target="_blank" href="#{url}">#{label}</a>\n}
+              @link_borg_data << { url => label}
+              #@borg_html << %Q{<a target="_blank" href="#{url}">#{label}</a>\n}
             end
           end
         end
+        #@borg_data[:links] = link_borg_data
+        use_layout = 'borged_links'
       else
-        @borg_html = "Data Type not Covered Yet"
+        @borg_data[:error] = "Data Type not covered yet"
+        #@borg_html = "Data Type not Covered Yet"
+        #render :text => @borg_html
     end
-    
-    render :text => @borg_html 
+    #render :text => @borg_html 
+    #puts "Layout to use: #{use_layout}"
+    render :layout => use_layout
   end
   
   private
