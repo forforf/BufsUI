@@ -39,6 +39,9 @@ body
 	background:#EEE;
 }
 
+.header_highlight{
+	background:#AAAABB;
+}
 
 #header 
 {
@@ -57,7 +60,6 @@ body
   top: 18px;
   vertical-align: middle;
 }
-
 #main-header 
 {
 	background: url("/images/share-small.png")

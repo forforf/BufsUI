@@ -128,7 +128,8 @@ function Accordian(d,s,tc){
 		if(h.substr(h.indexOf('-')+1,h.length)=='header'){
 			d=$(h.substr(0,h.indexOf('-'))+'-content');
 			d.style.display='none';
-			d.style.overflow='hidden';
+			//d.style.overflow='hidden';
+      d.style.overflow='visible';
 			d.maxh =sh(d);
 			d.s=(s==undefined)? 7 : s;
 			h=$(h);
@@ -140,10 +141,16 @@ function Accordian(d,s,tc){
 					cn=this.c[i];
 					n=cn.substr(0,cn.indexOf('-'));
 					if((n+'-header')==this.id){
-						ex($(n+'-content'));
-						n=$(n+'-header');
-						cc(n,'__');
-						n.className=n.className+' '+n.tc;
+            //alert($(n+'-content').style.display);
+            if($(n+'-content').style.display=='none'){
+              ex($(n+'-content'));
+              n=$(n+'-header');
+              cc(n,'__');
+              n.className=n.className+' '+n.tc;
+            }else{
+              cl($(n+'-content'));
+              cc($(n+'-header'),'');
+            }  
 					}else{
 						cl($(n+'-content'));
 						cc($(n+'-header'),'');

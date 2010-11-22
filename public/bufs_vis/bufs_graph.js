@@ -7,6 +7,27 @@ document.observe("dom:loaded", initialize_page );
 var myGraph = "not set yet";
 var uniqIteration = 0;
 
+//trigger an event after a browser has finished resizing
+
+//window.onresize = function() { alert('resized'); }
+
+
+window.onresize = function() {
+    if(this.resizeTO) clearTimeout(this.resizeTO);
+    this.resizeTO = setTimeout(function() {
+        window_resized();
+        //$(this).trigger('resizeEnd');
+    }, 500);
+};
+
+/*
+window.bind('resizeEnd', function() {
+    //do something, window hasn't changed size in 3000ms
+    alert('resizing');
+});
+*/
+
+
 // Used in conjunction with the below for troubleshooting
 // and logging object values for when Firebug is not an option
 function clog(key,value) {
@@ -65,7 +86,7 @@ function toggle(divId) {
 
 
 function initialize_page(){
-  //alert('going to init graph');
+  //alert($(document).height);
   blankGraph = rgraph_init(); //insert canvas into here if you can figure it out
   nodeSource = '/bufs_info_doc/index_nodes'
   //the below assigns the graph to myGraph (via Ajax)
@@ -73,6 +94,14 @@ function initialize_page(){
   $('node_id_input_edit').value = " ";
   setAuthToken('authtok_attach_form');  
 };
+
+function window_resized(){
+  console.log(window.innerHeight + ', ' + window.innerWidth);
+  //console.log($jit.id('infovis-canvas'));
+  //console.log('Canvas size: ' + myGraph.canvas.getSize());
+  //myGraph.canvas.resize(450,450);
+
+}
 
 //New Jit2 Functions  (move someplace else?)
 var labelType, useGradients, nativeTextSupport, animate;
@@ -431,13 +460,14 @@ function rgraph_init(){
     var rgraph = new $jit.RGraph({
         //Where to append the visualization
         injectInto: 'infovis',
-        width: 700,
+        levelDistance: 100,
+        width: 900,
         height: 700,
         //Optional: create a background canvas that plots
         //concentric circles.
         background: {
-            //numberOfCircles: 10,  //default - doesn't change node placement
-            //levelDistance: 100,  //default - doesn't change node placement
+            numberOfCircles: 100,  //default - doesn't change node placement
+            levelDistance: 100,  //default - doesn't change node placement
           CanvasStyles: {
             strokeStyle: '#555'
           }

@@ -1,3 +1,8 @@
-<% @node_borg_data.each do |node_id| %>
-  <a href="javascript:actLikeNodeClicked('<%= node_id %>')"><%= node_id %></a>
-<% end %>
+<div class="borg_header">
+  All descendant nodes:
+</div>
+<div>
+  <% @node_borg_data.each do |node_id| %>
+    <a class="borg_node_text" href="javascript:actLikeNodeClicked('<%= node_id %>')"><%= node_id %></a>
+  <% end %>
+</div>

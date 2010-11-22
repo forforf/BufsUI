@@ -1,5 +1,11 @@
-<% @file_borg_data.each do |file_data| %>
-  <% file_data.each do |node_id, f| %>
-    <a  href="/bufs_info_doc/get_attachment?node_cat=<%= node_id %>&att_name=<% f %>"><%= f %></a>
+
+<div class="borg_header">
+    Files from descendants:
+</div>
+<div>
+  <% @file_borg_data.each do |file_data| %>
+    <% file_data.each do |node_id, f| %>
+      <a  class="borg_file_text" href="/bufs_info_doc/get_attachment?node_cat=<%= node_id %>&att_name=<% f %>"><%= f %></a>
+    <% end %>
   <% end %>
-<% end %>
+<div>
