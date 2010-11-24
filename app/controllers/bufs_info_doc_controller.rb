@@ -313,6 +313,7 @@ class BufsInfoDocController < ApplicationController
     #render :text => session
     @user_class = current_user_db #method in application_controller.rb
     #render :text => "Log In User Class: #{@user_class.inspect}"
+    puts "Logged in as #{user_id.inspect}"
     redirect_to '/bufs_vis/bufs_graph.html'
   end
   
@@ -336,6 +337,7 @@ class BufsInfoDocController < ApplicationController
     #raise "Not implemented for new arch yet"
     @user_class = current_user_db
     user_id = session[:user_id]
+    puts "Exporting File, user: #{user_id.inspect} class: #{@user_class.inspect} \n session: #{session.inspect}"
     #TODO Add passwords to sessions
     user_pw = session[:pw]||"1234"
     #retrieve user specific file node class
@@ -368,15 +370,19 @@ class BufsInfoDocController < ApplicationController
    #TODO: Test for file existence and othere error conditions
    #TODO: move this out of Rails
    user_id = session[:user_id]
+   puts "Installing Dropbox as user: #{user_id.inspect} from session #{session.inspect}"
    redirect_to("/") and return unless user_id
    `/usr/bin/sudo /home/bufs/bufs/bufs_scripts/user_script_install_dropbox #{user_id}`
     #render :text => "dropbox ready to be linked (hopefully)"
+    
+    #TODO: Create some kind of user notification that the script is complete
     user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}/"
     redirect_to user_dir_frontend
   end
 
   def link_to_dropbox
     user_id = session[:user_id]
+    puts "Linking to Dropbox as user: #{user_id.inspect} from session #{session.inspect}"
     @dropbox_link = DropboxScript.start(user_id)
     #render :text => @dropbox_link
   end
