@@ -368,16 +368,17 @@ class BufsInfoDocController < ApplicationController
    #TODO: Test for file existence and othere error conditions
    #TODO: move this out of Rails
    user_id = session[:user_id]
+   redirect_to("/") and return unless user_id
    `/usr/bin/sudo /home/bufs/bufs/bufs_scripts/user_script_install_dropbox #{user_id}`
     #render :text => "dropbox ready to be linked (hopefully)"
-    user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}"
+    user_dir_frontend = "http://bufsuser.younghawk.org/#{user_id}/"
     redirect_to user_dir_frontend
   end
 
   def link_to_dropbox
     user_id = session[:user_id]
-    dropbox_link = DropboxScript.start(user_id)
-    render :text => dropbox_link
+    @dropbox_link = DropboxScript.start(user_id)
+    #render :text => @dropbox_link
   end
 
   def move_files_to_dropbox
