@@ -1,3 +1,8 @@
+Essentially Abandoned
+
+The concept was similar to: http://www.thebrain.com/ but rather than mapping to a filesystem, 
+it could map to multiple storage systems and keep them in sync.
+
 BufsUI
 Web UI for manipulating Bufs (Bottom Up File System)
 Note: Names need to be changed
